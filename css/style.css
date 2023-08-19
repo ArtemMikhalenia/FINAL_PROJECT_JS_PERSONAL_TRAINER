@@ -1,0 +1,277 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  line-height: 1;
+  font-family: "Play";
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: "Play";
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a {
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html {
+  /*удаление скролла в Mozilla Firefox*/
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+body {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  background-color: rgb(16, 16, 16);
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+body.lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.wrapper .fog-image {
+  position: absolute;
+  max-width: 300px;
+  width: 100%;
+  left: -40%;
+  bottom: -60%;
+  z-index: 0;
+  opacity: 0.8;
+}
+.wrapper .man-image {
+  position: absolute;
+  max-width: 460px;
+  width: 100%;
+  bottom: -8%;
+  right: 100px;
+  z-index: -1;
+}
+.wrapper .woman-image {
+  position: absolute;
+  max-width: 680px;
+  width: 100%;
+  bottom: -8%;
+  left: -10%;
+  z-index: -1;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+}
+@media (max-width: 1036px) {
+  .container {
+    max-width: 970px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: none;
+    padding: 0 20px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0px;
+}
+
+.menu ul {
+  display: flex;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+.container .logo img {
+  width: 150px;
+  border-radius: 3px;
+}
+.container h1 {
+  text-align: center;
+  margin: 100px auto;
+  font-size: 60px;
+}
+.container h1 span {
+  display: block;
+  transform: skewX(-10deg);
+}
+.container .button-start {
+  transform: skewX(-10deg);
+}
+
+.btn-start {
+  position: relative;
+  display: flex;
+  max-width: 320px;
+  padding: 10px 45px;
+  margin: 0 auto;
+  font-family: "Play";
+  font-size: 40px;
+  color: white;
+  background: #e18215;
+  transition: all 1s ease 0s;
+  box-shadow: 6px 6px 0 black;
+}
+.btn-start:focus {
+  outline: none;
+}
+.btn-start:hover {
+  transition: all 0.5s ease 0s;
+  box-shadow: 10px 10px 0 #ffffff;
+}
+.btn-start span:nth-child(2) {
+  transition: all 0.5s ease 0s;
+  margin-right: 0px;
+}
+.btn-start:hover span:nth-child(2) {
+  transition: all 0.5s ease 0s;
+  margin-right: 45px;
+}
+.btn-start span {
+  text-transform: uppercase;
+}
+.btn-start span:nth-child(2) {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+.btn-start path.one {
+  transition: all 0.4s ease 0s;
+  transform: translateX(-60%);
+}
+.btn-start path.two {
+  transition: all 0.5s ease 0s;
+  transform: translateX(-30%);
+}
+.btn-start:hover path.three {
+  animation: color_anim 1s infinite 0.2s;
+}
+.btn-start:hover path.one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+.btn-start:hover path.two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+  50% {
+    fill: #FBC638;
+  }
+  100% {
+    fill: white;
+  }
+}/*# sourceMappingURL=style.css.map */
