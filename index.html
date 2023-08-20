@@ -57,6 +57,19 @@
 						</span>
 					</a>
 				</div>
+				<div class="modal__overlay modal_closed"></div>
+				<div class="modal-login modal_closed" id="modal-login">
+					<header class="modal-login__header">
+						<a href="#" class="modal-login__close" id="modal-close" title="Закрыть модальное окно">Закрыть</a>
+						<h2>Введите данные</h2>
+					</header>
+					<form class="modal-login__form">
+						<label for="email">Введите свой e-mail</label>
+						<input type="email" class="modal-login__email" name="">
+						<label for="password">Введите свой пароль</label>
+						<input type="password" class="modal-login__password" name="">
+					</form>
+				</div>
 			</div>
 			<div class="parallax-images">
 				<div class="fog-image">
@@ -69,6 +82,7 @@
 					<img src="./images/woman.png" alt="woman">
 				</div>
 			</div>
+
 		</div>
 	</main>
 	<script type="module" src="./js/script.js"></script>

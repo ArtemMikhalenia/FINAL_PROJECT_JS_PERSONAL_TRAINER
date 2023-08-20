@@ -15,4 +15,8 @@ const myModel = new Model();
 const myView = new View();
 
 //init
+myController.init(myModel, container);
+myModel.init(myView);
+myView.init(container);
+
 parallax.init(container, woman, man, fog);

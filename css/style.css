@@ -206,6 +206,37 @@ body.lock {
 .container .button-start {
   transform: skewX(-10deg);
 }
+.container .modal-login {
+  display: block;
+  width: 400px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  background: rgb(44, 44, 44);
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+}
+.container .modal-login__header {
+  display: flex;
+  padding: 10px 20px 0px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.container .modal-login__form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.container .modal_closed {
+  display: none;
+}
 
 .btn-start {
   position: relative;
