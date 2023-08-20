@@ -1,17 +1,16 @@
 class Controller {
-   constructor() {
-      this.myContainer = null;
-      this.myModel = null;
-   }
+   myContainer = null;
+   myModel = null;
 
    init(model, container) {
       this.myContainer = container;
       this.myModel = model;
 
-      this.buttonOpenModal = this.myContainer.querySelector('.btn-start');
-      this.buttonOpenModal.addEventListener('click', this.openLogInWindow);
-      this.buttonCloseModal = this.myContainer.querySelector('modal-close');
-      this.buttonCloseModal.addEventListener('click', this.closeLogInWindow);
+      const buttonOpenModal = this.myContainer.querySelector('.btn-start');
+      buttonOpenModal.addEventListener('click', this.openLogInWindow.bind(this));
+
+      const buttonCloseModal = this.myContainer.querySelector('#modal-close');
+      buttonCloseModal.addEventListener('click', this.closeLogInWindow.bind(this));
    }
 
    openLogInWindow() {
@@ -23,27 +22,27 @@ class Controller {
    }
 }
 
-function ClockController() {
-   let myClockContainer = null;
-   let myClockModel = null;
+// function ClockController() {
+//    let myClockContainer = null;
+//    let myClockModel = null;
 
-   this.init = function (model, container) {
-      myClockModel = model;
-      myClockContainer = container;
+//    this.init = function (model, container) {
+//       myClockModel = model;
+//       myClockContainer = container;
 
-      const buttonStart = myClockContainer.querySelector('.btn-start');
-      buttonStart.addEventListener('click', this.startFunc);
-      const buttonStop = myClockContainer.querySelector('.btn-stop');
-      buttonStop.addEventListener('click', this.stopFunc);
-   }
+//       const buttonStart = myClockContainer.querySelector('.btn-start');
+//       buttonStart.addEventListener('click', this.startFunc);
+//       const buttonStop = myClockContainer.querySelector('.btn-stop');
+//       buttonStop.addEventListener('click', this.stopFunc);
+//    }
 
-   this.startFunc = function () {
-      myClockModel.startClock();
-   }
+//    this.startFunc = function () {
+//       myClockModel.startClock();
+//    }
 
-   this.stopFunc = function () {
-      myClockModel.stopBtn();
-   }
-};
+//    this.stopFunc = function () {
+//       myClockModel.stopBtn();
+//    }
+// };
 
 export default Controller;
