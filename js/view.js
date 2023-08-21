@@ -12,7 +12,6 @@ class View {
       this.modalHeaderRegistration = document.querySelector('.modal-header.register');
       this.modalButtonRegistration = document.querySelector('.form-submit-register');
       this.modalBlockRegistration = document.querySelector('.form-register__block');
-
    }
 
    openLogInWindow() {
