@@ -72,6 +72,32 @@
    }
 }
 
+.form-submit-login,
+.form-submit-register {
+   display: flex;
+   max-width: 320px;
+   padding: 10px 45px;
+   margin: 0 auto;
+
+   font-size: 25px;
+   color: white;
+
+   background: #e18215;
+
+   transition: all 1s ease 0s;
+   box-shadow: 4px 4px 0 black;
+   cursor: pointer;
+
+   &:hover {
+      transition: all 0.5s ease 0s;
+      box-shadow: 5px 5px 0 #ffffff;
+   }
+}
+
+.hide {
+   display: none;
+}
+
 @keyframes color_anim {
    0% {
       fill: white;

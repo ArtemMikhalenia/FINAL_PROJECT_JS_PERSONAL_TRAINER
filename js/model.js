@@ -12,6 +12,14 @@ class Model {
    closeLogInWindow() {
       this.myView.closeLogInWindow();
    }
+
+   changeToRegistration() {
+      this.myView.changeToRegistration();
+   }
+
+   changeToLogin() {
+      this.myView.changeToLogin();
+   }
 }
 
 // function ClockModel() {

@@ -35,9 +35,9 @@
 						</nav>
 					</div> -->
 				</header>
-				<h1 class="animate__animated animate__bounceInLeft"><span>Добро пожаловать!</span></h1>
+				<h1 class="animate__animated animate__bounceInLeft animate__delay-2s"><span>Добро пожаловать!</span></h1>
 				<div class="button-start">
-					<a class="btn-start animate__animated animate__bounceInLeft" href="#">
+					<a class="btn-start animate__animated animate__bounceInLeft animate__delay-2s" href="#">
 						<span>Начать</span>
 						<span>
 							<svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
@@ -58,17 +58,35 @@
 					</a>
 				</div>
 				<div class="modal__overlay modal_closed"></div>
-				<div class="modal-login modal_closed" id="modal-login">
-					<header class="modal-login__header">
-						<a href="#" class="modal-login__close" id="modal-close" title="Закрыть модальное окно">Закрыть</a>
-						<h2>Введите данные</h2>
-					</header>
-					<form class="modal-login__form">
-						<label for="email">Введите свой e-mail</label>
-						<input type="email" class="modal-login__email" name="">
-						<label for="password">Введите свой пароль</label>
-						<input type="password" class="modal-login__password" name="">
+				<div class="modal modal_closed" id="modal">
+					<div class="modal__header">
+						<img src="./images/logo.png" alt="logo">
+						<a href="#" class="modal__close" id="modal-close" title="Закрыть модальное окно">
+							<img src="./images/x.svg" alt="close_icon">
+						</a>
+					</div>
+					<h2 class="modal-header login">Авторизация</h2>
+					<h2 class="modal-header register hide">Регистрация</h2>
+					<form class="modal__form">
+						<label class="input-label" for="email">Введите e-mail</label>
+						<input type="email" class="modal__email" placeholder="E-mail">
+						<label class="input-label" for="password">Введите пароль</label>
+						<input type="password" class="modal__password" placeholder="Пароль">
+						<input type="submit" class="form-submit-login" value="Войти">
+						<input type="submit" class="form-submit-register hide" value="Зарегистрироваться">
 					</form>
+					<div class="modal__footer">
+						<div class="form-register__block">
+							<p>Отсутствует аккаунт?
+								<span id="form-register">Зарегистрируйся</span>
+							</p>
+						</div>
+						<div class="form-login__block hide">
+							<p>Уже есть аккаунт?
+								<span id="form-login">Заходи</span>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="parallax-images">

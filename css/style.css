@@ -117,6 +117,30 @@ body.lock {
   overflow: hidden;
 }
 
+*:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+/* Chrome <=56, Safari < 10 */
+*:focus:-moz-placeholder {
+  opacity: 0;
+}
+
+/* FF 4-18 */
+*:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+/* FF 19-50 */
+*:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+/* IE 10+ */
+*:focus::placeholder {
+  opacity: 0;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -206,33 +230,87 @@ body.lock {
 .container .button-start {
   transform: skewX(-10deg);
 }
-.container .modal-login {
+.container .modal {
   display: block;
   width: 400px;
   max-width: 100%;
-  height: 400px;
-  max-height: 100%;
+  padding: 20px;
   position: fixed;
   z-index: 100;
   left: 50%;
   top: 50%;
   border-radius: 10px;
   transform: translate(-50%, -50%);
-  background: rgb(44, 44, 44);
+  background: rgba(44, 44, 44, 0.98);
   box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
 }
-.container .modal-login__header {
+.container .modal__header {
   display: flex;
-  padding: 10px 20px 0px;
-  flex-direction: row-reverse;
   justify-content: space-between;
+  align-items: center;
 }
-.container .modal-login__form {
+.container .modal__header img {
+  max-width: 120px;
+  border-radius: 3px;
+}
+.container .modal__footer {
+  text-align: center;
+  font-size: 18px;
+}
+.container .modal__footer span {
+  text-decoration: underline;
+  padding-left: 25px;
+  cursor: pointer;
+}
+.container .modal__footer span:hover {
+  text-decoration: none;
+}
+.container .modal__close {
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+.container .modal__close img {
+  max-width: 25px;
+}
+.container .modal__close:hover {
+  transform: scale(1.15);
+}
+.container .modal__form {
   width: 100%;
   margin: 0 auto;
-  padding: 100px 20px;
+  padding: 50px 0px 70px;
   display: flex;
   flex-direction: column;
+}
+.container .modal__form .input-label {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.container .modal__email, .container .modal__password {
+  padding: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  color: rgb(255, 255, 255);
+  transition: border-bottom 0.5s ease 0s;
+}
+.container .modal__email:focus, .container .modal__password:focus {
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+.container .modal .modal-header {
+  padding-top: 30px;
+  font-size: 35px;
+  text-align: center;
+}
+.container .modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.6);
 }
 .container .modal_closed {
   display: none;
@@ -293,6 +371,29 @@ body.lock {
 .btn-start:hover path.two {
   transform: translateX(0%);
   animation: color_anim 1s infinite 0.4s;
+}
+
+.form-submit-login,
+.form-submit-register {
+  display: flex;
+  max-width: 320px;
+  padding: 10px 45px;
+  margin: 0 auto;
+  font-size: 25px;
+  color: white;
+  background: #e18215;
+  transition: all 1s ease 0s;
+  box-shadow: 4px 4px 0 black;
+  cursor: pointer;
+}
+.form-submit-login:hover,
+.form-submit-register:hover {
+  transition: all 0.5s ease 0s;
+  box-shadow: 5px 5px 0 #ffffff;
+}
+
+.hide {
+  display: none;
 }
 
 @keyframes color_anim {

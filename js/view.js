@@ -4,15 +4,43 @@ class View {
 
    init(container) {
       this.myContainer = container;
-      this.modalLogIn = document.getElementById("modal-login");
+      this.modalWindow = document.getElementById("modal");
+      this.modalOverlay = document.querySelector(".modal__overlay");
+      this.modalHeaderLogin = document.querySelector('.modal-header.login');
+      this.modalButtonLogin = document.querySelector('.form-submit-login');
+      this.modalBlockLogin = document.querySelector('.form-login__block');
+      this.modalHeaderRegistration = document.querySelector('.modal-header.register');
+      this.modalButtonRegistration = document.querySelector('.form-submit-register');
+      this.modalBlockRegistration = document.querySelector('.form-register__block');
+
    }
 
    openLogInWindow() {
-      this.modalLogIn.classList.remove("modal_closed");
+      this.modalWindow.classList.remove("modal_closed");
+      this.modalOverlay.classList.remove("modal_closed");
    }
 
    closeLogInWindow() {
-      this.modalLogIn.classList.add("modal_closed");
+      this.modalWindow.classList.add("modal_closed");
+      this.modalOverlay.classList.add("modal_closed");
+   }
+
+   changeToRegistration() {
+      this.modalHeaderLogin.classList.add('hide');
+      this.modalHeaderRegistration.classList.remove('hide');
+      this.modalButtonLogin.classList.add('hide');
+      this.modalButtonRegistration.classList.remove('hide');
+      this.modalBlockRegistration.classList.add('hide');
+      this.modalBlockLogin.classList.remove('hide');
+   }
+
+   changeToLogin() {
+      this.modalHeaderLogin.classList.remove('hide');
+      this.modalHeaderRegistration.classList.add('hide');
+      this.modalButtonLogin.classList.remove('hide');
+      this.modalButtonRegistration.classList.add('hide');
+      this.modalBlockRegistration.classList.remove('hide');
+      this.modalBlockLogin.classList.add('hide');
    }
 }
 

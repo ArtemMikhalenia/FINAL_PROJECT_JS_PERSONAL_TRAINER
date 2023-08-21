@@ -11,6 +11,12 @@ class Controller {
 
       const buttonCloseModal = this.myContainer.querySelector('#modal-close');
       buttonCloseModal.addEventListener('click', this.closeLogInWindow.bind(this));
+
+      const buttonChangeToRegistration = this.myContainer.querySelector('#form-register');
+      buttonChangeToRegistration.addEventListener('click', this.changeToRegistration.bind(this));
+
+      const buttonChangeToLogin = this.myContainer.querySelector('#form-login');
+      buttonChangeToLogin.addEventListener('click', this.changeToLogin.bind(this));
    }
 
    openLogInWindow() {
@@ -19,6 +25,14 @@ class Controller {
 
    closeLogInWindow() {
       this.myModel.closeLogInWindow();
+   }
+
+   changeToRegistration() {
+      this.myModel.changeToRegistration();
+   }
+
+   changeToLogin() {
+      this.myModel.changeToLogin();
    }
 }
 
