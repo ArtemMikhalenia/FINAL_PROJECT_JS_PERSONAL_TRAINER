@@ -108,7 +108,6 @@ body {
   font-size: 14px;
   font-weight: 400;
   background-color: rgb(16, 16, 16);
-  background-image: url("../images/background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -314,6 +313,74 @@ body.lock {
 }
 .container .modal_closed {
   display: none;
+}
+
+.mainblock .sidebar {
+  position: fixed;
+  max-width: 240px;
+  width: 100%;
+  height: 100%;
+  padding-right: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: rgba(44, 44, 44, 0.98);
+}
+.mainblock .sidebar nav {
+  margin: 0px 0px 100px 0px;
+  width: 100%;
+}
+.mainblock .sidebar__logo {
+  margin: 0px 0px 30px 0px;
+}
+.mainblock .sidebar__logo img {
+  border-radius: 3px;
+  width: 100%;
+}
+.mainblock .sidebar__link {
+  display: block;
+  padding: 15px;
+  margin-bottom: 5px;
+  width: 100%;
+  font-size: 22px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.mainblock .sidebar__link.active, .mainblock .sidebar__link.active:hover {
+  background-color: #e18215;
+}
+.mainblock .sidebar__link:hover {
+  background-color: rgba(225, 130, 21, 0.6117647059);
+}
+.mainblock .sidebar .btn-logout {
+  width: 100%;
+  padding: 6px 0px 6px 15px;
+  font-size: 22px;
+  color: #FFFFFF;
+  text-align: left;
+  background-color: #e18215;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.mainblock .sidebar .btn-logout img {
+  max-width: 30px;
+  width: 100%;
+}
+.mainblock .sidebar .btn-logout:hover {
+  color: #e18215;
+  background-color: #FFFFFF;
+}
+.mainblock__content {
+  margin: 0px 0px 0px 240px;
 }
 
 .btn-start {
