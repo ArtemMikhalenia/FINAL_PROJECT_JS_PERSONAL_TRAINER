@@ -19,25 +19,15 @@
 <body>
 	<main>
 		<div class="wrapper">
-			<div class="container">
+			<!-- <div class="container">
 				<header class="header">
 					<div class="logo">
 						<img src="./images/logo.png" alt="logo">
 					</div>
-					<!-- <div class="menu">
-						<nav>
-							<ul>
-								<li>Тренировки</li>
-								<li>Питание</li>
-								<li>Прогресс</li>
-								<li>База упражнений</li>
-							</ul>
-						</nav>
-					</div> -->
 				</header>
-				<h1 class="animate__animated animate__bounceInLeft animate__delay-2s"><span>Добро пожаловать!</span></h1>
+				<h1 class="animate__animated animate__bounceInLeft"><span>Добро пожаловать!</span></h1>
 				<div class="button-start">
-					<a class="btn-start animate__animated animate__bounceInLeft animate__delay-2s" href="#">
+					<a class="btn-start animate__animated animate__bounceInLeft" href="#">
 						<span>Начать</span>
 						<span>
 							<svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
@@ -69,9 +59,9 @@
 					<h2 class="modal-header register hide">Регистрация</h2>
 					<form class="modal__form">
 						<label class="input-label" for="email">Введите e-mail</label>
-						<input type="email" class="modal__email" placeholder="E-mail">
+						<input type="email" id="email" autocomplete="off" class="modal__email" placeholder="E-mail">
 						<label class="input-label" for="password">Введите пароль</label>
-						<input type="password" class="modal__password" placeholder="Пароль">
+						<input type="password" id="password" autocomplete="off" class="modal__password" placeholder="Пароль">
 						<input type="submit" class="form-submit-login" value="Войти">
 						<input type="submit" class="form-submit-register hide" value="Зарегистрироваться">
 					</form>
@@ -99,8 +89,25 @@
 				<div class="woman-image">
 					<img src="./images/woman.png" alt="woman">
 				</div>
-			</div>
+			</div> -->
 
+			<section class="mainblock" id="mainblock">
+				<aside class="sidebar">
+					<div class="logo-sidebar">
+						<img src="./images/logo.png" alt="logo">
+					</div>
+					<nav>
+						<ul>
+							<li class="account-section-btn">Аккаунт</li>
+							<li class="training-section-btn">Тренировка</li>
+							<li class="dietplan-section-btn">Питание</li>
+							<li class="excersises-database-btn">База упражнений</li>
+							<li class="progress-section-btn">Прогресс</li>
+						</ul>
+					</nav>
+
+				</aside>
+			</section>
 		</div>
 	</main>
 	<script type="module" src="./js/script.js"></script>

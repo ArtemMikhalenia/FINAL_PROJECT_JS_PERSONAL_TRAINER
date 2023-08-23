@@ -179,11 +179,11 @@ body.lock {
 }
 
 .container {
-  max-width: 1024px;
+  max-width: 1440px;
   margin: 0 auto;
   width: 100%;
 }
-@media (max-width: 1036px) {
+@media (max-width: 1452px) {
   .container {
     max-width: 970px;
   }
