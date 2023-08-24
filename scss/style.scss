@@ -337,46 +337,71 @@ body {
 		}
 
 		&__link {
-			display: block;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
 			padding: 15px;
 			margin-bottom: 5px;
 			width: 100%;
 
 			font-size: 22px;
-			color: rgba(0, 0, 0, 1);
-			border-radius: 3px;
+			text-align: right;
+			color: #475569;
+			border-radius: 10px;
 			@include anim(0.3s, 0s);
 
 			&.active,
 			&.active:hover {
+				color: #FFFFFF;
 				background-color: #e18215;
+				transform: translateX(5%);
+
+				svg {
+					display: inline-block;
+
+					path {
+						stroke: #FFFFFF;
+						fill: #FFFFFF;
+					}
+				}
 			}
 
 			&:hover {
+				transform: translateX(5%);
 				background-color: #e182159c;
 			}
 		}
 
 		.btn-logout {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
 			width: 100%;
-			padding: 6px 0px 6px 15px;
+			padding: 6px 15px;
 
 			font-size: 22px;
 			color: #FFFFFF;
 			text-align: left;
 			background-color: #e18215;
-			border-radius: 3px;
+			border-radius: 10px;
 			@include anim(0.3s, 0s);
 
 
-			img {
+			svg {
 				max-width: 30px;
 				width: 100%;
+				fill: #ffffff;
 			}
 
 			&:hover {
 				color: #e18215;
-				background-color: #FFFFFF;
+				background-color: #F1F5F9;
+
+				svg {
+					fill: #475569;
+				}
 			}
 		}
 	}
@@ -390,7 +415,7 @@ body {
 
 		font-size: 35px;
 		text-align: center;
-		color: rgba(0, 0, 0, 1);
+		color: #475569;
 
 		border-top-right-radius: 5px;
 		background-color: rgba(255, 255, 255, 1);
@@ -401,7 +426,7 @@ body {
 	&__content {
 		height: calc(95vh - 76.6px);
 		background-color: #F1F5F9;
-		color: rgba(0, 0, 0, 1);
+		color: #475569;
 		padding: 20px;
 		border-bottom-right-radius: 5px;
 

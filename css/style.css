@@ -346,13 +346,16 @@ body.lock {
   width: 100%;
 }
 .mainblock .sidebar__link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 15px;
   margin-bottom: 5px;
   width: 100%;
   font-size: 22px;
-  color: rgb(0, 0, 0);
-  border-radius: 3px;
+  text-align: right;
+  color: #475569;
+  border-radius: 10px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -ms-transition: all 0.3s ease 0s;
@@ -360,32 +363,49 @@ body.lock {
   transition: all 0.3s ease 0s;
 }
 .mainblock .sidebar__link.active, .mainblock .sidebar__link.active:hover {
+  color: #FFFFFF;
   background-color: #e18215;
+  transform: translateX(5%);
+}
+.mainblock .sidebar__link.active svg, .mainblock .sidebar__link.active:hover svg {
+  display: inline-block;
+}
+.mainblock .sidebar__link.active svg path, .mainblock .sidebar__link.active:hover svg path {
+  stroke: #FFFFFF;
+  fill: #FFFFFF;
 }
 .mainblock .sidebar__link:hover {
+  transform: translateX(5%);
   background-color: rgba(225, 130, 21, 0.6117647059);
 }
 .mainblock .sidebar .btn-logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  padding: 6px 0px 6px 15px;
+  padding: 6px 15px;
   font-size: 22px;
   color: #FFFFFF;
   text-align: left;
   background-color: #e18215;
-  border-radius: 3px;
+  border-radius: 10px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -ms-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.mainblock .sidebar .btn-logout img {
+.mainblock .sidebar .btn-logout svg {
   max-width: 30px;
   width: 100%;
+  fill: #ffffff;
 }
 .mainblock .sidebar .btn-logout:hover {
   color: #e18215;
-  background-color: #FFFFFF;
+  background-color: #F1F5F9;
+}
+.mainblock .sidebar .btn-logout:hover svg {
+  fill: #475569;
 }
 .mainblock__body {
   margin: 0px 0px 0px 238px;
@@ -394,7 +414,7 @@ body.lock {
   padding: 20px 0px 20px 20px;
   font-size: 35px;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: #475569;
   border-top-right-radius: 5px;
   background-color: rgb(255, 255, 255);
   border-bottom: 2px solid #e18215;
@@ -402,7 +422,7 @@ body.lock {
 .mainblock__content {
   height: calc(95vh - 76.6px);
   background-color: #F1F5F9;
-  color: rgb(0, 0, 0);
+  color: #475569;
   padding: 20px;
   border-bottom-right-radius: 5px;
 }

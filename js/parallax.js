@@ -6,7 +6,6 @@ class Parallax {
       this.fog = null;
    }
 
-
    init(container, img1, img2, img3) {
       this.myContainer = container;
       this.woman = img1;
