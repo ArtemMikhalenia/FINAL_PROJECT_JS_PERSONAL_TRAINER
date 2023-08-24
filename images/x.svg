@@ -1,9 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="165px" style="enable-background:new 0 0 166 165;" version="1.1" viewBox="0 0 166 165" width="166px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
-<![CDATA[
-	.st0{fill:#EF3E42;}
-	.st1{fill:#54B948;}
-	.st2{fill:#FFC425;}
-	.st3{fill:#FFFFFF;}
-	.st4{fill:none;}
-]]>
-</style><defs/><path d="M159.6,3.5c0.3,0,0.6,0.3,0.6,0.6v151.8c0,0.3-0.3,0.6-0.6,0.6H7.8c-0.3,0-0.6-0.3-0.6-0.6V4.1c0-0.3,0.3-0.6,0.6-0.6H159.6  L159.6,3.5z"/><polygon class="st2" points="16.7,13.1 150.6,13.1 150.6,147 16.7,147 16.7,13.1 "/><polygon points="135.1,106.7 110.4,131.5 83.7,104.8 57,131.5 32.2,106.7 58.9,80 32.2,53.5 57.2,28.6 83.7,55.1 110.2,28.6   135.1,53.5 108.4,80 135.1,106.7 "/><rect class="st4" height="165" id="_x3C_Slice_x3E__48_" width="166"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <polygon fill="var(--ci-primary-color, #e18215)" points="348.071 141.302 260.308 229.065 172.545 141.302 149.917 163.929 237.681 251.692 149.917 339.456 172.545 362.083 260.308 274.32 348.071 362.083 370.699 339.456 282.935 251.692 370.699 163.929 348.071 141.302" class="ci-primary"/>
+  <path fill="var(--ci-primary-color, #e18215)" d="M425.706,86.294A240,240,0,0,0,86.294,425.706,240,240,0,0,0,425.706,86.294ZM256,464C141.309,464,48,370.691,48,256S141.309,48,256,48s208,93.309,208,208S370.691,464,256,464Z" class="ci-primary"/>
+</svg>

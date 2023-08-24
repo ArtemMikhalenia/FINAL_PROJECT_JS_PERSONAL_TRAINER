@@ -356,7 +356,7 @@ body {
 			&.active,
 			&.active:hover {
 				color: #FFFFFF;
-				background-color: #e18215;
+				background-color: #F97316;
 				transform: translateX(5%);
 
 				svg {
@@ -372,7 +372,7 @@ body {
 			&:hover {
 				transform: translateX(5%);
 				color: #FFFFFF;
-				background-color: #e182159c;
+				background-color: #e18215;
 
 				svg {
 					path {
@@ -393,7 +393,8 @@ body {
 			font-size: 22px;
 			color: #FFFFFF;
 			text-align: left;
-			background-color: #e18215;
+			background-color: #F97316;
+
 			border-radius: 10px;
 			@include anim(0.3s, 0s);
 
@@ -405,7 +406,7 @@ body {
 			}
 
 			&:hover {
-				color: #e18215;
+				color: #F97316;
 				background-color: #F1F5F9;
 
 				svg {
@@ -448,9 +449,8 @@ body {
 		.user-info {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			column-gap: 40px;
-			row-gap: 40px;
-			// grid-template-rows: repeat(2, 1fr);
+			column-gap: 20px;
+			row-gap: 20px;
 			grid-template-rows: repeat(2, 190px);
 
 			color: rgba(255, 255, 255, 1);
@@ -460,56 +460,54 @@ body {
 				position: relative;
 				padding: 15px;
 				border-radius: 10px;
+				overflow: hidden;
 
 				&.common-info {
-					background: linear-gradient(137deg, #06B6D4 0%, #73e0f4 100%), #FFF;
-					// border: 2px solid #0891b24d;
-					// background: #06B6D4;
+					background-color: #06B6D4;
 				}
 
 				&.physical-info {
-					background: linear-gradient(137deg, #F97316 0%, #f9af7a 100%), #FFF;
-					// border: 2px solid #d96513;
-					// background: #F97316;
+					background-color: #F97316;
 				}
 
 				&.medical-info {
-					background: linear-gradient(137deg, #7C6DD7 0%, #C4BAFF 100%), #FFF;
-					// border: 2px solid #6b47bf;
-					// background: #7C6DD7;
+					background-color: #BBF246;
 				}
 
 				&.training-info {
-					background: linear-gradient(137deg, #86d76d 0%, #baffc0 100%), #FFF;
-					// border: 2px solid #F97316;
-					// background: #BBF246;
+					background-color: #7C6DD7;
 				}
 
 				&.contacts-info {
-					background: linear-gradient(137deg, #d76d6d 0%, #ffbabb 100%), #FFF;
-					// border: 2px solid #bf474f;
+					background-color: #86d76d;
+				}
+
+				&.achievements-info {
+					background-color: #22D3EE;
 				}
 
 				h3 {
 					font-size: 25px;
 					margin-bottom: 20px;
 				}
-			}
-
-			&__content {
-
-				display: flex;
-				flex-direction: column;
-				align-items: stretch;
-				justify-content: center;
 
 				img {
 					position: absolute;
+					max-width: 100%;
 					width: 100%;
 					height: 100%;
 					top: 0;
 					left: 0;
+					object-fit: cover;
 				}
+			}
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+				justify-content: center;
+				overflow: hidden;
 
 				.name-block,
 				.birthday-block,
@@ -518,7 +516,8 @@ body {
 				.height-block,
 				.medical-block,
 				.goal-block,
-				.contact-block {
+				.contact-block,
+				.achievements-block {
 					display: flex;
 					justify-content: space-between;
 				}

@@ -367,7 +367,7 @@ body.lock {
 }
 .mainblock .sidebar__link.active, .mainblock .sidebar__link.active:hover {
   color: #FFFFFF;
-  background-color: #e18215;
+  background-color: #F97316;
   transform: translateX(5%);
 }
 .mainblock .sidebar__link.active svg, .mainblock .sidebar__link.active:hover svg {
@@ -380,7 +380,7 @@ body.lock {
 .mainblock .sidebar__link:hover {
   transform: translateX(5%);
   color: #FFFFFF;
-  background-color: rgba(225, 130, 21, 0.6117647059);
+  background-color: #e18215;
 }
 .mainblock .sidebar__link:hover svg path {
   stroke: #FFFFFF;
@@ -394,7 +394,7 @@ body.lock {
   font-size: 22px;
   color: #FFFFFF;
   text-align: left;
-  background-color: #e18215;
+  background-color: #F97316;
   border-radius: 10px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -408,7 +408,7 @@ body.lock {
   fill: #ffffff;
 }
 .mainblock .sidebar .btn-logout:hover {
-  color: #e18215;
+  color: #F97316;
   background-color: #F1F5F9;
 }
 .mainblock .sidebar .btn-logout:hover svg {
@@ -440,8 +440,8 @@ body.lock {
 .mainblock__content .user-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 40px;
-  row-gap: 40px;
+  column-gap: 20px;
+  row-gap: 20px;
   grid-template-rows: repeat(2, 190px);
   color: rgb(255, 255, 255);
   font-size: 20px;
@@ -450,38 +450,45 @@ body.lock {
   position: relative;
   padding: 15px;
   border-radius: 10px;
+  overflow: hidden;
 }
 .mainblock__content .user-info__block.common-info {
-  background: linear-gradient(137deg, #06B6D4 0%, #73e0f4 100%), #FFF;
+  background-color: #06B6D4;
 }
 .mainblock__content .user-info__block.physical-info {
-  background: linear-gradient(137deg, #F97316 0%, #f9af7a 100%), #FFF;
+  background-color: #F97316;
 }
 .mainblock__content .user-info__block.medical-info {
-  background: linear-gradient(137deg, #7C6DD7 0%, #C4BAFF 100%), #FFF;
+  background-color: #BBF246;
 }
 .mainblock__content .user-info__block.training-info {
-  background: linear-gradient(137deg, #86d76d 0%, #baffc0 100%), #FFF;
+  background-color: #7C6DD7;
 }
 .mainblock__content .user-info__block.contacts-info {
-  background: linear-gradient(137deg, #d76d6d 0%, #ffbabb 100%), #FFF;
+  background-color: #86d76d;
+}
+.mainblock__content .user-info__block.achievements-info {
+  background-color: #22D3EE;
 }
 .mainblock__content .user-info__block h3 {
   font-size: 25px;
   margin-bottom: 20px;
+}
+.mainblock__content .user-info__block img {
+  position: absolute;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 }
 .mainblock__content .user-info__content {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-}
-.mainblock__content .user-info__content img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  overflow: hidden;
 }
 .mainblock__content .user-info__content .name-block,
 .mainblock__content .user-info__content .birthday-block,
@@ -490,7 +497,8 @@ body.lock {
 .mainblock__content .user-info__content .height-block,
 .mainblock__content .user-info__content .medical-block,
 .mainblock__content .user-info__content .goal-block,
-.mainblock__content .user-info__content .contact-block {
+.mainblock__content .user-info__content .contact-block,
+.mainblock__content .user-info__content .achievements-block {
   display: flex;
   justify-content: space-between;
 }
