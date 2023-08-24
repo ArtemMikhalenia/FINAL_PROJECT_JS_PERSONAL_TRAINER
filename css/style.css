@@ -108,6 +108,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   background-color: rgb(16, 16, 16);
+  background-image: url("../images/background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -270,6 +271,7 @@ body.lock {
 }
 .container .modal__close img {
   max-width: 25px;
+  width: 100%;
 }
 .container .modal__close:hover {
   transform: scale(1.15);
@@ -316,6 +318,7 @@ body.lock {
 }
 
 .mainblock {
+  font-family: "Manrope";
   height: 100%;
   padding: 15px 15px 15px 15px;
   background-color: rgba(44, 44, 44, 0.98);
@@ -425,7 +428,7 @@ body.lock {
 }
 .mainblock__content {
   height: calc(95vh - 76.6px);
-  padding: 20px;
+  padding: 40px;
   background-color: #F1F5F9;
   color: #475569;
   border-bottom-right-radius: 5px;
@@ -439,17 +442,29 @@ body.lock {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 40px;
   row-gap: 40px;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 190px);
   color: rgb(255, 255, 255);
   font-size: 20px;
 }
 .mainblock__content .user-info__block {
+  position: relative;
   padding: 15px;
   border-radius: 10px;
 }
 .mainblock__content .user-info__block.common-info {
-  background-color: #06B6D4;
-  border: 2px solid rgba(8, 145, 178, 0.3);
+  background: linear-gradient(137deg, #06B6D4 0%, #73e0f4 100%), #FFF;
+}
+.mainblock__content .user-info__block.physical-info {
+  background: linear-gradient(137deg, #F97316 0%, #f9af7a 100%), #FFF;
+}
+.mainblock__content .user-info__block.medical-info {
+  background: linear-gradient(137deg, #7C6DD7 0%, #C4BAFF 100%), #FFF;
+}
+.mainblock__content .user-info__block.training-info {
+  background: linear-gradient(137deg, #86d76d 0%, #baffc0 100%), #FFF;
+}
+.mainblock__content .user-info__block.contacts-info {
+  background: linear-gradient(137deg, #d76d6d 0%, #ffbabb 100%), #FFF;
 }
 .mainblock__content .user-info__block h3 {
   font-size: 25px;
@@ -461,11 +476,22 @@ body.lock {
   align-items: stretch;
   justify-content: center;
 }
+.mainblock__content .user-info__content img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 .mainblock__content .user-info__content .name-block,
 .mainblock__content .user-info__content .birthday-block,
-.mainblock__content .user-info__content .gender-block {
+.mainblock__content .user-info__content .gender-block,
+.mainblock__content .user-info__content .weight-block,
+.mainblock__content .user-info__content .height-block,
+.mainblock__content .user-info__content .medical-block,
+.mainblock__content .user-info__content .goal-block,
+.mainblock__content .user-info__content .contact-block {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -535,6 +561,7 @@ body.lock {
   font-size: 25px;
   color: white;
   background: #e18215;
+  border-radius: 8px;
   transition: all 1s ease 0s;
   box-shadow: 4px 4px 0 black;
   cursor: pointer;

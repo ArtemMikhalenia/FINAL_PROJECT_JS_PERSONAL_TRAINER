@@ -38,7 +38,7 @@ body {
 	font-size: 14px;
 	font-weight: 400;
 	background-color: rgba(16, 16, 16, 1);
-	// background-image: url('../images/background.jpg');
+	background-image: url('../images/background.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -235,6 +235,7 @@ body {
 
 			img {
 				max-width: 25px;
+				width: 100%;
 			}
 		}
 
@@ -302,6 +303,7 @@ body {
 //<MAINBLOCK>===============================================================================================
 
 .mainblock {
+	font-family: "Manrope";
 	height: 100%;
 	padding: 15px 15px 15px 15px;
 	background-color: rgba(44, 44, 44, 0.98);
@@ -432,7 +434,7 @@ body {
 
 	&__content {
 		height: calc(95vh - 76.6px);
-		padding: 20px;
+		padding: 40px;
 
 		background-color: #F1F5F9;
 		color: #475569;
@@ -448,18 +450,44 @@ body {
 			grid-template-columns: repeat(3, 1fr);
 			column-gap: 40px;
 			row-gap: 40px;
-			grid-template-rows: repeat(2, 1fr);
+			// grid-template-rows: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 190px);
 
 			color: rgba(255, 255, 255, 1);
 			font-size: 20px;
 
 			&__block {
+				position: relative;
 				padding: 15px;
 				border-radius: 10px;
 
 				&.common-info {
-					background-color: #06B6D4;
-					border: 2px solid rgba(8, 145, 178, 0.3);
+					background: linear-gradient(137deg, #06B6D4 0%, #73e0f4 100%), #FFF;
+					// border: 2px solid #0891b24d;
+					// background: #06B6D4;
+				}
+
+				&.physical-info {
+					background: linear-gradient(137deg, #F97316 0%, #f9af7a 100%), #FFF;
+					// border: 2px solid #d96513;
+					// background: #F97316;
+				}
+
+				&.medical-info {
+					background: linear-gradient(137deg, #7C6DD7 0%, #C4BAFF 100%), #FFF;
+					// border: 2px solid #6b47bf;
+					// background: #7C6DD7;
+				}
+
+				&.training-info {
+					background: linear-gradient(137deg, #86d76d 0%, #baffc0 100%), #FFF;
+					// border: 2px solid #F97316;
+					// background: #BBF246;
+				}
+
+				&.contacts-info {
+					background: linear-gradient(137deg, #d76d6d 0%, #ffbabb 100%), #FFF;
+					// border: 2px solid #bf474f;
 				}
 
 				h3 {
@@ -468,19 +496,30 @@ body {
 				}
 			}
 
-
-
 			&__content {
+
 				display: flex;
 				flex-direction: column;
 				align-items: stretch;
 				justify-content: center;
 
+				img {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+				}
+
 				.name-block,
 				.birthday-block,
-				.gender-block {
+				.gender-block,
+				.weight-block,
+				.height-block,
+				.medical-block,
+				.goal-block,
+				.contact-block {
 					display: flex;
-					align-items: center;
 					justify-content: space-between;
 				}
 			}
