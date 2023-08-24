@@ -369,7 +369,14 @@ body {
 
 			&:hover {
 				transform: translateX(5%);
+				color: #FFFFFF;
 				background-color: #e182159c;
+
+				svg {
+					path {
+						stroke: #FFFFFF;
+					}
+				}
 			}
 		}
 
@@ -425,14 +432,58 @@ body {
 
 	&__content {
 		height: calc(95vh - 76.6px);
+		padding: 20px;
+
 		background-color: #F1F5F9;
 		color: #475569;
-		padding: 20px;
 		border-bottom-right-radius: 5px;
 
 		h2 {
 			font-size: 35px;
 			margin-bottom: 20px;
+		}
+
+		.user-info {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: 40px;
+			row-gap: 40px;
+			grid-template-rows: repeat(2, 1fr);
+
+			color: rgba(255, 255, 255, 1);
+			font-size: 20px;
+
+			&__block {
+				padding: 15px;
+				border-radius: 10px;
+
+				&.common-info {
+					background-color: #06B6D4;
+					border: 2px solid rgba(8, 145, 178, 0.3);
+				}
+
+				h3 {
+					font-size: 25px;
+					margin-bottom: 20px;
+				}
+			}
+
+
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+				justify-content: center;
+
+				.name-block,
+				.birthday-block,
+				.gender-block {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+				}
+			}
 		}
 	}
 }

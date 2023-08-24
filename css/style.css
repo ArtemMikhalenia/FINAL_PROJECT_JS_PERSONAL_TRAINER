@@ -376,7 +376,11 @@ body.lock {
 }
 .mainblock .sidebar__link:hover {
   transform: translateX(5%);
+  color: #FFFFFF;
   background-color: rgba(225, 130, 21, 0.6117647059);
+}
+.mainblock .sidebar__link:hover svg path {
+  stroke: #FFFFFF;
 }
 .mainblock .sidebar .btn-logout {
   display: flex;
@@ -421,14 +425,48 @@ body.lock {
 }
 .mainblock__content {
   height: calc(95vh - 76.6px);
+  padding: 20px;
   background-color: #F1F5F9;
   color: #475569;
-  padding: 20px;
   border-bottom-right-radius: 5px;
 }
 .mainblock__content h2 {
   font-size: 35px;
   margin-bottom: 20px;
+}
+.mainblock__content .user-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  row-gap: 40px;
+  grid-template-rows: repeat(2, 1fr);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+.mainblock__content .user-info__block {
+  padding: 15px;
+  border-radius: 10px;
+}
+.mainblock__content .user-info__block.common-info {
+  background-color: #06B6D4;
+  border: 2px solid rgba(8, 145, 178, 0.3);
+}
+.mainblock__content .user-info__block h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.mainblock__content .user-info__content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+.mainblock__content .user-info__content .name-block,
+.mainblock__content .user-info__content .birthday-block,
+.mainblock__content .user-info__content .gender-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .btn-start {
