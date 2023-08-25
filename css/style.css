@@ -108,7 +108,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   background-color: rgb(16, 16, 16);
-  background-image: url("../images/background.jpg");
+  background-image: url("../images/backgrounds/background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -419,6 +419,7 @@ body.lock {
 }
 .mainblock__header {
   padding: 20px 0px 20px 20px;
+  width: 100%;
   font-size: 35px;
   text-align: center;
   color: #475569;
@@ -428,51 +429,60 @@ body.lock {
 }
 .mainblock__content {
   height: calc(95vh - 76.6px);
-  padding: 40px;
+  padding: 30px 40px 40px;
+  overflow: scroll;
   background-color: #F1F5F9;
   color: #475569;
   border-bottom-right-radius: 5px;
 }
 .mainblock__content h2 {
   font-size: 35px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .mainblock__content .user-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
   row-gap: 20px;
-  grid-template-rows: repeat(2, 190px);
+  grid-template-rows: repeat(2, 1fr);
   color: rgb(255, 255, 255);
   font-size: 20px;
 }
 .mainblock__content .user-info__block {
   position: relative;
+  display: flex;
+  flex-direction: column;
   padding: 15px;
   border-radius: 10px;
   overflow: hidden;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
-.mainblock__content .user-info__block.common-info {
+.mainblock__content .user-info__block.common-info, .mainblock__content .user-info__block.achievements-info {
   background-color: #06B6D4;
+  z-index: 0;
 }
 .mainblock__content .user-info__block.physical-info {
   background-color: #F97316;
+  z-index: 0;
 }
-.mainblock__content .user-info__block.medical-info {
-  background-color: #BBF246;
-}
-.mainblock__content .user-info__block.training-info {
+.mainblock__content .user-info__block.medical-info, .mainblock__content .user-info__block.training-info {
   background-color: #7C6DD7;
+  z-index: 0;
 }
 .mainblock__content .user-info__block.contacts-info {
   background-color: #86d76d;
-}
-.mainblock__content .user-info__block.achievements-info {
-  background-color: #22D3EE;
+  z-index: 0;
 }
 .mainblock__content .user-info__block h3 {
+  display: inline-block;
   font-size: 25px;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 .mainblock__content .user-info__block img {
   position: absolute;
@@ -481,14 +491,49 @@ body.lock {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: -1;
   object-fit: cover;
+}
+.mainblock__content .user-info__block:hover {
+  transform: scale(1.05);
+}
+.mainblock__content .user-info__block span {
+  padding: 0px 0px 0px 10px;
+  text-align: right;
+}
+.mainblock__content .user-info__header {
+  display: flex;
+  justify-content: space-between;
+}
+.mainblock__content .user-info__header .edit-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.mainblock__content .user-info__header .edit-btn img {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  max-width: 20px;
+  height: 20px;
+}
+.mainblock__content .user-info__header .edit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .mainblock__content .user-info__content {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  overflow: hidden;
+  flex: 1 1 auto;
 }
 .mainblock__content .user-info__content .name-block,
 .mainblock__content .user-info__content .birthday-block,
@@ -499,6 +544,7 @@ body.lock {
 .mainblock__content .user-info__content .goal-block,
 .mainblock__content .user-info__content .contact-block,
 .mainblock__content .user-info__content .achievements-block {
+  padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }

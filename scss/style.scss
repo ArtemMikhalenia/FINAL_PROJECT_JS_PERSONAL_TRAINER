@@ -38,7 +38,7 @@ body {
 	font-size: 14px;
 	font-weight: 400;
 	background-color: rgba(16, 16, 16, 1);
-	background-image: url('../images/background.jpg');
+	background-image: url('../images/backgrounds/background.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -418,10 +418,16 @@ body {
 
 	&__body {
 		margin: 0px 0px 0px 238px;
+		// background-image: url('../images/bg-login.jpg');
+		// background-position: center;
+		// background-size: cover;
+		// background-repeat: no-repeat;
 	}
 
 	&__header {
 		padding: 20px 0px 20px 20px;
+
+		width: 100%;
 
 		font-size: 35px;
 		text-align: center;
@@ -435,7 +441,9 @@ body {
 
 	&__content {
 		height: calc(95vh - 76.6px);
-		padding: 40px;
+		padding: 30px 40px 40px;
+
+		overflow: scroll;
 
 		background-color: #F1F5F9;
 		color: #475569;
@@ -443,7 +451,7 @@ body {
 
 		h2 {
 			font-size: 35px;
-			margin-bottom: 20px;
+			margin-bottom: 40px;
 		}
 
 		.user-info {
@@ -451,44 +459,52 @@ body {
 			grid-template-columns: repeat(3, 1fr);
 			column-gap: 20px;
 			row-gap: 20px;
-			grid-template-rows: repeat(2, 190px);
+			grid-template-rows: repeat(2, 1fr);
 
 			color: rgba(255, 255, 255, 1);
 			font-size: 20px;
 
 			&__block {
 				position: relative;
+
+				display: flex;
+				flex-direction: column;
+
 				padding: 15px;
 				border-radius: 10px;
+
 				overflow: hidden;
 
-				&.common-info {
+				@include anim(0.3s, 0s);
+				cursor: pointer;
+
+				&.common-info,
+				&.achievements-info {
 					background-color: #06B6D4;
+					z-index: 0;
 				}
 
 				&.physical-info {
 					background-color: #F97316;
+					z-index: 0;
 				}
 
-				&.medical-info {
-					background-color: #BBF246;
-				}
-
+				&.medical-info,
 				&.training-info {
 					background-color: #7C6DD7;
+					z-index: 0;
 				}
 
 				&.contacts-info {
 					background-color: #86d76d;
-				}
-
-				&.achievements-info {
-					background-color: #22D3EE;
+					z-index: 0;
 				}
 
 				h3 {
+					display: inline-block;
 					font-size: 25px;
 					margin-bottom: 20px;
+					font-weight: 700;
 				}
 
 				img {
@@ -498,7 +514,46 @@ body {
 					height: 100%;
 					top: 0;
 					left: 0;
+					z-index: -1;
 					object-fit: cover;
+				}
+
+				&:hover {
+					transform: scale(1.05);
+				}
+
+				& span {
+					padding: 0px 0px 0px 10px;
+					text-align: right;
+				}
+			}
+
+			&__header {
+				display: flex;
+				justify-content: space-between;
+
+				.edit-btn {
+					position: relative;
+					width: 30px;
+					height: 30px;
+					padding: 5px;
+
+					background-color: rgba(255, 255, 255, 0.4);
+					border-radius: 5px;
+
+					@include anim(0.3s, 0s);
+
+					img {
+						position: absolute;
+						top: calc(50% - 10px);
+						left: calc(50% - 10px);
+						max-width: 20px;
+						height: 20px;
+					}
+
+					&:hover {
+						background-color: rgba(255, 255, 255, 0.7);
+					}
 				}
 			}
 
@@ -507,7 +562,8 @@ body {
 				flex-direction: column;
 				align-items: stretch;
 				justify-content: center;
-				overflow: hidden;
+
+				flex: 1 1 auto;
 
 				.name-block,
 				.birthday-block,
@@ -518,6 +574,7 @@ body {
 				.goal-block,
 				.contact-block,
 				.achievements-block {
+					padding-bottom: 20px;
 					display: flex;
 					justify-content: space-between;
 				}
