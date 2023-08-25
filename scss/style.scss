@@ -257,6 +257,7 @@ body {
 			}
 		}
 
+		&__username,
 		&__email,
 		&__password {
 			padding: 10px;
@@ -271,6 +272,7 @@ body {
 			transition: border-bottom 0.5s ease 0s;
 		}
 
+		&__username:focus,
 		&__email:focus,
 		&__password:focus {
 			border-bottom: 2px solid rgba(255, 255, 255, 1);
