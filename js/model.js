@@ -77,6 +77,16 @@ class Model {
                         username: user,
                         email: email,
                         password: password,
+                        fullName: 'Нет данных',
+                        birthday: 'Нет данных',
+                        gender: 'Нет данных',
+                        weight: 'Нет данных',
+                        height: 'Нет данных',
+                        medicalInfo: 'Нет данных',
+                        goal: 'Нет данных',
+                        phone: 'Нет данных',
+                        email: 'Нет данных',
+                        achievements: 'Нет данных',
                      })
                      //если регистрация прошла успешно, то вызываем метод View
                      .then(() => {
