@@ -68,8 +68,9 @@ class Model {
             .then((snapshot) => {
                //если пользователь существует, то вызываем метод View
                if (snapshot.exists()) {
-                  this.myView.ifUserExist(true);
+                  this.myView.ifUserExistShow();
                } else {
+                  this.myView.ifUserNotExistHide();
                   //если пользователь отсутствует, то записываем его в базу
                   set(ref(db, "UsersList/" + user),
                      {
@@ -79,7 +80,6 @@ class Model {
                      })
                      //если регистрация прошла успешно, то вызываем метод View
                      .then(() => {
-                        this.myView.ifUserExist(false);
                         this.myView.successfulRegistration();
                      })
                      //если регистрация не удалась, то вызываем метод View

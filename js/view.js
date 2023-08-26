@@ -12,6 +12,7 @@ class View {
       this.modalHeaderRegistration = this.myContainer.querySelector('.modal-header.register');
       this.modalButtonRegistration = this.myContainer.querySelector('.form-submit-register');
       this.modalBlockRegistration = this.myContainer.querySelector('.form-register__block');
+      this.successfulRegistrationBlock = this.myContainer.querySelector('.successful-registration-block');
 
       this.usernameInput = this.myContainer.querySelector('#username');
       this.usernameToast = this.myContainer.querySelector('.username-toast');
@@ -57,18 +58,19 @@ class View {
       this.modalButtonRegistration.classList.add('hide');
       this.modalBlockRegistration.classList.remove('hide');
       this.modalBlockLogin.classList.add('hide');
+      this.successfulRegistrationBlock.classList.add('hidden');
    }
 
-   ifUserExist() {
-      if (false) {
-         this.userExist.classList.add('hidden');
-      } else {
-         this.userExist.classList.remove('hidden');
-      }
+   ifUserExistShow() {
+      this.userExist.classList.remove('hidden');
+   }
+
+   ifUserNotExistHide() {
+      this.userExist.classList.add('hidden');
    }
 
    successfulRegistration() {
-      alert('Вы успешно зарегистрировались!');
+      this.successfulRegistrationBlock.classList.remove('hidden');
    }
 
    ifError(error) {

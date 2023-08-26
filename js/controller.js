@@ -19,6 +19,7 @@ class Controller {
       this.enterUsername = this.myContainer.querySelector('#username');
       this.enterEmail = this.myContainer.querySelector('#email');
       this.enterPassword = this.myContainer.querySelector('#password');
+      this.successfulRegistrationBtn = this.myContainer.querySelector('#successful-registration-btn');
 
       //события на контроллеры
       this.buttonOpenModal.addEventListener('click', this.openLogInWindow.bind(this));
@@ -27,6 +28,7 @@ class Controller {
       this.buttonChangeToLogin.addEventListener('click', this.changeToLogin.bind(this));
       this.buttonLogIn.addEventListener('click', this.logInUser.bind(this));
       this.buttonRegisterUser.addEventListener('click', this.registerUser.bind(this));
+      this.successfulRegistrationBtn.addEventListener('click', this.changeToLogin.bind(this));
 
       this.enterUsername.addEventListener('input', this.getNameValuefromInput.bind(this));
       this.enterEmail.addEventListener('input', this.getEmailValuefromInput.bind(this));
