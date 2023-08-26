@@ -1,24 +1,38 @@
 class Controller {
    myContainer = null;
    myModel = null;
+   userName = null;
+   email = null;
+   password = null;
 
    init(model, container) {
+      //получение элементов, с которыми взаимодействует пользователь
       this.myContainer = container;
       this.myModel = model;
 
-      const buttonOpenModal = this.myContainer.querySelector('.btn-start');
-      buttonOpenModal.addEventListener('click', this.openLogInWindow.bind(this));
+      this.buttonOpenModal = this.myContainer.querySelector('.btn-start');
+      this.buttonCloseModal = this.myContainer.querySelector('#modal-close');
+      this.buttonChangeToRegistration = this.myContainer.querySelector('#form-register');
+      this.buttonChangeToLogin = this.myContainer.querySelector('#form-login');
+      this.buttonLogIn = this.myContainer.querySelector('#submit-login');
+      this.buttonRegisterUser = this.myContainer.querySelector('#submit-register');
+      this.enterUsername = this.myContainer.querySelector('#username');
+      this.enterEmail = this.myContainer.querySelector('#email');
+      this.enterPassword = this.myContainer.querySelector('#password');
 
-      const buttonCloseModal = this.myContainer.querySelector('#modal-close');
-      buttonCloseModal.addEventListener('click', this.closeLogInWindow.bind(this));
-
-      const buttonChangeToRegistration = this.myContainer.querySelector('#form-register');
-      buttonChangeToRegistration.addEventListener('click', this.changeToRegistration.bind(this));
-
-      const buttonChangeToLogin = this.myContainer.querySelector('#form-login');
-      buttonChangeToLogin.addEventListener('click', this.changeToLogin.bind(this));
+      //события на контроллеры
+      this.buttonOpenModal.addEventListener('click', this.openLogInWindow.bind(this));
+      this.buttonCloseModal.addEventListener('click', this.closeLogInWindow.bind(this));
+      this.buttonChangeToRegistration.addEventListener('click', this.changeToRegistration.bind(this));
+      this.buttonChangeToLogin.addEventListener('click', this.changeToLogin.bind(this));
+      this.buttonLogIn.addEventListener('click', this.logInUser.bind(this));
+      this.buttonRegisterUser.addEventListener('click', this.registerUser.bind(this));
+      this.enterUsername.addEventListener('input', this.getNameValuefromInput.bind(this));
+      this.enterEmail.addEventListener('input', this.getEmailValuefromInput.bind(this));
+      this.enterPassword.addEventListener('input', this.getPasswordValuefromInput.bind(this));
    }
 
+   //методы контроллера, которые вызывают методы модели и передают туда данные
    openLogInWindow() {
       this.myModel.openLogInWindow();
    }
@@ -34,29 +48,29 @@ class Controller {
    changeToLogin() {
       this.myModel.changeToLogin();
    }
+
+   logInUser() {
+      this.myModel.logInUser();
+   }
+
+   getNameValuefromInput() {
+      this.name = this.enterUsername.value;
+      return this.name;
+   }
+
+   getEmailValuefromInput() {
+      this.email = this.enterEmail.value;
+      return this.email;
+   }
+
+   getPasswordValuefromInput() {
+      this.password = this.enterPassword.value;
+      return this.password;
+   }
+
+   registerUser() {
+      this.myModel.registerUser(this.getNameValuefromInput(), this.getEmailValuefromInput(), this.getPasswordValuefromInput());
+   }
 }
-
-// function ClockController() {
-//    let myClockContainer = null;
-//    let myClockModel = null;
-
-//    this.init = function (model, container) {
-//       myClockModel = model;
-//       myClockContainer = container;
-
-//       const buttonStart = myClockContainer.querySelector('.btn-start');
-//       buttonStart.addEventListener('click', this.startFunc);
-//       const buttonStop = myClockContainer.querySelector('.btn-stop');
-//       buttonStop.addEventListener('click', this.stopFunc);
-//    }
-
-//    this.startFunc = function () {
-//       myClockModel.startClock();
-//    }
-
-//    this.stopFunc = function () {
-//       myClockModel.stopBtn();
-//    }
-// };
 
 export default Controller;

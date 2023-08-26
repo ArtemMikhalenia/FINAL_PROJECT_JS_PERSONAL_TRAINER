@@ -41,6 +41,18 @@ class View {
       this.modalBlockRegistration.classList.remove('hide');
       this.modalBlockLogin.classList.add('hide');
    }
+
+   ifUserExist() {
+      alert('Пользователь уже существует! Введите другие данные.');
+   }
+
+   successfulRegistration() {
+      alert('Вы успешно зарегистрировались!');
+   }
+
+   ifError(error) {
+      error;
+   }
 }
 
 // function ClockViewDOM() {

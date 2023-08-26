@@ -1,3 +1,5 @@
+import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+
 class Model {
    myView = null;
 
@@ -20,40 +22,41 @@ class Model {
    changeToLogin() {
       this.myView.changeToLogin();
    }
+
+   logInUser() {
+
+   }
+
+   //метод регистрации пользователя
+   registerUser(user, email, password) {
+      const db = getDatabase();
+      const dbRef = ref(db);
+
+      //получаем путь к нашей папке в базе
+      get(child(dbRef, "UsersList/" + user))
+         .then((snapshot) => {
+            //если пользователь существует, то вызываем метод View
+            if (snapshot.exists()) {
+               this.myView.ifUserExist();
+            } else {
+               //если пользователь отсутствует, то записываем его в базу
+               set(ref(db, "UsersList/" + user),
+                  {
+                     username: user,
+                     email: email,
+                     password: password,
+                  })
+                  //если регистрация прошла успешно, то вызываем метод View
+                  .then(() => {
+                     this.myView.successfulRegistration();
+                  })
+                  //если регистрация не удалась, то вызываем метод View
+                  .catch((error) => {
+                     this.myView.ifError(error);
+                  })
+            }
+         })
+   }
 }
-
-// function ClockModel() {
-//    let myClockView = null;
-//    let currentTime = null;
-//    let hours = null;
-//    let minutes = null;
-//    let seconds = null;
-//    let timerId = null;
-//    let timezone = 0;
-//    let offset = 0;
-
-//    this.init = function (view, timezone) {
-//       myClockView = view;
-//       this.timezone = timezone;
-//       this.startClock();
-//    }
-
-//    this.rotate = function () {
-//       currentTime = new Date();
-//       const offset = parseFloat(this.timezone);
-//       hours = 30 * (currentTime.getUTCHours() + offset + (1 / 60) * currentTime.getMinutes());
-//       minutes = 6 * (currentTime.getMinutes() + (1 / 60) * currentTime.getSeconds());
-//       seconds = 6 * currentTime.getSeconds();
-//       myClockView.rotateLines(hours, minutes, seconds);
-//    }
-
-//    this.startClock = function () {
-//       timerId = setInterval(this.rotate.bind(this), 1000);
-//    }
-
-//    this.stopBtn = function () {
-//       clearInterval(timerId);
-//    }
-// }
 
 export default Model;
