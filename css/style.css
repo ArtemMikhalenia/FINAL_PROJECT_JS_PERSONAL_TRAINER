@@ -296,7 +296,13 @@ body.lock {
   font-size: 15px;
   color: red;
 }
-.container .modal__form .input-label .hidden {
+.container .modal__form .register-user-exist {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+  color: red;
+}
+.container .modal__form .hidden {
   display: none;
 }
 .container .modal__username, .container .modal__email, .container .modal__password {

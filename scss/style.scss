@@ -259,10 +259,17 @@ body {
 					font-size: 15px;
 					color: red;
 				}
+			}
 
-				.hidden {
-					display: none;
-				}
+			.register-user-exist {
+				font-size: 18px;
+				text-align: center;
+				margin-top: 10px;
+				color: red;
+			}
+
+			.hidden {
+				display: none;
 			}
 		}
 

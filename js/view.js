@@ -19,6 +19,7 @@ class View {
       this.emailToast = this.myContainer.querySelector('.email-toast');
       this.enterPassword = this.myContainer.querySelector('#password');
       this.passwordToast = this.myContainer.querySelector('.password-toast');
+      this.userExist = this.myContainer.querySelector('.register-user-exist');
    }
 
    openLogInWindow() {
@@ -59,7 +60,11 @@ class View {
    }
 
    ifUserExist() {
-      alert('Пользователь уже существует! Введите другие данные.');
+      if (false) {
+         this.userExist.classList.add('hidden');
+      } else {
+         this.userExist.classList.remove('hidden');
+      }
    }
 
    successfulRegistration() {
