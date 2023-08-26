@@ -4,14 +4,21 @@ class View {
 
    init(container) {
       this.myContainer = container;
-      this.modalWindow = document.getElementById("modal");
-      this.modalOverlay = document.querySelector(".modal__overlay");
-      this.modalHeaderLogin = document.querySelector('.modal-header.login');
-      this.modalButtonLogin = document.querySelector('.form-submit-login');
-      this.modalBlockLogin = document.querySelector('.form-login__block');
-      this.modalHeaderRegistration = document.querySelector('.modal-header.register');
-      this.modalButtonRegistration = document.querySelector('.form-submit-register');
-      this.modalBlockRegistration = document.querySelector('.form-register__block');
+      this.modalWindow = this.myContainer.querySelector("#modal");
+      this.modalOverlay = this.myContainer.querySelector(".modal__overlay");
+      this.modalHeaderLogin = this.myContainer.querySelector('.modal-header.login');
+      this.modalButtonLogin = this.myContainer.querySelector('.form-submit-login');
+      this.modalBlockLogin = this.myContainer.querySelector('.form-login__block');
+      this.modalHeaderRegistration = this.myContainer.querySelector('.modal-header.register');
+      this.modalButtonRegistration = this.myContainer.querySelector('.form-submit-register');
+      this.modalBlockRegistration = this.myContainer.querySelector('.form-register__block');
+
+      this.usernameInput = this.myContainer.querySelector('#username');
+      this.usernameToast = this.myContainer.querySelector('.username-toast');
+      this.emailInput = this.myContainer.querySelector('#email');
+      this.emailToast = this.myContainer.querySelector('.email-toast');
+      this.enterPassword = this.myContainer.querySelector('#password');
+      this.passwordToast = this.myContainer.querySelector('.password-toast');
    }
 
    openLogInWindow() {
@@ -22,6 +29,15 @@ class View {
    closeLogInWindow() {
       this.modalWindow.classList.add("modal_closed");
       this.modalOverlay.classList.add("modal_closed");
+      this.usernameInput.value = '';
+      this.emailInput.value = '';
+      this.enterPassword.value = '';
+      this.usernameInput.classList.remove('invalid');
+      this.usernameInput.classList.remove('valid');
+      this.emailInput.classList.remove('invalid');
+      this.emailInput.classList.remove('valid');
+      this.enterPassword.classList.remove('invalid');
+      this.enterPassword.classList.remove('valid');
    }
 
    changeToRegistration() {
@@ -53,79 +69,42 @@ class View {
    ifError(error) {
       error;
    }
+
+   usernameValidation() {
+      this.usernameInput.classList.add('invalid');
+      this.usernameInput.classList.remove('valid');
+      this.usernameToast.classList.remove('hidden');
+   }
+
+   usernameCorrectValidation() {
+      this.usernameInput.classList.remove('invalid');
+      this.usernameInput.classList.add('valid');
+      this.usernameToast.classList.add('hidden');
+   }
+
+   emailValidation() {
+      this.emailInput.classList.add('invalid');
+      this.emailInput.classList.remove('valid');
+      this.emailToast.classList.remove('hidden');
+   }
+
+   emailCorrectValidation() {
+      this.emailInput.classList.add('valid');
+      this.emailInput.classList.remove('invalid');
+      this.emailToast.classList.add('hidden');
+   }
+
+   passwordValidation() {
+      this.enterPassword.classList.add('invalid');
+      this.enterPassword.classList.remove('valid');
+      this.passwordToast.classList.remove('hidden');
+   }
+
+   passwordCorrectValidation() {
+      this.enterPassword.classList.add('valid');
+      this.enterPassword.classList.remove('invalid');
+      this.passwordToast.classList.add('hidden');
+   }
 }
-
-// function ClockViewDOM() {
-//    let myClockModel = null;
-//    let myClockContainer = null;
-
-//    let clock = null;
-//    let clockCenterX = 180;
-//    let clockCenterY = 180;
-//    let radius = 145;
-//    let numberRadius = 20;
-//    let lineH = null;
-//    let lineM = null;
-//    let lineS = null;
-
-//    this.init = function (container) {
-//       myClockContainer = container;
-//       this.createClock();
-//       this.createClockNumbers();
-//       this.createLines();
-//       this.rotateLines();
-//    }
-
-//    this.createClock = function () {
-//       clock = document.createElement('div');
-//       clock.classList.add("clock");
-//       myClockContainer.append(clock);
-//    }
-
-//    this.createClockNumbers = function () {
-//       for (let i = 1; i < 13; i++) {
-//          const hour = document.createElement("div");
-//          hour.classList.add("hour");
-//          hour.textContent = i;
-
-//          const angle = i * 30;
-//          const radiants = angle / 180 * Math.PI;
-//          const x = clockCenterX + radius * Math.sin(radiants);
-//          const y = clockCenterY - radius * Math.cos(radiants);
-//          const top = Math.round(y - numberRadius);
-//          const left = Math.round(x - numberRadius);
-
-//          hour.style.top = top + "px";
-//          hour.style.left = left + "px";
-//          clock.append(hour);
-//       }
-//    }
-
-//    this.createLines = function () {
-//       lineH = document.createElement('div');
-//       lineH.classList.add('lineH');
-//       lineH.style.left = Math.round(clockCenterX) + 'px';
-//       lineH.style.top = Math.round(clockCenterY) + 'px';
-//       clock.append(lineH);
-
-//       lineM = document.createElement('div');
-//       lineM.classList.add('lineM');
-//       lineM.style.left = Math.round(clockCenterX) + 'px';
-//       lineM.style.top = Math.round(clockCenterY) + 'px';
-//       clock.append(lineM);
-
-//       lineS = document.createElement('div');
-//       lineS.classList.add('lineS');
-//       lineS.style.left = Math.round(clockCenterX) + 'px';
-//       lineS.style.top = Math.round(clockCenterY) + 'px';
-//       clock.append(lineS);
-//    }
-
-//    this.rotateLines = function (hours, minutes, seconds) {
-//       lineH.style.cssText += `transform: rotate(${hours - 90}deg);`;
-//       lineM.style.cssText += `transform: rotate(${minutes - 90}deg);`;
-//       lineS.style.cssText += `transform: rotate(${seconds - 90}deg);`;
-//    }
-// };
 
 export default View;

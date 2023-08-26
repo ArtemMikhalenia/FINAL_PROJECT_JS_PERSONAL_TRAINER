@@ -62,16 +62,28 @@
 					<h2 class="modal-header register hide">Регистрация</h2>
 					<form class="modal__form">
 						<label class="input-label" for="username">Введите Имя пользователя: <abbr
-								title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+								title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
+							<br>
+							<span class="username-toast hidden">Только латинские буквы</span></label>
 						<input type="text" id="username" autocomplete="off" class="modal__username"
-							placeholder="Имя пользователя" required>
-						<label class="input-label" for="email">Введите e-mail <abbr
-								title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
-						<input type="email" id="email" autocomplete="off" class="modal__email" placeholder="E-mail" required>
-						<label class="input-label" for="password">Введите пароль <abbr
-								title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
-						<input type="password" id="password" autocomplete="off" class="modal__password" placeholder="Пароль"
-							required>
+							placeholder="Имя пользователя" title="Необходимо ввести только латинские символы" required>
+						<label class="input-label" for="email">Введите e-mail: <abbr
+								title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
+							<br>
+							<span class="email-toast hidden">Введите адрес почты корректно</span>
+						</label>
+						<input type="email" id="email" autocomplete="off" class="modal__email" placeholder="E-mail"
+							title="Введите корректный e-mail" required>
+						<label class="input-label" for="password">Введите пароль: <abbr
+								title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
+							<br>
+							<span class="password-toast hidden">Пароль должен содержать как минимум 1 цифру, 1 букву нижнего регистра, 1 букву
+								верхнего
+								регистра и не менее 8 символов</span>
+						</label>
+						<input type="password" id="password" autocomplete="off" class="modal__password"
+							title="Пароль должен содержать как минимум одну цифру, одну букву нижнего регистра, одну букву верхнего регистра и длина не менее 8 символов"
+							placeholder="Пароль" required>
 						<input type="submit" id="submit-login" class="form-submit-login" value="Войти">
 						<input type="submit" id="submit-register" class="form-submit-register hide"
 							value="Зарегистрироваться">
@@ -269,7 +281,7 @@
 					</div>
 				</div>
 			</section> -->
-		
+
 		</div>
 	</main>
 	<script type="module">

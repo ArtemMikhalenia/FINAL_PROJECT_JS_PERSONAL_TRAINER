@@ -27,9 +27,14 @@ class Controller {
       this.buttonChangeToLogin.addEventListener('click', this.changeToLogin.bind(this));
       this.buttonLogIn.addEventListener('click', this.logInUser.bind(this));
       this.buttonRegisterUser.addEventListener('click', this.registerUser.bind(this));
+
       this.enterUsername.addEventListener('input', this.getNameValuefromInput.bind(this));
       this.enterEmail.addEventListener('input', this.getEmailValuefromInput.bind(this));
       this.enterPassword.addEventListener('input', this.getPasswordValuefromInput.bind(this));
+
+      // this.enterUsername.addEventListener('input', this.validateData.bind(this));
+      // this.enterEmail.addEventListener('input', this.validateData.bind(this));
+      // this.enterPassword.addEventListener('input', this.validateData.bind(this));
    }
 
    //методы контроллера, которые вызывают методы модели и передают туда данные

@@ -254,6 +254,15 @@ body {
 			.input-label {
 				font-size: 20px;
 				margin-bottom: 10px;
+
+				& span {
+					font-size: 15px;
+					color: red;
+				}
+
+				.hidden {
+					display: none;
+				}
 			}
 		}
 
@@ -276,6 +285,18 @@ body {
 		&__email:focus,
 		&__password:focus {
 			border-bottom: 2px solid rgba(255, 255, 255, 1);
+		}
+
+		&__username.invalid,
+		&__email.invalid,
+		&__password.invalid {
+			border-bottom: 2px solid rgb(255, 0, 0);
+		}
+
+		&__username.valid,
+		&__email.valid,
+		&__password.valid {
+			border-bottom: 2px solid rgb(5, 152, 57);
 		}
 
 		.modal-header {

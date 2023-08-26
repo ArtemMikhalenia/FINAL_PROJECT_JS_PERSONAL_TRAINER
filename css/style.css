@@ -292,6 +292,13 @@ body.lock {
   font-size: 20px;
   margin-bottom: 10px;
 }
+.container .modal__form .input-label span {
+  font-size: 15px;
+  color: red;
+}
+.container .modal__form .input-label .hidden {
+  display: none;
+}
 .container .modal__username, .container .modal__email, .container .modal__password {
   padding: 10px;
   margin-bottom: 30px;
@@ -303,6 +310,12 @@ body.lock {
 }
 .container .modal__username:focus, .container .modal__email:focus, .container .modal__password:focus {
   border-bottom: 2px solid rgb(255, 255, 255);
+}
+.container .modal__username.invalid, .container .modal__email.invalid, .container .modal__password.invalid {
+  border-bottom: 2px solid rgb(255, 0, 0);
+}
+.container .modal__username.valid, .container .modal__email.valid, .container .modal__password.valid {
+  border-bottom: 2px solid rgb(5, 152, 57);
 }
 .container .modal .modal-header {
   padding-top: 30px;
