@@ -4,11 +4,15 @@ class Controller {
    userName = null;
    email = null;
    password = null;
+   hashPageName = null;
 
    init(model, container) {
       //получение элементов, с которыми взаимодействует пользователь
       this.myContainer = container;
       this.myModel = model;
+
+      window.addEventListener("hashchange", this.updateState);
+      this.updateState();
 
       this.buttonOpenModal = this.myContainer.querySelector('.btn-start');
       this.buttonCloseModal = this.myContainer.querySelector('#modal-close');
@@ -33,6 +37,17 @@ class Controller {
       this.enterUsername.addEventListener('input', this.getNameValuefromInput.bind(this));
       this.enterEmail.addEventListener('input', this.getEmailValuefromInput.bind(this));
       this.enterPassword.addEventListener('input', this.getPasswordValuefromInput.bind(this));
+
+      this.myContainer.addEventListener('mousemove', this.parallaxFunction.bind(this));
+   }
+
+   updateState() {
+      this.hashPageName = location.hash.slice(1).toLowerCase();
+      this.myModel.updateState(this.hashPageName);
+   }
+
+   parallaxFunction() {
+      this.myModel.parallaxEffect();
    }
 
    //методы контроллера, которые вызывают методы модели и передают туда данные

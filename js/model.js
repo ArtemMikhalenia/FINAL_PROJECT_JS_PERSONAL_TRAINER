@@ -1,10 +1,29 @@
 import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+
+const firebaseConfig = {
+   apiKey: "AIzaSyCmO3VrG4O2UluhvZaewlxjgcoRtevgST0",
+   authDomain: "test-1-4f5f1.firebaseapp.com",
+   databaseURL: "https://test-1-4f5f1-default-rtdb.firebaseio.com",
+   projectId: "test-1-4f5f1",
+   storageBucket: "test-1-4f5f1.appspot.com",
+   messagingSenderId: "251035603728",
+   appId: "1:251035603728:web:e0a8d5340e28a5a80c8b95",
+   measurementId: "G-10LCGZCT33"
+};
+
+const app = initializeApp(firebaseConfig);
+
 class Model {
    myView = null;
 
    init(view) {
       this.myView = view;
+   }
+
+   updateState(pageName) {
+      this.myView.renderContent(pageName);
    }
 
    openLogInWindow() {
@@ -23,6 +42,11 @@ class Model {
       this.myView.changeToLogin();
    }
 
+   parallaxEffect() {
+     this.myView.parallaxEffect();
+   }
+
+   //метод валидации
    validateData(user, email, password) {
       //только латинские буквы
       let userNameRegEx = /^[a-zA-Z\s]+$/;
@@ -85,7 +109,6 @@ class Model {
                         medicalInfo: 'Нет данных',
                         goal: 'Нет данных',
                         phone: 'Нет данных',
-                        email: 'Нет данных',
                         achievements: 'Нет данных',
                      })
                      //если регистрация прошла успешно, то вызываем метод View
@@ -99,6 +122,10 @@ class Model {
                }
             })
       }
+   }
+
+   updateState(pageName) {
+      this.myView.renderContent(pageName);
    }
 }
 
