@@ -603,6 +603,39 @@ body.lock {
   display: flex;
   justify-content: space-between;
 }
+.mainblock__content .training-content button {
+  font-size: 14px;
+  margin-bottom: 20px;
+  background-color: #F97316;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #FFFFFF;
+  transition: all 0.5s ease 0s;
+}
+.mainblock__content .training-content button:hover {
+  background-color: #CBD5E1;
+  color: #F97316;
+}
+.mainblock__content .training-content .training-block {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  grid-template-rows: minmax(200px, 1fr);
+}
+.mainblock__content .training-content .training-block__todo {
+  border: 2px solid #06B6D4;
+  border-radius: 6px;
+}
+.mainblock__content .training-content .training-block__inprogress {
+  border: 2px solid #F97316;
+  border-radius: 6px;
+}
+.mainblock__content .training-content .training-block__finished {
+  border: 2px solid #86d76d;
+  border-radius: 6px;
+}
 
 .btn-start {
   position: relative;

@@ -1,30 +1,46 @@
 //import
-// import Parallax from './parallax.js';
-import Controller from './controller.js';
-import Model from './model.js';
 import View from './view.js';
+import Model from './model.js';
+import Controller from './controller.js';
 
-import { Header, MainTitle, ButtonStart, Modal, ModalOverlay, ParallaxImages } from './components.js';
+import { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress } from './components.js';
 
-import { StartPage } from './pages.js';
+import {
+   StartPage, MainPage, Modal, TrainingPage, DietPage,
+   ExercisesDatabasePage, ProgressPage
+} from './pages.js';
 
 // Список компонент (from components.js)
 const components = {
-   header: Header,
-   mainTitle: MainTitle,
+   startHeader: StartHeader,
+   mainTitle: StartMainTitle,
    buttonStart: ButtonStart,
-   modal: Modal,
-   overlay: ModalOverlay,
+   modal: StartModal,
+   overlay: StartModalOverlay,
    parallaxImages: ParallaxImages,
+
+   loginBtn: LoginBtn,
+   sidebarMain: SidebarMain,
+   contentMain: ContentMain,
+   sidebarTraining: SidebarTraining,
+   contentTraining: ContentTraining,
+   sidebarDiet: SidebarDiet,
+   contentDiet: ContentDiet,
+   sidebarExercisesDatabase: SidebarExercisesDatabase,
+   contentExercisesDatabase: ContentExercisesDatabase,
+   sidebarProgress: SidebarProgress,
+   contentProgress: ContentProgress,
 };
 
 // Список поддерживаемых роутов (from pages.js)
 const routes = {
-   main: StartPage,
-   // account: AccountPage,
-   // contacts: Contacts,
-   // category: Category,
-   // testimonials: Testimonials,
+   startpage: StartPage,
+   mainpage: MainPage,
+   trainingpage: TrainingPage,
+   dietpage: DietPage,
+   excersisesdatabase: ExercisesDatabasePage,
+   progresspage: ProgressPage,
+
    default: StartPage,
    // error: ErrorPage,
 };
@@ -34,51 +50,29 @@ const mySPA = (function () {
       init: function ({ container, routes, components }) {
          this.renderComponents(container, components);
 
-         // const parallax = new Parallax();
-         const myController = new Controller();
-         const myModel = new Model();
          const myView = new View();
+         const myModel = new Model();
+         const myController = new Controller();
 
          //связываем части модуля
-         myView.init(document.getElementById(container), routes); 
+         myView.init(document.getElementById(container), routes);
          myModel.init(myView);
-         myController.init(myModel, document.getElementById(container));
-
-         // parallax.init(container, document.querySelector('.woman-image'), document.querySelector('.man-image'), document.querySelector('.fog-image'));
+         myController.init(document.getElementById(container), myModel);
       },
 
       renderComponents: function (container, components) {
          const root = document.getElementById(container);
          const componentsList = Object.keys(components);
          for (let item of componentsList) {
-            root.innerHTML += components[item].render();
+            root.innerHTML += components[item].render("component");
          }
       },
    };
-
 }());
-
-
-// const container = document.querySelector('.wrapper');
-// const woman = document.querySelector('.woman-image');
-// const man = document.querySelector('.man-image');
-// const fog = document.querySelector('.fog-image');
-
-// const parallax = new Parallax();
-// const myController = new Controller();
-// const myModel = new Model();
-// const myView = new View();
-
-// //init
-// myController.init(myModel, container);
-// myModel.init(myView);
-// myView.init(container);
-
-// parallax.init(container, woman, man, fog);
 
 document.addEventListener("DOMContentLoaded", mySPA.init({
    container: "wrapper",
    routes: routes,
    components: components,
-}));
+}))
 

@@ -1,74 +1,69 @@
-class View {
-   myContainer = null;
-   modalLogIn = null;
-   routesObj = null;
-   contentContainer = null;
-   woman = null;
-   man = null;
-   fog = null;
+function View() {
+   let myContainer = null;
+   let routesObj = null;
+   // let contentContainer = null;
+   let modalWindow = null;
+   let modalOverlay = null;
+   let modalHeaderLogin = null;
+   let modalButtonLogin = null;
+   let modalBlockLogin = null;
+   let modalHeaderRegistration = null;
+   let modalButtonRegistration = null;
+   let modalBlockRegistration = null;
+   let successfulRegistrationBlock = null;
+   let usernameInput = null;
+   let usernameToast = null;
+   let emailInput = null;
+   let emailToast = null;
+   let passwordInput = null;
+   let passwordToast = null;
+   let userExist = null;
 
-   init(container, routes) {
-      this.myContainer = container;
+   this.init = function (container, routes) {
+      myContainer = container;
+      routesObj = routes;
 
-      this.routesObj = routes;
-      // this.contentContainer = this.myContainer.querySelector('#wrapper');
-
-      // this.modalWindow = this.myContainer.querySelector("#modal");
-      // this.modalOverlay = this.myContainer.querySelector(".modal__overlay");
-      // this.modalHeaderLogin = this.myContainer.querySelector('.modal-header.login');
-      // this.modalButtonLogin = this.myContainer.querySelector('.form-submit-login');
-      // this.modalBlockLogin = this.myContainer.querySelector('.form-login__block');
-      // this.modalHeaderRegistration = this.myContainer.querySelector('.modal-header.register');
-      // this.modalButtonRegistration = this.myContainer.querySelector('.form-submit-register');
-      // this.modalBlockRegistration = this.myContainer.querySelector('.form-register__block');
-      // this.successfulRegistrationBlock = this.myContainer.querySelector('.successful-registration-block');
-
-      // this.usernameInput = this.myContainer.querySelector('#username');
-      // this.usernameToast = this.myContainer.querySelector('.username-toast');
-      // this.emailInput = this.myContainer.querySelector('#email');
-      // this.emailToast = this.myContainer.querySelector('.email-toast');
-      // this.enterPassword = this.myContainer.querySelector('#password');
-      // this.passwordToast = this.myContainer.querySelector('.password-toast');
-      // this.userExist = this.myContainer.querySelector('.register-user-exist');
+      // contentContainer = document.querySelector('#main-content');
    }
 
-   renderContent(hashPageName) {
+   this.renderContent = function (hashPageName) {
       let routeName = "default";
 
       if (hashPageName.length > 0) {
-         routeName = hashPageName in routes ? hashPageName : "error";
+         routeName = hashPageName in routesObj ? hashPageName : "error";
       }
 
-      window.document.title = this.routesObj[routeName].title;
-      this.myContainer.innerHTML = this.routesObj[routeName].render(`${routeName}`);
+      // window.document.title = routesObj[routeName].title;
+      myContainer.innerHTML = routesObj[routeName].render(`${routeName}`);
+      // contentContainer.innerHTML = routesObj[routeName].render(`${routeName}`);
       // this.updateButtons(routesObj[routeName].id);
 
-      this.modalWindow = this.myContainer.querySelector("#modal");
-      this.modalOverlay = this.myContainer.querySelector(".modal__overlay");
-      this.modalHeaderLogin = this.myContainer.querySelector('.modal-header.login');
-      this.modalButtonLogin = this.myContainer.querySelector('.form-submit-login');
-      this.modalBlockLogin = this.myContainer.querySelector('.form-login__block');
-      this.modalHeaderRegistration = this.myContainer.querySelector('.modal-header.register');
-      this.modalButtonRegistration = this.myContainer.querySelector('.form-submit-register');
-      this.modalBlockRegistration = this.myContainer.querySelector('.form-register__block');
-      this.successfulRegistrationBlock = this.myContainer.querySelector('.successful-registration-block');
+      modalWindow = myContainer.querySelector("#modal");
+      modalOverlay = myContainer.querySelector(".modal__overlay");
+      modalHeaderLogin = myContainer.querySelector('.modal-header.login');
+      modalButtonLogin = myContainer.querySelector('.form-submit-login');
+      modalBlockLogin = myContainer.querySelector('.form-login__block');
+      modalHeaderRegistration = myContainer.querySelector('.modal-header.register');
+      modalButtonRegistration = myContainer.querySelector('.form-submit-register');
+      modalBlockRegistration = myContainer.querySelector('.form-register__block');
+      successfulRegistrationBlock = myContainer.querySelector('.successful-registration-block');
 
-      this.usernameInput = this.myContainer.querySelector('#username');
-      this.usernameToast = this.myContainer.querySelector('.username-toast');
-      this.emailInput = this.myContainer.querySelector('#email');
-      this.emailToast = this.myContainer.querySelector('.email-toast');
-      this.enterPassword = this.myContainer.querySelector('#password');
-      this.passwordToast = this.myContainer.querySelector('.password-toast');
-      this.userExist = this.myContainer.querySelector('.register-user-exist');
+      usernameInput = myContainer.querySelector('#username');
+      usernameToast = myContainer.querySelector('.username-toast');
+      emailInput = myContainer.querySelector('#email');
+      emailToast = myContainer.querySelector('.email-toast');
+      passwordInput = myContainer.querySelector('#password');
+      passwordToast = myContainer.querySelector('.password-toast');
+      userExist = myContainer.querySelector('.register-user-exist');
 
-      this.woman = this.myContainer.querySelector('.woman-image');
-      this.man = this.myContainer.querySelector('.man-image');
-      this.fog = this.myContainer.querySelector('.fog-image');
+      const woman = myContainer.querySelector('.woman-image');
+      const man = myContainer.querySelector('.man-image');
+      const fog = myContainer.querySelector('.fog-image');
 
-      this.parallaxEffect(this.myContainer, this.woman, this.man, this.fog);
+      // this.parallaxEffect(myContainer, woman, man, fog);
    }
 
-   updateButtons(currentPage) {
+   this.updateButtons = function (currentPage) {
       // const menuLinks = menu.querySelectorAll(".mainmenu__link");
 
       // for (let link of menuLinks) {
@@ -76,146 +71,156 @@ class View {
       // }
    }
 
-   parallaxEffect(container, img1, img2, img3) {
-      this.myContainer = container;
-      // this.woman = img1;
-      // this.man = img2;
-      // this.fog = img3;
-
-      if (this.myContainer && img1 && img2 && img3) {
-         const containerWidth = this.myContainer.offsetWidth;
-         const containerHeight = this.myContainer.offsetHeight;
-
-         //коэффициенты
-         const forMan = 30;
-         const forWoman = 20;
-         const forFog = 40;
-
-         //Скорость анимации
-         const speed = 0.05;
-
-         //Объявление переменных
-         let posX = 0;
-         let posY = 0;
-         let coordXPercent = 0;
-         let coordYPercent = 0;
-
-         const parallaxFunction = () => {
-            const distX = coordXPercent - posX;
-            const distY = coordYPercent - posY;
-
-            posX = posX + (distX * speed);
-            posY = posY + (distY * speed);
-
-            img1.style.cssText = `transform: translate(${posX / forMan}%,${posY / forMan}%);`;
-            img2.style.cssText = `transform: translate(${posX / forWoman}%,${posY / forWoman}%);`;
-            img3.style.cssText = `transform: translate(${posX / forFog}%,${posY / forFog}%);`;
-
-            requestAnimationFrame(parallaxFunction);
-         }
-
-         this.myContainer.addEventListener("mousemove", function (el) {
-            // Ноль на середине
-            const coordX = el.pageX - containerWidth / 2;
-            const coordY = el.pageY - containerHeight / 2;
-
-            //Получаем проценты
-            coordXPercent = coordX / containerWidth * 100;
-            coordYPercent = coordY / containerHeight * 100;
-         });
-
-         parallaxFunction();
-      }
+   this.logInUser = function () {
+      window.location.hash = "#mainpage";
    }
 
-   openLogInWindow() {
-      this.modalWindow.classList.remove("modal_closed");
-      this.modalOverlay.classList.remove("modal_closed");
+   // this.parallaxEffect = function (container, img1, img2, img3) {
+   //    myContainer = container;
+
+   //    if (myContainer && img1 && img2 && img3) {
+   //       const containerWidth = myContainer.offsetWidth;
+   //       const containerHeight = myContainer.offsetHeight;
+
+   //       //коэффициенты
+   //       const forMan = 30;
+   //       const forWoman = 20;
+   //       const forFog = 40;
+
+   //       //Скорость анимации
+   //       const speed = 0.05;
+
+   //       //Объявление переменных
+   //       let posX = 0;
+   //       let posY = 0;
+   //       let coordXPercent = 0;
+   //       let coordYPercent = 0;
+
+   //       const parallaxFunction = () => {
+   //          const distX = coordXPercent - posX;
+   //          const distY = coordYPercent - posY;
+
+   //          posX = posX + (distX * speed);
+   //          posY = posY + (distY * speed);
+
+   //          img1.style.cssText = `transform: translate(${posX / forMan}%,${posY / forMan}%);`;
+   //          img2.style.cssText = `transform: translate(${posX / forWoman}%,${posY / forWoman}%);`;
+   //          img3.style.cssText = `transform: translate(${posX / forFog}%,${posY / forFog}%);`;
+
+   //          requestAnimationFrame(parallaxFunction);
+   //       }
+
+   //       myContainer.addEventListener("mousemove", function (el) {
+   //          // Ноль на середине
+   //          const coordX = el.pageX - containerWidth / 2;
+   //          const coordY = el.pageY - containerHeight / 2;
+
+   //          //Получаем проценты
+   //          coordXPercent = coordX / containerWidth * 100;
+   //          coordYPercent = coordY / containerHeight * 100;
+   //       });
+
+   //       parallaxFunction();
+   //    }
+   // }
+
+   this.openLogInWindow = function () {
+      modalWindow.classList.remove("modal_closed");
+      modalOverlay.classList.remove("modal_closed");
    }
 
-   closeLogInWindow() {
-      this.modalWindow.classList.add("modal_closed");
-      this.modalOverlay.classList.add("modal_closed");
-      this.usernameInput.value = '';
-      this.emailInput.value = '';
-      this.enterPassword.value = '';
-      this.usernameInput.classList.remove('invalid');
-      this.usernameInput.classList.remove('valid');
-      this.emailInput.classList.remove('invalid');
-      this.emailInput.classList.remove('valid');
-      this.enterPassword.classList.remove('invalid');
-      this.enterPassword.classList.remove('valid');
+   this.closeLogInWindow = function () {
+      modalWindow.classList.add("modal_closed");
+      modalOverlay.classList.add("modal_closed");
+      usernameInput.value = '';
+      emailInput.value = '';
+      passwordInput.value = '';
+      usernameInput.classList.remove('invalid');
+      usernameInput.classList.remove('valid');
+      emailInput.classList.remove('invalid');
+      emailInput.classList.remove('valid');
+      passwordInput.classList.remove('invalid');
+      passwordInput.classList.remove('valid');
    }
 
-   changeToRegistration() {
-      this.modalHeaderLogin.classList.add('hide');
-      this.modalHeaderRegistration.classList.remove('hide');
-      this.modalButtonLogin.classList.add('hide');
-      this.modalButtonRegistration.classList.remove('hide');
-      this.modalBlockRegistration.classList.add('hide');
-      this.modalBlockLogin.classList.remove('hide');
+   this.changeToRegistration = function () {
+      usernameInput.value = '';
+      emailInput.value = '';
+      passwordInput.value = '';
+      modalHeaderLogin.classList.add('hide');
+      modalHeaderRegistration.classList.remove('hide');
+      modalButtonLogin.classList.add('hide');
+      modalButtonRegistration.classList.remove('hide');
+      modalBlockRegistration.classList.add('hide');
+      modalBlockLogin.classList.remove('hide');
    }
 
-   changeToLogin() {
-      this.modalHeaderLogin.classList.remove('hide');
-      this.modalHeaderRegistration.classList.add('hide');
-      this.modalButtonLogin.classList.remove('hide');
-      this.modalButtonRegistration.classList.add('hide');
-      this.modalBlockRegistration.classList.remove('hide');
-      this.modalBlockLogin.classList.add('hide');
-      this.successfulRegistrationBlock.classList.add('hidden');
+   this.changeToLogin = function () {
+      usernameInput.value = '';
+      emailInput.value = '';
+      passwordInput.value = '';
+      usernameInput.classList.remove('valid');
+      passwordInput.classList.remove('valid');
+      emailInput.classList.remove('valid');
+      modalHeaderLogin.classList.remove('hide');
+      modalHeaderRegistration.classList.add('hide');
+      modalButtonLogin.classList.remove('hide');
+      modalButtonRegistration.classList.add('hide');
+      modalBlockRegistration.classList.remove('hide');
+      modalBlockLogin.classList.add('hide');
+      successfulRegistrationBlock.classList.add('hidden');
    }
 
-   ifUserExistShow() {
-      this.userExist.classList.remove('hidden');
+   this.ifUserExistShow = function () {
+      userExist.classList.remove('hidden');
    }
 
-   ifUserNotExistHide() {
-      this.userExist.classList.add('hidden');
+   this.ifUserNotExistHide = function () {
+      userExist.classList.add('hidden');
    }
 
-   successfulRegistration() {
-      this.successfulRegistrationBlock.classList.remove('hidden');
+   this.successfulRegistration = function () {
+      successfulRegistrationBlock.classList.remove('hidden');
    }
 
-   ifError(error) {
+   this.ifError = function (error) {
       alert('Произошел сбой, повторите еще раз!');
    }
 
-   usernameValidation() {
-      this.usernameInput.classList.add('invalid');
-      this.usernameInput.classList.remove('valid');
-      this.usernameToast.classList.remove('hidden');
+   this.usernameValidation = function () {
+      usernameInput.classList.add('invalid');
+      usernameInput.classList.remove('valid');
+      usernameToast.classList.remove('hidden');
    }
 
-   usernameCorrectValidation() {
-      this.usernameInput.classList.remove('invalid');
-      this.usernameInput.classList.add('valid');
-      this.usernameToast.classList.add('hidden');
+   this.usernameCorrectValidation = function () {
+      usernameInput.classList.remove('invalid');
+      usernameInput.classList.add('valid');
+      usernameToast.classList.add('hidden');
    }
 
-   emailValidation() {
-      this.emailInput.classList.add('invalid');
-      this.emailInput.classList.remove('valid');
-      this.emailToast.classList.remove('hidden');
+   this.emailValidation = function () {
+      emailInput.classList.add('invalid');
+      emailInput.classList.remove('valid');
+      emailToast.classList.remove('hidden');
    }
 
-   emailCorrectValidation() {
-      this.emailInput.classList.add('valid');
-      this.emailInput.classList.remove('invalid');
-      this.emailToast.classList.add('hidden');
+   this.emailCorrectValidation = function () {
+      emailInput.classList.add('valid');
+      emailInput.classList.remove('invalid');
+      emailToast.classList.add('hidden');
    }
 
-   passwordValidation() {
-      this.enterPassword.classList.add('invalid');
-      this.enterPassword.classList.remove('valid');
-      this.passwordToast.classList.remove('hidden');
+   this.passwordValidation = function () {
+      passwordInput.classList.add('invalid');
+      passwordInput.classList.remove('valid');
+      passwordToast.classList.remove('hidden');
    }
 
-   passwordCorrectValidation() {
-      this.enterPassword.classList.add('valid');
-      this.enterPassword.classList.remove('invalid');
-      this.passwordToast.classList.add('hidden');
+   this.passwordCorrectValidation = function () {
+      passwordInput.classList.add('valid');
+      passwordInput.classList.remove('invalid');
+      passwordToast.classList.add('hidden');
    }
 }
 

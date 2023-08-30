@@ -15,39 +15,39 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-class Model {
-   myView = null;
+function Model() {
+   let myView = null;
 
-   init(view) {
-      this.myView = view;
+   this.init = function (view) {
+      myView = view;
    }
 
-   updateState(pageName) {
-      this.myView.renderContent(pageName);
+   this.updateState = function (_pageName) {
+      myView.renderContent(_pageName);
    }
 
-   openLogInWindow() {
-      this.myView.openLogInWindow();
+   this.openLogInWindow = function () {
+      myView.openLogInWindow();
    }
 
-   closeLogInWindow() {
-      this.myView.closeLogInWindow();
+   this.closeLogInWindow = function () {
+      myView.closeLogInWindow();
    }
 
-   changeToRegistration() {
-      this.myView.changeToRegistration();
+   this.changeToRegistration = function () {
+      myView.changeToRegistration();
    }
 
-   changeToLogin() {
-      this.myView.changeToLogin();
+   this.changeToLogin = function () {
+      myView.changeToLogin();
    }
 
-   parallaxEffect() {
-     this.myView.parallaxEffect();
-   }
+   // this.parallaxEffect = function () {
+   //    myView.parallaxEffect();
+   // }
 
    //метод валидации
-   validateData(user, email, password) {
+   this.validateData = function (user, email, password) {
       //только латинские буквы
       let userNameRegEx = /^[a-zA-Z\s]+$/;
       //стандартная валидация почты
@@ -56,31 +56,31 @@ class Model {
       let passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
       if (!userNameRegEx.test(user)) {
-         this.myView.usernameValidation();
+         myView.usernameValidation();
          return false;
       } else {
-         this.myView.usernameCorrectValidation();
+         myView.usernameCorrectValidation();
       }
 
       if (!emailRegEx.test(email)) {
-         this.myView.emailValidation();
+         myView.emailValidation();
          return false;
       } else {
-         this.myView.emailCorrectValidation();
+         myView.emailCorrectValidation();
       }
 
       if (!passwordRegEx.test(password)) {
-         this.myView.passwordValidation();
+         myView.passwordValidation();
          return false;
       } else {
-         this.myView.passwordCorrectValidation();
+         myView.passwordCorrectValidation();
       }
 
       return true;
    }
 
    //метод регистрации пользователя
-   registerUser(user, email, password) {
+   this.registerUser = function (user, email, password) {
       if (!this.validateData(user, email, password)) {
          return;
       } else {
@@ -92,9 +92,9 @@ class Model {
             .then((snapshot) => {
                //если пользователь существует, то вызываем метод View
                if (snapshot.exists()) {
-                  this.myView.ifUserExistShow();
+                  myView.ifUserExistShow();
                } else {
-                  this.myView.ifUserNotExistHide();
+                  myView.ifUserNotExistHide();
                   //если пользователь отсутствует, то записываем его в базу
                   set(ref(db, "UsersList/" + user),
                      {
@@ -113,19 +113,23 @@ class Model {
                      })
                      //если регистрация прошла успешно, то вызываем метод View
                      .then(() => {
-                        this.myView.successfulRegistration();
+                        myView.successfulRegistration();
                      })
                      //если регистрация не удалась, то вызываем метод View
                      .catch((error) => {
-                        this.myView.ifError(error);
+                        myView.ifError(error);
                      })
                }
             })
       }
    }
 
-   updateState(pageName) {
-      this.myView.renderContent(pageName);
+   this.logInUser = function () {
+      myView.logInUser();
+   }
+
+   this.updateState = function (pageName) {
+      myView.renderContent(pageName);
    }
 }
 

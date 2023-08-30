@@ -1,93 +1,84 @@
-class Controller {
-   myContainer = null;
-   myModel = null;
-   userName = null;
-   email = null;
-   password = null;
-   hashPageName = null;
+function Controller() {
+   let myContainer = null;
+   let myModel = null;
+   let inputUsername = null;
+   let inputEmail = null;
+   let inputPassword = null;
 
-   init(model, container) {
-      //получение элементов, с которыми взаимодействует пользователь
-      this.myContainer = container;
-      this.myModel = model;
+   function updateState() {
+      const hashPageName = location.hash.slice(1).toLowerCase();
+      myModel.updateState(hashPageName);
 
-      window.addEventListener("hashchange", this.updateState);
-      this.updateState();
+      const buttonOpenModal = myContainer.querySelector('.btn-start');
+      const buttonCloseModal = myContainer.querySelector('#modal-close');
+      const buttonChangeToRegistration = myContainer.querySelector('#form-register');
+      const buttonChangeToLogin = myContainer.querySelector('#form-login');
+      const buttonLogIn = myContainer.querySelector('#submit-login');
+      const buttonRegisterUser = myContainer.querySelector('#submit-register');
+      const successfulRegistrationBtn = myContainer.querySelector('#successful-registration-btn');
 
-      this.buttonOpenModal = this.myContainer.querySelector('.btn-start');
-      this.buttonCloseModal = this.myContainer.querySelector('#modal-close');
-      this.buttonChangeToRegistration = this.myContainer.querySelector('#form-register');
-      this.buttonChangeToLogin = this.myContainer.querySelector('#form-login');
-      this.buttonLogIn = this.myContainer.querySelector('#submit-login');
-      this.buttonRegisterUser = this.myContainer.querySelector('#submit-register');
-      this.enterUsername = this.myContainer.querySelector('#username');
-      this.enterEmail = this.myContainer.querySelector('#email');
-      this.enterPassword = this.myContainer.querySelector('#password');
-      this.successfulRegistrationBtn = this.myContainer.querySelector('#successful-registration-btn');
+      inputUsername = myContainer.querySelector('#username');
+      inputEmail = myContainer.querySelector('#email');
+      inputPassword = myContainer.querySelector('#password');
 
       //события на контроллеры
-      this.buttonOpenModal.addEventListener('click', this.openLogInWindow.bind(this));
-      this.buttonCloseModal.addEventListener('click', this.closeLogInWindow.bind(this));
-      this.buttonChangeToRegistration.addEventListener('click', this.changeToRegistration.bind(this));
-      this.buttonChangeToLogin.addEventListener('click', this.changeToLogin.bind(this));
-      this.buttonLogIn.addEventListener('click', this.logInUser.bind(this));
-      this.buttonRegisterUser.addEventListener('click', this.registerUser.bind(this));
-      this.successfulRegistrationBtn.addEventListener('click', this.changeToLogin.bind(this));
+      buttonOpenModal.addEventListener('click', openLogInWindow);
+      buttonCloseModal.addEventListener('click', closeLogInWindow);
+      buttonChangeToRegistration.addEventListener('click', changeToRegistration);
+      buttonChangeToLogin.addEventListener('click', changeToLogin);
+      buttonLogIn.addEventListener('click', logInUser);
+      buttonRegisterUser.addEventListener('click', registerUser);
+      successfulRegistrationBtn.addEventListener('click', changeToLogin);
 
-      this.enterUsername.addEventListener('input', this.getNameValuefromInput.bind(this));
-      this.enterEmail.addEventListener('input', this.getEmailValuefromInput.bind(this));
-      this.enterPassword.addEventListener('input', this.getPasswordValuefromInput.bind(this));
-
-      this.myContainer.addEventListener('mousemove', this.parallaxFunction.bind(this));
+      // myContainer.addEventListener('mousemove', parallaxFunction);
    }
 
-   updateState() {
-      this.hashPageName = location.hash.slice(1).toLowerCase();
-      this.myModel.updateState(this.hashPageName);
-   }
-
-   parallaxFunction() {
-      this.myModel.parallaxEffect();
+   function parallaxFunction() {
+      myModel.parallaxEffect();
    }
 
    //методы контроллера, которые вызывают методы модели и передают туда данные
-   openLogInWindow() {
-      this.myModel.openLogInWindow();
+   function openLogInWindow() {
+      myModel.openLogInWindow();
    }
 
-   closeLogInWindow() {
-      this.myModel.closeLogInWindow();
+   function closeLogInWindow() {
+      myModel.closeLogInWindow();
    }
 
-   changeToRegistration() {
-      this.myModel.changeToRegistration();
+   function changeToRegistration() {
+      myModel.changeToRegistration();
    }
 
-   changeToLogin() {
-      this.myModel.changeToLogin();
+   function changeToLogin() {
+      myModel.changeToLogin();
    }
 
-   logInUser() {
-      this.myModel.logInUser();
+   function logInUser() {
+      myModel.logInUser();
    }
 
-   getNameValuefromInput() {
-      this.name = this.enterUsername.value;
-      return this.name;
+   function registerUser() {
+      myModel.registerUser(inputUsername.value, inputEmail.value, inputPassword.value);
    }
 
-   getEmailValuefromInput() {
-      this.email = this.enterEmail.value;
-      return this.email;
-   }
+   return {
+      init: function (container, model) {
+         //получение элементов, с которыми взаимодействует пользователь
+         myContainer = container;
+         myModel = model;
 
-   getPasswordValuefromInput() {
-      this.password = this.enterPassword.value;
-      return this.password;
-   }
+         window.addEventListener("hashchange", updateState);
 
-   registerUser() {
-      this.myModel.registerUser(this.getNameValuefromInput(), this.getEmailValuefromInput(), this.getPasswordValuefromInput());
+         // myContainer.querySelector("#mainmenu").addEventListener("click", function (event) {
+         //    event.preventDefault();
+         //    window.location.hash = event.target.getAttribute("href");
+         // });
+
+         updateState();
+
+
+      }
    }
 }
 

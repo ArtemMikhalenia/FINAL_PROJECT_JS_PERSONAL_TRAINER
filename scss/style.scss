@@ -651,6 +651,48 @@ body {
 				}
 			}
 		}
+
+		.training-content {
+
+			button {
+				font-size: 14px;
+				margin-bottom: 20px;
+				background-color: #F97316;
+				padding: 5px 10px;
+				border-radius: 3px;
+				color: #FFFFFF;
+				transition: all 0.5s ease 0s;
+
+				&:hover {
+					background-color: #CBD5E1;
+					color: #F97316;
+				}
+			}
+
+			.training-block {
+				width: 100%;
+				height: auto;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				column-gap: 20px;
+				grid-template-rows: minmax(200px, 1fr);
+
+				&__todo {
+					border: 2px solid #06B6D4;
+					border-radius: 6px;
+				}
+
+				&__inprogress {
+					border: 2px solid #F97316;
+					border-radius: 6px;
+				}
+
+				&__finished {
+					border: 2px solid #86d76d;
+					border-radius: 6px;
+				}
+			}
+		}
 	}
 }
 
