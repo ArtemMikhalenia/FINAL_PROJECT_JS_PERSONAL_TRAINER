@@ -434,7 +434,7 @@ body {
 					display: inline-block;
 
 					path {
-						stroke: #FFFFFF;
+						stroke: #475569;
 						fill: #FFFFFF;
 					}
 				}
@@ -447,7 +447,8 @@ body {
 
 				svg {
 					path {
-						stroke: #FFFFFF;
+						stroke: #475569;
+						fill: #FFFFFF;
 					}
 				}
 			}
@@ -489,10 +490,6 @@ body {
 
 	&__body {
 		margin: 0px 0px 0px 238px;
-		// background-image: url('../images/bg-login.jpg');
-		// background-position: center;
-		// background-size: cover;
-		// background-repeat: no-repeat;
 	}
 
 	&__header {
@@ -654,7 +651,7 @@ body {
 
 		.training-content {
 
-			button {
+			.add-exercise {
 				font-size: 14px;
 				margin-bottom: 20px;
 				background-color: #F97316;
@@ -690,6 +687,27 @@ body {
 				&__finished {
 					border: 2px solid #86d76d;
 					border-radius: 6px;
+				}
+
+				.exercise {
+					display: flex;
+					justify-content: space-between;
+					margin: 2px;
+					padding: 5px;
+					background-color: rgb(210, 178, 64);
+					color: white;
+					border-radius: 3px;
+
+					&__delete-btn {
+						color: white;
+						background-color: #06B6D4;
+						padding: 0px 4px;
+						cursor: pointer;
+
+						&:hover {
+							background-color: wheat;
+						}
+					}
 				}
 			}
 		}

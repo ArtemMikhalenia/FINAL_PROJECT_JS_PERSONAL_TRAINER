@@ -4,6 +4,7 @@ function Controller() {
    let inputUsername = null;
    let inputEmail = null;
    let inputPassword = null;
+   let buttonRemoveExercise = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -22,22 +23,29 @@ function Controller() {
       inputPassword = myContainer.querySelector('#password');
 
       //события на контроллеры
-      buttonOpenModal.addEventListener('click', openLogInWindow);
-      buttonCloseModal.addEventListener('click', closeLogInWindow);
-      buttonChangeToRegistration.addEventListener('click', changeToRegistration);
-      buttonChangeToLogin.addEventListener('click', changeToLogin);
-      buttonLogIn.addEventListener('click', logInUser);
-      buttonRegisterUser.addEventListener('click', registerUser);
-      successfulRegistrationBtn.addEventListener('click', changeToLogin);
+      if (hashPageName === "startpage" || hashPageName === "") {
+         buttonOpenModal.addEventListener('click', openLogInWindow);
+         buttonCloseModal.addEventListener('click', closeLogInWindow);
+         buttonChangeToRegistration.addEventListener('click', changeToRegistration);
+         buttonChangeToLogin.addEventListener('click', changeToLogin);
+         buttonLogIn.addEventListener('click', logInUser);
+         buttonRegisterUser.addEventListener('click', registerUser);
+         successfulRegistrationBtn.addEventListener('click', changeToLogin);
 
-      // myContainer.addEventListener('mousemove', parallaxFunction);
+         myContainer.addEventListener('mousemove', parallaxFunction);
+      }
+
+      const buttonAddExercise = document.querySelector('.add-exercise');
+      buttonAddExercise && buttonAddExercise.addEventListener('click', addExercise);
+
+      // buttonRemoveExercise = document.querySelector('.exercise__delete-btn');
+      // buttonRemoveExercise && buttonRemoveExercise.addEventListener('click', removeExercise);
    }
 
    function parallaxFunction() {
       myModel.parallaxEffect();
    }
 
-   //методы контроллера, которые вызывают методы модели и передают туда данные
    function openLogInWindow() {
       myModel.openLogInWindow();
    }
@@ -62,22 +70,23 @@ function Controller() {
       myModel.registerUser(inputUsername.value, inputEmail.value, inputPassword.value);
    }
 
+   function addExercise() {
+      console.log('controller');
+      myModel.addExercise();
+   }
+
+   function removeExercise() {
+      console.log('controller');
+      myModel.removeExercise();
+   }
+
    return {
       init: function (container, model) {
-         //получение элементов, с которыми взаимодействует пользователь
          myContainer = container;
          myModel = model;
 
          window.addEventListener("hashchange", updateState);
-
-         // myContainer.querySelector("#mainmenu").addEventListener("click", function (event) {
-         //    event.preventDefault();
-         //    window.location.hash = event.target.getAttribute("href");
-         // });
-
          updateState();
-
-
       }
    }
 }

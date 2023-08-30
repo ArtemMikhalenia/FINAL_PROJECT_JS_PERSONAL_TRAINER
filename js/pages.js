@@ -1,5 +1,6 @@
 import { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress } from './components.js';
 
+
 const StartPage = {
    id: "startpage",
    title: "Начальная страница",
@@ -13,15 +14,6 @@ const StartPage = {
       ${StartModalOverlay.render()}
       </section>
       ${ParallaxImages.render()}
-         `;
-   }
-};
-
-const Modal = {
-   id: "modalpage",
-   title: "Модальное окно",
-   render: () => {
-      return `
          `;
    }
 };
@@ -41,7 +33,7 @@ const MainPage = {
 
 const TrainingPage = {
    id: "trainingpage",
-   title: "Страница тренировка",
+   title: "Тренировка",
    render: () => {
       return `
       <section class="mainblock" id="mainblock">
@@ -54,7 +46,7 @@ const TrainingPage = {
 
 const DietPage = {
    id: "dietpage",
-   title: "Страница питание",
+   title: "Питание",
    render: () => {
       return `
       <section class="mainblock" id="mainblock">
@@ -67,7 +59,7 @@ const DietPage = {
 
 const ExercisesDatabasePage = {
    id: "exercisesdatabasepage",
-   title: "Страница питание",
+   title: "База упражнений",
    render: () => {
       return `
       <section class="mainblock" id="mainblock">
@@ -80,7 +72,7 @@ const ExercisesDatabasePage = {
 
 const ProgressPage = {
    id: "progresspage",
-   title: "Страница питание",
+   title: "Прогресс",
    render: () => {
       return `
       <section class="mainblock" id="mainblock">
@@ -92,6 +84,6 @@ const ProgressPage = {
 };
 
 export {
-   StartPage, MainPage, Modal, TrainingPage, DietPage,
+   StartPage, MainPage, TrainingPage, DietPage,
    ExercisesDatabasePage, ProgressPage
 };

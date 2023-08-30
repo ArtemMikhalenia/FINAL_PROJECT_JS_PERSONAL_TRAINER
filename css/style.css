@@ -429,7 +429,7 @@ body.lock {
   display: inline-block;
 }
 .mainblock .sidebar__link.active svg path, .mainblock .sidebar__link.active:hover svg path {
-  stroke: #FFFFFF;
+  stroke: #475569;
   fill: #FFFFFF;
 }
 .mainblock .sidebar__link:hover {
@@ -438,7 +438,8 @@ body.lock {
   background-color: #e18215;
 }
 .mainblock .sidebar__link:hover svg path {
-  stroke: #FFFFFF;
+  stroke: #475569;
+  fill: #FFFFFF;
 }
 .mainblock .sidebar .btn-logout {
   display: flex;
@@ -603,7 +604,7 @@ body.lock {
   display: flex;
   justify-content: space-between;
 }
-.mainblock__content .training-content button {
+.mainblock__content .training-content .add-exercise {
   font-size: 14px;
   margin-bottom: 20px;
   background-color: #F97316;
@@ -612,7 +613,7 @@ body.lock {
   color: #FFFFFF;
   transition: all 0.5s ease 0s;
 }
-.mainblock__content .training-content button:hover {
+.mainblock__content .training-content .add-exercise:hover {
   background-color: #CBD5E1;
   color: #F97316;
 }
@@ -635,6 +636,24 @@ body.lock {
 .mainblock__content .training-content .training-block__finished {
   border: 2px solid #86d76d;
   border-radius: 6px;
+}
+.mainblock__content .training-content .training-block .exercise {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px;
+  padding: 5px;
+  background-color: rgb(210, 178, 64);
+  color: white;
+  border-radius: 3px;
+}
+.mainblock__content .training-content .training-block .exercise__delete-btn {
+  color: white;
+  background-color: #06B6D4;
+  padding: 0px 4px;
+  cursor: pointer;
+}
+.mainblock__content .training-content .training-block .exercise__delete-btn:hover {
+  background-color: wheat;
 }
 
 .btn-start {

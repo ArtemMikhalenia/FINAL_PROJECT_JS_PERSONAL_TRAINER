@@ -42,9 +42,9 @@ function Model() {
       myView.changeToLogin();
    }
 
-   // this.parallaxEffect = function () {
-   //    myView.parallaxEffect();
-   // }
+   this.parallaxEffect = function () {
+      myView.parallaxEffect();
+   }
 
    //метод валидации
    this.validateData = function (user, email, password) {
@@ -126,6 +126,14 @@ function Model() {
 
    this.logInUser = function () {
       myView.logInUser();
+   }
+
+   this.addExercise = function () {
+      myView.addExercise();
+   }
+
+   this.removeExercise = function () {
+      myView.removeExercise();
    }
 
    this.updateState = function (pageName) {

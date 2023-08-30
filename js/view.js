@@ -1,7 +1,6 @@
 function View() {
    let myContainer = null;
    let routesObj = null;
-   // let contentContainer = null;
    let modalWindow = null;
    let modalOverlay = null;
    let modalHeaderLogin = null;
@@ -22,8 +21,6 @@ function View() {
    this.init = function (container, routes) {
       myContainer = container;
       routesObj = routes;
-
-      // contentContainer = document.querySelector('#main-content');
    }
 
    this.renderContent = function (hashPageName) {
@@ -33,10 +30,8 @@ function View() {
          routeName = hashPageName in routesObj ? hashPageName : "error";
       }
 
-      // window.document.title = routesObj[routeName].title;
+      window.document.title = routesObj[routeName].title;
       myContainer.innerHTML = routesObj[routeName].render(`${routeName}`);
-      // contentContainer.innerHTML = routesObj[routeName].render(`${routeName}`);
-      // this.updateButtons(routesObj[routeName].id);
 
       modalWindow = myContainer.querySelector("#modal");
       modalOverlay = myContainer.querySelector(".modal__overlay");
@@ -60,69 +55,62 @@ function View() {
       const man = myContainer.querySelector('.man-image');
       const fog = myContainer.querySelector('.fog-image');
 
-      // this.parallaxEffect(myContainer, woman, man, fog);
-   }
-
-   this.updateButtons = function (currentPage) {
-      // const menuLinks = menu.querySelectorAll(".mainmenu__link");
-
-      // for (let link of menuLinks) {
-      //    currentPage === link.getAttribute("href").slice(1) ? link.classList.add("active") : link.classList.remove("active");
-      // }
+      if (hashPageName === "startpage" || hashPageName === "") {
+         this.parallaxEffect(myContainer, woman, man, fog);
+      }
    }
 
    this.logInUser = function () {
       window.location.hash = "#mainpage";
    }
 
-   // this.parallaxEffect = function (container, img1, img2, img3) {
-   //    myContainer = container;
+   this.parallaxEffect = function (container, img1, img2, img3) {
 
-   //    if (myContainer && img1 && img2 && img3) {
-   //       const containerWidth = myContainer.offsetWidth;
-   //       const containerHeight = myContainer.offsetHeight;
+      if (container && img1 && img2 && img3) {
+         const containerWidth = container.offsetWidth;
+         const containerHeight = container.offsetHeight;
 
-   //       //коэффициенты
-   //       const forMan = 30;
-   //       const forWoman = 20;
-   //       const forFog = 40;
+         //коэффициенты
+         const forMan = 30;
+         const forWoman = 20;
+         const forFog = 40;
 
-   //       //Скорость анимации
-   //       const speed = 0.05;
+         //Скорость анимации
+         const speed = 0.05;
 
-   //       //Объявление переменных
-   //       let posX = 0;
-   //       let posY = 0;
-   //       let coordXPercent = 0;
-   //       let coordYPercent = 0;
+         //Объявление переменных
+         let posX = 0;
+         let posY = 0;
+         let coordXPercent = 0;
+         let coordYPercent = 0;
 
-   //       const parallaxFunction = () => {
-   //          const distX = coordXPercent - posX;
-   //          const distY = coordYPercent - posY;
+         const parallaxFunction = () => {
+            const distX = coordXPercent - posX;
+            const distY = coordYPercent - posY;
 
-   //          posX = posX + (distX * speed);
-   //          posY = posY + (distY * speed);
+            posX = posX + (distX * speed);
+            posY = posY + (distY * speed);
 
-   //          img1.style.cssText = `transform: translate(${posX / forMan}%,${posY / forMan}%);`;
-   //          img2.style.cssText = `transform: translate(${posX / forWoman}%,${posY / forWoman}%);`;
-   //          img3.style.cssText = `transform: translate(${posX / forFog}%,${posY / forFog}%);`;
+            img1.style.cssText = `transform: translate(${posX / forMan}%,${posY / forMan}%);`;
+            img2.style.cssText = `transform: translate(${posX / forWoman}%,${posY / forWoman}%);`;
+            img3.style.cssText = `transform: translate(${posX / forFog}%,${posY / forFog}%);`;
 
-   //          requestAnimationFrame(parallaxFunction);
-   //       }
+            requestAnimationFrame(parallaxFunction);
+         }
 
-   //       myContainer.addEventListener("mousemove", function (el) {
-   //          // Ноль на середине
-   //          const coordX = el.pageX - containerWidth / 2;
-   //          const coordY = el.pageY - containerHeight / 2;
+         container.addEventListener("mousemove", function (el) {
+            // Ноль на середине
+            const coordX = el.pageX - containerWidth / 2;
+            const coordY = el.pageY - containerHeight / 2;
 
-   //          //Получаем проценты
-   //          coordXPercent = coordX / containerWidth * 100;
-   //          coordYPercent = coordY / containerHeight * 100;
-   //       });
+            //Получаем проценты
+            coordXPercent = coordX / containerWidth * 100;
+            coordYPercent = coordY / containerHeight * 100;
+         });
 
-   //       parallaxFunction();
-   //    }
-   // }
+         parallaxFunction();
+      }
+   }
 
    this.openLogInWindow = function () {
       modalWindow.classList.remove("modal_closed");
@@ -221,6 +209,23 @@ function View() {
       passwordInput.classList.add('valid');
       passwordInput.classList.remove('invalid');
       passwordToast.classList.add('hidden');
+   }
+
+   this.addExercise = function () {
+      const toDoBlock = document.querySelector('.training-block__todo');
+      const exercise = document.createElement('div');
+      exercise.className = 'exercise';
+      exercise.innerHTML = 'some text <button class="exercise__delete-btn">X</button>';
+
+      toDoBlock.append(exercise);
+   }
+
+   this.removeExercise = function () {
+      // const exercise = document.querySelector('.exercise');
+      // console.log(exercise);
+      const buttonRemoveExercise = document.querySelector(".exercise__delete-btn");
+      console.log('remove');
+      buttonRemoveExercise.closest('.exercise').remove();
    }
 }
 

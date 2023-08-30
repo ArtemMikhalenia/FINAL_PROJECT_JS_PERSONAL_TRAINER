@@ -6,7 +6,7 @@ import Controller from './controller.js';
 import { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress } from './components.js';
 
 import {
-   StartPage, MainPage, Modal, TrainingPage, DietPage,
+   StartPage, MainPage, TrainingPage, DietPage,
    ExercisesDatabasePage, ProgressPage
 } from './pages.js';
 
