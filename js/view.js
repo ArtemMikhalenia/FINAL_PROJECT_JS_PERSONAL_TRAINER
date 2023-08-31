@@ -221,22 +221,40 @@ function View() {
       trainingModal.classList.add('modal_closed');
    }
 
-   this.addExercise = function () {
+   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
       const trainingModal = document.querySelector('.training-modal');
       trainingModal.classList.add('modal_closed');
-      const toDoBlock = document.querySelector('.training-block__todo');
+
+      const toDoBlock = document.querySelector('.todo-block__content');
+
       const exercise = document.createElement('div');
       exercise.className = 'exercise';
-      exercise.innerHTML = `some text <button class="exercise__delete-btn">X</button>`;
+      exercise.setAttribute('draggable', 'true');
+      exercise.innerHTML = `
+      <p>Упражнение: ${exerciseName}</p>
+      <p>Подход: ${exerciseSet}</p>
+      <p>Вес: ${exerciseWeight} кг</p>
+      <p>Количество повторений: ${exerciseTime} раз</p>
+      <button class="exercise__delete-btn">Удалить</button>`;
 
       toDoBlock.append(exercise);
    }
 
-   this.removeExercise = function () {
-      const exercise = document.querySelector('.exercise');
-      const buttonRemoveExercise = exercise.querySelector(".exercise__delete-btn");
-      buttonRemoveExercise.closest('.exercise').remove();
+   this.removeExercise = function (event) {
+      event.target.closest('.exercise').remove();
    }
+
+   //drag&drop
+
+   // this.dragExerciseStart = function (event) {
+   //    // this.classList.add("dragging");
+   //    event.dataTransfer.setData("text", event.target.id);
+   //    event.dataTransfer.setData("content", event.target.textContent);
+   // }
+
+   // this.dragExerciseEnd = function (event) {
+   //    // this.classList.remove("dragging");
+   // }
 }
 
 export default View;

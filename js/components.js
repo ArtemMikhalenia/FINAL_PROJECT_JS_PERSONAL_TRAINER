@@ -425,9 +425,18 @@ const ContentTraining = {
                <h2>Тренировка</h2>
                <button class="add-exercise">Добавить упражнение</button>
                <div class="training-block">
-                  <div class="training-block__todo"></div>
-                  <div class="training-block__inprogress"></div>
-                  <div class="training-block__finished"></div>
+                  <div class="training-block__todo">
+                     <h3>Нужно сделать:</h3>
+                     <div class="todo-block__content"></div>
+                  </div>
+                  <div class="training-block__inprogress">
+                     <h3>В процессе:</h3>
+                     <div class="inprogress-block__content"></div>
+                  </div>
+                  <div class="training-block__finished">
+                     <h3>Готово:</h3>
+                     <div class="finished-block__content"></div>
+                  </div>
                </div>
                <div class="training-modal modal_closed" id="training-modal">
                   <div class="training-modal__header">

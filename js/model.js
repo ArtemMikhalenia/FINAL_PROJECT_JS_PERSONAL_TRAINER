@@ -136,12 +136,20 @@ function Model() {
       myView.closeExerciseModal();
    }
 
-   this.addExercise = function () {
-      myView.addExercise();
+   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
+      myView.addExercise(exerciseName, exerciseSet, exerciseWeight, exerciseTime);
    }
 
-   this.removeExercise = function () {
-      myView.removeExercise();
+   // this.dragExerciseStart = function (event) {
+   //    myView.dragExerciseStart(event);
+   // }
+
+   // this.dragExerciseEnd = function (event) {
+   //    myView.dragExerciseEnd(event);
+   // }
+
+   this.removeExercise = function (event) {
+      myView.removeExercise(event);
    }
 
    this.updateState = function (pageName) {

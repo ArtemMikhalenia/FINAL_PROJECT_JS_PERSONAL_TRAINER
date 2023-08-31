@@ -40,6 +40,30 @@ function Controller() {
 
       const buttonAddExercise = document.querySelector('.add-exercise');
       buttonAddExercise && buttonAddExercise.addEventListener('click', openExerciseModal);
+
+      //drag&drop
+
+      // document.querySelector('.todo-block__content').addEventListener("dragover", function (event) {
+      //    event.preventDefault();
+      //    // this.classList.add("parent-over");
+      // });
+
+      // document.querySelector('.todo-block__content').addEventListener("dragleave", function (event) {
+      //    // this.classList.remove("parent-over");
+      // });
+
+      // document.querySelector('.todo-block__content').addEventListener("drop", dropElement);
+
+      // document.querySelector('.training-block__inprogress').addEventListener("dragover", function (event) {
+      //    event.preventDefault();
+      //    // this.classList.add("parent-over");
+      // });
+
+      // document.querySelector('.training-block__inprogress').addEventListener("dragleave", function (event) {
+      //    // this.classList.remove("parent-over");
+      // });
+
+      // document.querySelector('.training-block__inprogress').addEventListener("drop", dropElement);
    }
 
    function parallaxFunction() {
@@ -83,11 +107,6 @@ function Controller() {
       inputTrainingExerciseSet = document.querySelector('#exerciseset');
       inputTrainingExerciseWeight = document.querySelector('#exerciseweight');
       inputTrainingExerciseTime = document.querySelector('#exercisetime');
-
-      inputTrainingExerciseName.addEventListener('input', func);
-      inputTrainingExerciseSet.addEventListener('input', func);
-      inputTrainingExerciseWeight.addEventListener('input', func);
-      inputTrainingExerciseTime.addEventListener('input', func);
    }
 
    function closeExerciseModal() {
@@ -95,19 +114,47 @@ function Controller() {
    }
 
    function addExercise() {
-      myModel.addExercise();
+      myModel.addExercise(inputTrainingExerciseName.value, inputTrainingExerciseSet.value, inputTrainingExerciseWeight.value, inputTrainingExerciseTime.value);
 
       const buttonRemoveExercise = document.querySelectorAll('.exercise__delete-btn');
       buttonRemoveExercise && buttonRemoveExercise.forEach(el => {
          el.addEventListener('click', removeExercise);
       });
 
+      // const draggableElement = document.querySelectorAll('.exercise');
+      // draggableElement && draggableElement.forEach(el => {
+      //    el.addEventListener("dragstart", dragExerciseStart);
+      //    el.addEventListener("dragend", dragExerciseEnd);
+      // });
    }
 
-   function removeExercise() {
-      console.log('controller');
-      myModel.removeExercise();
+   // function dropElement(event) {
+   //    event.preventDefault();
+   //    let data = event.dataTransfer.getData("text"); // id
+   //    let content = event.dataTransfer.getData("content"); // название услуги
+
+   //    // if (this === document.querySelector('.todo-block__content') && !(data in services)) {
+   //    //    services[data] = content;
+   //    // }
+
+   //    // if (this === document.querySelector('.training-block__inprogress')) {
+   //    //    delete services[data];
+   //    // }
+
+   //    this.append(document.getElementById(data));
+   // }
+
+   function removeExercise(event) {
+      myModel.removeExercise(event);
    }
+
+   // function dragExerciseStart(event) {
+   //    myModel.dragExerciseStart(event);
+   // }
+
+   // function dragExerciseEnd(event) {
+   //    myModel.dragExerciseEnd(event);
+   // }
 
    return {
       init: function (container, model) {

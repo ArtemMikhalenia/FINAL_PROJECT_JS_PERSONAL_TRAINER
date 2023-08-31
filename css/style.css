@@ -605,7 +605,7 @@ body.lock {
   justify-content: space-between;
 }
 .mainblock__content .training-content .add-exercise {
-  font-size: 14px;
+  font-size: 17px;
   margin-bottom: 20px;
   background-color: #F97316;
   padding: 5px 10px;
@@ -625,35 +625,48 @@ body.lock {
   column-gap: 20px;
   grid-template-rows: minmax(200px, 1fr);
 }
-.mainblock__content .training-content .training-block__todo {
+.mainblock__content .training-content .training-block h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.mainblock__content .training-content .training-block__todo .todo-block__content {
+  height: 100%;
   border: 2px solid #06B6D4;
   border-radius: 6px;
 }
-.mainblock__content .training-content .training-block__inprogress {
+.mainblock__content .training-content .training-block__inprogress .inprogress-block__content {
+  height: 100%;
   border: 2px solid #F97316;
   border-radius: 6px;
 }
-.mainblock__content .training-content .training-block__finished {
+.mainblock__content .training-content .training-block__finished .finished-block__content {
+  height: 100%;
   border: 2px solid #86d76d;
   border-radius: 6px;
 }
 .mainblock__content .training-content .training-block .exercise {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 2px;
   padding: 5px;
-  background-color: rgb(210, 178, 64);
+  background-color: #06B6D4;
   color: white;
   border-radius: 3px;
 }
+.mainblock__content .training-content .training-block .exercise p {
+  margin-bottom: 5px;
+}
 .mainblock__content .training-content .training-block .exercise__delete-btn {
-  color: white;
+  padding: 4px;
+  border-radius: 3px;
   background-color: #06B6D4;
-  padding: 0px 4px;
+  color: white;
   cursor: pointer;
 }
 .mainblock__content .training-content .training-block .exercise__delete-btn:hover {
-  background-color: wheat;
+  background-color: #058096;
 }
 .mainblock__content .training-content .training-modal {
   display: block;
