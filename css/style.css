@@ -655,6 +655,75 @@ body.lock {
 .mainblock__content .training-content .training-block .exercise__delete-btn:hover {
   background-color: wheat;
 }
+.mainblock__content .training-content .training-modal {
+  display: block;
+  width: 400px;
+  max-width: 100%;
+  padding: 10px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  background: #F1F5F9;
+  border: 2px solid #7C6DD7;
+}
+.mainblock__content .training-content .training-modal__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.mainblock__content .training-content .training-modal__header img {
+  max-width: 120px;
+  border-radius: 3px;
+}
+.mainblock__content .training-content .training-modal__close {
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+.mainblock__content .training-content .training-modal__close img {
+  max-width: 20px;
+  width: 100%;
+}
+.mainblock__content .training-content .training-modal__close:hover {
+  transform: scale(1.15);
+}
+.mainblock__content .training-content .training-modal__form {
+  display: flex;
+  flex-direction: column;
+}
+.mainblock__content .training-content .training-modal__form label {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.mainblock__content .training-content .training-modal__exercisename, .mainblock__content .training-content .training-modal__exerciseset, .mainblock__content .training-content .training-modal__exerciseweight, .mainblock__content .training-content .training-modal__exercisetime {
+  padding: 3px 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(133, 133, 133, 0.925);
+  background: none;
+  color: rgb(0, 0, 0);
+}
+.mainblock__content .training-content .training-modal__add {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 15px;
+  background-color: #F97316;
+  padding: 10px;
+  border-radius: 3px;
+  color: #FFFFFF;
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+}
+.mainblock__content .training-content .training-modal__add:hover {
+  background-color: #CBD5E1;
+  color: #F97316;
+}
+.mainblock__content .training-content .modal_closed {
+  display: none;
+}
 
 .btn-start {
   position: relative;

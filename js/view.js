@@ -211,20 +211,30 @@ function View() {
       passwordToast.classList.add('hidden');
    }
 
+   this.openExerciseModal = function () {
+      const trainingModal = document.querySelector('.training-modal');
+      trainingModal.classList.remove('modal_closed');
+   }
+
+   this.closeExerciseModal = function () {
+      const trainingModal = document.querySelector('.training-modal');
+      trainingModal.classList.add('modal_closed');
+   }
+
    this.addExercise = function () {
+      const trainingModal = document.querySelector('.training-modal');
+      trainingModal.classList.add('modal_closed');
       const toDoBlock = document.querySelector('.training-block__todo');
       const exercise = document.createElement('div');
       exercise.className = 'exercise';
-      exercise.innerHTML = 'some text <button class="exercise__delete-btn">X</button>';
+      exercise.innerHTML = `some text <button class="exercise__delete-btn">X</button>`;
 
       toDoBlock.append(exercise);
    }
 
    this.removeExercise = function () {
-      // const exercise = document.querySelector('.exercise');
-      // console.log(exercise);
-      const buttonRemoveExercise = document.querySelector(".exercise__delete-btn");
-      console.log('remove');
+      const exercise = document.querySelector('.exercise');
+      const buttonRemoveExercise = exercise.querySelector(".exercise__delete-btn");
       buttonRemoveExercise.closest('.exercise').remove();
    }
 }

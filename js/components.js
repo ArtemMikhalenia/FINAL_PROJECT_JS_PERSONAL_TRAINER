@@ -238,7 +238,7 @@ const ContentMain = {
    render: () => {
       return `
       <div class="mainblock__body">
-      <header class="mainblock__header">"Если тяжело, значит развиваешься!</header>
+      <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
       <div class="mainblock__content" id="main-content">
          <h2>Информация о пользователе</h2>
          <div class="user-info">
@@ -419,17 +419,45 @@ const ContentTraining = {
    render: () => {
       return `
       <div class="mainblock__body">
-         <header class="mainblock__header">"Если тяжело, значит        развиваешься!</header>
+         <header class="mainblock__header">"Если тяжело, значит развиваешься!</header>
          <div class="mainblock__content" id="main-content">
-         <div class="training-content">
-						<h2>Тренировка</h2>
-						<button class="add-exercise">Добавить упражнение</button>
-						<div class="training-block">
-							<div class="training-block__todo"></div>
-							<div class="training-block__inprogress"></div>
-							<div class="training-block__finished"></div>
-						</div>
-		</div>
+            <div class="training-content">
+               <h2>Тренировка</h2>
+               <button class="add-exercise">Добавить упражнение</button>
+               <div class="training-block">
+                  <div class="training-block__todo"></div>
+                  <div class="training-block__inprogress"></div>
+                  <div class="training-block__finished"></div>
+               </div>
+               <div class="training-modal modal_closed" id="training-modal">
+                  <div class="training-modal__header">
+                     <button class="training-modal__close" id="training-modal-close" title="Закрыть модальное окно">
+                        <img src="./images/icons/x_training.svg" alt="x-icon">
+                     </button>
+                  </div>
+                     <form class="training-modal__form">
+                        <label class="input-label" for="exercisename">Введите название упражнения: <abbr
+                        title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+                        <input type="text" id="exercisename" autocomplete="off" class="training-modal__exercisename" required>
+
+                        <label class="input-label" for="exerciseset">Подход: <abbr
+                        title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+                        <input type="number" id="exerciseset" autocomplete="off" class="training-modal__exerciseset" required>
+
+                        <label class="input-label" for="exerciseweight">Вес (кг): <abbr
+                        title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+                        <input type="number" id="exerciseweight" autocomplete="off" class="training-modal__exerciseweight" required>
+
+                        <label class="input-label" for="exercisetime">Количество повторений: <abbr
+                        title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+                        <input type="number" id="exercisetime" autocomplete="off" class="training-modal__exercisetime" required>
+                     
+                        <input type="button" id="training-modal__add" class="training-modal__add"
+                         value="Добавить">
+                     </form>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
       `;

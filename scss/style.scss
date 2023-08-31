@@ -710,6 +710,98 @@ body {
 					}
 				}
 			}
+
+			.training-modal {
+				display: block;
+				width: 400px;
+				max-width: 100%;
+
+				padding: 10px;
+
+				position: fixed;
+				z-index: 100;
+				left: 50%;
+				top: 50%;
+
+				border-radius: 10px;
+				transform: translate(-50%, -50%);
+				background: #F1F5F9;
+				border: 2px solid #7C6DD7;
+
+				&__header {
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+
+					margin-bottom: 10px;
+
+					img {
+						max-width: 120px;
+						border-radius: 3px;
+					}
+				}
+
+				&__close {
+					cursor: pointer;
+
+					transition: all 0.5s ease 0s;
+
+					img {
+						max-width: 20px;
+						width: 100%;
+					}
+				}
+
+				&__close:hover {
+					transform: scale(1.15);
+				}
+
+				&__form {
+					display: flex;
+					flex-direction: column;
+
+					label {
+						font-size: 15px;
+						margin-bottom: 5px;
+					}
+				}
+
+				&__exercisename,
+				&__exerciseset,
+				&__exerciseweight,
+				&__exercisetime {
+					padding: 3px 10px;
+					margin-bottom: 20px;
+
+					font-size: 13px;
+
+					border-bottom: 1px solid rgba(133, 133, 133, 0.925);
+					background: none;
+					color: rgba(0, 0, 0, 1);
+				}
+
+				&__add {
+					width: 40%;
+					margin: 0 auto;
+
+					font-size: 15px;
+					background-color: #F97316;
+					padding: 10px;
+					border-radius: 3px;
+					color: #FFFFFF;
+					transition: all 0.5s ease 0s;
+					cursor: pointer;
+
+					&:hover {
+						background-color: #CBD5E1;
+						color: #F97316;
+					}
+				}
+			}
+
+			.modal_closed {
+				display: none;
+			}
 		}
 	}
 }

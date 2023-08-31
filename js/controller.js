@@ -4,7 +4,10 @@ function Controller() {
    let inputUsername = null;
    let inputEmail = null;
    let inputPassword = null;
-   let buttonRemoveExercise = null;
+   let inputTrainingExerciseName = null;
+   let inputTrainingExerciseSet = null;
+   let inputTrainingExerciseWeight = null;
+   let inputTrainingExerciseTime = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -36,10 +39,7 @@ function Controller() {
       }
 
       const buttonAddExercise = document.querySelector('.add-exercise');
-      buttonAddExercise && buttonAddExercise.addEventListener('click', addExercise);
-
-      // buttonRemoveExercise = document.querySelector('.exercise__delete-btn');
-      // buttonRemoveExercise && buttonRemoveExercise.addEventListener('click', removeExercise);
+      buttonAddExercise && buttonAddExercise.addEventListener('click', openExerciseModal);
    }
 
    function parallaxFunction() {
@@ -70,9 +70,38 @@ function Controller() {
       myModel.registerUser(inputUsername.value, inputEmail.value, inputPassword.value);
    }
 
+   function openExerciseModal() {
+      myModel.openExerciseModal();
+
+      const buttonCloseExerciseModal = document.querySelector('.training-modal__close');
+      buttonCloseExerciseModal.addEventListener('click', closeExerciseModal);
+
+      const buttonAddExercise = document.querySelector('.training-modal__add');
+      buttonAddExercise.addEventListener('click', addExercise);
+
+      inputTrainingExerciseName = document.querySelector('#exercisename');
+      inputTrainingExerciseSet = document.querySelector('#exerciseset');
+      inputTrainingExerciseWeight = document.querySelector('#exerciseweight');
+      inputTrainingExerciseTime = document.querySelector('#exercisetime');
+
+      inputTrainingExerciseName.addEventListener('input', func);
+      inputTrainingExerciseSet.addEventListener('input', func);
+      inputTrainingExerciseWeight.addEventListener('input', func);
+      inputTrainingExerciseTime.addEventListener('input', func);
+   }
+
+   function closeExerciseModal() {
+      myModel.closeExerciseModal();
+   }
+
    function addExercise() {
-      console.log('controller');
       myModel.addExercise();
+
+      const buttonRemoveExercise = document.querySelectorAll('.exercise__delete-btn');
+      buttonRemoveExercise && buttonRemoveExercise.forEach(el => {
+         el.addEventListener('click', removeExercise);
+      });
+
    }
 
    function removeExercise() {

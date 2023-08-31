@@ -128,6 +128,14 @@ function Model() {
       myView.logInUser();
    }
 
+   this.openExerciseModal = function () {
+      myView.openExerciseModal();
+   }
+
+   this.closeExerciseModal = function () {
+      myView.closeExerciseModal();
+   }
+
    this.addExercise = function () {
       myView.addExercise();
    }
