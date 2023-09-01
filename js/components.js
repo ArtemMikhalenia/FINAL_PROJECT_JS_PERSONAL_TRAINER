@@ -60,12 +60,6 @@ const StartModal = {
       <h2 class="modal-header login">Авторизация</h2>
       <h2 class="modal-header register hide">Регистрация</h2>
       <form class="modal__form">
-         <label class="input-label" for="username">Введите Имя пользователя: <abbr
-               title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
-            <br>
-            <span class="username-toast hidden">Только латинские буквы</span></label>
-         <input type="text" id="username" autocomplete="off" class="modal__username"
-            placeholder="Имя пользователя" title="Необходимо ввести только латинские символы" required>
          <label class="input-label" for="email">Введите e-mail: <abbr
                title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
             <br>
@@ -76,13 +70,10 @@ const StartModal = {
          <label class="input-label" for="password">Введите пароль: <abbr
                title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
             <br>
-            <span class="password-toast hidden">Пароль должен содержать как минимум 1 цифру, 1 букву нижнего
-               регистра, 1 букву
-               верхнего
-               регистра и не менее 8 символов</span>
+            <span class="password-toast hidden">Пароль должен содержать как минимум 6 символов</span>
          </label>
          <input type="password" id="password" autocomplete="off" class="modal__password"
-            title="Пароль должен содержать как минимум одну цифру, одну букву нижнего регистра, одну букву верхнего регистра и длина не менее 8 символов"
+            title="Пароль должен содержать как минимум 6 символов"
             placeholder="Пароль" required>
          <a href="#mainpage" id="submit-login" class="form-submit-login">Войти</a>
          <input type="button" id="submit-register" class="form-submit-register hide"

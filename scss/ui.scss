@@ -91,6 +91,13 @@
       transition: all 0.5s ease 0s;
       box-shadow: 5px 5px 0 #ffffff;
    }
+
+
+}
+
+.form-submit-login:disabled,
+.form-submit-register:disabled {
+   background: none;
 }
 
 .hide {

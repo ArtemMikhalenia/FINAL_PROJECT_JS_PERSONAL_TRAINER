@@ -10,8 +10,6 @@ function View() {
    let modalButtonRegistration = null;
    let modalBlockRegistration = null;
    let successfulRegistrationBlock = null;
-   let usernameInput = null;
-   let usernameToast = null;
    let emailInput = null;
    let emailToast = null;
    let passwordInput = null;
@@ -43,8 +41,6 @@ function View() {
       modalBlockRegistration = myContainer.querySelector('.form-register__block');
       successfulRegistrationBlock = myContainer.querySelector('.successful-registration-block');
 
-      usernameInput = myContainer.querySelector('#username');
-      usernameToast = myContainer.querySelector('.username-toast');
       emailInput = myContainer.querySelector('#email');
       emailToast = myContainer.querySelector('.email-toast');
       passwordInput = myContainer.querySelector('#password');
@@ -120,11 +116,8 @@ function View() {
    this.closeLogInWindow = function () {
       modalWindow.classList.add("modal_closed");
       modalOverlay.classList.add("modal_closed");
-      usernameInput.value = '';
       emailInput.value = '';
       passwordInput.value = '';
-      usernameInput.classList.remove('invalid');
-      usernameInput.classList.remove('valid');
       emailInput.classList.remove('invalid');
       emailInput.classList.remove('valid');
       passwordInput.classList.remove('invalid');
@@ -132,7 +125,6 @@ function View() {
    }
 
    this.changeToRegistration = function () {
-      usernameInput.value = '';
       emailInput.value = '';
       passwordInput.value = '';
       modalHeaderLogin.classList.add('hide');
@@ -144,10 +136,8 @@ function View() {
    }
 
    this.changeToLogin = function () {
-      usernameInput.value = '';
       emailInput.value = '';
       passwordInput.value = '';
-      usernameInput.classList.remove('valid');
       passwordInput.classList.remove('valid');
       emailInput.classList.remove('valid');
       modalHeaderLogin.classList.remove('hide');
@@ -169,22 +159,17 @@ function View() {
 
    this.successfulRegistration = function () {
       successfulRegistrationBlock.classList.remove('hidden');
+      this.emailCorrectValidation();
+      this.passwordCorrectValidation();
    }
 
-   this.ifError = function (error) {
-      alert('Произошел сбой, повторите еще раз!');
-   }
-
-   this.usernameValidation = function () {
-      usernameInput.classList.add('invalid');
-      usernameInput.classList.remove('valid');
-      usernameToast.classList.remove('hidden');
-   }
-
-   this.usernameCorrectValidation = function () {
-      usernameInput.classList.remove('invalid');
-      usernameInput.classList.add('valid');
-      usernameToast.classList.add('hidden');
+   this.ifError = function (errorCode) {
+      if (errorCode === 'auth/invalid-email' || errorCode === 'auth/missing-email') {
+         this.emailValidation();
+      } else if (errorCode === 'auth/missing-password' || errorCode === 'auth/weak-password') {
+         this.emailCorrectValidation();
+         this.passwordValidation();
+      }
    }
 
    this.emailValidation = function () {

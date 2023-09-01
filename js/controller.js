@@ -21,7 +21,6 @@ function Controller() {
       const buttonRegisterUser = myContainer.querySelector('#submit-register');
       const successfulRegistrationBtn = myContainer.querySelector('#successful-registration-btn');
 
-      inputUsername = myContainer.querySelector('#username');
       inputEmail = myContainer.querySelector('#email');
       inputPassword = myContainer.querySelector('#password');
 
@@ -33,6 +32,7 @@ function Controller() {
          buttonChangeToLogin.addEventListener('click', changeToLogin);
          buttonLogIn.addEventListener('click', logInUser);
          buttonRegisterUser.addEventListener('click', registerUser);
+
          successfulRegistrationBtn.addEventListener('click', changeToLogin);
 
          myContainer.addEventListener('mousemove', parallaxFunction);
@@ -91,7 +91,7 @@ function Controller() {
    }
 
    function registerUser() {
-      myModel.registerUser(inputUsername.value, inputEmail.value, inputPassword.value);
+      myModel.registerUser(inputEmail.value, inputPassword.value);
    }
 
    function openExerciseModal() {

@@ -75,6 +75,11 @@
   box-shadow: 5px 5px 0 #ffffff;
 }
 
+.form-submit-login:disabled,
+.form-submit-register:disabled {
+  background: none;
+}
+
 .hide {
   display: none;
 }

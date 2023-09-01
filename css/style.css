@@ -305,7 +305,7 @@ body.lock {
 .start-container .modal__form .hidden {
   display: none;
 }
-.start-container .modal__username, .start-container .modal__email, .start-container .modal__password {
+.start-container .modal__email, .start-container .modal__password {
   padding: 10px;
   margin-bottom: 30px;
   font-size: 18px;
@@ -314,13 +314,13 @@ body.lock {
   color: rgb(255, 255, 255);
   transition: border-bottom 0.5s ease 0s;
 }
-.start-container .modal__username:focus, .start-container .modal__email:focus, .start-container .modal__password:focus {
+.start-container .modal__email:focus, .start-container .modal__password:focus {
   border-bottom: 2px solid rgb(255, 255, 255);
 }
-.start-container .modal__username.invalid, .start-container .modal__email.invalid, .start-container .modal__password.invalid {
+.start-container .modal__email.invalid, .start-container .modal__password.invalid {
   border-bottom: 2px solid rgb(255, 0, 0);
 }
-.start-container .modal__username.valid, .start-container .modal__email.valid, .start-container .modal__password.valid {
+.start-container .modal__email.valid, .start-container .modal__password.valid {
   border-bottom: 2px solid rgb(5, 152, 57);
 }
 .start-container .modal .modal-header {
@@ -813,6 +813,11 @@ body.lock {
 .form-submit-register:hover {
   transition: all 0.5s ease 0s;
   box-shadow: 5px 5px 0 #ffffff;
+}
+
+.form-submit-login:disabled,
+.form-submit-register:disabled {
+  background: none;
 }
 
 .hide {
