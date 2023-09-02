@@ -292,14 +292,10 @@ body.lock {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.start-container .modal__form .input-label span {
-  font-size: 15px;
-  color: red;
-}
-.start-container .modal__form .register-user-exist {
-  font-size: 18px;
+.start-container .modal__form .form-error {
+  margin-top: 20px;
   text-align: center;
-  margin-top: 10px;
+  font-size: 15px;
   color: red;
 }
 .start-container .modal__form .hidden {
@@ -316,12 +312,6 @@ body.lock {
 }
 .start-container .modal__email:focus, .start-container .modal__password:focus {
   border-bottom: 2px solid rgb(255, 255, 255);
-}
-.start-container .modal__email.invalid, .start-container .modal__password.invalid {
-  border-bottom: 2px solid rgb(255, 0, 0);
-}
-.start-container .modal__email.valid, .start-container .modal__password.valid {
-  border-bottom: 2px solid rgb(5, 152, 57);
 }
 .start-container .modal .modal-header {
   padding-top: 30px;

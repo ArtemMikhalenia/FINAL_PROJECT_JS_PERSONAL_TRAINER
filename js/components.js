@@ -62,23 +62,19 @@ const StartModal = {
       <form class="modal__form">
          <label class="input-label" for="email">Введите e-mail: <abbr
                title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
-            <br>
-            <span class="email-toast hidden">Введите адрес почты корректно</span>
          </label>
          <input type="email" id="email" autocomplete="off" class="modal__email" placeholder="E-mail"
             title="Введите корректный e-mail" required>
          <label class="input-label" for="password">Введите пароль: <abbr
                title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
-            <br>
-            <span class="password-toast hidden">Пароль должен содержать как минимум 6 символов</span>
          </label>
          <input type="password" id="password" autocomplete="off" class="modal__password"
             title="Пароль должен содержать как минимум 6 символов"
             placeholder="Пароль" required>
-         <a href="#mainpage" id="submit-login" class="form-submit-login">Войти</a>
+         <input type="button" id="submit-login" class="form-submit-login" value="Войти">
          <input type="button" id="submit-register" class="form-submit-register hide"
             value="Зарегистрироваться">
-         <div class="register-user-exist hidden">Такой пользователь уже существует</div>
+         <div class="form-error"></div>
       </form>
       <div class="modal__footer">
          <div class="form-register__block">
@@ -226,7 +222,7 @@ const SidebarMain = {
 }
 
 const ContentMain = {
-   render: () => {
+   render: (image) => {
       return `
       <div class="mainblock__body">
       <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>

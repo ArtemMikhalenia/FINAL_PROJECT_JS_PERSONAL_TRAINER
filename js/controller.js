@@ -87,7 +87,7 @@ function Controller() {
    }
 
    function logInUser() {
-      myModel.logInUser();
+      myModel.logInUser(inputEmail.value, inputPassword.value);
    }
 
    function registerUser() {

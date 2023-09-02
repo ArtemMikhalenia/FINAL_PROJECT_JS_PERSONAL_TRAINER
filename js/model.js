@@ -1,10 +1,10 @@
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+import { getDatabase, ref, set, update, get, child } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 
 // import { getAuth, auth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
 const firebaseConfig = {
    apiKey: "AIzaSyCmO3VrG4O2UluhvZaewlxjgcoRtevgST0",
@@ -52,106 +52,8 @@ function Model() {
       myView.parallaxEffect();
    }
 
-   //метод валидации
-   // this.isEmptyOrSpaces = function (string) {
-   //    return string === null || string.match(/^ *$/) !== null;
-   // }
-
-   // this.validateData = function (user, email, password) {
-   //    //только латинские буквы
-   //    let userNameRegEx = /^[a-zA-Z\s]+$/;
-   //    //стандартная валидация почты
-   //    let emailRegEx = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-   //    //пароль должен содержать как минимум 1 цифру, 1 букву нижнего регистра, 1 букву верхнего регистра и не менее 8 символов
-   //    let passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-
-   //    // if (this.isEmptyOrSpaces(user) || this.isEmptyOrSpaces(email) || this.isEmptyOrSpaces(password)) {
-   //    //    if (this.isEmptyOrSpaces(user)) {
-   //    //       myView.isEmptyOrSpaces(user);
-   //    //    } else if (this.isEmptyOrSpaces(email)) {
-   //    //       myView.isEmptyOrSpaces(email);
-   //    //    } else if (this.isEmptyOrSpaces(password)) {
-   //    //       myView.isEmptyOrSpaces(password);
-   //    //    }
-   //    //    // myView.isEmptyOrSpaces();
-   //    //    return false;
-   //    // }
-
-   //    if (!userNameRegEx.test(user)) {
-   //       myView.usernameValidation();
-   //       return false;
-   //    } else {
-   //       myView.usernameCorrectValidation();
-   //    }
-
-   //    if (!emailRegEx.test(email)) {
-   //       myView.emailValidation();
-   //       return false;
-   //    } else {
-   //       myView.emailCorrectValidation();
-   //    }
-
-   //    if (!passwordRegEx.test(password)) {
-   //       myView.passwordValidation();
-   //       return false;
-   //    } else {
-   //       myView.passwordCorrectValidation();
-   //    }
-
-   //    return true;
-   // }
-
-
    //метод регистрации пользователя
-
    this.registerUser = async function (email, password) {
-      // if (!this.validateData(user, email, password)) {
-      //    return;
-      // } else {
-      //    const db = getDatabase();
-      //    const dbRef = ref(db);
-
-      //    //получаем путь к нашей папке в базе
-      //    await get(child(dbRef, "UsersList/" + user))
-      //       .then((snapshot) => {
-      //          //если пользователь существует, то вызываем метод View
-      //          if (snapshot.exists()) {
-      //             const dbUser = snapshot.val();
-      //             console.log(dbUser)
-      //             if (email === dbUser.email) {
-      //                console.log(dbUser)
-      //             }
-      //             myView.ifUserExistShow();
-      //          } else {
-      //             myView.ifUserNotExistHide();
-      //             //если пользователь отсутствует, то записываем его в базу
-      //             set(ref(db, "UsersList/" + user),
-      //                {
-      //                   username: user,
-      //                   email: email,
-      //                   password: password,
-      //                   fullName: 'Нет данных',
-      //                   birthday: 'Нет данных',
-      //                   gender: 'Нет данных',
-      //                   weight: 'Нет данных',
-      //                   height: 'Нет данных',
-      //                   medicalInfo: 'Нет данных',
-      //                   goal: 'Нет данных',
-      //                   phone: 'Нет данных',
-      //                   achievements: 'Нет данных',
-      //                })
-      //                //если регистрация прошла успешно, то вызываем метод View
-      //                .then(() => {
-      //                   myView.successfulRegistration();
-      //                })
-      //                //если регистрация не удалась, то вызываем метод View
-      //                .catch((error) => {
-      //                   myView.ifError(error);
-      //                })
-      //          }
-      //       })
-      // }
-
       await createUserWithEmailAndPassword(auth, email, password)
          .then((userCredential) => {
 
@@ -161,7 +63,6 @@ function Model() {
                {
                   username: 'Нет данных',
                   email: email,
-                  password: password,
                   fullName: 'Нет данных',
                   birthday: 'Нет данных',
                   gender: 'Нет данных',
@@ -184,8 +85,34 @@ function Model() {
          });
    }
 
-   this.logInUser = function () {
-      myView.logInUser();
+   this.logInUser = async function (email, password) {
+      await signInWithEmailAndPassword(auth, email, password)
+         .then((userCredential) => {
+            const user = userCredential.user;
+
+            update(ref(database, "UsersList/" + user.uid),
+               {
+                  // username: 'Нет данных',
+                  email: email,
+                  // password: password,
+                  // fullName: 'Нет данных',
+                  // birthday: 'Нет данных',
+                  // gender: 'Нет данных',
+                  // weight: 'Нет данных',
+                  // height: 'Нет данных',
+                  // medicalInfo: 'Нет данных',
+                  // goal: 'Нет данных',
+                  // phone: 'Нет данных',
+                  // achievements: 'Нет данных',
+               })
+
+            myView.successfulLogIn();
+         })
+         .catch((error) => {
+            const errorCode = error.code;
+
+            myView.ifError(errorCode);
+         });
    }
 
    this.openExerciseModal = function () {

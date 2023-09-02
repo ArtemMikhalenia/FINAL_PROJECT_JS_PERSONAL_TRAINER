@@ -1,6 +1,7 @@
 function View() {
    let myContainer = null;
    let routesObj = null;
+
    let modalWindow = null;
    let modalOverlay = null;
    let modalHeaderLogin = null;
@@ -9,12 +10,12 @@ function View() {
    let modalHeaderRegistration = null;
    let modalButtonRegistration = null;
    let modalBlockRegistration = null;
+
    let successfulRegistrationBlock = null;
+
    let emailInput = null;
-   let emailToast = null;
    let passwordInput = null;
-   let passwordToast = null;
-   let userExist = null;
+   let formError = null;
 
    this.init = function (container, routes) {
       myContainer = container;
@@ -42,10 +43,8 @@ function View() {
       successfulRegistrationBlock = myContainer.querySelector('.successful-registration-block');
 
       emailInput = myContainer.querySelector('#email');
-      emailToast = myContainer.querySelector('.email-toast');
       passwordInput = myContainer.querySelector('#password');
-      passwordToast = myContainer.querySelector('.password-toast');
-      userExist = myContainer.querySelector('.register-user-exist');
+      formError = myContainer.querySelector('.form-error');
 
       const woman = myContainer.querySelector('.woman-image');
       const man = myContainer.querySelector('.man-image');
@@ -56,7 +55,7 @@ function View() {
       }
    }
 
-   this.logInUser = function () {
+   this.successfulLogIn = function () {
       window.location.hash = "#mainpage";
    }
 
@@ -116,17 +115,17 @@ function View() {
    this.closeLogInWindow = function () {
       modalWindow.classList.add("modal_closed");
       modalOverlay.classList.add("modal_closed");
+
       emailInput.value = '';
       passwordInput.value = '';
-      emailInput.classList.remove('invalid');
-      emailInput.classList.remove('valid');
-      passwordInput.classList.remove('invalid');
-      passwordInput.classList.remove('valid');
+      formError.innerHTML = '';
    }
 
    this.changeToRegistration = function () {
       emailInput.value = '';
       passwordInput.value = '';
+      formError.innerHTML = '';
+
       modalHeaderLogin.classList.add('hide');
       modalHeaderRegistration.classList.remove('hide');
       modalButtonLogin.classList.add('hide');
@@ -138,65 +137,35 @@ function View() {
    this.changeToLogin = function () {
       emailInput.value = '';
       passwordInput.value = '';
-      passwordInput.classList.remove('valid');
-      emailInput.classList.remove('valid');
+      formError.innerHTML = '';
+
       modalHeaderLogin.classList.remove('hide');
       modalHeaderRegistration.classList.add('hide');
       modalButtonLogin.classList.remove('hide');
       modalButtonRegistration.classList.add('hide');
       modalBlockRegistration.classList.remove('hide');
       modalBlockLogin.classList.add('hide');
+
       successfulRegistrationBlock.classList.add('hidden');
-   }
-
-   this.ifUserExistShow = function () {
-      userExist.classList.remove('hidden');
-   }
-
-   this.ifUserNotExistHide = function () {
-      userExist.classList.add('hidden');
    }
 
    this.successfulRegistration = function () {
       successfulRegistrationBlock.classList.remove('hidden');
-      this.emailCorrectValidation();
-      this.passwordCorrectValidation();
-      this.ifUserNotExistHide();
+      formError.innerHTML = '';
    }
 
    this.ifError = function (errorCode) {
-      if (errorCode === 'auth/invalid-email' || errorCode === 'auth/missing-email') {
-         this.emailValidation();
-      } else if (errorCode === 'auth/missing-password' || errorCode === 'auth/weak-password') {
-         this.emailCorrectValidation();
-         this.passwordValidation();
+      if (errorCode === 'auth/invalid-email' || errorCode === 'auth/weak-password') {
+         formError.innerHTML = 'Неверный логин или пароль. Проверьте правильность ввода. Пароль должен быть не менее 6 символов.';
+      } else if (errorCode === 'auth/missing-password' || errorCode === 'auth/missing-email') {
+         formError.innerHTML = 'Отсутствует логин или пароль.';
       } else if (errorCode === 'auth/email-already-in-use') {
-         this.ifUserExistShow();
+         formError.innerHTML = 'Такой пользователь уже зарегистрирован.';
+      } else if (errorCode === 'auth/user-not-found') {
+         formError.innerHTML = 'Данный пользователь не найден.';
+      } else if (errorCode === 'auth/wrong-password') {
+         formError.innerHTML = 'Неверный пароль. Попробуйте еще раз.';
       }
-   }
-
-   this.emailValidation = function () {
-      emailInput.classList.add('invalid');
-      emailInput.classList.remove('valid');
-      emailToast.classList.remove('hidden');
-   }
-
-   this.emailCorrectValidation = function () {
-      emailInput.classList.add('valid');
-      emailInput.classList.remove('invalid');
-      emailToast.classList.add('hidden');
-   }
-
-   this.passwordValidation = function () {
-      passwordInput.classList.add('invalid');
-      passwordInput.classList.remove('valid');
-      passwordToast.classList.remove('hidden');
-   }
-
-   this.passwordCorrectValidation = function () {
-      passwordInput.classList.add('valid');
-      passwordInput.classList.remove('invalid');
-      passwordToast.classList.add('hidden');
    }
 
    this.openExerciseModal = function () {
