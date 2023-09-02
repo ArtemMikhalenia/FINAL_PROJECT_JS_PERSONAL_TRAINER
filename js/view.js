@@ -161,6 +161,7 @@ function View() {
       successfulRegistrationBlock.classList.remove('hidden');
       this.emailCorrectValidation();
       this.passwordCorrectValidation();
+      this.ifUserNotExistHide();
    }
 
    this.ifError = function (errorCode) {
@@ -169,6 +170,8 @@ function View() {
       } else if (errorCode === 'auth/missing-password' || errorCode === 'auth/weak-password') {
          this.emailCorrectValidation();
          this.passwordValidation();
+      } else if (errorCode === 'auth/email-already-in-use') {
+         this.ifUserExistShow();
       }
    }
 
