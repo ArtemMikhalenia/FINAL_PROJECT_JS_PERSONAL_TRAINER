@@ -206,7 +206,7 @@ const SidebarMain = {
                   </li>
                </ul>
             </nav>
-            <a href="#startpage" class="btn-logout" id="btn-logout">
+           <button class="btn-logout" id="btn-logout">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                   <g id="_109_log-out-02" data-name="109 log-out-02">
                      <path d="M8.88,22.71l-5.29-5.3a2,2,0,0,1,0-2.82l5.29-5.3,1.41,1.42L5,16l5.29,5.29Z" />
@@ -215,14 +215,14 @@ const SidebarMain = {
                         d="M26,29H18V27h8a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H18V3h8a3,3,0,0,1,3,3V26A3,3,0,0,1,26,29Z" />
                   </g>
                </svg>Выйти
-            </a>
+            </button>
          </aside>
       `;
    }
 }
 
 const ContentMain = {
-   render: (image) => {
+   render: (fullName, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) => {
       return `
       <div class="mainblock__body">
       <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
@@ -237,10 +237,10 @@ const ContentMain = {
                   </button>
                </div>
                <div class="user-info__content">
-                  <div class="name-block">ФИО: <span id="name-block__name">Михаленя Артём</span></div>
-                  <div class="birthday-block">Дата рождения: <span id="name-block__birthday">01.01.1996</span>
+                  <div class="name-block">ФИО: <span id="name-block__name">${fullName}</span></div>
+                  <div class="birthday-block">Дата рождения: <span id="name-block__birthday">${birthday}</span>
                   </div>
-                  <div class="gender-block">Пол: <span>Мужской</span></div>
+                  <div class="gender-block">Пол: <span>${gender}</span></div>
                </div>
                <img src="./images/backgrounds/bg1.svg" alt="bg1">
             </div>
@@ -252,8 +252,8 @@ const ContentMain = {
                   </button>
                </div>
                <div class="user-info__content">
-                  <div class="weight-block" contenteditable="true">Вес: <span>82 кг</span></div>
-                  <div class="height-block">Рост: <span>185 см</span></div>
+                  <div class="weight-block" contenteditable="true">Вес (кг): <span>${weight}</span></div>
+                  <div class="height-block">Рост (см): <span>${height}</span></div>
                </div>
                <img src="./images/backgrounds/bg2.svg" alt="bg2">
             </div>
@@ -265,7 +265,7 @@ const ContentMain = {
                   </button>
                </div>
                <div class="user-info__content">
-                  <div class="medical-block">Болезни: <span>Почки</span></div>
+                  <div class="medical-block">Болезни: <span>${medicalInfo}</span></div>
                </div>
                <img src="./images/backgrounds/bg3.svg" alt="bg3">
             </div>
@@ -277,7 +277,7 @@ const ContentMain = {
                   </button>
                </div>
                <div class="user-info__content">
-                  <div class="goal-block">Цель: <span>Похудеть и набрать мышечную массу</span></div>
+                  <div class="goal-block">Цель: <span>${goal}</span></div>
                </div>
                <img src="./images/backgrounds/bg4.svg" alt="bg4">
             </div>
@@ -289,8 +289,8 @@ const ContentMain = {
                   </button>
                </div>
                <div class="user-info__content">
-                  <div class="contact-block phone">Телефон: <span>+375(29)761-85-83</span></div>
-                  <div class="contact-block email">E-mail: <span>goldtree3000@gmail.com</span></div>
+                  <div class="contact-block phone">Телефон: <span>${phone}</span></div>
+                  <div class="contact-block email">E-mail: <span>${email}</span></div>
                </div>
                <img src="./images/backgrounds/bg5.svg" alt="bg5">
             </div>
@@ -302,7 +302,7 @@ const ContentMain = {
                   </button>
                </div>
                <div class="user-info__content">
-                  <div class="achievements-block">Достижения: <span>Поднял штангу 100кг одной рукой</span>
+                  <div class="achievements-block">Достижения: <span>${achievements}</span>
                   </div>
                </div>
                <img src="./images/backgrounds/bg6.svg" alt="bg6">
@@ -660,9 +660,26 @@ const ContentExercisesDatabase = {
          <div class="mainblock__content" id="main-content">
             <div class="exercises-content">
 					<h2>База упражнений</h2>
+               <div class="exercises-body">
+                  
+               </div>
 				</div>
          </div>
       </div>
+      `;
+   }
+}
+
+const ExerciseBlock = {
+   render: (title, image, instruction) => {
+      return `
+         <div class="exercise-block">
+            <h3 class="exercise-block__title">${title}</h3>
+            <div class="exercise-block__image">
+               <img src="${image}" alt="${title}">
+            </div>
+            <p class="exercise-block__instructions">${instruction}</p>
+         </div>
       `;
    }
 }
@@ -770,4 +787,4 @@ const ContentProgress = {
    }
 }
 
-export { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress };
+export { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress, ExerciseBlock };

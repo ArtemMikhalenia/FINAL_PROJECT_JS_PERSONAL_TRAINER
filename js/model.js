@@ -2,9 +2,7 @@ import { getDatabase, ref, set, update, get, child } from "https://www.gstatic.c
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 
-// import { getAuth, auth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
 const firebaseConfig = {
    apiKey: "AIzaSyCmO3VrG4O2UluhvZaewlxjgcoRtevgST0",
@@ -20,6 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
+const user = auth.currentUser;
 
 function Model() {
    let myView = null;
@@ -53,12 +52,10 @@ function Model() {
    }
 
    //метод регистрации пользователя
-   this.registerUser = async function (email, password) {
-      await createUserWithEmailAndPassword(auth, email, password)
+   this.registerUser = function (email, password) {
+      createUserWithEmailAndPassword(auth, email, password)
          .then((userCredential) => {
-
             const user = userCredential.user;
-
             set(ref(database, "UsersList/" + user.uid),
                {
                   username: 'Нет данных',
@@ -73,39 +70,25 @@ function Model() {
                   phone: 'Нет данных',
                   achievements: 'Нет данных',
                })
-
             myView.successfulRegistration();
-
          })
-
          .catch((error) => {
             const errorCode = error.code;
-
             myView.ifError(errorCode);
          });
    }
 
-   this.logInUser = async function (email, password) {
-      await signInWithEmailAndPassword(auth, email, password)
+   //метод входа пользователя
+   this.logInUser = function (email, password) {
+      signInWithEmailAndPassword(auth, email, password)
          .then((userCredential) => {
             const user = userCredential.user;
 
             update(ref(database, "UsersList/" + user.uid),
                {
-                  // username: 'Нет данных',
                   email: email,
-                  // password: password,
-                  // fullName: 'Нет данных',
-                  // birthday: 'Нет данных',
-                  // gender: 'Нет данных',
-                  // weight: 'Нет данных',
-                  // height: 'Нет данных',
-                  // medicalInfo: 'Нет данных',
-                  // goal: 'Нет данных',
-                  // phone: 'Нет данных',
-                  // achievements: 'Нет данных',
                })
-
+            localStorage.setItem('userId', user.uid);
             myView.successfulLogIn();
          })
          .catch((error) => {
@@ -114,6 +97,36 @@ function Model() {
             myView.ifError(errorCode);
          });
    }
+
+   //метод получения текущего пользователя
+   this.manageUser = function () {
+      onAuthStateChanged(auth, (user) => {
+         if (user) {
+            const uid = user.uid;
+            get(child(ref(database), "UsersList/" + uid))
+               .then(snapshot => {
+                  const user = snapshot.val();
+                  myView.renderInfo(user);
+               })
+         }
+      });
+   }
+
+   this.logOutUser = function () {
+      signOut(auth).then(() => {
+         myView.logOutUser();
+      }).catch((error) => {
+         myView.logOutUserError(error);
+      });
+   }
+
+   // this.updateInfo = async function () {
+   //    const snapshot = await get(child(ref(database), 'user'));
+   //    if (snapshot.exists()) {
+   //       const user = snapshot.val();
+   //       myView.renderInfo(user);
+   //    }
+   // }
 
    this.openExerciseModal = function () {
       myView.openExerciseModal();
@@ -137,6 +150,14 @@ function Model() {
 
    this.removeExercise = function (event) {
       myView.removeExercise(event);
+   }
+
+   this.loadExercises = async function () {
+      const snapshot = await get(child(ref(database), 'ExerciseDatabase'));
+      if (snapshot.exists()) {
+         const exercises = snapshot.val();
+         myView.renderExercises(exercises);
+      }
    }
 
    this.updateState = function (pageName) {

@@ -25,7 +25,7 @@ const MainPage = {
       return `
       <section class="mainblock" id="mainblock">
       ${SidebarMain.render()}
-      ${ContentMain.render()}
+      <div class="mainblock-wrapper"></div>
       </section>
          `;
    }

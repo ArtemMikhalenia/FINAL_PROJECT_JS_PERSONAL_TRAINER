@@ -445,11 +445,12 @@ body {
 
 			font-size: 22px;
 			color: #FFFFFF;
-			text-align: left;
+			text-align: center;
 			background-color: #F97316;
 
 			border-radius: 10px;
 			@include anim(0.3s, 0s);
+			cursor: pointer;
 
 
 			svg {
@@ -806,6 +807,59 @@ body {
 
 			.modal_closed {
 				display: none;
+			}
+		}
+
+		.exercises-content {
+
+			.exercises-body {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				column-gap: 30px;
+				row-gap: 30px;
+
+				text-align: center;
+
+				.exercise-block {
+					background: radial-gradient(circle, rgba(124,109,215,1) 23%, rgba(6,182,212,1) 81%);
+					color: #ffffff;
+					border-radius: 13px;
+					transition: all 0.5s ease 0s;
+
+					&__title {
+						font-size: 22px;
+						font-weight: 700;
+						margin: 10px 0px;
+					}
+
+					&__image {
+						margin: 0px 10px 10px 10px;
+						transition: all 0.5s ease 0s;
+
+
+						img {
+							max-width: 300px;
+							width: 100%;
+							border-radius: 13px;
+						}
+					}
+
+					&__image:hover {
+						transform: scale(1.05);
+					}
+
+					&__instructions {
+						padding: 0px 20px;
+						font-size: 16px;
+						font-weight: 600;
+						text-align: justify;
+						margin: 0px 0px 10px 0px;
+					}
+				}
+
+				.exercise-block:hover {
+					transform: scale(1.03);
+				}
 			}
 		}
 	}

@@ -12,6 +12,8 @@ function Controller() {
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
       myModel.updateState(hashPageName);
+      myModel.manageUser();
+      myModel.loadExercises();
 
       const buttonOpenModal = myContainer.querySelector('.btn-start');
       const buttonCloseModal = myContainer.querySelector('#modal-close');
@@ -40,6 +42,9 @@ function Controller() {
 
       const buttonAddExercise = document.querySelector('.add-exercise');
       buttonAddExercise && buttonAddExercise.addEventListener('click', openExerciseModal);
+
+      const buttonLogOut = document.querySelector('.btn-logout');
+      buttonLogOut && buttonLogOut.addEventListener('click', logOutUser);
 
       //drag&drop
 
@@ -88,6 +93,10 @@ function Controller() {
 
    function logInUser() {
       myModel.logInUser(inputEmail.value, inputPassword.value);
+   }
+
+   function logOutUser() {
+      myModel.logOutUser();
    }
 
    function registerUser() {

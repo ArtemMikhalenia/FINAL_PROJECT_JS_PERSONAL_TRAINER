@@ -1,3 +1,5 @@
+import { ContentMain, ExerciseBlock } from "./components.js";
+
 function View() {
    let myContainer = null;
    let routesObj = null;
@@ -16,6 +18,9 @@ function View() {
    let emailInput = null;
    let passwordInput = null;
    let formError = null;
+
+   let mainBlockWrapper = null;
+   let exercisesWrapper = null;
 
    this.init = function (container, routes) {
       myContainer = container;
@@ -41,6 +46,8 @@ function View() {
       modalButtonRegistration = myContainer.querySelector('.form-submit-register');
       modalBlockRegistration = myContainer.querySelector('.form-register__block');
       successfulRegistrationBlock = myContainer.querySelector('.successful-registration-block');
+      mainBlockWrapper = myContainer.querySelector('.mainblock-wrapper');
+      exercisesWrapper = myContainer.querySelector('.exercises-body');
 
       emailInput = myContainer.querySelector('#email');
       passwordInput = myContainer.querySelector('#password');
@@ -53,10 +60,37 @@ function View() {
       if (hashPageName === "startpage" || hashPageName === "") {
          this.parallaxEffect(myContainer, woman, man, fog);
       }
+
+      // if (hashPageName === "mainpage") {
+      //    this.renderInfo();
+      // }
    }
 
    this.successfulLogIn = function () {
       window.location.hash = "#mainpage";
+   }
+
+   this.logOutUser = function () {
+      window.location.hash = "#startpage";
+   }
+
+   this.logOutUserError = function (error) {
+      alert(error);
+   }
+
+   this.renderInfo = function (user) {
+      if (mainBlockWrapper) {
+         mainBlockWrapper.innerHTML = ContentMain.render(user.fullName, user.birthday, user.gender, user.weight, user.height, user.medicalInfo, user.goal, user.phone, user.email, user.achievements);
+      }
+   }
+
+   this.renderExercises = function (exercises) {
+      if (exercisesWrapper) {
+         for (let key in exercises) {
+            const exercise = exercises[key];
+            exercisesWrapper.innerHTML += ExerciseBlock.render(exercise.title, exercise.image, exercise.instruction);
+         }
+      }
    }
 
    this.parallaxEffect = function (container, img1, img2, img3) {
