@@ -728,6 +728,20 @@ body.lock {
 .mainblock__content .training-content .modal_closed {
   display: none;
 }
+.mainblock__content .exercises-content .exercises-search {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #475569;
+  border-radius: 13px;
+  border: 2px solid rgb(134, 215, 109);
+  transition: all 0.5s ease 0s;
+}
+.mainblock__content .exercises-content .exercises-search:focus {
+  box-shadow: 0 0 10px 2px rgb(134, 215, 109);
+}
 .mainblock__content .exercises-content .exercises-body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -741,11 +755,18 @@ body.lock {
   border-radius: 13px;
   border: 2px solid rgb(134, 215, 109);
   transition: all 0.5s ease 0s;
+  padding: 10px 20px;
+}
+.mainblock__content .exercises-content .exercises-body .exercise-block img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 13px;
+  margin: 0px 0px 10px 0px;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-block__title {
   font-size: 22px;
   font-weight: 700;
-  margin: 10px 0px;
+  margin: 0px 0px 10px;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-block__image {
   margin: 0px 10px 10px 10px;
@@ -766,8 +787,11 @@ body.lock {
   text-align: justify;
   margin: 0px 0px 10px 0px;
 }
+.mainblock__content .exercises-content .exercises-body .exercise-block.hide {
+  display: none;
+}
 .mainblock__content .exercises-content .exercises-body .exercise-block:hover {
-  transform: scale(1.03);
+  box-shadow: 0 0 10px 2px rgb(134, 215, 109);
 }
 
 .btn-start {

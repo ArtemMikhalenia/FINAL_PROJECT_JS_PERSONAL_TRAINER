@@ -1,4 +1,4 @@
-import { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress } from './components.js';
+import { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress, UserInfo } from './components.js';
 
 
 const StartPage = {
@@ -25,7 +25,9 @@ const MainPage = {
       return `
       <section class="mainblock" id="mainblock">
       ${SidebarMain.render()}
-      <div class="mainblock-wrapper"></div>
+      ${ContentMain.render()}
+      ${UserInfo.render()}
+      <!--<div class="mainblock-wrapper"></div>-->
       </section>
          `;
    }

@@ -63,7 +63,7 @@ const StartModal = {
          <label class="input-label" for="email">Введите e-mail: <abbr
                title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
          </label>
-         <input type="email" id="email" autocomplete="off" class="modal__email" placeholder="E-mail"
+         <input type="email" id="email" autocomplete="on" class="modal__email" placeholder="E-mail"
             title="Введите корректный e-mail" required>
          <label class="input-label" for="password">Введите пароль: <abbr
                title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
@@ -222,95 +222,102 @@ const SidebarMain = {
 }
 
 const ContentMain = {
-   render: (fullName, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) => {
+   render: () => {
       return `
       <div class="mainblock__body">
       <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
       <div class="mainblock__content" id="main-content">
          <h2>Информация о пользователе</h2>
          <div class="user-info">
-            <div class="user-info__block common-info">
-               <div class="user-info__header">
-                  <h3>Общая информация</h3>
-                  <button class="edit-btn">
-                     <img src="./images/icons/pencil.svg" alt="icon-pencil">
-                  </button>
-               </div>
-               <div class="user-info__content">
-                  <div class="name-block">ФИО: <span id="name-block__name">${fullName}</span></div>
-                  <div class="birthday-block">Дата рождения: <span id="name-block__birthday">${birthday}</span>
-                  </div>
-                  <div class="gender-block">Пол: <span>${gender}</span></div>
-               </div>
-               <img src="./images/backgrounds/bg1.svg" alt="bg1">
-            </div>
-            <div class="user-info__block physical-info">
-               <div class="user-info__header">
-                  <h3>Физические показатели</h3>
-                  <button class="edit-btn">
-                     <img src="./images/icons/pencil.svg" alt="icon-pencil">
-                  </button>
-               </div>
-               <div class="user-info__content">
-                  <div class="weight-block" contenteditable="true">Вес (кг): <span>${weight}</span></div>
-                  <div class="height-block">Рост (см): <span>${height}</span></div>
-               </div>
-               <img src="./images/backgrounds/bg2.svg" alt="bg2">
-            </div>
-            <div class="user-info__block medical-info">
-               <div class="user-info__header">
-                  <h3>Медицинские противопоказания</h3>
-                  <button class="edit-btn">
-                     <img src="./images/icons/pencil.svg" alt="icon-pencil">
-                  </button>
-               </div>
-               <div class="user-info__content">
-                  <div class="medical-block">Болезни: <span>${medicalInfo}</span></div>
-               </div>
-               <img src="./images/backgrounds/bg3.svg" alt="bg3">
-            </div>
-            <div class="user-info__block training-info">
-               <div class="user-info__header">
-                  <h3>Цель тренировок</h3>
-                  <button class="edit-btn">
-                     <img src="./images/icons/pencil.svg" alt="icon-pencil">
-                  </button>
-               </div>
-               <div class="user-info__content">
-                  <div class="goal-block">Цель: <span>${goal}</span></div>
-               </div>
-               <img src="./images/backgrounds/bg4.svg" alt="bg4">
-            </div>
-            <div class="user-info__block contacts-info">
-               <div class="user-info__header">
-                  <h3>Контактные данные</h3>
-                  <button class="edit-btn">
-                     <img src="./images/icons/pencil.svg" alt="icon-pencil">
-                  </button>
-               </div>
-               <div class="user-info__content">
-                  <div class="contact-block phone">Телефон: <span>${phone}</span></div>
-                  <div class="contact-block email">E-mail: <span>${email}</span></div>
-               </div>
-               <img src="./images/backgrounds/bg5.svg" alt="bg5">
-            </div>
-            <div class="user-info__block achievements-info">
-               <div class="user-info__header">
-                  <h3>Личные достижения</h3>
-                  <button class="edit-btn">
-                     <img src="./images/icons/pencil.svg" alt="icon-pencil">
-                  </button>
-               </div>
-               <div class="user-info__content">
-                  <div class="achievements-block">Достижения: <span>${achievements}</span>
-                  </div>
-               </div>
-               <img src="./images/backgrounds/bg6.svg" alt="bg6">
-            </div>
+         
          </div>
       </div>
    </div>
       `;
+   }
+}
+
+const UserInfo = {
+   render: (fullName, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) => {
+      return `
+      <div class="user-info__block common-info">
+         <div class="user-info__header">
+            <h3>Общая информация</h3>
+               <button class="edit-btn">
+                  <img src="./images/icons/pencil.svg" alt="icon-pencil">
+               </button>
+         </div>
+         <div class="user-info__content">
+            <div class="name-block">ФИО: <span id="name-block__name">${fullName}</span></div>
+            <div class="birthday-block">Дата рождения: <span id="name-block__birthday">${birthday}</span>
+            </div>
+            <div class="gender-block">Пол: <span>${gender}</span></div>
+         </div>
+            <img src="./images/backgrounds/bg1.svg" alt="bg1">
+         </div>
+         <div class="user-info__block physical-info">
+         <div class="user-info__header">
+            <h3>Физические показатели</h3>
+            <button class="edit-btn">
+               <img src="./images/icons/pencil.svg" alt="icon-pencil">
+            </button>
+         </div>
+         <div class="user-info__content">
+            <div class="weight-block" contenteditable="true">Вес (кг): <span>${weight}</span></div>
+            <div class="height-block">Рост (см): <span>${height}</span></div>
+         </div>
+         <img src="./images/backgrounds/bg2.svg" alt="bg2">
+         </div>
+         <div class="user-info__block medical-info">
+         <div class="user-info__header">
+            <h3>Медицинские противопоказания</h3>
+            <button class="edit-btn">
+               <img src="./images/icons/pencil.svg" alt="icon-pencil">
+            </button>
+         </div>
+         <div class="user-info__content">
+            <div class="medical-block">Болезни: <span>${medicalInfo}</span></div>
+         </div>
+         <img src="./images/backgrounds/bg3.svg" alt="bg3">
+         </div>
+         <div class="user-info__block training-info">
+         <div class="user-info__header">
+            <h3>Цель тренировок</h3>
+            <button class="edit-btn">
+               <img src="./images/icons/pencil.svg" alt="icon-pencil">
+            </button>
+         </div>
+         <div class="user-info__content">
+            <div class="goal-block">Цель: <span>${goal}</span></div>
+         </div>
+         <img src="./images/backgrounds/bg4.svg" alt="bg4">
+         </div>
+         <div class="user-info__block contacts-info">
+         <div class="user-info__header">
+            <h3>Контактные данные</h3>
+            <button class="edit-btn">
+               <img src="./images/icons/pencil.svg" alt="icon-pencil">
+            </button>
+         </div>
+         <div class="user-info__content">
+            <div class="contact-block phone">Телефон: <span>${phone}</span></div>
+            <div class="contact-block email">E-mail: <span>${email}</span></div>
+         </div>
+         <img src="./images/backgrounds/bg5.svg" alt="bg5">
+         </div>
+         <div class="user-info__block achievements-info">
+         <div class="user-info__header">
+            <h3>Личные достижения</h3>
+            <button class="edit-btn">
+               <img src="./images/icons/pencil.svg" alt="icon-pencil">
+            </button>
+         </div>
+         <div class="user-info__content">
+            <div class="achievements-block">Достижения: <span>${achievements}</span>
+            </div>
+         </div>
+         <img src="./images/backgrounds/bg6.svg" alt="bg6">
+</div>`;
    }
 }
 
@@ -662,7 +669,6 @@ const ContentExercisesDatabase = {
 					<h2>База упражнений</h2>
                <input type="text" name=text" class="exercises-search" placeholder="Поиск упражнения">
                <div class="exercises-body">
-                  
                </div>
 				</div>
          </div>
@@ -674,7 +680,7 @@ const ContentExercisesDatabase = {
 const ExerciseBlock = {
    render: (title, image, instruction) => {
       return `
-         <div class="exercise-block">
+         <div class="exercise-block animate__animated animate__zoomIn">
             <h3 class="exercise-block__title">${title}</h3>
             <div class="exercise-block__image">
                <img src="${image}" alt="${title}">
@@ -788,4 +794,4 @@ const ContentProgress = {
    }
 }
 
-export { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress, ExerciseBlock };
+export { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress, ExerciseBlock, UserInfo };

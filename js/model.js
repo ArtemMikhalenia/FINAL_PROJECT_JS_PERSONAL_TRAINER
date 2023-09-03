@@ -120,14 +120,6 @@ function Model() {
       });
    }
 
-   // this.updateInfo = async function () {
-   //    const snapshot = await get(child(ref(database), 'user'));
-   //    if (snapshot.exists()) {
-   //       const user = snapshot.val();
-   //       myView.renderInfo(user);
-   //    }
-   // }
-
    this.openExerciseModal = function () {
       myView.openExerciseModal();
    }
@@ -158,6 +150,10 @@ function Model() {
          const exercises = snapshot.val();
          myView.renderExercises(exercises);
       }
+   }
+
+   this.searchExercise = function (value) {
+      myView.searchExercise(value);
    }
 
    this.updateState = function (pageName) {

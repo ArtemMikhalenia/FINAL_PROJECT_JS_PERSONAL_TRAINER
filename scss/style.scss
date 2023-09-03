@@ -812,6 +812,24 @@ body {
 
 		.exercises-content {
 
+			.exercises-search {
+				width: 100%;
+				padding: 10px 20px;
+				margin-bottom: 20px;
+
+				font-size: 20px;
+				font-weight: 700;
+				color: #475569;
+
+				border-radius: 13px;
+				border: 2px solid rgb(134, 215, 109);
+				transition: all 0.5s ease 0s;
+			}
+
+			.exercises-search:focus {
+				box-shadow: 0 0 10px 2px rgb(134, 215, 109);
+			}
+
 			.exercises-body {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
@@ -823,20 +841,28 @@ body {
 				.exercise-block {
 					background: linear-gradient(40deg, rgb(242, 241, 86) 0%, rgb(134, 215, 109) 50%);
 					color: #475569;
+
 					border-radius: 13px;
 					border: 2px solid rgb(134, 215, 109);
 					transition: all 0.5s ease 0s;
+					padding: 10px 20px;
+
+					img {
+						max-width: 300px;
+						width: 100%;
+						border-radius: 13px;
+						margin: 0px 0px 10px 0px;
+					}
 
 					&__title {
 						font-size: 22px;
 						font-weight: 700;
-						margin: 10px 0px;
+						margin: 0px 0px 10px;
 					}
 
 					&__image {
 						margin: 0px 10px 10px 10px;
 						transition: all 0.5s ease 0s;
-
 
 						img {
 							max-width: 300px;
@@ -858,8 +884,12 @@ body {
 					}
 				}
 
+				.exercise-block.hide {
+					display: none;
+				}
+
 				.exercise-block:hover {
-					transform: scale(1.03);
+					box-shadow: 0 0 10px 2px rgb(134, 215, 109);
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-import { ContentMain, ExerciseBlock } from "./components.js";
+import { ContentMain, ExerciseBlock, SidebarMain, UserInfo } from "./components.js";
 
 function View() {
    let myContainer = null;
@@ -19,7 +19,7 @@ function View() {
    let passwordInput = null;
    let formError = null;
 
-   let mainBlockWrapper = null;
+   let userInfoWrapper = null;
    let exercisesWrapper = null;
 
    this.init = function (container, routes) {
@@ -46,7 +46,7 @@ function View() {
       modalButtonRegistration = myContainer.querySelector('.form-submit-register');
       modalBlockRegistration = myContainer.querySelector('.form-register__block');
       successfulRegistrationBlock = myContainer.querySelector('.successful-registration-block');
-      mainBlockWrapper = myContainer.querySelector('.mainblock-wrapper');
+      userInfoWrapper = myContainer.querySelector('.user-info');
       exercisesWrapper = myContainer.querySelector('.exercises-body');
 
       emailInput = myContainer.querySelector('#email');
@@ -60,10 +60,6 @@ function View() {
       if (hashPageName === "startpage" || hashPageName === "") {
          this.parallaxEffect(myContainer, woman, man, fog);
       }
-
-      // if (hashPageName === "mainpage") {
-      //    this.renderInfo();
-      // }
    }
 
    this.successfulLogIn = function () {
@@ -79,8 +75,8 @@ function View() {
    }
 
    this.renderInfo = function (user) {
-      if (mainBlockWrapper) {
-         mainBlockWrapper.innerHTML = ContentMain.render(user.fullName, user.birthday, user.gender, user.weight, user.height, user.medicalInfo, user.goal, user.phone, user.email, user.achievements);
+      if (userInfoWrapper) {
+         userInfoWrapper.innerHTML = UserInfo.render(user.fullName, user.birthday, user.gender, user.weight, user.height, user.medicalInfo, user.goal, user.phone, user.email, user.achievements);
       }
    }
 
@@ -233,6 +229,29 @@ function View() {
 
    this.removeExercise = function (event) {
       event.target.closest('.exercise').remove();
+   }
+
+   this.searchExercise = function (value) {
+      const exerciseTitle = document.querySelectorAll('.exercise-block__title');
+
+      if (value !== '') {
+         exerciseTitle.forEach((element) => {
+            let elementTitle = element.innerText.toLowerCase();
+            let elementParent = element.closest('.exercise-block');
+
+            if (elementTitle.search(value) === -1) {
+               elementParent.classList.add('hide');
+            } else {
+               elementParent.classList.remove('hide');
+            }
+
+         });
+      } else {
+         exerciseTitle.forEach((element) => {
+            let elementParent = element.closest('.exercise-block');
+            elementParent.classList.remove('hide');
+         });
+      }
    }
 
    //drag&drop

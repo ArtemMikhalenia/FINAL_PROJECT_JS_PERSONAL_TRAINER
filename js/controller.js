@@ -1,13 +1,13 @@
 function Controller() {
    let myContainer = null;
    let myModel = null;
-   let inputUsername = null;
    let inputEmail = null;
    let inputPassword = null;
    let inputTrainingExerciseName = null;
    let inputTrainingExerciseSet = null;
    let inputTrainingExerciseWeight = null;
    let inputTrainingExerciseTime = null;
+   let exerciseSearchInput = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -38,6 +38,11 @@ function Controller() {
          successfulRegistrationBtn.addEventListener('click', changeToLogin);
 
          myContainer.addEventListener('mousemove', parallaxFunction);
+      }
+
+      if (hashPageName === "excersisesdatabase") {
+         exerciseSearchInput = document.querySelector('.exercises-search');
+         exerciseSearchInput.addEventListener('input', searchExercise);
       }
 
       const buttonAddExercise = document.querySelector('.add-exercise');
@@ -93,6 +98,17 @@ function Controller() {
 
    function logInUser() {
       myModel.logInUser(inputEmail.value, inputPassword.value);
+
+      const mainBlockBody = document.querySelector('.mainblock__body');
+      console.log(mainBlockBody);
+
+      let buttonEdit = myContainer.querySelectorAll('span.edit-btn');
+      buttonEdit.forEach(el => {
+         el.addEventListener('click', function () {
+            console.log(buttonEdit);
+         })
+      })
+      console.log(buttonEdit);
    }
 
    function logOutUser() {
@@ -164,6 +180,11 @@ function Controller() {
    // function dragExerciseEnd(event) {
    //    myModel.dragExerciseEnd(event);
    // }
+
+   function searchExercise() {
+      let searchInputValue = exerciseSearchInput.value;
+      myModel.searchExercise(searchInputValue);
+   }
 
    return {
       init: function (container, model) {

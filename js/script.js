@@ -42,9 +42,9 @@ const routes = {
    progresspage: ProgressPage,
 
    default: StartPage,
-   // error: ErrorPage,
 };
 
+//инициализируем СПА
 const mySPA = (function () {
    return {
       init: function ({ container, routes, components }) {
