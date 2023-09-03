@@ -1,6 +1,6 @@
-import { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, LoginBtn, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress, UserInfo } from './components.js';
+import { StartHeader, StartMainTitle, ButtonStart, StartModal, StartModalOverlay, ParallaxImages, SidebarMain, ContentMain, SidebarTraining, ContentTraining, SidebarDiet, ContentDiet, SidebarExercisesDatabase, ContentExercisesDatabase, SidebarProgress, ContentProgress } from './components.js';
 
-
+//начальная страница
 const StartPage = {
    id: "startpage",
    title: "Начальная страница",
@@ -18,6 +18,7 @@ const StartPage = {
    }
 };
 
+//главная страница
 const MainPage = {
    id: "mainpage",
    title: "Главная страница",
@@ -26,13 +27,12 @@ const MainPage = {
       <section class="mainblock" id="mainblock">
       ${SidebarMain.render()}
       ${ContentMain.render()}
-      ${UserInfo.render()}
-      <!--<div class="mainblock-wrapper"></div>-->
       </section>
          `;
    }
 };
 
+//страница тренировок
 const TrainingPage = {
    id: "trainingpage",
    title: "Тренировка",
@@ -46,6 +46,7 @@ const TrainingPage = {
    }
 };
 
+//страница питания
 const DietPage = {
    id: "dietpage",
    title: "Питание",
@@ -59,6 +60,8 @@ const DietPage = {
    }
 };
 
+
+//страница упражнений
 const ExercisesDatabasePage = {
    id: "exercisesdatabasepage",
    title: "База упражнений",
@@ -72,6 +75,7 @@ const ExercisesDatabasePage = {
    }
 };
 
+//страница прогресса
 const ProgressPage = {
    id: "progresspage",
    title: "Прогресс",

@@ -15,6 +15,8 @@ function Controller() {
       myModel.manageUser();
       myModel.loadExercises();
 
+
+      //кнопки начальной страницы и модального окна
       const buttonOpenModal = myContainer.querySelector('.btn-start');
       const buttonCloseModal = myContainer.querySelector('#modal-close');
       const buttonChangeToRegistration = myContainer.querySelector('#form-register');
@@ -44,6 +46,9 @@ function Controller() {
          exerciseSearchInput = document.querySelector('.exercises-search');
          exerciseSearchInput.addEventListener('input', searchExercise);
       }
+
+      let buttonOpenInfoModal = myContainer.querySelector('.edit-info-btn');
+      buttonOpenInfoModal && buttonOpenInfoModal.addEventListener('click', openUserInfoModal);
 
       const buttonAddExercise = document.querySelector('.add-exercise');
       buttonAddExercise && buttonAddExercise.addEventListener('click', openExerciseModal);
@@ -98,17 +103,6 @@ function Controller() {
 
    function logInUser() {
       myModel.logInUser(inputEmail.value, inputPassword.value);
-
-      const mainBlockBody = document.querySelector('.mainblock__body');
-      console.log(mainBlockBody);
-
-      let buttonEdit = myContainer.querySelectorAll('span.edit-btn');
-      buttonEdit.forEach(el => {
-         el.addEventListener('click', function () {
-            console.log(buttonEdit);
-         })
-      })
-      console.log(buttonEdit);
    }
 
    function logOutUser() {
@@ -117,6 +111,17 @@ function Controller() {
 
    function registerUser() {
       myModel.registerUser(inputEmail.value, inputPassword.value);
+   }
+
+   function openUserInfoModal() {
+      myModel.openUserInfoModal();
+
+      const buttonCloseInfoModal = document.querySelector('.user-modal__close');
+      buttonCloseInfoModal.addEventListener('click', closeUserInfoModal);
+   }
+
+   function closeUserInfoModal() {
+      myModel.closeUserInfoModal();
    }
 
    function openExerciseModal() {
@@ -153,6 +158,10 @@ function Controller() {
       // });
    }
 
+   function removeExercise(event) {
+      myModel.removeExercise(event);
+   }
+
    // function dropElement(event) {
    //    event.preventDefault();
    //    let data = event.dataTransfer.getData("text"); // id
@@ -168,10 +177,6 @@ function Controller() {
 
    //    this.append(document.getElementById(data));
    // }
-
-   function removeExercise(event) {
-      myModel.removeExercise(event);
-   }
 
    // function dragExerciseStart(event) {
    //    myModel.dragExerciseStart(event);

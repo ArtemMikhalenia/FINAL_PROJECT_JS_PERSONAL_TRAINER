@@ -18,7 +18,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
-const user = auth.currentUser;
 
 function Model() {
    let myView = null;
@@ -58,7 +57,6 @@ function Model() {
             const user = userCredential.user;
             set(ref(database, "UsersList/" + user.uid),
                {
-                  username: 'Нет данных',
                   email: email,
                   fullName: 'Нет данных',
                   birthday: 'Нет данных',
@@ -88,17 +86,23 @@ function Model() {
                {
                   email: email,
                })
-            localStorage.setItem('userId', user.uid);
             myView.successfulLogIn();
          })
          .catch((error) => {
             const errorCode = error.code;
-
             myView.ifError(errorCode);
          });
    }
 
-   //метод получения текущего пользователя
+   this.logOutUser = function () {
+      signOut(auth).then(() => {
+         myView.logOutUser();
+      }).catch((error) => {
+         myView.logOutUserError(error);
+      });
+   }
+
+   //метод получения инфы текущего пользователя
    this.manageUser = function () {
       onAuthStateChanged(auth, (user) => {
          if (user) {
@@ -112,12 +116,18 @@ function Model() {
       });
    }
 
-   this.logOutUser = function () {
-      signOut(auth).then(() => {
-         myView.logOutUser();
-      }).catch((error) => {
-         myView.logOutUserError(error);
-      });
+
+   this.openUserInfoModal = function () {
+      const userUid = auth.currentUser.uid;
+      get(child(ref(database), "UsersList/" + userUid))
+         .then(snapshot => {
+            const user = snapshot.val();
+            myView.openUserInfoModal(user);
+         })
+   }
+
+   this.closeUserInfoModal = function () {
+      myView.closeUserInfoModal();
    }
 
    this.openExerciseModal = function () {
@@ -132,6 +142,10 @@ function Model() {
       myView.addExercise(exerciseName, exerciseSet, exerciseWeight, exerciseTime);
    }
 
+   this.removeExercise = function (event) {
+      myView.removeExercise(event);
+   }
+
    // this.dragExerciseStart = function (event) {
    //    myView.dragExerciseStart(event);
    // }
@@ -139,10 +153,6 @@ function Model() {
    // this.dragExerciseEnd = function (event) {
    //    myView.dragExerciseEnd(event);
    // }
-
-   this.removeExercise = function (event) {
-      myView.removeExercise(event);
-   }
 
    this.loadExercises = async function () {
       const snapshot = await get(child(ref(database), 'ExerciseDatabase'));

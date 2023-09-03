@@ -225,14 +225,60 @@ const ContentMain = {
    render: () => {
       return `
       <div class="mainblock__body">
-      <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
-      <div class="mainblock__content" id="main-content">
-         <h2>Информация о пользователе</h2>
-         <div class="user-info">
-         
+         <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
+         <div class="mainblock__content" id="main-content">
+            <h2>Информация о пользователе</h2>
+            <button class="edit-info-btn">Изменить данные</button>
+            <div class="user-modal modal_closed" id="user-modal">
+               <div class="user-modal__header">
+                  <button class="user-modal__close" id="user-modal-close" title="Закрыть модальное окно">
+                  <img src="./images/icons/x_training.svg" alt="x-icon">
+               </button>
+            </div>
+               <form class="user-modal__form">
+                  <div class="user-modal__common-info">
+                     <label class="input-label" for="user-modal__fullName">ФИО:</label>
+                     <input type="text" id="user-modal__fullName" autocomplete="off" class="user-modal__name" required value="">
+                  
+                     <label class="input-label" for="user-modal__birthday">День рождения:</label>
+                     <input type="text" id="user-modal__birthday" autocomplete="off" class="user-modal__birthday" value="" required>
+
+                     <label class="input-label" for="user-modal__gender">Пол:</label>
+                     <input type="text" id="user-modal__gender" autocomplete="off" class="user-modal__gender" value="" required>
+                  </div>
+                  <div class="user-modal__physical-info">
+                     <label class="input-label" for="user-modal__weight">Вес:</label>
+                     <input type="text" id="user-modal__weight" autocomplete="off" class="user-modal__weight" value="" required>
+
+                     <label class="input-label" for="user-modal__height">Рост:</label>
+                     <input type="text" id="user-modal__height" autocomplete="off" class="user-modal__height" value="" required>
+                  </div>
+                  <div class="user-modal__medical-info">
+                     <label class="input-label" for="user-modal__medicalInfo">Медицинские противопоказания:</label>
+                     <input type="text" id="user-modal__medicalInfo" autocomplete="off" class="user-modal__medicalinfo" value="" required>
+                  </div>
+                  <div class="user-modal__training-info">
+                     <label class="input-label" for="user-modal__goal">Цель тренировок:</label>
+                     <input type="text" id="user-modal__goal" autocomplete="off" class="user-modal__goal" value="" required>
+                  </div>
+                  <div class="user-modal__contacts-info">
+                     <label class="input-label" for="user-modal__phone">Телефон:</label>
+                     <input type="text" id="user-modal__phone" autocomplete="off" class="user-modal__phone" value="" required>
+                     <label class="input-label" for="user-modal__email">Почта:</label>
+                     <input type="text" id="user-modal__email" autocomplete="off" class="user-modal__email" value="" required>
+                  </div>
+                  <div class="user-modal__achievements-info">
+                     <label class="input-label" for="user-modal__achievements">Достижения:</label>
+                     <input type="text" id="user-modal__achievements" autocomplete="off" class="user-modal__achievements" value="" required>
+                  </div>
+                  <input type="button" id="user-modal__save" class="user-modal__save"
+                  value="Сохранить">
+               </form>
+            </div>
+            <div class="user-info">
+            </div>
          </div>
       </div>
-   </div>
       `;
    }
 }
@@ -243,9 +289,6 @@ const UserInfo = {
       <div class="user-info__block common-info">
          <div class="user-info__header">
             <h3>Общая информация</h3>
-               <button class="edit-btn">
-                  <img src="./images/icons/pencil.svg" alt="icon-pencil">
-               </button>
          </div>
          <div class="user-info__content">
             <div class="name-block">ФИО: <span id="name-block__name">${fullName}</span></div>
@@ -258,9 +301,6 @@ const UserInfo = {
          <div class="user-info__block physical-info">
          <div class="user-info__header">
             <h3>Физические показатели</h3>
-            <button class="edit-btn">
-               <img src="./images/icons/pencil.svg" alt="icon-pencil">
-            </button>
          </div>
          <div class="user-info__content">
             <div class="weight-block" contenteditable="true">Вес (кг): <span>${weight}</span></div>
@@ -271,9 +311,6 @@ const UserInfo = {
          <div class="user-info__block medical-info">
          <div class="user-info__header">
             <h3>Медицинские противопоказания</h3>
-            <button class="edit-btn">
-               <img src="./images/icons/pencil.svg" alt="icon-pencil">
-            </button>
          </div>
          <div class="user-info__content">
             <div class="medical-block">Болезни: <span>${medicalInfo}</span></div>
@@ -283,9 +320,6 @@ const UserInfo = {
          <div class="user-info__block training-info">
          <div class="user-info__header">
             <h3>Цель тренировок</h3>
-            <button class="edit-btn">
-               <img src="./images/icons/pencil.svg" alt="icon-pencil">
-            </button>
          </div>
          <div class="user-info__content">
             <div class="goal-block">Цель: <span>${goal}</span></div>
@@ -295,9 +329,6 @@ const UserInfo = {
          <div class="user-info__block contacts-info">
          <div class="user-info__header">
             <h3>Контактные данные</h3>
-            <button class="edit-btn">
-               <img src="./images/icons/pencil.svg" alt="icon-pencil">
-            </button>
          </div>
          <div class="user-info__content">
             <div class="contact-block phone">Телефон: <span>${phone}</span></div>
@@ -308,9 +339,6 @@ const UserInfo = {
          <div class="user-info__block achievements-info">
          <div class="user-info__header">
             <h3>Личные достижения</h3>
-            <button class="edit-btn">
-               <img src="./images/icons/pencil.svg" alt="icon-pencil">
-            </button>
          </div>
          <div class="user-info__content">
             <div class="achievements-block">Достижения: <span>${achievements}</span>
@@ -413,7 +441,7 @@ const ContentTraining = {
    render: () => {
       return `
       <div class="mainblock__body">
-         <header class="mainblock__header">"Если тяжело, значит развиваешься!</header>
+         <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
          <div class="mainblock__content" id="main-content">
             <div class="training-content">
                <h2>Тренировка</h2>
@@ -559,7 +587,7 @@ const ContentDiet = {
    render: () => {
       return `
       <div class="mainblock__body">
-         <header class="mainblock__header">"Если тяжело, значит        развиваешься!</header>
+         <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
          <div class="mainblock__content" id="main-content">
             <div class="diet-content">
 					<h2>Питание</h2>
@@ -663,7 +691,7 @@ const ContentExercisesDatabase = {
    render: () => {
       return `
       <div class="mainblock__body">
-         <header class="mainblock__header">"Если тяжело, значит        развиваешься!</header>
+         <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
          <div class="mainblock__content" id="main-content">
             <div class="exercises-content">
 					<h2>База упражнений</h2>
@@ -690,7 +718,6 @@ const ExerciseBlock = {
       `;
    }
 }
-
 
 //<PROGRESS>================================================
 const SidebarProgress = {
@@ -783,7 +810,7 @@ const ContentProgress = {
    render: () => {
       return `
       <div class="mainblock__body">
-         <header class="mainblock__header">"Если тяжело, значит        развиваешься!</header>
+         <header class="mainblock__header">"Если тяжело, значит развиваешься!"</header>
          <div class="mainblock__content" id="main-content">
             <div class="progress-content">
 					<h2>Прогресс</h2>

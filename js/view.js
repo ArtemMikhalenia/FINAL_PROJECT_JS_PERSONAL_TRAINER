@@ -1,4 +1,4 @@
-import { ContentMain, ExerciseBlock, SidebarMain, UserInfo } from "./components.js";
+import { ExerciseBlock, UserInfo } from "./components.js";
 
 function View() {
    let myContainer = null;
@@ -20,6 +20,7 @@ function View() {
    let formError = null;
 
    let userInfoWrapper = null;
+   let mainblockWrapper = null;
    let exercisesWrapper = null;
 
    this.init = function (container, routes) {
@@ -46,7 +47,9 @@ function View() {
       modalButtonRegistration = myContainer.querySelector('.form-submit-register');
       modalBlockRegistration = myContainer.querySelector('.form-register__block');
       successfulRegistrationBlock = myContainer.querySelector('.successful-registration-block');
+
       userInfoWrapper = myContainer.querySelector('.user-info');
+      mainblockWrapper = myContainer.querySelector('#mainblock');
       exercisesWrapper = myContainer.querySelector('.exercises-body');
 
       emailInput = myContainer.querySelector('#email');
@@ -196,6 +199,22 @@ function View() {
       } else if (errorCode === 'auth/wrong-password') {
          formError.innerHTML = 'Неверный пароль. Попробуйте еще раз.';
       }
+   }
+
+   this.openUserInfoModal = function (user) {
+      const userInfoModal = document.querySelector('.user-modal');
+      userInfoModal.classList.remove('modal_closed');
+
+      for (let key in user) {
+         const value = user[key];
+         const input = document.querySelector(`#user-modal__${key}`);
+         input.value = value;
+      }
+   }
+
+   this.closeUserInfoModal = function () {
+      const userInfoModal = document.querySelector('.user-modal');
+      userInfoModal.classList.add('modal_closed');
    }
 
    this.openExerciseModal = function () {

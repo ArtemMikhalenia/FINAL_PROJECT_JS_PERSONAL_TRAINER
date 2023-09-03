@@ -486,6 +486,95 @@ body.lock {
   font-size: 35px;
   margin-bottom: 40px;
 }
+.mainblock__content .user-modal {
+  display: block;
+  width: 700px;
+  max-width: 100%;
+  padding: 10px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  background: #F1F5F9;
+  border: 2px solid #7C6DD7;
+}
+.mainblock__content .user-modal__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.mainblock__content .user-modal__header img {
+  max-width: 120px;
+  border-radius: 3px;
+}
+.mainblock__content .user-modal__close {
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+.mainblock__content .user-modal__close img {
+  max-width: 20px;
+  width: 100%;
+}
+.mainblock__content .user-modal__close:hover {
+  transform: scale(1.15);
+}
+.mainblock__content .user-modal__form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5px;
+  row-gap: 5px;
+  grid-template-rows: repeat(2, 1fr);
+}
+.mainblock__content .user-modal__form label {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.mainblock__content .user-modal__common-info, .mainblock__content .user-modal__physical-info, .mainblock__content .user-modal__medical-info, .mainblock__content .user-modal__training-info, .mainblock__content .user-modal__contacts-info, .mainblock__content .user-modal__achievements-info {
+  display: flex;
+  flex-direction: column;
+}
+.mainblock__content .user-modal__name, .mainblock__content .user-modal__birthday, .mainblock__content .user-modal__gender, .mainblock__content .user-modal__weight, .mainblock__content .user-modal__height, .mainblock__content .user-modal__medicalinfo, .mainblock__content .user-modal__goal, .mainblock__content .user-modal__phone, .mainblock__content .user-modal__email, .mainblock__content .user-modal__achievements {
+  padding: 3px 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(133, 133, 133, 0.925);
+  background: none;
+  color: rgb(0, 0, 0);
+}
+.mainblock__content .user-modal__save {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 15px;
+  background-color: #F97316;
+  padding: 10px;
+  border-radius: 3px;
+  color: #FFFFFF;
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+}
+.mainblock__content .user-modal__save:hover {
+  background-color: #CBD5E1;
+  color: #F97316;
+}
+.mainblock__content .user-modal.modal_closed {
+  display: none;
+}
+.mainblock__content .edit-info-btn {
+  font-size: 17px;
+  margin-bottom: 20px;
+  background-color: #F97316;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #FFFFFF;
+  transition: all 0.5s ease 0s;
+}
+.mainblock__content .edit-info-btn:hover {
+  background-color: #CBD5E1;
+  color: #F97316;
+}
 .mainblock__content .user-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
