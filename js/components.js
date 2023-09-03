@@ -660,6 +660,7 @@ const ContentExercisesDatabase = {
          <div class="mainblock__content" id="main-content">
             <div class="exercises-content">
 					<h2>База упражнений</h2>
+               <input type="text" name=text" class="exercises-search" placeholder="Поиск упражнения">
                <div class="exercises-body">
                   
                </div>

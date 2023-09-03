@@ -736,9 +736,10 @@ body.lock {
   text-align: center;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-block {
-  background: radial-gradient(circle, rgb(124, 109, 215) 23%, rgb(6, 182, 212) 81%);
-  color: #ffffff;
+  background: linear-gradient(40deg, rgb(242, 241, 86) 0%, rgb(134, 215, 109) 50%);
+  color: #475569;
   border-radius: 13px;
+  border: 2px solid rgb(134, 215, 109);
   transition: all 0.5s ease 0s;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-block__title {

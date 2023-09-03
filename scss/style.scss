@@ -821,9 +821,10 @@ body {
 				text-align: center;
 
 				.exercise-block {
-					background: radial-gradient(circle, rgba(124,109,215,1) 23%, rgba(6,182,212,1) 81%);
-					color: #ffffff;
+					background: linear-gradient(40deg, rgb(242, 241, 86) 0%, rgb(134, 215, 109) 50%);
+					color: #475569;
 					border-radius: 13px;
+					border: 2px solid rgb(134, 215, 109);
 					transition: all 0.5s ease 0s;
 
 					&__title {
