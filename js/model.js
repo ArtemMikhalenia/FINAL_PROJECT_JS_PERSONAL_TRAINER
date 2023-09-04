@@ -131,24 +131,20 @@ function Model() {
 
    this.changeUserInfo = function (name, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) {
       const userUid = auth.currentUser.uid;
-      update(ref(database, "UsersList/" + userUid),
-         {
-            email: email,
-            fullName: name,
-            birthday: birthday,
-            gender: gender,
-            weight: weight,
-            height: height,
-            medicalInfo: medicalInfo,
-            goal: goal,
-            phone: phone,
-            achievements: achievements,
-         })
-      get(child(ref(database), "UsersList/" + userUid))
-         .then(snapshot => {
-            const user = snapshot.val();
-            myView.renderInfo(user);
-         })
+      const user = {
+         email: email,
+         fullName: name,
+         birthday: birthday,
+         gender: gender,
+         weight: weight,
+         height: height,
+         medicalInfo: medicalInfo,
+         goal: goal,
+         phone: phone,
+         achievements: achievements,
+      }
+      update(ref(database, "UsersList/" + userUid), user);
+      myView.renderInfo(user);
       myView.closeUserInfoModal();
    }
 

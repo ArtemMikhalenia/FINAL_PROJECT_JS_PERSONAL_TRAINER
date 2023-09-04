@@ -595,6 +595,7 @@ body.lock {
 }
 .mainblock__content .user-info__block {
   position: relative;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -879,12 +880,15 @@ body.lock {
   text-align: center;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-block {
+  height: 100%;
   background: linear-gradient(40deg, rgb(242, 241, 86) 0%, rgb(134, 215, 109) 50%);
   color: #475569;
   border-radius: 13px;
   border: 2px solid rgb(134, 215, 109);
   transition: all 0.5s ease 0s;
   padding: 10px 20px;
+  transform: scale(1);
+  cursor: pointer;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-block img {
   max-width: 300px;
@@ -920,6 +924,7 @@ body.lock {
   display: none;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-block:hover {
+  transform: scale(1.02);
   box-shadow: 0 0 10px 2px rgb(134, 215, 109);
 }
 

@@ -193,12 +193,6 @@ function Controller() {
       buttonRemoveExercise && buttonRemoveExercise.forEach(el => {
          el.addEventListener('click', removeExercise);
       });
-
-      // const draggableElement = document.querySelectorAll('.exercise');
-      // draggableElement && draggableElement.forEach(el => {
-      //    el.addEventListener("dragstart", dragExerciseStart);
-      //    el.addEventListener("dragend", dragExerciseEnd);
-      // });
    }
 
    function removeExercise(event) {
