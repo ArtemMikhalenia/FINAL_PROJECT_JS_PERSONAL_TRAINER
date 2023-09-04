@@ -724,15 +724,33 @@ body.lock {
   border: 2px solid #06B6D4;
   border-radius: 6px;
 }
+.mainblock__content .training-content .training-block__todo .todo-block__content.drag-over {
+  box-shadow: 0 0 10px 2px #06B6D4;
+}
+.mainblock__content .training-content .training-block__todo .todo-block__content.drag-leave {
+  box-shadow: none;
+}
 .mainblock__content .training-content .training-block__inprogress .inprogress-block__content {
   height: 100%;
   border: 2px solid #F97316;
   border-radius: 6px;
 }
+.mainblock__content .training-content .training-block__inprogress .inprogress-block__content.drag-over {
+  box-shadow: 0 0 10px 2px #F97316;
+}
+.mainblock__content .training-content .training-block__inprogress .inprogress-block__content.drag-leave {
+  box-shadow: none;
+}
 .mainblock__content .training-content .training-block__finished .finished-block__content {
   height: 100%;
   border: 2px solid #86d76d;
   border-radius: 6px;
+}
+.mainblock__content .training-content .training-block__finished .finished-block__content.drag-over {
+  box-shadow: 0 0 10px 2px #86d76d;
+}
+.mainblock__content .training-content .training-block__finished .finished-block__content.drag-leave {
+  box-shadow: none;
 }
 .mainblock__content .training-content .training-block .exercise {
   display: flex;

@@ -18,6 +18,9 @@ function Controller() {
    let phoneInput = null;
    let emailInput = null;
    let achievementsInput = null;
+   let blockToDo = null;
+   let blockInProgress = null;
+   let blockFinished = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -68,27 +71,38 @@ function Controller() {
 
       //drag&drop
 
-      // document.querySelector('.todo-block__content').addEventListener("dragover", function (event) {
-      //    event.preventDefault();
-      //    // this.classList.add("parent-over");
-      // });
+      blockToDo = document.querySelector('.todo-block__content');
+      blockToDo.addEventListener("dragover", function (event) {
+         event.preventDefault();
+         myModel.dragOverToDoBlock();
+      });
+      blockToDo.addEventListener("dragleave", function (event) {
+         event.preventDefault();
+         myModel.dragLeaveToDoBlock();
+      });
+      blockToDo.addEventListener("drop", dropElement);
 
-      // document.querySelector('.todo-block__content').addEventListener("dragleave", function (event) {
-      //    // this.classList.remove("parent-over");
-      // });
+      blockInProgress = document.querySelector('.inprogress-block__content');
+      blockInProgress.addEventListener("dragover", function (event) {
+         event.preventDefault();
+         myModel.dragOverProgressBlock();
+      });
+      blockInProgress.addEventListener("dragleave", function (event) {
+         event.preventDefault();
+         myModel.dragLeaveProgressBlock();
+      });
+      blockInProgress.addEventListener("drop", dropElement);
 
-      // document.querySelector('.todo-block__content').addEventListener("drop", dropElement);
-
-      // document.querySelector('.training-block__inprogress').addEventListener("dragover", function (event) {
-      //    event.preventDefault();
-      //    // this.classList.add("parent-over");
-      // });
-
-      // document.querySelector('.training-block__inprogress').addEventListener("dragleave", function (event) {
-      //    // this.classList.remove("parent-over");
-      // });
-
-      // document.querySelector('.training-block__inprogress').addEventListener("drop", dropElement);
+      blockFinished = document.querySelector('.finished-block__content');
+      blockFinished.addEventListener("dragover", function (event) {
+         event.preventDefault();
+         myModel.dragOverFinishBlock();
+      });
+      blockFinished.addEventListener("dragleave", function (event) {
+         event.preventDefault();
+         myModel.dragLeaveFinishBlock();
+      });
+      blockFinished.addEventListener("drop", dropElement);
    }
 
    function parallaxFunction() {
@@ -189,29 +203,10 @@ function Controller() {
       myModel.removeExercise(event);
    }
 
-   // function dropElement(event) {
-   //    event.preventDefault();
-   //    let data = event.dataTransfer.getData("text"); // id
-   //    let content = event.dataTransfer.getData("content"); // название услуги
-
-   //    // if (this === document.querySelector('.todo-block__content') && !(data in services)) {
-   //    //    services[data] = content;
-   //    // }
-
-   //    // if (this === document.querySelector('.training-block__inprogress')) {
-   //    //    delete services[data];
-   //    // }
-
-   //    this.append(document.getElementById(data));
-   // }
-
-   // function dragExerciseStart(event) {
-   //    myModel.dragExerciseStart(event);
-   // }
-
-   // function dragExerciseEnd(event) {
-   //    myModel.dragExerciseEnd(event);
-   // }
+   function dropElement(event) {
+      event.preventDefault();
+      myModel.dropElement();
+   }
 
    function searchExercise() {
       let searchInputValue = exerciseSearchInput.value;

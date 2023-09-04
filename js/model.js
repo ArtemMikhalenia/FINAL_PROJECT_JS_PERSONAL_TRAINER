@@ -172,13 +172,33 @@ function Model() {
       myView.removeExercise(event);
    }
 
-   // this.dragExerciseStart = function (event) {
-   //    myView.dragExerciseStart(event);
-   // }
+   this.dragOverToDoBlock = function (event) {
+      myView.dragOverToDoBlock(event);
+   }
 
-   // this.dragExerciseEnd = function (event) {
-   //    myView.dragExerciseEnd(event);
-   // }
+   this.dragLeaveToDoBlock = function (event) {
+      myView.dragLeaveToDoBlock(event);
+   }
+
+   this.dragOverProgressBlock = function (event) {
+      myView.dragOverProgressBlock(event);
+   }
+
+   this.dragLeaveProgressBlock = function (event) {
+      myView.dragLeaveProgressBlock(event);
+   }
+
+   this.dragOverFinishBlock = function (event) {
+      myView.dragOverFinishBlock(event);
+   }
+
+   this.dragLeaveFinishBlock = function (event) {
+      myView.dragLeaveFinishBlock(event);
+   }
+
+   this.dropElement = function (event) {
+      myView.dropElement(event);
+   }
 
    this.loadExercises = async function () {
       const snapshot = await get(child(ref(database), 'ExerciseDatabase'));

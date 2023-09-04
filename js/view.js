@@ -284,6 +284,45 @@ function View() {
    // this.dragExerciseEnd = function (event) {
    //    // this.classList.remove("dragging");
    // }
+
+   this.dragOverToDoBlock = function () {
+      const blockToDo = document.querySelector('.todo-block__content');
+      blockToDo.classList.add('drag-over');
+   }
+
+   this.dragLeaveToDoBlock = function () {
+      const blockToDo = document.querySelector('.todo-block__content');
+      blockToDo.classList.remove('drag-over');
+   }
+
+   this.dragOverProgressBlock = function (event) {
+      const blockInProgress = document.querySelector('.inprogress-block__content');
+      blockInProgress.classList.add('drag-over');
+   }
+
+   this.dragLeaveProgressBlock = function (event) {
+      const blockInProgress = document.querySelector('.inprogress-block__content');
+      blockInProgress.classList.remove('drag-over');
+   }
+
+   this.dragOverFinishBlock = function (event) {
+      const blockFinished = document.querySelector('.finished-block__content');
+      blockFinished.classList.add('drag-over');
+   }
+
+   this.dragLeaveFinishBlock = function (event) {
+      const blockFinished = document.querySelector('.finished-block__content');
+      blockFinished.classList.remove('drag-over');
+   }
+
+   this.dropElement = function (event) {
+      const blockToDo = document.querySelector('.todo-block__content');
+      blockToDo.classList.remove('drag-over');
+      const blockInProgress = document.querySelector('.inprogress-block__content');
+      blockInProgress.classList.remove('drag-over');
+      const dropBlock = event.target.closest('.drop-block');
+      dropBlock.append(document.querySelector('.exercise'));
+   }
 }
 
 export default View;

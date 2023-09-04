@@ -449,15 +449,15 @@ const ContentTraining = {
                <div class="training-block">
                   <div class="training-block__todo">
                      <h3>Нужно сделать:</h3>
-                     <div class="todo-block__content"></div>
+                     <div class="todo-block__content drop-block"></div>
                   </div>
                   <div class="training-block__inprogress">
                      <h3>В процессе:</h3>
-                     <div class="inprogress-block__content"></div>
+                     <div class="inprogress-block__content drop-block"></div>
                   </div>
                   <div class="training-block__finished">
                      <h3>Готово:</h3>
-                     <div class="finished-block__content"></div>
+                     <div class="finished-block__content drop-block"></div>
                   </div>
                </div>
                <div class="training-modal modal_closed" id="training-modal">
