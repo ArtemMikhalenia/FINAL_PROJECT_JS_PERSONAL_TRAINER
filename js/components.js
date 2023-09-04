@@ -247,15 +247,15 @@ const ContentMain = {
                      <input type="text" id="user-modal__gender" autocomplete="off" class="user-modal__gender" value="" required>
                   </div>
                   <div class="user-modal__physical-info">
-                     <label class="input-label" for="user-modal__weight">Вес:</label>
-                     <input type="text" id="user-modal__weight" autocomplete="off" class="user-modal__weight" value="" required>
+                     <label class="input-label" for="user-modal__weight">Вес (кг):</label>
+                     <input type="number" id="user-modal__weight" autocomplete="off" class="user-modal__weight" value="" required>
 
-                     <label class="input-label" for="user-modal__height">Рост:</label>
-                     <input type="text" id="user-modal__height" autocomplete="off" class="user-modal__height" value="" required>
+                     <label class="input-label" for="user-modal__height">Рост (см):</label>
+                     <input type="number" id="user-modal__height" autocomplete="off" class="user-modal__height" value="" required>
                   </div>
                   <div class="user-modal__medical-info">
                      <label class="input-label" for="user-modal__medicalInfo">Медицинские противопоказания:</label>
-                     <input type="text" id="user-modal__medicalInfo" autocomplete="off" class="user-modal__medicalinfo" value="" required>
+                     <input type="text" id="user-modal__medicalInfo" autocomplete="off" class="user-modal__medicalInfo" value="" required>
                   </div>
                   <div class="user-modal__training-info">
                      <label class="input-label" for="user-modal__goal">Цель тренировок:</label>
@@ -263,9 +263,9 @@ const ContentMain = {
                   </div>
                   <div class="user-modal__contacts-info">
                      <label class="input-label" for="user-modal__phone">Телефон:</label>
-                     <input type="text" id="user-modal__phone" autocomplete="off" class="user-modal__phone" value="" required>
+                     <input type="tel" id="user-modal__phone" autocomplete="off" class="user-modal__phone" value="" required>
                      <label class="input-label" for="user-modal__email">Почта:</label>
-                     <input type="text" id="user-modal__email" autocomplete="off" class="user-modal__email" value="" required>
+                     <input type="email" id="user-modal__email" autocomplete="off" class="user-modal__email" value="" required>
                   </div>
                   <div class="user-modal__achievements-info">
                      <label class="input-label" for="user-modal__achievements">Достижения:</label>

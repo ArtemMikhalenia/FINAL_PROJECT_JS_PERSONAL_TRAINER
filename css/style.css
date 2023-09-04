@@ -380,7 +380,7 @@ body.lock {
   border-right: 2px solid #CBD5E1;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: rgb(255, 255, 255);
+  background-color: #E4EBF5;
 }
 .mainblock .sidebar nav {
   margin: 0px 0px 100px 0px;
@@ -471,14 +471,14 @@ body.lock {
   text-align: center;
   color: #475569;
   border-top-right-radius: 5px;
-  background-color: rgb(255, 255, 255);
+  background-color: #E4EBF5;
   border-bottom: 2px solid #CBD5E1;
 }
 .mainblock__content {
   height: calc(95vh - 76.6px);
   padding: 30px 40px 40px;
   overflow: scroll;
-  background-color: #F1F5F9;
+  background-color: #E4EBF5;
   color: #475569;
   border-bottom-right-radius: 5px;
 }
@@ -488,8 +488,10 @@ body.lock {
 }
 .mainblock__content .user-modal {
   display: block;
-  width: 700px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
+  height: 50%;
+  overflow-y: scroll;
   padding: 10px;
   position: fixed;
   z-index: 100;
@@ -522,27 +524,24 @@ body.lock {
   transform: scale(1.15);
 }
 .mainblock__content .user-modal__form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 5px;
-  row-gap: 5px;
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
 }
 .mainblock__content .user-modal__form label {
-  font-size: 15px;
+  font-size: 17px;
   margin-bottom: 5px;
 }
 .mainblock__content .user-modal__common-info, .mainblock__content .user-modal__physical-info, .mainblock__content .user-modal__medical-info, .mainblock__content .user-modal__training-info, .mainblock__content .user-modal__contacts-info, .mainblock__content .user-modal__achievements-info {
   display: flex;
   flex-direction: column;
 }
-.mainblock__content .user-modal__name, .mainblock__content .user-modal__birthday, .mainblock__content .user-modal__gender, .mainblock__content .user-modal__weight, .mainblock__content .user-modal__height, .mainblock__content .user-modal__medicalinfo, .mainblock__content .user-modal__goal, .mainblock__content .user-modal__phone, .mainblock__content .user-modal__email, .mainblock__content .user-modal__achievements {
+.mainblock__content .user-modal__name, .mainblock__content .user-modal__birthday, .mainblock__content .user-modal__gender, .mainblock__content .user-modal__weight, .mainblock__content .user-modal__height, .mainblock__content .user-modal__medicalInfo, .mainblock__content .user-modal__goal, .mainblock__content .user-modal__phone, .mainblock__content .user-modal__email, .mainblock__content .user-modal__achievements {
   padding: 3px 10px;
   margin-bottom: 20px;
-  font-size: 13px;
+  font-size: 16px;
   border-bottom: 1px solid rgba(133, 133, 133, 0.925);
   background: none;
-  color: rgb(0, 0, 0);
+  color: rgb(52, 52, 52);
 }
 .mainblock__content .user-modal__save {
   width: 40%;
@@ -824,6 +823,7 @@ body.lock {
   font-size: 20px;
   font-weight: 700;
   color: #475569;
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 13px;
   border: 2px solid rgb(134, 215, 109);
   transition: all 0.5s ease 0s;

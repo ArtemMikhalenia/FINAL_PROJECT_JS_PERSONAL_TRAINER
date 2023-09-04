@@ -8,6 +8,16 @@ function Controller() {
    let inputTrainingExerciseWeight = null;
    let inputTrainingExerciseTime = null;
    let exerciseSearchInput = null;
+   let nameInput = null;
+   let birthdayInput = null;
+   let genderInput = null;
+   let weightInput = null;
+   let heightInput = null;
+   let medicalInfoInput = null;
+   let goalInput = null;
+   let phoneInput = null;
+   let emailInput = null;
+   let achievementsInput = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -118,6 +128,23 @@ function Controller() {
 
       const buttonCloseInfoModal = document.querySelector('.user-modal__close');
       buttonCloseInfoModal.addEventListener('click', closeUserInfoModal);
+      const buttonSaveUserInfo = document.querySelector('.user-modal__save');
+      buttonSaveUserInfo.addEventListener('click', changeUserInfo);
+
+      nameInput = document.querySelector('.user-modal__name');
+      birthdayInput = document.querySelector('.user-modal__birthday');
+      genderInput = document.querySelector('.user-modal__gender');
+      weightInput = document.querySelector('.user-modal__weight');
+      heightInput = document.querySelector('.user-modal__height');
+      medicalInfoInput = document.querySelector('.user-modal__medicalInfo');
+      goalInput = document.querySelector('.user-modal__goal');
+      phoneInput = document.querySelector('.user-modal__phone');
+      emailInput = document.querySelector('.user-modal__email');
+      achievementsInput = document.querySelector('.user-modal__achievements');
+   }
+
+   function changeUserInfo() {
+      myModel.changeUserInfo(nameInput.value, birthdayInput.value, genderInput.value, weightInput.value, heightInput.value, medicalInfoInput.value, goalInput.value, phoneInput.value, emailInput.value, achievementsInput.value);
    }
 
    function closeUserInfoModal() {
