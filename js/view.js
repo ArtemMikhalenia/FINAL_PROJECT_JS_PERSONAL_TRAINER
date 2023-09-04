@@ -320,8 +320,8 @@ function View() {
       blockToDo.classList.remove('drag-over');
       const blockInProgress = document.querySelector('.inprogress-block__content');
       blockInProgress.classList.remove('drag-over');
-      const dropBlock = event.target.closest('.drop-block');
-      dropBlock.append(document.querySelector('.exercise'));
+
+      // event.target.append(document.querySelector('.exercise'));
    }
 }
 

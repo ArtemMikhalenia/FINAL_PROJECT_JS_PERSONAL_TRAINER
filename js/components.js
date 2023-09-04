@@ -303,7 +303,7 @@ const UserInfo = {
             <h3>Физические показатели</h3>
          </div>
          <div class="user-info__content">
-            <div class="weight-block" contenteditable="true">Вес (кг): <span>${weight}</span></div>
+            <div class="weight-block">Вес (кг): <span>${weight}</span></div>
             <div class="height-block">Рост (см): <span>${height}</span></div>
          </div>
          <img src="./images/backgrounds/bg2.svg" alt="bg2">

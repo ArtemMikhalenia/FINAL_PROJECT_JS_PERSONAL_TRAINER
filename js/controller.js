@@ -71,38 +71,40 @@ function Controller() {
 
       //drag&drop
 
-      blockToDo = document.querySelector('.todo-block__content');
-      blockToDo.addEventListener("dragover", function (event) {
-         event.preventDefault();
-         myModel.dragOverToDoBlock();
-      });
-      blockToDo.addEventListener("dragleave", function (event) {
-         event.preventDefault();
-         myModel.dragLeaveToDoBlock();
-      });
-      blockToDo.addEventListener("drop", dropElement);
-
-      blockInProgress = document.querySelector('.inprogress-block__content');
-      blockInProgress.addEventListener("dragover", function (event) {
-         event.preventDefault();
-         myModel.dragOverProgressBlock();
-      });
-      blockInProgress.addEventListener("dragleave", function (event) {
-         event.preventDefault();
-         myModel.dragLeaveProgressBlock();
-      });
-      blockInProgress.addEventListener("drop", dropElement);
-
-      blockFinished = document.querySelector('.finished-block__content');
-      blockFinished.addEventListener("dragover", function (event) {
-         event.preventDefault();
-         myModel.dragOverFinishBlock();
-      });
-      blockFinished.addEventListener("dragleave", function (event) {
-         event.preventDefault();
-         myModel.dragLeaveFinishBlock();
-      });
-      blockFinished.addEventListener("drop", dropElement);
+      if(hashPageName === "trainingpage"){
+         blockToDo = document.querySelector('.todo-block__content');
+         blockToDo.addEventListener("dragover", function (event) {
+            event.preventDefault();
+            myModel.dragOverToDoBlock();
+         });
+         blockToDo.addEventListener("dragleave", function (event) {
+            event.preventDefault();
+            myModel.dragLeaveToDoBlock();
+         });
+         blockToDo.addEventListener("drop", dropElement);
+   
+         blockInProgress = document.querySelector('.inprogress-block__content');
+         blockInProgress.addEventListener("dragover", function (event) {
+            event.preventDefault();
+            myModel.dragOverProgressBlock();
+         });
+         blockInProgress.addEventListener("dragleave", function (event) {
+            event.preventDefault();
+            myModel.dragLeaveProgressBlock();
+         });
+         blockInProgress.addEventListener("drop", dropElement);
+   
+         blockFinished = document.querySelector('.finished-block__content');
+         blockFinished.addEventListener("dragover", function (event) {
+            event.preventDefault();
+            myModel.dragOverFinishBlock();
+         });
+         blockFinished.addEventListener("dragleave", function (event) {
+            event.preventDefault();
+            myModel.dragLeaveFinishBlock();
+         });
+         blockFinished.addEventListener("drop", dropElement);
+      }
    }
 
    function parallaxFunction() {
