@@ -529,6 +529,7 @@ body.lock {
 }
 .mainblock__content .user-modal__form label {
   font-size: 17px;
+  font-weight: 700;
   margin-bottom: 5px;
 }
 .mainblock__content .user-modal__common-info, .mainblock__content .user-modal__physical-info, .mainblock__content .user-modal__medical-info, .mainblock__content .user-modal__training-info, .mainblock__content .user-modal__contacts-info, .mainblock__content .user-modal__achievements-info {
@@ -536,12 +537,21 @@ body.lock {
   flex-direction: column;
 }
 .mainblock__content .user-modal__name, .mainblock__content .user-modal__birthday, .mainblock__content .user-modal__gender, .mainblock__content .user-modal__weight, .mainblock__content .user-modal__height, .mainblock__content .user-modal__medicalInfo, .mainblock__content .user-modal__goal, .mainblock__content .user-modal__phone, .mainblock__content .user-modal__email, .mainblock__content .user-modal__achievements {
-  padding: 3px 10px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.925);
+  border: none;
+  border-radius: 3px;
+  font-size: 17px;
+  padding: 4px 10px;
+  margin: 10px 0px;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
   background: none;
-  color: rgb(52, 52, 52);
+  color: #9baacf;
+}
+.mainblock__content .user-modal__name::placeholder, .mainblock__content .user-modal__birthday::placeholder, .mainblock__content .user-modal__gender::placeholder, .mainblock__content .user-modal__weight::placeholder, .mainblock__content .user-modal__height::placeholder, .mainblock__content .user-modal__medicalInfo::placeholder, .mainblock__content .user-modal__goal::placeholder, .mainblock__content .user-modal__phone::placeholder, .mainblock__content .user-modal__email::placeholder, .mainblock__content .user-modal__achievements::placeholder {
+  color: #bec8e4;
+}
+.mainblock__content .user-modal__name:focus, .mainblock__content .user-modal__birthday:focus, .mainblock__content .user-modal__gender:focus, .mainblock__content .user-modal__weight:focus, .mainblock__content .user-modal__height:focus, .mainblock__content .user-modal__medicalInfo:focus, .mainblock__content .user-modal__goal:focus, .mainblock__content .user-modal__phone:focus, .mainblock__content .user-modal__email:focus, .mainblock__content .user-modal__achievements:focus {
+  outline: none;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #FFFFFF;
 }
 .mainblock__content .user-modal__save {
   width: 40%;
@@ -791,12 +801,21 @@ body.lock {
   margin-bottom: 5px;
 }
 .mainblock__content .training-content .training-modal__exercisename, .mainblock__content .training-content .training-modal__exerciseset, .mainblock__content .training-content .training-modal__exerciseweight, .mainblock__content .training-content .training-modal__exercisetime {
-  padding: 3px 10px;
-  margin-bottom: 20px;
-  font-size: 13px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.925);
+  border: none;
+  border-radius: 3px;
+  font-size: 17px;
+  padding: 4px 10px;
+  margin: 10px 0px;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
   background: none;
-  color: rgb(0, 0, 0);
+  color: #9baacf;
+}
+.mainblock__content .training-content .training-modal__exercisename::placeholder, .mainblock__content .training-content .training-modal__exerciseset::placeholder, .mainblock__content .training-content .training-modal__exerciseweight::placeholder, .mainblock__content .training-content .training-modal__exercisetime::placeholder {
+  color: #bec8e4;
+}
+.mainblock__content .training-content .training-modal__exercisename:focus, .mainblock__content .training-content .training-modal__exerciseset:focus, .mainblock__content .training-content .training-modal__exerciseweight:focus, .mainblock__content .training-content .training-modal__exercisetime:focus {
+  outline: none;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #FFFFFF;
 }
 .mainblock__content .training-content .training-modal__add {
   width: 40%;
@@ -819,17 +838,20 @@ body.lock {
 .mainblock__content .exercises-content .exercises-search {
   width: 100%;
   padding: 10px 20px;
-  margin-bottom: 20px;
+  margin: 0px 0px 20px;
   font-size: 20px;
   font-weight: 700;
-  color: #475569;
-  background-color: rgba(255, 255, 255, 0.4);
+  color: #9baacf;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  background: none;
+  border: none;
   border-radius: 13px;
-  border: 2px solid rgb(134, 215, 109);
-  transition: all 0.5s ease 0s;
+}
+.mainblock__content .exercises-content .exercises-search::placeholder {
+  color: #bec8e4;
 }
 .mainblock__content .exercises-content .exercises-search:focus {
-  box-shadow: 0 0 10px 2px rgb(134, 215, 109);
+  box-shadow: 0.3rem 0.3rem 0.6rem rgb(134, 215, 109), -0.2rem -0.2rem 0.5rem #FFFFFF;
 }
 .mainblock__content .exercises-content .exercises-body {
   display: grid;

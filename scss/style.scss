@@ -557,6 +557,7 @@ body {
 
 				label {
 					font-size: 17px;
+					font-weight: 700;
 					margin-bottom: 5px;
 				}
 			}
@@ -581,14 +582,25 @@ body {
 			&__phone,
 			&__email,
 			&__achievements {
-				padding: 3px 10px;
-				margin-bottom: 20px;
-
-				font-size: 16px;
-
-				border-bottom: 1px solid rgba(133, 133, 133, 0.925);
+				border: none;
+				border-radius: 3px;
+				font-size: 17px;
+				padding: 4px 10px;
+				margin: 10px 0px;
+				box-shadow: inset .2rem .2rem .5rem #c8d0e7,
+					inset -.2rem -.2rem .5rem #FFFFFF;
 				background: none;
-				color: rgb(52, 52, 52);
+				color: #9baacf;
+
+				&::placeholder {
+					color: #bec8e4;
+				}
+
+				&:focus {
+					outline: none;
+					box-shadow: .3rem .3rem .6rem #c8d0e7,
+						-.2rem -.2rem .5rem #FFFFFF;
+				}
 			}
 
 			&__save {
@@ -901,14 +913,25 @@ body {
 				&__exerciseset,
 				&__exerciseweight,
 				&__exercisetime {
-					padding: 3px 10px;
-					margin-bottom: 20px;
-
-					font-size: 13px;
-
-					border-bottom: 1px solid rgba(133, 133, 133, 0.925);
+					border: none;
+					border-radius: 3px;
+					font-size: 17px;
+					padding: 4px 10px;
+					margin: 10px 0px;
+					box-shadow: inset .2rem .2rem .5rem #c8d0e7,
+						inset -.2rem -.2rem .5rem #FFFFFF;
 					background: none;
-					color: rgba(0, 0, 0, 1);
+					color: #9baacf;
+
+					&::placeholder {
+						color: #bec8e4;
+					}
+
+					&:focus {
+						outline: none;
+						box-shadow: .3rem .3rem .6rem #c8d0e7,
+							-.2rem -.2rem .5rem #FFFFFF;
+					}
 				}
 
 				&__add {
@@ -940,20 +963,27 @@ body {
 			.exercises-search {
 				width: 100%;
 				padding: 10px 20px;
-				margin-bottom: 20px;
+				margin: 0px 0px 20px;
 
 				font-size: 20px;
 				font-weight: 700;
-				color: #475569;
-				background-color: #ffffff66;
+				color: #9baacf;
 
+				box-shadow: inset .2rem .2rem .5rem #c8d0e7,
+					inset -.2rem -.2rem .5rem #FFFFFF;
+				background: none;
+
+				border: none;
 				border-radius: 13px;
-				border: 2px solid rgb(134, 215, 109);
-				transition: all 0.5s ease 0s;
-			}
 
-			.exercises-search:focus {
-				box-shadow: 0 0 10px 2px rgb(134, 215, 109);
+				&::placeholder {
+					color: #bec8e4;
+				}
+
+				&:focus {
+					box-shadow: .3rem .3rem .6rem rgb(134, 215, 109),
+						-.2rem -.2rem .5rem #FFFFFF;
+				}
 			}
 
 			.exercises-body {
