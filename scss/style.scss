@@ -985,6 +985,67 @@ body {
 			}
 		}
 
+		.diet-content {
+			.products-search {
+				width: 100%;
+				padding: 10px 20px;
+				margin: 0px 0px 20px;
+
+				font-size: 20px;
+				font-weight: 700;
+				color: #9baacf;
+
+				box-shadow: inset .2rem .2rem .5rem #c8d0e7,
+					inset -.2rem -.2rem .5rem #FFFFFF;
+				background: none;
+
+				border: none;
+				border-radius: 13px;
+
+				&::placeholder {
+					color: #bec8e4;
+				}
+
+				&:focus {
+					box-shadow: .3rem .3rem .6rem #7C6DD7,
+						-.2rem -.2rem .5rem #FFFFFF;
+				}
+			}
+
+
+			.products-table {
+				color: #FFFFFF;
+				box-shadow: 5px 5px 10px #b1b2b0,
+					-3px -3px 5px #FFFFFF;
+
+				thead {
+					background-color: #06B6D4;
+					font-size: 19px;
+					height: 55px;
+				}
+
+				&__body {
+					text-align: center;
+					font-size: 16px;
+					background-color: #86d76d;
+					color: #FFFFFF;
+				}
+
+				&__row {
+					td {
+						font-weight: 700;
+					}
+				}
+
+				&__name {
+					font-size: 16px;
+					padding: 10px;
+					font-weight: 400;
+					text-align: left;
+				}
+			}
+		}
+
 		.exercises-content {
 
 			.exercises-search {

@@ -60,7 +60,6 @@ const DietPage = {
    }
 };
 
-
 //страница упражнений
 const ExercisesDatabasePage = {
    id: "exercisesdatabasepage",

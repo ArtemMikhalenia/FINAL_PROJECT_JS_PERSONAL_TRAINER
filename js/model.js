@@ -204,8 +204,20 @@ function Model() {
       }
    }
 
+   this.loadProducts = async function () {
+      const snapshot = await get(child(ref(database), 'Products'));
+      if (snapshot.exists()) {
+         const products = snapshot.val();
+         myView.renderProducts(products);
+      }
+   }
+
    this.searchExercise = function (value) {
       myView.searchExercise(value);
+   }
+
+   this.searchProduct = function (value) {
+      myView.searchProduct(value);
    }
 
    this.updateState = function (pageName) {

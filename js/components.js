@@ -527,6 +527,28 @@ const ContentDiet = {
 	                <div class="mainblock__content" id="main-content">
 	                    <div class="diet-content">
 	                        <h2 class="animate__animated animate__backInLeft">Питание</h2>
+	                        <input type="text" name="text" class="products-search animate__animated animate__backInLeft" placeholder="Поиск продуктов">
+	
+	                        <table class="products-table">
+	                            <thead>
+	                                <tr>
+	                                    <th>Наименование продуктов
+	                                    </th>
+	                                    <th>Белки, г на 100 г продукта
+	                                    </th>
+	                                    <th>Жиры, г на 100 г продукта
+	                                    </th>
+	                                    <th>Углеводы, г на 100 г продукта
+	                                    </th>
+	                                    <th>Калорийность, ккал.
+	                                    </th>
+	                                </tr>
+	                            </thead>
+	                            <tbody class="products-table__body">
+	
+	                            </tbody>
+	                        </table>
+	
 	                    </div>
 	                </div>
 	            </div>
@@ -534,6 +556,19 @@ const ContentDiet = {
     }
 }
 
+const ProductBlock = {
+    render: (product, protein, fat, carbohydrates, calories) => {
+        return /*html*/ `
+	            <tr class="products-table__row">
+	                <td class="products-table__name">${product}</td>
+	                <td>${protein}</td>
+	                <td>${fat}</td>
+	                <td>${carbohydrates}</td>
+	                <td>${calories}</td>
+	            </tr>
+	            `;
+    }
+}
 
 //<EXERCISES DATABASE>======================================
 
@@ -633,7 +668,7 @@ const ExerciseBlock = {
 	                            <img src="${image}" alt="${title}">
 	                        </div>
 	                        <p class="exercise-block__instructions
-												                           ">${instruction}</p>
+																																																																																																																																				                           ">${instruction}</p>
 	                    </div>
 	                </div>
 	                `;
@@ -742,5 +777,6 @@ export {
     SidebarProgress,
     ContentProgress,
     ExerciseBlock,
-    UserInfo
+    UserInfo,
+    ProductBlock
 };

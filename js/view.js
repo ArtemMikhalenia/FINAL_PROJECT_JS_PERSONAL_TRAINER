@@ -1,4 +1,4 @@
-import { ExerciseBlock, UserInfo } from "./components.js";
+import { ExerciseBlock, UserInfo, ProductBlock } from "./components.js";
 
 function View() {
    let myContainer = null;
@@ -22,6 +22,7 @@ function View() {
    let userInfoWrapper = null;
    let mainblockWrapper = null;
    let exercisesWrapper = null;
+   let productsWrapper = null;
 
    this.init = function (container, routes) {
       myContainer = container;
@@ -51,6 +52,7 @@ function View() {
       userInfoWrapper = myContainer.querySelector('.user-info');
       mainblockWrapper = myContainer.querySelector('#mainblock');
       exercisesWrapper = myContainer.querySelector('.exercises-body');
+      productsWrapper = myContainer.querySelector('.products-table__body');
 
       emailInput = myContainer.querySelector('#email');
       passwordInput = myContainer.querySelector('#password');
@@ -88,6 +90,15 @@ function View() {
          for (let key in exercises) {
             const exercise = exercises[key];
             exercisesWrapper.innerHTML += ExerciseBlock.render(exercise.title, exercise.image, exercise.instruction);
+         }
+      }
+   }
+
+   this.renderProducts = function (products) {
+      if (productsWrapper) {
+         for (let key in products) {
+            const productKey = products[key];
+            productsWrapper.innerHTML += ProductBlock.render(productKey.product, productKey.protein, productKey.fat, productKey.carbohydrates, productKey.calories);
          }
       }
    }
@@ -268,6 +279,29 @@ function View() {
       } else {
          exerciseTitle.forEach((element) => {
             let elementParent = element.closest('.exercise-block');
+            elementParent.classList.remove('hide');
+         });
+      }
+   }
+
+   this.searchProduct = function (value) {
+      const productsTitle = document.querySelectorAll('.products-table__name');
+
+      if (value !== '') {
+         productsTitle.forEach((element) => {
+            let elementTitle = element.innerText.toLowerCase();
+            let elementParent = element.closest('.products-table__row');
+
+            if (elementTitle.search(value) === -1) {
+               elementParent.classList.add('hide');
+            } else {
+               elementParent.classList.remove('hide');
+            }
+
+         });
+      } else {
+         productsTitle.forEach((element) => {
+            let elementParent = element.closest('.products-table__row');
             elementParent.classList.remove('hide');
          });
       }

@@ -8,6 +8,7 @@ function Controller() {
    let inputTrainingExerciseWeight = null;
    let inputTrainingExerciseTime = null;
    let exerciseSearchInput = null;
+   let productsSearchInput = null;
    let nameInput = null;
    let birthdayInput = null;
    let genderInput = null;
@@ -27,6 +28,7 @@ function Controller() {
       myModel.updateState(hashPageName);
       myModel.manageUser();
       myModel.loadExercises();
+      myModel.loadProducts();
 
 
       //кнопки начальной страницы и модального окна
@@ -58,6 +60,11 @@ function Controller() {
       if (hashPageName === "excersisesdatabase") {
          exerciseSearchInput = document.querySelector('.exercises-search');
          exerciseSearchInput.addEventListener('input', searchExercise);
+      }
+
+      if (hashPageName === "dietpage") {
+         productsSearchInput = document.querySelector('.products-search');
+         productsSearchInput.addEventListener('input', searchProduct);
       }
 
       let buttonOpenInfoModal = myContainer.querySelector('.edit-info-btn');
@@ -207,6 +214,11 @@ function Controller() {
    function searchExercise() {
       let searchInputValue = exerciseSearchInput.value;
       myModel.searchExercise(searchInputValue);
+   }
+
+   function searchProduct(){
+      let searchInputValue = productsSearchInput.value;
+      myModel.searchProduct(searchInputValue);
    }
 
    return {
