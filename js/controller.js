@@ -22,6 +22,10 @@ function Controller() {
    let blockToDo = null;
    let blockInProgress = null;
    let blockFinished = null;
+   let btnStart = null;
+   let btnPause = null;
+   let btnReset = null;
+   let stopwatch = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -111,6 +115,17 @@ function Controller() {
             myModel.dragLeaveFinishBlock();
          });
          blockFinished.addEventListener("drop", dropElement);
+
+
+         btnStart = document.querySelector(".start");
+         btnStart.addEventListener('click', startStopwatch);
+         btnPause = document.querySelector(".pause");
+         btnPause.addEventListener("click", pauseTimer);
+         btnReset = document.querySelector(".reset");
+         btnReset.addEventListener("click", resetTimer);
+         stopwatch = document.querySelector(".time");
+
+
       }
    }
 
@@ -216,8 +231,6 @@ function Controller() {
       } else if (event.target.classList.contains('finished-block__content')) {
          myModel.dropElementToFinishedBlock();
       }
-      // console.log(event.target);
-      // myModel.dropElement();
    }
 
    function searchExercise() {
@@ -229,6 +242,25 @@ function Controller() {
       let searchInputValue = productsSearchInput.value;
       myModel.searchProduct(searchInputValue);
    }
+
+
+   //===================================================================
+   function startStopwatch (event){
+      event.preventDefault();
+      myModel.startStopwatch();
+   }
+
+   function pauseTimer (event){
+      event.preventDefault();
+      myModel.pauseTimer();
+   }
+
+   function resetTimer (event){
+      event.preventDefault();
+      myModel.resetTimer();
+   }
+
+   //===================================================================
 
    return {
       init: function (container, model) {

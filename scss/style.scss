@@ -185,82 +185,162 @@ body {
 		transform: skewX(-10deg);
 	}
 
-	.modal {
-		display: block;
-		width: 400px;
-		max-width: 100%;
+	.modal-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-		padding: 20px;
+		.modal {
+			display: block;
+			width: 400px;
+			max-width: 100%;
 
-		position: fixed;
-		z-index: 100;
-		left: 50%;
-		top: 50%;
+			padding: 20px;
 
-		border-radius: 10px;
-		transform: translate(-50%, -50%);
-		background: rgba(44, 44, 44, 0.98);
-		box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+			position: fixed;
+			z-index: 100;
 
-		&__header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
+			border-radius: 10px;
+			background: rgba(44, 44, 44, 0.98);
+			box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
 
-			img {
-				max-width: 120px;
-				border-radius: 3px;
-			}
-		}
+			&__header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 
-		&__footer {
-			text-align: center;
-			font-size: 18px;
-
-			span {
-				text-decoration: underline;
-				padding-left: 25px;
-				cursor: pointer;
+				img {
+					max-width: 120px;
+					border-radius: 3px;
+				}
 			}
 
-			span:hover {
-				text-decoration: none;
-			}
-		}
-
-		&__close {
-			cursor: pointer;
-
-			transition: all 0.5s ease 0s;
-
-			img {
-				max-width: 25px;
-				width: 100%;
-			}
-		}
-
-		&__close:hover {
-			transform: scale(1.15);
-		}
-
-		&__form {
-			width: 100%;
-			margin: 0 auto;
-			padding: 50px 0px 70px;
-
-			display: flex;
-			flex-direction: column;
-
-			.input-label {
-				font-size: 20px;
-				margin-bottom: 10px;
-			}
-
-			.form-error {
-				margin-top: 20px;
+			&__footer {
 				text-align: center;
-				font-size: 15px;
-				color: red;
+				font-size: 18px;
+
+				span {
+					text-decoration: underline;
+					padding-left: 25px;
+					cursor: pointer;
+				}
+
+				span:hover {
+					text-decoration: none;
+				}
+			}
+
+			&__close {
+				cursor: pointer;
+
+				transition: all 0.5s ease 0s;
+
+				img {
+					max-width: 25px;
+					width: 100%;
+				}
+			}
+
+			&__close:hover {
+				transform: scale(1.15);
+			}
+
+			&__form {
+				width: 100%;
+				margin: 0 auto;
+				padding: 50px 0px 70px;
+
+				display: flex;
+				flex-direction: column;
+
+				.input-label {
+					font-size: 20px;
+					margin-bottom: 10px;
+				}
+
+				.form-error {
+					margin-top: 20px;
+					text-align: center;
+					font-size: 15px;
+					color: red;
+				}
+
+				.hidden {
+					display: none;
+				}
+			}
+
+			&__email,
+			&__password {
+				padding: 10px;
+				margin-bottom: 30px;
+
+				font-size: 18px;
+
+				border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+				background: none;
+				color: rgba(255, 255, 255, 1);
+
+				transition: border-bottom 0.5s ease 0s;
+			}
+
+			&__email:focus,
+			&__password:focus {
+				border-bottom: 2px solid rgba(255, 255, 255, 1);
+			}
+
+			.modal-header {
+				padding-top: 30px;
+				font-size: 35px;
+
+				text-align: center;
+			}
+
+			&__overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 50;
+				background: rgba(0, 0, 0, 0.6);
+			}
+
+			.successful-registration-block {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+
+				width: 100%;
+				height: 100%;
+
+				padding: 20px;
+
+				position: fixed;
+				z-index: 100;
+				left: 50%;
+				top: 50%;
+
+				font-size: 40px;
+				text-align: center;
+
+				border-radius: 10px;
+				transform: translate(-50%, -50%);
+				background: rgba(44, 44, 44, 1);
+
+				p {
+					margin-bottom: 50px;
+				}
+
+				button {
+					padding: 10px 20px;
+
+					font-size: 20px;
+					border-radius: 10px;
+					background-color: #e18215;
+					color: white;
+				}
 			}
 
 			.hidden {
@@ -268,86 +348,9 @@ body {
 			}
 		}
 
-		&__email,
-		&__password {
-			padding: 10px;
-			margin-bottom: 30px;
-
-			font-size: 18px;
-
-			border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-			background: none;
-			color: rgba(255, 255, 255, 1);
-
-			transition: border-bottom 0.5s ease 0s;
-		}
-
-		&__email:focus,
-		&__password:focus {
-			border-bottom: 2px solid rgba(255, 255, 255, 1);
-		}
-
-		.modal-header {
-			padding-top: 30px;
-			font-size: 35px;
-
-			text-align: center;
-		}
-
-		&__overlay {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 50;
-			background: rgba(0, 0, 0, 0.6);
-		}
-
-		.successful-registration-block {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-
-			width: 100%;
-			height: 100%;
-
-			padding: 20px;
-
-			position: fixed;
-			z-index: 100;
-			left: 50%;
-			top: 50%;
-
-			font-size: 40px;
-			text-align: center;
-
-			border-radius: 10px;
-			transform: translate(-50%, -50%);
-			background: rgba(44, 44, 44, 1);
-
-			p {
-				margin-bottom: 50px;
-			}
-
-			button {
-				padding: 10px 20px;
-
-				font-size: 20px;
-				border-radius: 10px;
-				background-color: #e18215;
-				color: white;
-			}
-		}
-
-		.hidden {
+		.modal_closed {
 			display: none;
 		}
-	}
-
-	.modal_closed {
-		display: none;
 	}
 }
 
@@ -355,6 +358,7 @@ body {
 //<MAINBLOCK>===============================================================================================
 
 .mainblock {
+	position: relative;
 	font-family: "Manrope";
 	height: 100%;
 	padding: 15px 15px 15px 15px;
@@ -504,125 +508,128 @@ body {
 			margin-bottom: 40px;
 		}
 
-		.user-modal {
-			display: block;
-			width: 100%;
-			max-width: 400px;
-			height: 50%;
+		.user-modal-container {
+			display: flex;
+			align-items: start;
+			justify-content: center;
 
-			overflow-y: scroll;
+			.user-modal {
+				display: block;
+				width: 100%;
+				max-width: 400px;
+				height: 50%;
 
-			padding: 10px;
+				overflow-y: scroll;
 
-			position: fixed;
-			z-index: 100;
-			left: 50%;
-			top: 50%;
-
-			border-radius: 10px;
-			transform: translate(-50%, -50%);
-			background: #F1F5F9;
-			border: 2px solid #7C6DD7;
-
-			&__header {
-				display: flex;
-				justify-content: flex-end;
-				align-items: center;
-
-				margin-bottom: 10px;
-
-				img {
-					max-width: 120px;
-					border-radius: 3px;
-				}
-			}
-
-			&__close {
-				cursor: pointer;
-				transition: all 0.5s ease 0s;
-
-				img {
-					max-width: 20px;
-					width: 100%;
-				}
-			}
-
-			&__close:hover {
-				transform: scale(1.15);
-			}
-
-			&__form {
-				display: flex;
-				flex-direction: column;
-
-				label {
-					font-size: 17px;
-					font-weight: 700;
-					margin-bottom: 5px;
-				}
-			}
-
-			&__common-info,
-			&__physical-info,
-			&__medical-info,
-			&__training-info,
-			&__contacts-info,
-			&__achievements-info {
-				display: flex;
-				flex-direction: column;
-			}
-
-			&__name,
-			&__birthday,
-			&__gender,
-			&__weight,
-			&__height,
-			&__medicalInfo,
-			&__goal,
-			&__phone,
-			&__email,
-			&__achievements {
-				border: none;
-				border-radius: 3px;
-				font-size: 17px;
-				padding: 4px 10px;
-				margin: 10px 0px;
-				box-shadow: inset .2rem .2rem .5rem #c8d0e7,
-					inset -.2rem -.2rem .5rem #FFFFFF;
-				background: none;
-				color: #9baacf;
-
-				&::placeholder {
-					color: #bec8e4;
-				}
-
-				&:focus {
-					outline: none;
-					box-shadow: .3rem .3rem .6rem #c8d0e7,
-						-.2rem -.2rem .5rem #FFFFFF;
-				}
-			}
-
-			&__save {
-				width: 40%;
-				margin: 0 auto;
-
-				font-size: 15px;
-				background-color: #F97316;
 				padding: 10px;
-				border-radius: 3px;
-				color: #FFFFFF;
-				transition: all 0.5s ease 0s;
-				cursor: pointer;
 
-				&:hover {
-					background-color: #CBD5E1;
-					color: #F97316;
+				position: fixed;
+				z-index: 100;
+
+				border-radius: 10px;
+				background: #F1F5F9;
+				border: 2px solid #7C6DD7;
+
+				&__header {
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+
+					margin-bottom: 10px;
+
+					img {
+						max-width: 120px;
+						border-radius: 3px;
+					}
 				}
-			}
 
-			&.modal_closed {
-				display: none;
+				&__close {
+					cursor: pointer;
+					transition: all 0.5s ease 0s;
+
+					img {
+						max-width: 20px;
+						width: 100%;
+					}
+				}
+
+				&__close:hover {
+					transform: scale(1.15);
+				}
+
+				&__form {
+					display: flex;
+					flex-direction: column;
+
+					label {
+						font-size: 17px;
+						font-weight: 700;
+						margin-bottom: 5px;
+					}
+				}
+
+				&__common-info,
+				&__physical-info,
+				&__medical-info,
+				&__training-info,
+				&__contacts-info,
+				&__achievements-info {
+					display: flex;
+					flex-direction: column;
+				}
+
+				&__name,
+				&__birthday,
+				&__gender,
+				&__weight,
+				&__height,
+				&__medicalInfo,
+				&__goal,
+				&__phone,
+				&__email,
+				&__achievements {
+					border: none;
+					border-radius: 3px;
+					font-size: 17px;
+					padding: 4px 10px;
+					margin: 10px 0px;
+					box-shadow: inset .2rem .2rem .5rem #c8d0e7,
+						inset -.2rem -.2rem .5rem #FFFFFF;
+					background: none;
+					color: #9baacf;
+
+					&::placeholder {
+						color: #bec8e4;
+					}
+
+					&:focus {
+						outline: none;
+						box-shadow: .3rem .3rem .6rem #c8d0e7,
+							-.2rem -.2rem .5rem #FFFFFF;
+					}
+				}
+
+				&__save {
+					width: 40%;
+					margin: 0 auto;
+
+					font-size: 15px;
+					background-color: #F97316;
+					padding: 10px;
+					border-radius: 3px;
+					color: #FFFFFF;
+					transition: all 0.5s ease 0s;
+					cursor: pointer;
+
+					&:hover {
+						background-color: #CBD5E1;
+						color: #F97316;
+					}
+				}
+
+				&.modal_closed {
+					display: none;
+				}
 			}
 		}
 
@@ -923,107 +930,110 @@ body {
 				}
 			}
 
-			.training-modal {
-				display: block;
-				width: 400px;
-				max-width: 100%;
+			.training-modal-container {
+				display: flex;
+				justify-content: center;
+				align-items: end;
 
-				padding: 10px;
+				.training-modal {
+					display: block;
+					width: 400px;
+					max-width: 100%;
 
-				position: fixed;
-				z-index: 100;
-				left: 50%;
-				top: 50%;
-
-				border-radius: 10px;
-				transform: translate(-50%, -50%);
-				background: #F1F5F9;
-				border: 2px solid #7C6DD7;
-
-				&__header {
-					display: flex;
-					justify-content: flex-end;
-					align-items: center;
-
-					margin-bottom: 10px;
-
-					img {
-						max-width: 120px;
-						border-radius: 3px;
-					}
-				}
-
-				&__close {
-					cursor: pointer;
-
-					transition: all 0.5s ease 0s;
-
-					img {
-						max-width: 20px;
-						width: 100%;
-					}
-				}
-
-				&__close:hover {
-					transform: scale(1.15);
-				}
-
-				&__form {
-					display: flex;
-					flex-direction: column;
-
-					label {
-						font-size: 15px;
-						margin-bottom: 5px;
-					}
-				}
-
-				&__exercisename,
-				&__exerciseset,
-				&__exerciseweight,
-				&__exercisetime {
-					border: none;
-					border-radius: 3px;
-					font-size: 17px;
-					padding: 4px 10px;
-					margin: 10px 0px;
-					box-shadow: inset .2rem .2rem .5rem #c8d0e7,
-						inset -.2rem -.2rem .5rem #FFFFFF;
-					background: none;
-					color: #9baacf;
-
-					&::placeholder {
-						color: #bec8e4;
-					}
-
-					&:focus {
-						outline: none;
-						box-shadow: .3rem .3rem .6rem #c8d0e7,
-							-.2rem -.2rem .5rem #FFFFFF;
-					}
-				}
-
-				&__add {
-					width: 40%;
-					margin: 0 auto;
-
-					font-size: 15px;
-					background-color: #F97316;
 					padding: 10px;
-					border-radius: 3px;
-					color: #FFFFFF;
-					transition: all 0.5s ease 0s;
-					cursor: pointer;
 
-					&:hover {
-						background-color: #CBD5E1;
-						color: #F97316;
+					position: fixed;
+					z-index: 100;
+
+					border-radius: 10px;
+					background: #F1F5F9;
+					border: 2px solid #7C6DD7;
+
+					&__header {
+						display: flex;
+						justify-content: flex-end;
+						align-items: center;
+
+						margin-bottom: 10px;
+
+						img {
+							max-width: 120px;
+							border-radius: 3px;
+						}
+					}
+
+					&__close {
+						cursor: pointer;
+
+						transition: all 0.5s ease 0s;
+
+						img {
+							max-width: 20px;
+							width: 100%;
+						}
+					}
+
+					&__close:hover {
+						transform: scale(1.15);
+					}
+
+					&__form {
+						display: flex;
+						flex-direction: column;
+
+						label {
+							font-size: 15px;
+							margin-bottom: 5px;
+						}
+					}
+
+					&__exercisename,
+					&__exerciseset,
+					&__exerciseweight,
+					&__exercisetime {
+						border: none;
+						border-radius: 3px;
+						font-size: 17px;
+						padding: 4px 10px;
+						margin: 10px 0px;
+						box-shadow: inset .2rem .2rem .5rem #c8d0e7,
+							inset -.2rem -.2rem .5rem #FFFFFF;
+						background: none;
+						color: #9baacf;
+
+						&::placeholder {
+							color: #bec8e4;
+						}
+
+						&:focus {
+							outline: none;
+							box-shadow: .3rem .3rem .6rem #c8d0e7,
+								-.2rem -.2rem .5rem #FFFFFF;
+						}
+					}
+
+					&__add {
+						width: 40%;
+						margin: 0 auto;
+
+						font-size: 15px;
+						background-color: #F97316;
+						padding: 10px;
+						border-radius: 3px;
+						color: #FFFFFF;
+						transition: all 0.5s ease 0s;
+						cursor: pointer;
+
+						&:hover {
+							background-color: #CBD5E1;
+							color: #F97316;
+						}
 					}
 				}
-			}
 
-			.modal_closed {
-				display: none;
+				.modal_closed {
+					display: none;
+				}
 			}
 		}
 

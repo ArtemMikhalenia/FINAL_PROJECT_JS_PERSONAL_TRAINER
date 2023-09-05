@@ -235,73 +235,75 @@ body.lock {
 .start-container .button-start {
   transform: skewX(-10deg);
 }
-.start-container .modal {
+.start-container .modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.start-container .modal-container .modal {
   display: block;
   width: 400px;
   max-width: 100%;
   padding: 20px;
   position: fixed;
   z-index: 100;
-  left: 50%;
-  top: 50%;
   border-radius: 10px;
-  transform: translate(-50%, -50%);
   background: rgba(44, 44, 44, 0.98);
   box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
 }
-.start-container .modal__header {
+.start-container .modal-container .modal__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.start-container .modal__header img {
+.start-container .modal-container .modal__header img {
   max-width: 120px;
   border-radius: 3px;
 }
-.start-container .modal__footer {
+.start-container .modal-container .modal__footer {
   text-align: center;
   font-size: 18px;
 }
-.start-container .modal__footer span {
+.start-container .modal-container .modal__footer span {
   text-decoration: underline;
   padding-left: 25px;
   cursor: pointer;
 }
-.start-container .modal__footer span:hover {
+.start-container .modal-container .modal__footer span:hover {
   text-decoration: none;
 }
-.start-container .modal__close {
+.start-container .modal-container .modal__close {
   cursor: pointer;
   transition: all 0.5s ease 0s;
 }
-.start-container .modal__close img {
+.start-container .modal-container .modal__close img {
   max-width: 25px;
   width: 100%;
 }
-.start-container .modal__close:hover {
+.start-container .modal-container .modal__close:hover {
   transform: scale(1.15);
 }
-.start-container .modal__form {
+.start-container .modal-container .modal__form {
   width: 100%;
   margin: 0 auto;
   padding: 50px 0px 70px;
   display: flex;
   flex-direction: column;
 }
-.start-container .modal__form .input-label {
+.start-container .modal-container .modal__form .input-label {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.start-container .modal__form .form-error {
+.start-container .modal-container .modal__form .form-error {
   margin-top: 20px;
   text-align: center;
   font-size: 15px;
   color: red;
 }
-.start-container .modal__form .hidden {
+.start-container .modal-container .modal__form .hidden {
   display: none;
 }
-.start-container .modal__email, .start-container .modal__password {
+.start-container .modal-container .modal__email, .start-container .modal-container .modal__password {
   padding: 10px;
   margin-bottom: 30px;
   font-size: 18px;
@@ -310,15 +312,15 @@ body.lock {
   color: rgb(255, 255, 255);
   transition: border-bottom 0.5s ease 0s;
 }
-.start-container .modal__email:focus, .start-container .modal__password:focus {
+.start-container .modal-container .modal__email:focus, .start-container .modal-container .modal__password:focus {
   border-bottom: 2px solid rgb(255, 255, 255);
 }
-.start-container .modal .modal-header {
+.start-container .modal-container .modal .modal-header {
   padding-top: 30px;
   font-size: 35px;
   text-align: center;
 }
-.start-container .modal__overlay {
+.start-container .modal-container .modal__overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -327,7 +329,7 @@ body.lock {
   z-index: 50;
   background: rgba(0, 0, 0, 0.6);
 }
-.start-container .modal .successful-registration-block {
+.start-container .modal-container .modal .successful-registration-block {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -345,24 +347,25 @@ body.lock {
   transform: translate(-50%, -50%);
   background: rgb(44, 44, 44);
 }
-.start-container .modal .successful-registration-block p {
+.start-container .modal-container .modal .successful-registration-block p {
   margin-bottom: 50px;
 }
-.start-container .modal .successful-registration-block button {
+.start-container .modal-container .modal .successful-registration-block button {
   padding: 10px 20px;
   font-size: 20px;
   border-radius: 10px;
   background-color: #e18215;
   color: white;
 }
-.start-container .modal .hidden {
+.start-container .modal-container .modal .hidden {
   display: none;
 }
-.start-container .modal_closed {
+.start-container .modal-container .modal_closed {
   display: none;
 }
 
 .mainblock {
+  position: relative;
   font-family: "Manrope";
   height: 100%;
   padding: 15px 15px 15px 15px;
@@ -486,7 +489,12 @@ body.lock {
   font-size: 35px;
   margin-bottom: 40px;
 }
-.mainblock__content .user-modal {
+.mainblock__content .user-modal-container {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+.mainblock__content .user-modal-container .user-modal {
   display: block;
   width: 100%;
   max-width: 400px;
@@ -495,48 +503,45 @@ body.lock {
   padding: 10px;
   position: fixed;
   z-index: 100;
-  left: 50%;
-  top: 50%;
   border-radius: 10px;
-  transform: translate(-50%, -50%);
   background: #F1F5F9;
   border: 2px solid #7C6DD7;
 }
-.mainblock__content .user-modal__header {
+.mainblock__content .user-modal-container .user-modal__header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 10px;
 }
-.mainblock__content .user-modal__header img {
+.mainblock__content .user-modal-container .user-modal__header img {
   max-width: 120px;
   border-radius: 3px;
 }
-.mainblock__content .user-modal__close {
+.mainblock__content .user-modal-container .user-modal__close {
   cursor: pointer;
   transition: all 0.5s ease 0s;
 }
-.mainblock__content .user-modal__close img {
+.mainblock__content .user-modal-container .user-modal__close img {
   max-width: 20px;
   width: 100%;
 }
-.mainblock__content .user-modal__close:hover {
+.mainblock__content .user-modal-container .user-modal__close:hover {
   transform: scale(1.15);
 }
-.mainblock__content .user-modal__form {
+.mainblock__content .user-modal-container .user-modal__form {
   display: flex;
   flex-direction: column;
 }
-.mainblock__content .user-modal__form label {
+.mainblock__content .user-modal-container .user-modal__form label {
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 5px;
 }
-.mainblock__content .user-modal__common-info, .mainblock__content .user-modal__physical-info, .mainblock__content .user-modal__medical-info, .mainblock__content .user-modal__training-info, .mainblock__content .user-modal__contacts-info, .mainblock__content .user-modal__achievements-info {
+.mainblock__content .user-modal-container .user-modal__common-info, .mainblock__content .user-modal-container .user-modal__physical-info, .mainblock__content .user-modal-container .user-modal__medical-info, .mainblock__content .user-modal-container .user-modal__training-info, .mainblock__content .user-modal-container .user-modal__contacts-info, .mainblock__content .user-modal-container .user-modal__achievements-info {
   display: flex;
   flex-direction: column;
 }
-.mainblock__content .user-modal__name, .mainblock__content .user-modal__birthday, .mainblock__content .user-modal__gender, .mainblock__content .user-modal__weight, .mainblock__content .user-modal__height, .mainblock__content .user-modal__medicalInfo, .mainblock__content .user-modal__goal, .mainblock__content .user-modal__phone, .mainblock__content .user-modal__email, .mainblock__content .user-modal__achievements {
+.mainblock__content .user-modal-container .user-modal__name, .mainblock__content .user-modal-container .user-modal__birthday, .mainblock__content .user-modal-container .user-modal__gender, .mainblock__content .user-modal-container .user-modal__weight, .mainblock__content .user-modal-container .user-modal__height, .mainblock__content .user-modal-container .user-modal__medicalInfo, .mainblock__content .user-modal-container .user-modal__goal, .mainblock__content .user-modal-container .user-modal__phone, .mainblock__content .user-modal-container .user-modal__email, .mainblock__content .user-modal-container .user-modal__achievements {
   border: none;
   border-radius: 3px;
   font-size: 17px;
@@ -546,14 +551,14 @@ body.lock {
   background: none;
   color: #9baacf;
 }
-.mainblock__content .user-modal__name::placeholder, .mainblock__content .user-modal__birthday::placeholder, .mainblock__content .user-modal__gender::placeholder, .mainblock__content .user-modal__weight::placeholder, .mainblock__content .user-modal__height::placeholder, .mainblock__content .user-modal__medicalInfo::placeholder, .mainblock__content .user-modal__goal::placeholder, .mainblock__content .user-modal__phone::placeholder, .mainblock__content .user-modal__email::placeholder, .mainblock__content .user-modal__achievements::placeholder {
+.mainblock__content .user-modal-container .user-modal__name::placeholder, .mainblock__content .user-modal-container .user-modal__birthday::placeholder, .mainblock__content .user-modal-container .user-modal__gender::placeholder, .mainblock__content .user-modal-container .user-modal__weight::placeholder, .mainblock__content .user-modal-container .user-modal__height::placeholder, .mainblock__content .user-modal-container .user-modal__medicalInfo::placeholder, .mainblock__content .user-modal-container .user-modal__goal::placeholder, .mainblock__content .user-modal-container .user-modal__phone::placeholder, .mainblock__content .user-modal-container .user-modal__email::placeholder, .mainblock__content .user-modal-container .user-modal__achievements::placeholder {
   color: #bec8e4;
 }
-.mainblock__content .user-modal__name:focus, .mainblock__content .user-modal__birthday:focus, .mainblock__content .user-modal__gender:focus, .mainblock__content .user-modal__weight:focus, .mainblock__content .user-modal__height:focus, .mainblock__content .user-modal__medicalInfo:focus, .mainblock__content .user-modal__goal:focus, .mainblock__content .user-modal__phone:focus, .mainblock__content .user-modal__email:focus, .mainblock__content .user-modal__achievements:focus {
+.mainblock__content .user-modal-container .user-modal__name:focus, .mainblock__content .user-modal-container .user-modal__birthday:focus, .mainblock__content .user-modal-container .user-modal__gender:focus, .mainblock__content .user-modal-container .user-modal__weight:focus, .mainblock__content .user-modal-container .user-modal__height:focus, .mainblock__content .user-modal-container .user-modal__medicalInfo:focus, .mainblock__content .user-modal-container .user-modal__goal:focus, .mainblock__content .user-modal-container .user-modal__phone:focus, .mainblock__content .user-modal-container .user-modal__email:focus, .mainblock__content .user-modal-container .user-modal__achievements:focus {
   outline: none;
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #FFFFFF;
 }
-.mainblock__content .user-modal__save {
+.mainblock__content .user-modal-container .user-modal__save {
   width: 40%;
   margin: 0 auto;
   font-size: 15px;
@@ -564,11 +569,11 @@ body.lock {
   transition: all 0.5s ease 0s;
   cursor: pointer;
 }
-.mainblock__content .user-modal__save:hover {
+.mainblock__content .user-modal-container .user-modal__save:hover {
   background-color: #CBD5E1;
   color: #F97316;
 }
-.mainblock__content .user-modal.modal_closed {
+.mainblock__content .user-modal-container .user-modal.modal_closed {
   display: none;
 }
 .mainblock__content .edit-info-btn {
@@ -813,50 +818,52 @@ body.lock {
 .mainblock__content .training-content .training-block .exercise__delete-btn:hover {
   background-color: #058096;
 }
-.mainblock__content .training-content .training-modal {
+.mainblock__content .training-content .training-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.mainblock__content .training-content .training-modal-container .training-modal {
   display: block;
   width: 400px;
   max-width: 100%;
   padding: 10px;
   position: fixed;
   z-index: 100;
-  left: 50%;
-  top: 50%;
   border-radius: 10px;
-  transform: translate(-50%, -50%);
   background: #F1F5F9;
   border: 2px solid #7C6DD7;
 }
-.mainblock__content .training-content .training-modal__header {
+.mainblock__content .training-content .training-modal-container .training-modal__header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 10px;
 }
-.mainblock__content .training-content .training-modal__header img {
+.mainblock__content .training-content .training-modal-container .training-modal__header img {
   max-width: 120px;
   border-radius: 3px;
 }
-.mainblock__content .training-content .training-modal__close {
+.mainblock__content .training-content .training-modal-container .training-modal__close {
   cursor: pointer;
   transition: all 0.5s ease 0s;
 }
-.mainblock__content .training-content .training-modal__close img {
+.mainblock__content .training-content .training-modal-container .training-modal__close img {
   max-width: 20px;
   width: 100%;
 }
-.mainblock__content .training-content .training-modal__close:hover {
+.mainblock__content .training-content .training-modal-container .training-modal__close:hover {
   transform: scale(1.15);
 }
-.mainblock__content .training-content .training-modal__form {
+.mainblock__content .training-content .training-modal-container .training-modal__form {
   display: flex;
   flex-direction: column;
 }
-.mainblock__content .training-content .training-modal__form label {
+.mainblock__content .training-content .training-modal-container .training-modal__form label {
   font-size: 15px;
   margin-bottom: 5px;
 }
-.mainblock__content .training-content .training-modal__exercisename, .mainblock__content .training-content .training-modal__exerciseset, .mainblock__content .training-content .training-modal__exerciseweight, .mainblock__content .training-content .training-modal__exercisetime {
+.mainblock__content .training-content .training-modal-container .training-modal__exercisename, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime {
   border: none;
   border-radius: 3px;
   font-size: 17px;
@@ -866,14 +873,14 @@ body.lock {
   background: none;
   color: #9baacf;
 }
-.mainblock__content .training-content .training-modal__exercisename::placeholder, .mainblock__content .training-content .training-modal__exerciseset::placeholder, .mainblock__content .training-content .training-modal__exerciseweight::placeholder, .mainblock__content .training-content .training-modal__exercisetime::placeholder {
+.mainblock__content .training-content .training-modal-container .training-modal__exercisename::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime::placeholder {
   color: #bec8e4;
 }
-.mainblock__content .training-content .training-modal__exercisename:focus, .mainblock__content .training-content .training-modal__exerciseset:focus, .mainblock__content .training-content .training-modal__exerciseweight:focus, .mainblock__content .training-content .training-modal__exercisetime:focus {
+.mainblock__content .training-content .training-modal-container .training-modal__exercisename:focus, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset:focus, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight:focus, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime:focus {
   outline: none;
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #FFFFFF;
 }
-.mainblock__content .training-content .training-modal__add {
+.mainblock__content .training-content .training-modal-container .training-modal__add {
   width: 40%;
   margin: 0 auto;
   font-size: 15px;
@@ -884,11 +891,11 @@ body.lock {
   transition: all 0.5s ease 0s;
   cursor: pointer;
 }
-.mainblock__content .training-content .training-modal__add:hover {
+.mainblock__content .training-content .training-modal-container .training-modal__add:hover {
   background-color: #CBD5E1;
   color: #F97316;
 }
-.mainblock__content .training-content .modal_closed {
+.mainblock__content .training-content .training-modal-container .modal_closed {
   display: none;
 }
 .mainblock__content .diet-content .products-search {

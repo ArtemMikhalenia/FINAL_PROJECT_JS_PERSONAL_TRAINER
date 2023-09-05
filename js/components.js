@@ -1,27 +1,27 @@
 //компоненты начального блока
 const StartHeader = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	<header class="header">
 	    <div class="logo">
 	        <img src="./images/content/logo.png" alt="logo">
 	    </div>
 	</header>
 	`;
-	}
+    }
 }
 
 const StartMainTitle = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	<h1 class="animate__animated animate__bounceInLeft"><span>Добро пожаловать!</span></h1>
 	`;
-	}
+    }
 }
 
 const ButtonStart = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	<div class="button-start">
 	    <button class="btn-start animate__animated animate__bounceInLeft">
 	        <span>Начать</span>
@@ -37,64 +37,66 @@ const ButtonStart = {
 	    </button>
 	</div>
 	`;
-	}
+    }
 }
 
 const StartModal = {
-	render: () => {
-		return /*html*/ `
-	<div class="modal modal_closed" id="modal">
-	    <div class="modal__header">
-	        <img src="./images/content/logo.png" alt="logo">
-	        <a href="#" class="modal__close" id="modal-close" title="Закрыть модальное окно">
-	            <img src="./images/icons/x.svg" alt="x-icon">
-	        </a>
-	    </div>
-	    <h2 class="modal-header login">Авторизация</h2>
-	    <h2 class="modal-header register hide">Регистрация</h2>
-	    <form class="modal__form">
-	        <label class="input-label" for="email">Введите e-mail: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
-	        </label>
-	        <input type="email" id="email" autocomplete="on" class="modal__email" placeholder="E-mail" title="Введите корректный e-mail" required>
-	        <label class="input-label" for="password">Введите пароль: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
-	        </label>
-	        <input type="password" id="password" autocomplete="off" class="modal__password" title="Пароль должен содержать как минимум 6 символов" placeholder="Пароль" required>
-	        <input type="button" id="submit-login" class="form-submit-login" value="Войти">
-	        <input type="button" id="submit-register" class="form-submit-register hide" value="Зарегистрироваться">
-	        <div class="form-error"></div>
-	    </form>
-	    <div class="modal__footer">
-	        <div class="form-register__block">
-	            <p>Отсутствует аккаунт?
-	                <span id="form-register">Зарегистрируйся</span>
-	            </p>
+    render: () => {
+        return /*html*/ `
+	<div class="modal-container">
+	    <div class="modal animate__animated animate__slideInDown modal_closed" id="modal">
+	        <div class="modal__header">
+	            <img src="./images/content/logo.png" alt="logo">
+	            <a href="#" class="modal__close" id="modal-close" title="Закрыть модальное окно">
+	                <img src="./images/icons/x.svg" alt="x-icon">
+	            </a>
 	        </div>
-	        <div class="form-login__block hide">
-	            <p>Уже есть аккаунт?
-	                <span id="form-login">Заходи</span>
-	            </p>
+	        <h2 class="modal-header login">Авторизация</h2>
+	        <h2 class="modal-header register hide">Регистрация</h2>
+	        <form class="modal__form">
+	            <label class="input-label" for="email">Введите e-mail: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
+	            </label>
+	            <input type="email" id="email" autocomplete="on" class="modal__email" placeholder="E-mail" title="Введите корректный e-mail" required>
+	            <label class="input-label" for="password">Введите пароль: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr>
+	            </label>
+	            <input type="password" id="password" autocomplete="off" class="modal__password" title="Пароль должен содержать как минимум 6 символов" placeholder="Пароль" required>
+	            <input type="button" id="submit-login" class="form-submit-login" value="Войти">
+	            <input type="button" id="submit-register" class="form-submit-register hide" value="Зарегистрироваться">
+	            <div class="form-error"></div>
+	        </form>
+	        <div class="modal__footer">
+	            <div class="form-register__block">
+	                <p>Отсутствует аккаунт?
+	                    <span id="form-register">Зарегистрируйся</span>
+	                </p>
+	            </div>
+	            <div class="form-login__block hide">
+	                <p>Уже есть аккаунт?
+	                    <span id="form-login">Заходи</span>
+	                </p>
+	            </div>
 	        </div>
-	    </div>
-	    <div class="successful-registration-block hidden">
-	        <p>Поздравляем! Регистрация прошла успешно</p>
-	        <button id="successful-registration-btn">Войти в личный кабинет</button>
+	        <div class="successful-registration-block hidden">
+	            <p>Поздравляем! Регистрация прошла успешно</p>
+	            <button id="successful-registration-btn">Войти в личный кабинет</button>
+	        </div>
 	    </div>
 	</div>
 	`;
-	}
+    }
 };
 
 const StartModalOverlay = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	<div class="modal__overlay modal_closed"></div>
 	`;
-	}
+    }
 };
 
 const ParallaxImages = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	<div class="parallax-images">
 	    <div class="fog-image">
 	        <img src="./images/backgrounds/fog.png" alt="fog">
@@ -107,15 +109,15 @@ const ParallaxImages = {
 	    </div>
 	</div>
 	`;
-	}
+    }
 };
 
 const LoginBtn = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	<a href="#mainpage" id="submit-login" class="form-submit-login">Войти</a>
 	`;
-	}
+    }
 
 }
 
@@ -123,8 +125,8 @@ const LoginBtn = {
 
 //<MAIN>====================================================
 const SidebarMain = {
-	render: () => {
-		return `
+    render: () => {
+        return `
     <aside class="sidebar">
         <div class="sidebar__logo">
             <img src="./images/content/logo-white.png" alt="logo-white">
@@ -184,75 +186,77 @@ const SidebarMain = {
         </button>
     </aside>
     `;
-	}
+    }
 }
 
 const ContentMain = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	    <div class="mainblock__body">
 	        <header class="mainblock__header">
-	            <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
+	            <h1 class="animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
 	        </header>
 	        <div class="mainblock__content" id="main-content">
 	            <h2 class="animate__animated animate__backInLeft">Информация о пользователе</h2>
 	            <button class="edit-info-btn animate__animated animate__slideInDown">Изменить данные</button>
-	            <div class="user-modal modal_closed" id="user-modal">
-	                <div class="user-modal__header">
-	                    <button class="user-modal__close" id="user-modal-close" title="Закрыть модальное окно">
-	                        <img src="./images/icons/x_training.svg" alt="x-icon">
-	                    </button>
+	            <div class="user-modal-container">
+	                <div class="user-modal animate__animated animate__slideInDown modal_closed" id="user-modal">
+	                    <div class="user-modal__header">
+	                        <button class="user-modal__close" id="user-modal-close" title="Закрыть модальное окно">
+	                            <img src="./images/icons/x_training.svg" alt="x-icon">
+	                        </button>
+	                    </div>
+	                    <form class="user-modal__form">
+	                        <div class="user-modal__common-info">
+	                            <label class="input-label" for="user-modal__fullName">ФИО:</label>
+	                            <input type="text" id="user-modal__fullName" autocomplete="off" class="user-modal__name" required value="">
+	
+	                            <label class="input-label" for="user-modal__birthday">День рождения:</label>
+	                            <input type="text" id="user-modal__birthday" autocomplete="off" class="user-modal__birthday" value="" required>
+	
+	                            <label class="input-label" for="user-modal__gender">Пол:</label>
+	                            <input type="text" id="user-modal__gender" autocomplete="off" class="user-modal__gender" value="" required>
+	                        </div>
+	                        <div class="user-modal__physical-info">
+	                            <label class="input-label" for="user-modal__weight">Вес (кг):</label>
+	                            <input type="number" id="user-modal__weight" autocomplete="off" class="user-modal__weight" value="" required>
+	
+	                            <label class="input-label" for="user-modal__height">Рост (см):</label>
+	                            <input type="number" id="user-modal__height" autocomplete="off" class="user-modal__height" value="" required>
+	                        </div>
+	                        <div class="user-modal__medical-info">
+	                            <label class="input-label" for="user-modal__medicalInfo">Медицинские противопоказания:</label>
+	                            <input type="text" id="user-modal__medicalInfo" autocomplete="off" class="user-modal__medicalInfo" value="" required>
+	                        </div>
+	                        <div class="user-modal__training-info">
+	                            <label class="input-label" for="user-modal__goal">Цель тренировок:</label>
+	                            <input type="text" id="user-modal__goal" autocomplete="off" class="user-modal__goal" value="" required>
+	                        </div>
+	                        <div class="user-modal__contacts-info">
+	                            <label class="input-label" for="user-modal__phone">Телефон:</label>
+	                            <input type="tel" id="user-modal__phone" autocomplete="off" class="user-modal__phone" value="" required>
+	                            <label class="input-label" for="user-modal__email">Почта:</label>
+	                            <input type="email" id="user-modal__email" autocomplete="off" class="user-modal__email" value="" required>
+	                        </div>
+	                        <div class="user-modal__achievements-info">
+	                            <label class="input-label" for="user-modal__achievements">Достижения:</label>
+	                            <input type="text" id="user-modal__achievements" autocomplete="off" class="user-modal__achievements" value="" required>
+	                        </div>
+	                        <input type="button" id="user-modal__save" class="user-modal__save" value="Сохранить">
+	                    </form>
 	                </div>
-	                <form class="user-modal__form">
-	                    <div class="user-modal__common-info">
-	                        <label class="input-label" for="user-modal__fullName">ФИО:</label>
-	                        <input type="text" id="user-modal__fullName" autocomplete="off" class="user-modal__name" required value="">
-	
-	                        <label class="input-label" for="user-modal__birthday">День рождения:</label>
-	                        <input type="text" id="user-modal__birthday" autocomplete="off" class="user-modal__birthday" value="" required>
-	
-	                        <label class="input-label" for="user-modal__gender">Пол:</label>
-	                        <input type="text" id="user-modal__gender" autocomplete="off" class="user-modal__gender" value="" required>
-	                    </div>
-	                    <div class="user-modal__physical-info">
-	                        <label class="input-label" for="user-modal__weight">Вес (кг):</label>
-	                        <input type="number" id="user-modal__weight" autocomplete="off" class="user-modal__weight" value="" required>
-	
-	                        <label class="input-label" for="user-modal__height">Рост (см):</label>
-	                        <input type="number" id="user-modal__height" autocomplete="off" class="user-modal__height" value="" required>
-	                    </div>
-	                    <div class="user-modal__medical-info">
-	                        <label class="input-label" for="user-modal__medicalInfo">Медицинские противопоказания:</label>
-	                        <input type="text" id="user-modal__medicalInfo" autocomplete="off" class="user-modal__medicalInfo" value="" required>
-	                    </div>
-	                    <div class="user-modal__training-info">
-	                        <label class="input-label" for="user-modal__goal">Цель тренировок:</label>
-	                        <input type="text" id="user-modal__goal" autocomplete="off" class="user-modal__goal" value="" required>
-	                    </div>
-	                    <div class="user-modal__contacts-info">
-	                        <label class="input-label" for="user-modal__phone">Телефон:</label>
-	                        <input type="tel" id="user-modal__phone" autocomplete="off" class="user-modal__phone" value="" required>
-	                        <label class="input-label" for="user-modal__email">Почта:</label>
-	                        <input type="email" id="user-modal__email" autocomplete="off" class="user-modal__email" value="" required>
-	                    </div>
-	                    <div class="user-modal__achievements-info">
-	                        <label class="input-label" for="user-modal__achievements">Достижения:</label>
-	                        <input type="text" id="user-modal__achievements" autocomplete="off" class="user-modal__achievements" value="" required>
-	                    </div>
-	                    <input type="button" id="user-modal__save" class="user-modal__save" value="Сохранить">
-	                </form>
 	            </div>
 	            <div class="user-info">
 	            </div>
 	        </div>
 	    </div>
 	    `;
-	}
+    }
 }
 
 const UserInfo = {
-	render: (fullName, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) => {
-		return /*html*/ `
+    render: (fullName, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) => {
+        return /*html*/ `
 	    <div class="animate__animated animate__zoomIn">
 	        <div class="user-info__block common-info">
 	            <div class="user-info__header">
@@ -325,14 +329,13 @@ const UserInfo = {
 	            <img src="./images/backgrounds/bg6.svg" alt="bg6">
 	        </div>
 	    </div>`;
-	}
+    }
 }
 
 //<TRAINING>================================================
-
 const SidebarTraining = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	        <aside class="sidebar">
 	            <div class="sidebar__logo">
 	                <img src="./images/content/logo-white.png" alt="logo-white">
@@ -392,12 +395,12 @@ const SidebarTraining = {
 	            </a>
 	        </aside>
 	        `;
-	}
+    }
 }
 
 const ContentTraining = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	        <div class="mainblock__body">
 	            <header class="mainblock__header">
 	                <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -429,41 +432,42 @@ const ContentTraining = {
 	                            <div class="finished-block__content drop-block"></div>
 	                        </div>
 	                    </div>
-	                    <div class="training-modal modal_closed" id="training-modal">
-	                        <div class="training-modal__header">
-	                            <button class="training-modal__close" id="training-modal-close" title="Закрыть модальное окно">
-	                                <img src="./images/icons/x_training.svg" alt="x-icon">
-	                            </button>
+	                    <div class="training-modal-container">
+	                        <div class="training-modal animate__animated animate__slideInDown modal_closed" id="training-modal">
+	                            <div class="training-modal__header">
+	                                <button class="training-modal__close" id="training-modal-close" title="Закрыть модальное окно">
+	                                    <img src="./images/icons/x_training.svg" alt="x-icon">
+	                                </button>
+	                            </div>
+	                            <form class="training-modal__form">
+	                                <label class="input-label" for="exercisename">Введите название упражнения: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+	                                <input type="text" id="exercisename" autocomplete="off" class="training-modal__exercisename" required>
+	
+	                                <label class="input-label" for="exerciseset">Подход: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+	                                <input type="number" id="exerciseset" autocomplete="off" class="training-modal__exerciseset" required>
+	
+	                                <label class="input-label" for="exerciseweight">Вес (кг): <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+	                                <input type="number" id="exerciseweight" autocomplete="off" class="training-modal__exerciseweight" required>
+	
+	                                <label class="input-label" for="exercisetime">Количество повторений: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
+	                                <input type="number" id="exercisetime" autocomplete="off" class="training-modal__exercisetime" required>
+	
+	                                <input type="button" id="training-modal__add" class="training-modal__add" value="Добавить">
+	                            </form>
 	                        </div>
-	                        <form class="training-modal__form">
-	                            <label class="input-label" for="exercisename">Введите название упражнения: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
-	                            <input type="text" id="exercisename" autocomplete="off" class="training-modal__exercisename" required>
-	
-	                            <label class="input-label" for="exerciseset">Подход: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
-	                            <input type="number" id="exerciseset" autocomplete="off" class="training-modal__exerciseset" required>
-	
-	                            <label class="input-label" for="exerciseweight">Вес (кг): <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
-	                            <input type="number" id="exerciseweight" autocomplete="off" class="training-modal__exerciseweight" required>
-	
-	                            <label class="input-label" for="exercisetime">Количество повторений: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
-	                            <input type="number" id="exercisetime" autocomplete="off" class="training-modal__exercisetime" required>
-	
-	                            <input type="button" id="training-modal__add" class="training-modal__add" value="Добавить">
-	                        </form>
 	                    </div>
 	                </div>
 	            </div>
 	        </div>
 	        </div>
 	        `;
-	}
+    }
 }
-
 //<DIET>====================================================
 
 const SidebarDiet = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	            <aside class="sidebar">
 	                <div class="sidebar__logo">
 	                    <img src="./images/content/logo-white.png" alt="logo-white">
@@ -523,12 +527,12 @@ const SidebarDiet = {
 	                </a>
 	            </aside>
 	            `;
-	}
+    }
 }
 
 const ContentDiet = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	            <div class="mainblock__body">
 	                <header class="mainblock__header">
 	                    <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -562,12 +566,12 @@ const ContentDiet = {
 	                </div>
 	            </div>
 	            `;
-	}
+    }
 }
 
 const ProductBlock = {
-	render: (product, protein, fat, carbohydrates, calories) => {
-		return /*html*/ `
+    render: (product, protein, fat, carbohydrates, calories) => {
+        return /*html*/ `
 	            <tr class="products-table__row">
 	                <td class="products-table__name">${product}</td>
 	                <td>${protein}</td>
@@ -576,15 +580,13 @@ const ProductBlock = {
 	                <td>${calories}</td>
 	            </tr>
 	            `;
-	}
+    }
 }
 
 //<EXERCISES DATABASE>======================================
-
-
 const SidebarExercisesDatabase = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	                <aside class="sidebar">
 	                    <div class="sidebar__logo">
 	                        <img src="./images/content/logo-white.png" alt="logo-white">
@@ -644,12 +646,12 @@ const SidebarExercisesDatabase = {
 	                    </a>
 	                </aside>
 	                `;
-	}
+    }
 }
 
 const ContentExercisesDatabase = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	                <div class="mainblock__body">
 	                    <header class="mainblock__header">
 	                        <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -664,12 +666,12 @@ const ContentExercisesDatabase = {
 	                    </div>
 	                </div>
 	                `;
-	}
+    }
 }
 
 const ExerciseBlock = {
-	render: (title, image, instruction) => {
-		return /*html*/ `
+    render: (title, image, instruction) => {
+        return /*html*/ `
 	                <div class="animate__animated animate__zoomIn">
 	                    <div class="exercise-block">
 	                        <h3 class="exercise-block__title">${title}</h3>
@@ -677,17 +679,17 @@ const ExerciseBlock = {
 	                            <img src="${image}" alt="${title}">
 	                        </div>
 	                        <p class="exercise-block__instructions
-																																																																																																																																																			                           ">${instruction}</p>
+																																																																																																																																																																																											                           ">${instruction}</p>
 	                    </div>
 	                </div>
 	                `;
-	}
+    }
 }
 
 //<PROGRESS>================================================
 const SidebarProgress = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	                    <aside class="sidebar">
 	                        <div class="sidebar__logo">
 	                            <img src="./images/content/logo-white.png" alt="logo-white">
@@ -747,12 +749,12 @@ const SidebarProgress = {
 	                        </a>
 	                    </aside>
 	                    `;
-	}
+    }
 }
 
 const ContentProgress = {
-	render: () => {
-		return /*html*/ `
+    render: () => {
+        return /*html*/ `
 	                    <div class="mainblock__body">
 	                        <header class="mainblock__header">
 	                            <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -764,28 +766,28 @@ const ContentProgress = {
 	                        </div>
 	                    </div>
 	                    `;
-	}
+    }
 }
 
 export {
-	StartHeader,
-	StartMainTitle,
-	ButtonStart,
-	StartModal,
-	StartModalOverlay,
-	ParallaxImages,
-	LoginBtn,
-	SidebarMain,
-	ContentMain,
-	SidebarTraining,
-	ContentTraining,
-	SidebarDiet,
-	ContentDiet,
-	SidebarExercisesDatabase,
-	ContentExercisesDatabase,
-	SidebarProgress,
-	ContentProgress,
-	ExerciseBlock,
-	UserInfo,
-	ProductBlock
+    StartHeader,
+    StartMainTitle,
+    ButtonStart,
+    StartModal,
+    StartModalOverlay,
+    ParallaxImages,
+    LoginBtn,
+    SidebarMain,
+    ContentMain,
+    SidebarTraining,
+    ContentTraining,
+    SidebarDiet,
+    ContentDiet,
+    SidebarExercisesDatabase,
+    ContentExercisesDatabase,
+    SidebarProgress,
+    ContentProgress,
+    ExerciseBlock,
+    UserInfo,
+    ProductBlock
 };
