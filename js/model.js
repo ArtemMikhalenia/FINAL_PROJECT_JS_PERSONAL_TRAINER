@@ -192,8 +192,16 @@ function Model() {
       myView.dragLeaveFinishBlock(event);
    }
 
-   this.dropElement = function (event) {
-      myView.dropElement(event);
+   this.dropElementToToDoBlock = function () {
+      myView.dropElementToToDoBlock();
+   }
+
+   this.dropElementToInProgressBlock = function () {
+      myView.dropElementToInProgressBlock();
+   }
+
+   this.dropElementToFinishedBlock = function () {
+      myView.dropElementToFinishedBlock();
    }
 
    this.loadExercises = async function () {

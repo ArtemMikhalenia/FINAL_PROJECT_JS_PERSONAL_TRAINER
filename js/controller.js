@@ -78,7 +78,7 @@ function Controller() {
 
       //drag&drop
 
-      if(hashPageName === "trainingpage"){
+      if (hashPageName === "trainingpage") {
          blockToDo = document.querySelector('.todo-block__content');
          blockToDo.addEventListener("dragover", function (event) {
             event.preventDefault();
@@ -89,7 +89,7 @@ function Controller() {
             myModel.dragLeaveToDoBlock();
          });
          blockToDo.addEventListener("drop", dropElement);
-   
+
          blockInProgress = document.querySelector('.inprogress-block__content');
          blockInProgress.addEventListener("dragover", function (event) {
             event.preventDefault();
@@ -100,7 +100,7 @@ function Controller() {
             myModel.dragLeaveProgressBlock();
          });
          blockInProgress.addEventListener("drop", dropElement);
-   
+
          blockFinished = document.querySelector('.finished-block__content');
          blockFinished.addEventListener("dragover", function (event) {
             event.preventDefault();
@@ -208,7 +208,16 @@ function Controller() {
 
    function dropElement(event) {
       event.preventDefault();
-      myModel.dropElement();
+
+      if (event.target.classList.contains('todo-block__content')) {
+         myModel.dropElementToToDoBlock();
+      } else if (event.target.classList.contains('inprogress-block__content')) {
+         myModel.dropElementToInProgressBlock();
+      } else if (event.target.classList.contains('finished-block__content')) {
+         myModel.dropElementToFinishedBlock();
+      }
+      // console.log(event.target);
+      // myModel.dropElement();
    }
 
    function searchExercise() {
@@ -216,7 +225,7 @@ function Controller() {
       myModel.searchExercise(searchInputValue);
    }
 
-   function searchProduct(){
+   function searchProduct() {
       let searchInputValue = productsSearchInput.value;
       myModel.searchProduct(searchInputValue);
    }

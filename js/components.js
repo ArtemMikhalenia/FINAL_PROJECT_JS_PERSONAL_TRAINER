@@ -1,27 +1,27 @@
 //компоненты начального блока
 const StartHeader = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	<header class="header">
 	    <div class="logo">
 	        <img src="./images/content/logo.png" alt="logo">
 	    </div>
 	</header>
 	`;
-    }
+	}
 }
 
 const StartMainTitle = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	<h1 class="animate__animated animate__bounceInLeft"><span>Добро пожаловать!</span></h1>
 	`;
-    }
+	}
 }
 
 const ButtonStart = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	<div class="button-start">
 	    <button class="btn-start animate__animated animate__bounceInLeft">
 	        <span>Начать</span>
@@ -37,12 +37,12 @@ const ButtonStart = {
 	    </button>
 	</div>
 	`;
-    }
+	}
 }
 
 const StartModal = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	<div class="modal modal_closed" id="modal">
 	    <div class="modal__header">
 	        <img src="./images/content/logo.png" alt="logo">
@@ -81,20 +81,20 @@ const StartModal = {
 	    </div>
 	</div>
 	`;
-    }
+	}
 };
 
 const StartModalOverlay = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	<div class="modal__overlay modal_closed"></div>
 	`;
-    }
+	}
 };
 
 const ParallaxImages = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	<div class="parallax-images">
 	    <div class="fog-image">
 	        <img src="./images/backgrounds/fog.png" alt="fog">
@@ -107,15 +107,15 @@ const ParallaxImages = {
 	    </div>
 	</div>
 	`;
-    }
+	}
 };
 
 const LoginBtn = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	<a href="#mainpage" id="submit-login" class="form-submit-login">Войти</a>
 	`;
-    }
+	}
 
 }
 
@@ -123,8 +123,8 @@ const LoginBtn = {
 
 //<MAIN>====================================================
 const SidebarMain = {
-    render: () => {
-        return `
+	render: () => {
+		return `
     <aside class="sidebar">
         <div class="sidebar__logo">
             <img src="./images/content/logo-white.png" alt="logo-white">
@@ -184,12 +184,12 @@ const SidebarMain = {
         </button>
     </aside>
     `;
-    }
+	}
 }
 
 const ContentMain = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	    <div class="mainblock__body">
 	        <header class="mainblock__header">
 	            <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -247,12 +247,12 @@ const ContentMain = {
 	        </div>
 	    </div>
 	    `;
-    }
+	}
 }
 
 const UserInfo = {
-    render: (fullName, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) => {
-        return /*html*/ `
+	render: (fullName, birthday, gender, weight, height, medicalInfo, goal, phone, email, achievements) => {
+		return /*html*/ `
 	    <div class="animate__animated animate__zoomIn">
 	        <div class="user-info__block common-info">
 	            <div class="user-info__header">
@@ -325,14 +325,14 @@ const UserInfo = {
 	            <img src="./images/backgrounds/bg6.svg" alt="bg6">
 	        </div>
 	    </div>`;
-    }
+	}
 }
 
 //<TRAINING>================================================
 
 const SidebarTraining = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	        <aside class="sidebar">
 	            <div class="sidebar__logo">
 	                <img src="./images/content/logo-white.png" alt="logo-white">
@@ -392,12 +392,12 @@ const SidebarTraining = {
 	            </a>
 	        </aside>
 	        `;
-    }
+	}
 }
 
 const ContentTraining = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	        <div class="mainblock__body">
 	            <header class="mainblock__header">
 	                <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -405,6 +405,15 @@ const ContentTraining = {
 	            <div class="mainblock__content" id="main-content">
 	                <div class="training-content">
 	                    <h2 class="animate__animated animate__backInLeft">Тренировка</h2>
+	
+	                    <div class="stopwatch-block">
+	                        <div class="stopwatch">
+	                            <div class="time">00:00:00:00</div>
+	                            <button class="start">Старт</button>
+	                            <button class="pause">Пауза</button>
+	                            <button class="reset">Сброс</button>
+	                        </div>
+	                    </div>
 	                    <button class="add-exercise animate__animated animate__slideInDown">Добавить упражнение</button>
 	                    <div class="training-block">
 	                        <div class="training-block__todo">
@@ -447,14 +456,14 @@ const ContentTraining = {
 	        </div>
 	        </div>
 	        `;
-    }
+	}
 }
 
 //<DIET>====================================================
 
 const SidebarDiet = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	            <aside class="sidebar">
 	                <div class="sidebar__logo">
 	                    <img src="./images/content/logo-white.png" alt="logo-white">
@@ -514,12 +523,12 @@ const SidebarDiet = {
 	                </a>
 	            </aside>
 	            `;
-    }
+	}
 }
 
 const ContentDiet = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	            <div class="mainblock__body">
 	                <header class="mainblock__header">
 	                    <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -553,12 +562,12 @@ const ContentDiet = {
 	                </div>
 	            </div>
 	            `;
-    }
+	}
 }
 
 const ProductBlock = {
-    render: (product, protein, fat, carbohydrates, calories) => {
-        return /*html*/ `
+	render: (product, protein, fat, carbohydrates, calories) => {
+		return /*html*/ `
 	            <tr class="products-table__row">
 	                <td class="products-table__name">${product}</td>
 	                <td>${protein}</td>
@@ -567,15 +576,15 @@ const ProductBlock = {
 	                <td>${calories}</td>
 	            </tr>
 	            `;
-    }
+	}
 }
 
 //<EXERCISES DATABASE>======================================
 
 
 const SidebarExercisesDatabase = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	                <aside class="sidebar">
 	                    <div class="sidebar__logo">
 	                        <img src="./images/content/logo-white.png" alt="logo-white">
@@ -635,12 +644,12 @@ const SidebarExercisesDatabase = {
 	                    </a>
 	                </aside>
 	                `;
-    }
+	}
 }
 
 const ContentExercisesDatabase = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	                <div class="mainblock__body">
 	                    <header class="mainblock__header">
 	                        <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -655,12 +664,12 @@ const ContentExercisesDatabase = {
 	                    </div>
 	                </div>
 	                `;
-    }
+	}
 }
 
 const ExerciseBlock = {
-    render: (title, image, instruction) => {
-        return /*html*/ `
+	render: (title, image, instruction) => {
+		return /*html*/ `
 	                <div class="animate__animated animate__zoomIn">
 	                    <div class="exercise-block">
 	                        <h3 class="exercise-block__title">${title}</h3>
@@ -668,17 +677,17 @@ const ExerciseBlock = {
 	                            <img src="${image}" alt="${title}">
 	                        </div>
 	                        <p class="exercise-block__instructions
-																																																																																																																																				                           ">${instruction}</p>
+																																																																																																																																																			                           ">${instruction}</p>
 	                    </div>
 	                </div>
 	                `;
-    }
+	}
 }
 
 //<PROGRESS>================================================
 const SidebarProgress = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	                    <aside class="sidebar">
 	                        <div class="sidebar__logo">
 	                            <img src="./images/content/logo-white.png" alt="logo-white">
@@ -738,12 +747,12 @@ const SidebarProgress = {
 	                        </a>
 	                    </aside>
 	                    `;
-    }
+	}
 }
 
 const ContentProgress = {
-    render: () => {
-        return /*html*/ `
+	render: () => {
+		return /*html*/ `
 	                    <div class="mainblock__body">
 	                        <header class="mainblock__header">
 	                            <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -755,28 +764,28 @@ const ContentProgress = {
 	                        </div>
 	                    </div>
 	                    `;
-    }
+	}
 }
 
 export {
-    StartHeader,
-    StartMainTitle,
-    ButtonStart,
-    StartModal,
-    StartModalOverlay,
-    ParallaxImages,
-    LoginBtn,
-    SidebarMain,
-    ContentMain,
-    SidebarTraining,
-    ContentTraining,
-    SidebarDiet,
-    ContentDiet,
-    SidebarExercisesDatabase,
-    ContentExercisesDatabase,
-    SidebarProgress,
-    ContentProgress,
-    ExerciseBlock,
-    UserInfo,
-    ProductBlock
+	StartHeader,
+	StartMainTitle,
+	ButtonStart,
+	StartModal,
+	StartModalOverlay,
+	ParallaxImages,
+	LoginBtn,
+	SidebarMain,
+	ContentMain,
+	SidebarTraining,
+	ContentTraining,
+	SidebarDiet,
+	ContentDiet,
+	SidebarExercisesDatabase,
+	ContentExercisesDatabase,
+	SidebarProgress,
+	ContentProgress,
+	ExerciseBlock,
+	UserInfo,
+	ProductBlock
 };

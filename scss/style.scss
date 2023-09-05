@@ -771,8 +771,47 @@ body {
 
 		.training-content {
 
+			.stopwatch-block {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+
+				.stopwatch {
+					border: 2px solid #7C6DD7;
+					border-radius: 6px;
+					text-align: center;
+					padding: 10px;
+					position: relative;
+
+					.time {
+						font-size: 40px;
+						color: #7C6DD7;
+						margin-bottom: 8px;
+					}
+
+					button {
+						cursor: pointer;
+						border: 1px solid #7C6DD7;
+						border-radius: 6px;
+						background: none;
+						color: #7C6DD7;
+						padding: 3px 4px;
+						text-transform: uppercase;
+						margin: 0px 4px;
+						transition: all 0.3s ease 0s;
+
+						&:hover {
+							background: #7C6DD7;
+							color: #FFFFFF;
+							box-shadow: 0 0 5px #7C6DD7;
+						}
+					}
+				}
+			}
+
 			.add-exercise {
 				font-size: 17px;
+				font-weight: 700;
 				margin-bottom: 20px;
 				background-color: #F97316;
 				padding: 5px 10px;
@@ -796,7 +835,6 @@ body {
 
 				h3 {
 					font-size: 15px;
-					font-weight: 700;
 					margin-bottom: 15px;
 				}
 
@@ -863,10 +901,14 @@ body {
 					border-radius: 3px;
 
 					p {
-						margin-bottom: 5px;
+						font-size: 15px;
+						margin-bottom: 10px;
+						font-weight: 700;
 					}
 
 					&__delete-btn {
+						font-size: 15px;
+						font-weight: 700;
 						padding: 4px;
 						border-radius: 3px;
 

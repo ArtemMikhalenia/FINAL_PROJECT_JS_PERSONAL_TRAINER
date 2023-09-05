@@ -694,8 +694,42 @@ body.lock {
   display: flex;
   justify-content: space-between;
 }
+.mainblock__content .training-content .stopwatch-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.mainblock__content .training-content .stopwatch-block .stopwatch {
+  border: 2px solid #7C6DD7;
+  border-radius: 6px;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+.mainblock__content .training-content .stopwatch-block .stopwatch .time {
+  font-size: 40px;
+  color: #7C6DD7;
+  margin-bottom: 8px;
+}
+.mainblock__content .training-content .stopwatch-block .stopwatch button {
+  cursor: pointer;
+  border: 1px solid #7C6DD7;
+  border-radius: 6px;
+  background: none;
+  color: #7C6DD7;
+  padding: 3px 4px;
+  text-transform: uppercase;
+  margin: 0px 4px;
+  transition: all 0.3s ease 0s;
+}
+.mainblock__content .training-content .stopwatch-block .stopwatch button:hover {
+  background: #7C6DD7;
+  color: #FFFFFF;
+  box-shadow: 0 0 5px #7C6DD7;
+}
 .mainblock__content .training-content .add-exercise {
   font-size: 17px;
+  font-weight: 700;
   margin-bottom: 20px;
   background-color: #F97316;
   padding: 5px 10px;
@@ -717,7 +751,6 @@ body.lock {
 }
 .mainblock__content .training-content .training-block h3 {
   font-size: 15px;
-  font-weight: 700;
   margin-bottom: 15px;
 }
 .mainblock__content .training-content .training-block__todo .todo-block__content {
@@ -764,9 +797,13 @@ body.lock {
   border-radius: 3px;
 }
 .mainblock__content .training-content .training-block .exercise p {
-  margin-bottom: 5px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 .mainblock__content .training-content .training-block .exercise__delete-btn {
+  font-size: 15px;
+  font-weight: 700;
   padding: 4px;
   border-radius: 3px;
   background-color: #06B6D4;

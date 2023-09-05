@@ -19,6 +19,8 @@ function View() {
    let passwordInput = null;
    let formError = null;
 
+   let toDoBlock = null;
+
    let userInfoWrapper = null;
    let mainblockWrapper = null;
    let exercisesWrapper = null;
@@ -61,6 +63,8 @@ function View() {
       const woman = myContainer.querySelector('.woman-image');
       const man = myContainer.querySelector('.man-image');
       const fog = myContainer.querySelector('.fog-image');
+
+      toDoBlock = document.querySelector('.todo-block__content');
 
       if (hashPageName === "startpage" || hashPageName === "") {
          this.parallaxEffect(myContainer, woman, man, fog);
@@ -349,13 +353,22 @@ function View() {
       blockFinished.classList.remove('drag-over');
    }
 
-   this.dropElement = function (event) {
+   this.dropElementToToDoBlock = function () {
       const blockToDo = document.querySelector('.todo-block__content');
       blockToDo.classList.remove('drag-over');
+      blockToDo.append(document.querySelector('.exercise'));
+   }
+
+   this.dropElementToInProgressBlock = function () {
       const blockInProgress = document.querySelector('.inprogress-block__content');
       blockInProgress.classList.remove('drag-over');
+      blockInProgress.append(document.querySelector('.exercise'));
+   }
 
-      // event.target.append(document.querySelector('.exercise'));
+   this.dropElementToFinishedBlock = function () {
+      const blockFinished = document.querySelector('.finished-block__content');
+      blockFinished.classList.remove('drag-over');
+      blockFinished.append(document.querySelector('.exercise'));
    }
 }
 
