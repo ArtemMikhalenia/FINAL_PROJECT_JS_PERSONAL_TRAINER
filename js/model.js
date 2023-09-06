@@ -167,6 +167,8 @@ function Model() {
       myView.openExerciseModal();
    }
 
+
+
    this.closeExerciseModal = function () {
       myView.closeExerciseModal();
    }
@@ -236,40 +238,8 @@ function Model() {
       myView.removeExercise(event);
    }
 
-   this.dragOverToDoBlock = function (event) {
-      myView.dragOverToDoBlock(event);
-   }
-
-   this.dragLeaveToDoBlock = function (event) {
-      myView.dragLeaveToDoBlock(event);
-   }
-
-   this.dragOverProgressBlock = function (event) {
-      myView.dragOverProgressBlock(event);
-   }
-
-   this.dragLeaveProgressBlock = function (event) {
-      myView.dragLeaveProgressBlock(event);
-   }
-
-   this.dragOverFinishBlock = function (event) {
-      myView.dragOverFinishBlock(event);
-   }
-
-   this.dragLeaveFinishBlock = function (event) {
-      myView.dragLeaveFinishBlock(event);
-   }
-
-   this.dropElementToToDoBlock = function () {
-      myView.dropElementToToDoBlock();
-   }
-
-   this.dropElementToInProgressBlock = function () {
-      myView.dropElementToInProgressBlock();
-   }
-
-   this.dropElementToFinishedBlock = function () {
-      myView.dropElementToFinishedBlock();
+   this.changeBlockColor = function () {
+      myView.changeBlockColor();
    }
 
    this.loadExercises = async function () {
@@ -285,6 +255,14 @@ function Model() {
       if (snapshot.exists()) {
          const products = snapshot.val();
          myView.renderProducts(products);
+      }
+   }
+
+   this.loadOptions = async function () {
+      const snapshot = await get(child(ref(database), 'ExerciseDatabase'));
+      if (snapshot.exists()) {
+         const option = snapshot.val();
+         myView.renderOptions(option);
       }
    }
 

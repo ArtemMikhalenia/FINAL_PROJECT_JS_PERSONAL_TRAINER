@@ -19,13 +19,11 @@ function Controller() {
    let phoneInput = null;
    let emailInput = null;
    let achievementsInput = null;
-   let blockToDo = null;
-   let blockInProgress = null;
-   let blockFinished = null;
    let btnStart = null;
    let btnPause = null;
    let btnReset = null;
    let stopwatch = null;
+   let select = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -33,7 +31,7 @@ function Controller() {
       myModel.manageUser();
       myModel.loadExercises();
       myModel.loadProducts();
-
+      myModel.loadOptions();
 
       //кнопки начальной страницы и модального окна
       const buttonOpenModal = myContainer.querySelector('.btn-start');
@@ -80,43 +78,7 @@ function Controller() {
       const buttonLogOut = document.querySelector('.btn-logout');
       buttonLogOut && buttonLogOut.addEventListener('click', logOutUser);
 
-      //drag&drop
-
       if (hashPageName === "trainingpage") {
-         blockToDo = document.querySelector('.todo-block__content');
-         blockToDo.addEventListener("dragover", function (event) {
-            event.preventDefault();
-            myModel.dragOverToDoBlock();
-         });
-         blockToDo.addEventListener("dragleave", function (event) {
-            event.preventDefault();
-            myModel.dragLeaveToDoBlock();
-         });
-         blockToDo.addEventListener("drop", dropElement);
-
-         blockInProgress = document.querySelector('.inprogress-block__content');
-         blockInProgress.addEventListener("dragover", function (event) {
-            event.preventDefault();
-            myModel.dragOverProgressBlock();
-         });
-         blockInProgress.addEventListener("dragleave", function (event) {
-            event.preventDefault();
-            myModel.dragLeaveProgressBlock();
-         });
-         blockInProgress.addEventListener("drop", dropElement);
-
-         blockFinished = document.querySelector('.finished-block__content');
-         blockFinished.addEventListener("dragover", function (event) {
-            event.preventDefault();
-            myModel.dragOverFinishBlock();
-         });
-         blockFinished.addEventListener("dragleave", function (event) {
-            event.preventDefault();
-            myModel.dragLeaveFinishBlock();
-         });
-         blockFinished.addEventListener("drop", dropElement);
-
-
          btnStart = document.querySelector(".start");
          btnStart.addEventListener('click', startStopwatch);
          btnPause = document.querySelector(".pause");
@@ -124,8 +86,6 @@ function Controller() {
          btnReset = document.querySelector(".reset");
          btnReset.addEventListener("click", resetTimer);
          stopwatch = document.querySelector(".time");
-
-
       }
    }
 
@@ -215,22 +175,20 @@ function Controller() {
       buttonRemoveExercise && buttonRemoveExercise.forEach(el => {
          el.addEventListener('click', removeExercise);
       });
+
+      select = document.querySelectorAll('.select');
+      select && select.forEach(el => {
+         el.addEventListener('change', changeBlockColor);
+      })
+   }
+
+   function changeBlockColor(event) {
+      event.preventDefault();
+      myModel.changeBlockColor();
    }
 
    function removeExercise(event) {
       myModel.removeExercise(event);
-   }
-
-   function dropElement(event) {
-      event.preventDefault();
-
-      if (event.target.classList.contains('todo-block__content')) {
-         myModel.dropElementToToDoBlock();
-      } else if (event.target.classList.contains('inprogress-block__content')) {
-         myModel.dropElementToInProgressBlock();
-      } else if (event.target.classList.contains('finished-block__content')) {
-         myModel.dropElementToFinishedBlock();
-      }
    }
 
    function searchExercise() {
@@ -245,17 +203,17 @@ function Controller() {
 
 
    //===================================================================
-   function startStopwatch (event){
+   function startStopwatch(event) {
       event.preventDefault();
       myModel.startStopwatch();
    }
 
-   function pauseTimer (event){
+   function pauseTimer(event) {
       event.preventDefault();
       myModel.pauseTimer();
    }
 
-   function resetTimer (event){
+   function resetTimer(event) {
       event.preventDefault();
       myModel.resetTimer();
    }

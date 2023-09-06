@@ -1,4 +1,4 @@
-import { ExerciseBlock, UserInfo, ProductBlock } from "./components.js";
+import { ExerciseBlock, UserInfo, ProductBlock, Options } from "./components.js";
 
 function View() {
    let myContainer = null;
@@ -19,11 +19,10 @@ function View() {
    let passwordInput = null;
    let formError = null;
 
-   let toDoBlock = null;
-
    let userInfoWrapper = null;
    let mainblockWrapper = null;
    let exercisesWrapper = null;
+   let exercisesSelectWrapper = null;
    let productsWrapper = null;
 
    this.init = function (container, routes) {
@@ -54,6 +53,7 @@ function View() {
       userInfoWrapper = myContainer.querySelector('.user-info');
       mainblockWrapper = myContainer.querySelector('#mainblock');
       exercisesWrapper = myContainer.querySelector('.exercises-body');
+      exercisesSelectWrapper = myContainer.querySelector('.training-modal__exercisename');
       productsWrapper = myContainer.querySelector('.products-table__body');
 
       emailInput = myContainer.querySelector('#email');
@@ -63,8 +63,6 @@ function View() {
       const woman = myContainer.querySelector('.woman-image');
       const man = myContainer.querySelector('.man-image');
       const fog = myContainer.querySelector('.fog-image');
-
-      toDoBlock = document.querySelector('.todo-block__content');
 
       if (hashPageName === "startpage" || hashPageName === "") {
          this.parallaxEffect(myContainer, woman, man, fog);
@@ -103,6 +101,15 @@ function View() {
          for (let key in products) {
             const productKey = products[key];
             productsWrapper.innerHTML += ProductBlock.render(productKey.product, productKey.protein, productKey.fat, productKey.carbohydrates, productKey.calories);
+         }
+      }
+   }
+
+   this.renderOptions = function (exercise) {
+      if (exercisesSelectWrapper) {
+         for (let key in exercise) {
+            const exerciseKey = exercise[key];
+            exercisesSelectWrapper.innerHTML += Options.render(exerciseKey.title);
          }
       }
    }
@@ -246,23 +253,58 @@ function View() {
       const trainingModal = document.querySelector('.training-modal');
       trainingModal.classList.add('modal_closed');
 
-      const toDoBlock = document.querySelector('.todo-block__content');
+      const trainingBlock = document.querySelector('.training-block');
 
       const exercise = document.createElement('div');
       exercise.className = 'exercise';
-      exercise.setAttribute('draggable', 'true');
       exercise.innerHTML = `
-      <p>Упражнение: ${exerciseName}</p>
-      <p>Подход: ${exerciseSet}</p>
-      <p>Вес: ${exerciseWeight} кг</p>
-      <p>Количество повторений: ${exerciseTime} раз</p>
+      <div class="exercise-name">
+         <p>Упражнение:</p>
+         <p>${exerciseName}</p>
+      </div>
+      <div class="exercise-set">
+         <p>Подход:</p>
+         <p>${exerciseSet}</p>
+      </div>
+      <div class="exercise-weight">
+         <p>Вес:</p>
+         <p>${exerciseWeight}</p>
+      </div>
+      <div class="exercise-time">
+         <p>Количество повторений:</p>
+         <p>${exerciseTime}</p>
+      </div>
+      <div class="exercise-status">
+         <select class="select">
+            <option class="select-option select-option_wait">В ожидании</option>
+            <option class="select-option select-option_inprogress">В процессе</option>
+            <option class="select-option select-option_ready">Готово</option>
+         </select>
+      </div>
       <button class="exercise__delete-btn">Удалить</button>`;
 
-      toDoBlock.append(exercise);
+      trainingBlock.append(exercise);
    }
 
    this.removeExercise = function (event) {
       event.target.closest('.exercise').remove();
+   }
+
+   this.changeBlockColor = function (event) {
+      // debugger;
+      const select = document.querySelectorAll('.select');
+      const currentExercise = document.querySelectorAll('.exercise');
+
+      select.forEach(el => {
+         if (el.value === 'В ожидании') {
+            console.log(event.target);
+            event.target.closest('.exercise').classList.add('wait');
+         } else if (el.value === 'В процессе') {
+            event.target.closest('.exercise').classList.add('inprogress');
+         } else if (el.value === 'Готово') {
+            event.target.closest('.exercise').classList.add('ready');
+         }
+      })
    }
 
    this.searchExercise = function (value) {
@@ -309,66 +351,6 @@ function View() {
             elementParent.classList.remove('hide');
          });
       }
-   }
-
-   //drag&drop
-
-   // this.dragExerciseStart = function (event) {
-   //    // this.classList.add("dragging");
-   //    event.dataTransfer.setData("text", event.target.id);
-   //    event.dataTransfer.setData("content", event.target.textContent);
-   // }
-
-   // this.dragExerciseEnd = function (event) {
-   //    // this.classList.remove("dragging");
-   // }
-
-   this.dragOverToDoBlock = function () {
-      const blockToDo = document.querySelector('.todo-block__content');
-      blockToDo.classList.add('drag-over');
-   }
-
-   this.dragLeaveToDoBlock = function () {
-      const blockToDo = document.querySelector('.todo-block__content');
-      blockToDo.classList.remove('drag-over');
-   }
-
-   this.dragOverProgressBlock = function (event) {
-      const blockInProgress = document.querySelector('.inprogress-block__content');
-      blockInProgress.classList.add('drag-over');
-   }
-
-   this.dragLeaveProgressBlock = function (event) {
-      const blockInProgress = document.querySelector('.inprogress-block__content');
-      blockInProgress.classList.remove('drag-over');
-   }
-
-   this.dragOverFinishBlock = function (event) {
-      const blockFinished = document.querySelector('.finished-block__content');
-      blockFinished.classList.add('drag-over');
-   }
-
-   this.dragLeaveFinishBlock = function (event) {
-      const blockFinished = document.querySelector('.finished-block__content');
-      blockFinished.classList.remove('drag-over');
-   }
-
-   this.dropElementToToDoBlock = function () {
-      const blockToDo = document.querySelector('.todo-block__content');
-      blockToDo.classList.remove('drag-over');
-      blockToDo.append(document.querySelector('.exercise'));
-   }
-
-   this.dropElementToInProgressBlock = function () {
-      const blockInProgress = document.querySelector('.inprogress-block__content');
-      blockInProgress.classList.remove('drag-over');
-      blockInProgress.append(document.querySelector('.exercise'));
-   }
-
-   this.dropElementToFinishedBlock = function () {
-      const blockFinished = document.querySelector('.finished-block__content');
-      blockFinished.classList.remove('drag-over');
-      blockFinished.append(document.querySelector('.exercise'));
    }
 }
 
