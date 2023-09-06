@@ -524,6 +524,7 @@ body {
 				padding: 10px;
 
 				position: fixed;
+				top: 25%;
 				z-index: 100;
 
 				border-radius: 10px;
@@ -844,77 +845,13 @@ body {
 					margin-bottom: 15px;
 				}
 
-				&__todo {
-					.todo-block__content {
-						height: 100%;
-						border: 2px solid #06B6D4;
-						border-radius: 6px;
-
-						.exercise {
-							background-color: #06B6D4;
-
-							&__delete-btn {
-								background-color: #06B6D4;
-								transition: background-color 0.3s ease 0s;
-
-								&:hover {
-									background-color: #058096;
-								}
-							}
-						}
-					}
-				}
-
-				&__inprogress {
-					.inprogress-block__content {
-						height: 100%;
-						border: 2px solid #F97316;
-						border-radius: 6px;
-
-						.exercise {
-							background-color: #F97316;
-
-							&__delete-btn {
-								background-color: #F97316;
-								transition: background-color 0.3s ease 0s;
-
-								&:hover {
-									background-color: #cb6922;
-								}
-							}
-						}
-					}
-				}
-
-				&__finished {
-					.finished-block__content {
-						height: 100%;
-						border: 2px solid #86d76d;
-						border-radius: 6px;
-
-						.exercise {
-							background-color: #86d76d;
-
-							&__delete-btn {
-								background-color: #86d76d;
-								transition: background-color 0.3s ease 0s;
-
-								&:hover {
-									background-color: #6bb356;
-								}
-							}
-						}
-					}
-				}
-
 				.exercise {
 					display: flex;
 					align-items: center;
 					text-align: center;
 					justify-content: space-between;
 
-					margin: 2px;
-					padding: 5px;
+					padding: 5px 20px;
 
 					background-color: #06B6D4;
 					color: white;
@@ -978,10 +915,35 @@ body {
 				}
 			}
 
+			.save-training-block {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				.btn-save-training {
+					width: 30%;
+					padding: 10px 0px;
+
+					border-radius: 10px;
+
+					background-color: #7C6DD7;
+					color: #ffffff;
+					transition: background-color 0.5s ease 0s;
+
+					&:hover {
+						background-color: #b1a6fe;
+					}
+
+					&.hidden {
+						display: none;
+					}
+				}
+			}
+
 			.training-modal-container {
 				display: flex;
 				justify-content: center;
-				align-items: end;
+				align-items: start;
 
 				.training-modal {
 					display: block;
@@ -991,6 +953,7 @@ body {
 					padding: 10px;
 
 					position: fixed;
+					top: 25%;
 					z-index: 100;
 
 					border-radius: 10px;

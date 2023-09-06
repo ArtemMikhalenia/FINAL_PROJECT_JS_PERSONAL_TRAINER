@@ -419,7 +419,11 @@ const ContentTraining = {
 	                    </div>
 	                    <button class="add-exercise animate__animated animate__slideInDown">Добавить упражнение</button>
 	                    <div class="training-block">
+							  	
 	                    </div>
+							  <div class="save-training-block">
+							  	<button class="btn-save-training hidden">Сохранить тренировку</button>
+							  </div>
 	                    <div class="training-modal-container">
 	                        <div class="training-modal animate__animated animate__slideInDown modal_closed" id="training-modal">
 	                            <div class="training-modal__header">
@@ -429,12 +433,7 @@ const ContentTraining = {
 	                            </div>
 	                            <form class="training-modal__form">
 	                                <label class="input-label" for="exercisename">Введите название упражнения: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
-	                                <!-- <input type="text" id="exercisename" autocomplete="off" class="training-modal__exercisename" required> -->
-	
-	                                <select id="exercisename" class="training-modal__exercisename">
-	
-	                                </select>
-	
+	                                <select id="exercisename" class="training-modal__exercisename"></select>
 	                                <label class="input-label" for="exerciseset">Подход: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
 	                                <input type="number" id="exerciseset" autocomplete="off" class="training-modal__exerciseset" required>
 	

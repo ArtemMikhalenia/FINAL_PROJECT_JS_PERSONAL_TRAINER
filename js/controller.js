@@ -23,7 +23,6 @@ function Controller() {
    let btnPause = null;
    let btnReset = null;
    let stopwatch = null;
-   let select = null;
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -176,15 +175,14 @@ function Controller() {
          el.addEventListener('click', removeExercise);
       });
 
-      select = document.querySelectorAll('.select');
+      const select = document.querySelectorAll('.select');
       select && select.forEach(el => {
          el.addEventListener('change', changeBlockColor);
       })
    }
 
    function changeBlockColor(event) {
-      event.preventDefault();
-      myModel.changeBlockColor();
+      myModel.changeBlockColor(event);
    }
 
    function removeExercise(event) {

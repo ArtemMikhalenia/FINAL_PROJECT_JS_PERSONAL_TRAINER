@@ -238,8 +238,8 @@ function Model() {
       myView.removeExercise(event);
    }
 
-   this.changeBlockColor = function () {
-      myView.changeBlockColor();
+   this.changeBlockColor = function (event) {
+      myView.changeBlockColor(event);
    }
 
    this.loadExercises = async function () {

@@ -291,20 +291,25 @@ function View() {
    }
 
    this.changeBlockColor = function (event) {
-      // debugger;
-      const select = document.querySelectorAll('.select');
-      const currentExercise = document.querySelectorAll('.exercise');
-
-      select.forEach(el => {
-         if (el.value === 'В ожидании') {
-            console.log(event.target);
+      switch (event.target.value) {
+         case 'В ожидании':
             event.target.closest('.exercise').classList.add('wait');
-         } else if (el.value === 'В процессе') {
+            event.target.closest('.exercise').classList.remove('inprogress');
+            event.target.closest('.exercise').classList.remove('ready');
+            break;
+         case 'В процессе':
+            event.target.closest('.exercise').classList.remove('wait');
             event.target.closest('.exercise').classList.add('inprogress');
-         } else if (el.value === 'Готово') {
+            event.target.closest('.exercise').classList.remove('ready');
+            break;
+         case 'Готово':
+            event.target.closest('.exercise').classList.remove('wait');
+            event.target.closest('.exercise').classList.remove('inprogress');
             event.target.closest('.exercise').classList.add('ready');
-         }
-      })
+            break;
+         default:
+            break;
+      }
    }
 
    this.searchExercise = function (value) {
