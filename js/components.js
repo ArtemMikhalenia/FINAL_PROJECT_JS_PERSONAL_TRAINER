@@ -400,7 +400,7 @@ const SidebarTraining = {
 
 const ContentTraining = {
 	render: () => {
-		return /*html*/ `
+		return `
 	        <div class="mainblock__body">
 	            <header class="mainblock__header">
 	                <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
@@ -418,9 +418,7 @@ const ContentTraining = {
 	                        </div>
 	                    </div>
 	                    <button class="add-exercise animate__animated animate__slideInDown">Добавить упражнение</button>
-	                    <div class="training-block">
-							  	
-	                    </div>
+	                    <div class="training-block"></div>
 							  <div class="save-training-block">
 							  	<button class="btn-save-training hidden">Сохранить тренировку</button>
 							  </div>

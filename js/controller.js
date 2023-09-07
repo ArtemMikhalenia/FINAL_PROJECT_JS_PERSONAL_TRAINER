@@ -3,22 +3,8 @@ function Controller() {
    let myModel = null;
    let inputEmail = null;
    let inputPassword = null;
-   let inputTrainingExerciseName = null;
-   let inputTrainingExerciseSet = null;
-   let inputTrainingExerciseWeight = null;
-   let inputTrainingExerciseTime = null;
    let exerciseSearchInput = null;
    let productsSearchInput = null;
-   let nameInput = null;
-   let birthdayInput = null;
-   let genderInput = null;
-   let weightInput = null;
-   let heightInput = null;
-   let medicalInfoInput = null;
-   let goalInput = null;
-   let phoneInput = null;
-   let emailInput = null;
-   let achievementsInput = null;
    let btnStart = null;
    let btnPause = null;
    let btnReset = null;
@@ -68,7 +54,7 @@ function Controller() {
          productsSearchInput.addEventListener('input', searchProduct);
       }
 
-      let buttonOpenInfoModal = myContainer.querySelector('.edit-info-btn');
+      const buttonOpenInfoModal = myContainer.querySelector('.edit-info-btn');
       buttonOpenInfoModal && buttonOpenInfoModal.addEventListener('click', openUserInfoModal);
 
       const buttonAddExercise = document.querySelector('.add-exercise');
@@ -127,20 +113,20 @@ function Controller() {
       buttonCloseInfoModal.addEventListener('click', closeUserInfoModal);
       const buttonSaveUserInfo = document.querySelector('.user-modal__save');
       buttonSaveUserInfo.addEventListener('click', changeUserInfo);
-
-      nameInput = document.querySelector('.user-modal__name');
-      birthdayInput = document.querySelector('.user-modal__birthday');
-      genderInput = document.querySelector('.user-modal__gender');
-      weightInput = document.querySelector('.user-modal__weight');
-      heightInput = document.querySelector('.user-modal__height');
-      medicalInfoInput = document.querySelector('.user-modal__medicalInfo');
-      goalInput = document.querySelector('.user-modal__goal');
-      phoneInput = document.querySelector('.user-modal__phone');
-      emailInput = document.querySelector('.user-modal__email');
-      achievementsInput = document.querySelector('.user-modal__achievements');
    }
 
    function changeUserInfo() {
+      const nameInput = document.querySelector('.user-modal__name');
+      const birthdayInput = document.querySelector('.user-modal__birthday');
+      const genderInput = document.querySelector('.user-modal__gender');
+      const weightInput = document.querySelector('.user-modal__weight');
+      const heightInput = document.querySelector('.user-modal__height');
+      const medicalInfoInput = document.querySelector('.user-modal__medicalInfo');
+      const goalInput = document.querySelector('.user-modal__goal');
+      const phoneInput = document.querySelector('.user-modal__phone');
+      const emailInput = document.querySelector('.user-modal__email');
+      const achievementsInput = document.querySelector('.user-modal__achievements');
+
       myModel.changeUserInfo(nameInput.value, birthdayInput.value, genderInput.value, weightInput.value, heightInput.value, medicalInfoInput.value, goalInput.value, phoneInput.value, emailInput.value, achievementsInput.value);
    }
 
@@ -156,11 +142,6 @@ function Controller() {
 
       const buttonAddExercise = document.querySelector('.training-modal__add');
       buttonAddExercise.addEventListener('click', addExercise);
-
-      inputTrainingExerciseName = document.querySelector('#exercisename');
-      inputTrainingExerciseSet = document.querySelector('#exerciseset');
-      inputTrainingExerciseWeight = document.querySelector('#exerciseweight');
-      inputTrainingExerciseTime = document.querySelector('#exercisetime');
    }
 
    function closeExerciseModal() {
@@ -168,6 +149,11 @@ function Controller() {
    }
 
    function addExercise() {
+      const inputTrainingExerciseName = document.querySelector('#exercisename');
+      const inputTrainingExerciseSet = document.querySelector('#exerciseset');
+      const inputTrainingExerciseWeight = document.querySelector('#exerciseweight');
+      const inputTrainingExerciseTime = document.querySelector('#exercisetime');
+
       myModel.addExercise(inputTrainingExerciseName.value, inputTrainingExerciseSet.value, inputTrainingExerciseWeight.value, inputTrainingExerciseTime.value);
 
       const buttonRemoveExercise = document.querySelectorAll('.exercise__delete-btn');
@@ -190,13 +176,11 @@ function Controller() {
    }
 
    function searchExercise() {
-      let searchInputValue = exerciseSearchInput.value;
-      myModel.searchExercise(searchInputValue);
+      myModel.searchExercise(exerciseSearchInput.value);
    }
 
    function searchProduct() {
-      let searchInputValue = productsSearchInput.value;
-      myModel.searchProduct(searchInputValue);
+      myModel.searchProduct(productsSearchInput.value);
    }
 
 

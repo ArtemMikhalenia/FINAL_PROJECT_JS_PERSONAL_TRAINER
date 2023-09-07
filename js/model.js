@@ -93,10 +93,10 @@ function Model() {
          .then((userCredential) => {
             const user = userCredential.user;
 
-            update(ref(database, "UsersList/" + user.uid),
-               {
-                  email: email,
-               })
+            // update(ref(database, "UsersList/" + user.uid),
+            //    {
+            //       email: email,
+            //    })
             myView.successfulLogIn();
          })
          .catch((error) => {
