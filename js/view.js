@@ -71,65 +71,7 @@ function View() {
       }
    }
 
-   this.successfulLogIn = function () {
-      window.location.hash = "#mainpage";
-   }
-
-   this.logOutUser = function () {
-      window.location.hash = "#startpage";
-   }
-
-   this.logOutUserError = function (error) {
-      alert(error);
-   }
-
-   this.renderInfo = function (user) {
-      if (userInfoWrapper) {
-         userInfoWrapper.innerHTML = UserInfo.render(user.fullName, user.birthday, user.gender, user.weight, user.height, user.medicalInfo, user.goal, user.phone, user.email, user.achievements);
-      }
-   }
-
-   this.renderExercises = function (exercises) {
-      if (exercisesWrapper) {
-         for (let key in exercises) {
-            const exercise = exercises[key];
-            exercisesWrapper.innerHTML += ExerciseBlock.render(exercise.title, exercise.image, exercise.instruction);
-         }
-      }
-   }
-
-   this.renderProducts = function (products) {
-      if (productsWrapper) {
-         for (let key in products) {
-            const productKey = products[key];
-            productsWrapper.innerHTML += ProductBlock.render(productKey.product, productKey.protein, productKey.fat, productKey.carbohydrates, productKey.calories);
-         }
-      }
-   }
-
-   this.addExercise = function (exercise) {
-      if (trainingWrapper) {
-         trainingWrapper.innerHTML += Exercise.render(exercise.exerciseName, exercise.exerciseSet, exercise.exerciseWeight, exercise.exerciseTime);
-      }
-   }
-
-   this.renderExercise = function (exercise) {
-      if (trainingWrapper) {
-         for (let key in exercise) {
-            const exerciseKey = exercise[key];
-            trainingWrapper.innerHTML += Exercise.render(exerciseKey.exerciseName, exerciseKey.exerciseSet, exerciseKey.exerciseWeight, exerciseKey.exerciseTime);
-         }
-      }
-   }
-
-   this.renderOptions = function (exercise) {
-      if (exercisesSelectWrapper) {
-         for (let key in exercise) {
-            const exerciseKey = exercise[key];
-            exercisesSelectWrapper.innerHTML += Options.render(exerciseKey.title);
-         }
-      }
-   }
+   //<ПАРАЛЛАКС>==========================================================================
 
    this.parallaxEffect = function (container, img1, img2, img3) {
 
@@ -178,6 +120,8 @@ function View() {
          parallaxFunction();
       }
    }
+
+   //<МОДАЛЬНОЕ ОКНО ГЛАВНОГО ЭКРАНА>===============================================
 
    this.openLogInWindow = function () {
       modalWindow.classList.remove("modal_closed");
@@ -240,6 +184,26 @@ function View() {
       }
    }
 
+   this.successfulLogIn = function () {
+      window.location.hash = "#mainpage";
+   }
+
+   this.logOutUser = function () {
+      window.location.hash = "#startpage";
+   }
+
+   this.logOutUserError = function (error) {
+      alert(error);
+   }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "АККАУНТ">===================================================================================================
+
+   this.renderInfo = function (user) {
+      if (userInfoWrapper) {
+         userInfoWrapper.innerHTML = UserInfo.render(user.fullName, user.birthday, user.gender, user.weight, user.height, user.medicalInfo, user.goal, user.phone, user.email, user.achievements);
+      }
+   }
+
    this.openUserInfoModal = function (user) {
       const userInfoModal = document.querySelector('.user-modal');
       userInfoModal.classList.remove('modal_closed');
@@ -256,6 +220,32 @@ function View() {
       userInfoModal.classList.add('modal_closed');
    }
 
+   //<ФУНКЦИИ СТРАНИЦЫ "ТРЕНИРОВКА">====================================================================
+
+   this.addExercise = function (exercise) {
+      if (trainingWrapper) {
+         trainingWrapper.innerHTML += Exercise.render(exercise.exerciseName, exercise.exerciseSet, exercise.exerciseWeight, exercise.exerciseTime);
+      }
+   }
+
+   this.renderExercise = function (exercise) {
+      if (trainingWrapper) {
+         for (let key in exercise) {
+            const exerciseKey = exercise[key];
+            trainingWrapper.innerHTML += Exercise.render(exerciseKey.exerciseName, exerciseKey.exerciseSet, exerciseKey.exerciseWeight, exerciseKey.exerciseTime);
+         }
+      }
+   }
+
+   this.renderOptions = function (exercise) {
+      if (exercisesSelectWrapper) {
+         for (let key in exercise) {
+            const exerciseKey = exercise[key];
+            exercisesSelectWrapper.innerHTML += Options.render(exerciseKey.title);
+         }
+      }
+   }
+
    this.openExerciseModal = function () {
       const trainingModal = document.querySelector('.training-modal');
       trainingModal.classList.remove('modal_closed');
@@ -265,43 +255,6 @@ function View() {
       const trainingModal = document.querySelector('.training-modal');
       trainingModal.classList.add('modal_closed');
    }
-
-   // this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
-   //    const trainingModal = document.querySelector('.training-modal');
-   //    trainingModal.classList.add('modal_closed');
-
-   //    const trainingBlock = document.querySelector('.training-block');
-
-   //    const exercise = document.createElement('div');
-   //    exercise.className = 'exercise';
-   //    exercise.innerHTML = `
-   //    <div class="exercise-name">
-   //       <p>Упражнение:</p>
-   //       <p>${exerciseName}</p>
-   //    </div>
-   //    <div class="exercise-set">
-   //       <p>Подход:</p>
-   //       <p>${exerciseSet}</p>
-   //    </div>
-   //    <div class="exercise-weight">
-   //       <p>Вес:</p>
-   //       <p>${exerciseWeight}</p>
-   //    </div>
-   //    <div class="exercise-time">
-   //       <p>Количество повторений:</p>
-   //       <p>${exerciseTime}</p>
-   //    </div>
-   //    <div class="exercise-status">
-   //       <select class="select">
-   //          <option class="select-option select-option_wait">В ожидании</option>
-   //          <option class="select-option select-option_inprogress">В процессе</option>
-   //          <option class="select-option select-option_ready">Готово</option>
-   //       </select>
-   //    </div>
-   //    <button class="exercise__delete-btn">Удалить</button>`;
-
-   //    trainingBlock.append(exercise);
-   // }
 
    this.removeExercise = function (event) {
       event.target.closest('.exercise').remove();
@@ -329,26 +282,14 @@ function View() {
       }
    }
 
-   this.searchExercise = function (value) {
-      const exerciseTitle = document.querySelectorAll('.exercise-block__title');
+   //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">==============================================
 
-      if (value !== '') {
-         exerciseTitle.forEach((element) => {
-            let elementTitle = element.innerText.toLowerCase();
-            let elementParent = element.closest('.exercise-block');
-
-            if (elementTitle.search(value) === -1) {
-               elementParent.classList.add('hide');
-            } else {
-               elementParent.classList.remove('hide');
-            }
-
-         });
-      } else {
-         exerciseTitle.forEach((element) => {
-            let elementParent = element.closest('.exercise-block');
-            elementParent.classList.remove('hide');
-         });
+   this.renderProducts = function (products) {
+      if (productsWrapper) {
+         for (let key in products) {
+            const productKey = products[key];
+            productsWrapper.innerHTML += ProductBlock.render(productKey.product, productKey.protein, productKey.fat, productKey.carbohydrates, productKey.calories);
+         }
       }
    }
 
@@ -372,6 +313,40 @@ function View() {
             let elementParent = element.closest('.products-table__row');
             elementParent.classList.remove('hide');
          });
+      }
+   }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "БАЗА ТРЕНИРОВОК">==================================================================
+
+   this.searchExercise = function (value) {
+      const exerciseTitle = document.querySelectorAll('.exercise-block__title');
+
+      if (value !== '') {
+         exerciseTitle.forEach((element) => {
+            let elementTitle = element.innerText.toLowerCase();
+            let elementParent = element.closest('.exercise-block');
+
+            if (elementTitle.search(value) === -1) {
+               elementParent.classList.add('hide');
+            } else {
+               elementParent.classList.remove('hide');
+            }
+
+         });
+      } else {
+         exerciseTitle.forEach((element) => {
+            let elementParent = element.closest('.exercise-block');
+            elementParent.classList.remove('hide');
+         });
+      }
+   }
+
+   this.renderExercises = function (exercises) {
+      if (exercisesWrapper) {
+         for (let key in exercises) {
+            const exercise = exercises[key];
+            exercisesWrapper.innerHTML += ExerciseBlock.render(exercise.title, exercise.image, exercise.instruction);
+         }
       }
    }
 }

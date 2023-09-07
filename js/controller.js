@@ -75,10 +75,13 @@ function Controller() {
       }
    }
 
+
+   //<ПАРАЛЛАКС>==========================================================================
    function parallaxFunction() {
       myModel.parallaxEffect();
    }
 
+   //<МОДАЛЬНОЕ ОКНО ГЛАВНОГО ЭКРАНА>===================================================================================
    function openLogInWindow() {
       myModel.openLogInWindow();
    }
@@ -107,6 +110,8 @@ function Controller() {
       myModel.registerUser(inputEmail.value, inputPassword.value);
    }
 
+   //<ФУНКЦИИ СТРАНИЦЫ "АККАУНТ">===================================================================================================
+
    function openUserInfoModal() {
       myModel.openUserInfoModal();
 
@@ -134,6 +139,8 @@ function Controller() {
    function closeUserInfoModal() {
       myModel.closeUserInfoModal();
    }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "ТРЕНИРОВКА">===================================================================================================
 
    function openExerciseModal() {
       myModel.openExerciseModal();
@@ -176,14 +183,17 @@ function Controller() {
       myModel.removeExercise(event);
    }
 
-   function searchExercise() {
-      myModel.searchExercise(exerciseSearchInput.value);
-   }
+   //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">===================================================================================================
 
    function searchProduct() {
       myModel.searchProduct(productsSearchInput.value);
    }
 
+   //<ФУНКЦИИ СТРАНИЦЫ "БАЗА ТРЕНИРОВОК">===================================================================================================
+
+   function searchExercise() {
+      myModel.searchExercise(exerciseSearchInput.value);
+   }
 
    //===================================================================
    function startStopwatch(event) {

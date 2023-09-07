@@ -41,6 +41,13 @@ function Model() {
       myView.renderContent(_pageName);
    }
 
+   //<ПАРАЛЛАКС>==========================================================================
+   this.parallaxEffect = function () {
+      myView.parallaxEffect();
+   }
+
+   //<МОДАЛЬНОЕ ОКНО ГЛАВНОГО ЭКРАНА>===============================================
+
    this.openLogInWindow = function () {
       myView.openLogInWindow();
    }
@@ -57,11 +64,7 @@ function Model() {
       myView.changeToLogin();
    }
 
-   this.parallaxEffect = function () {
-      myView.parallaxEffect();
-   }
-
-   //метод регистрации пользователя
+   //<РЕГИСТРАЦИЯ, ВХОД/ВЫХОД В АККАУНТ>==========================================================================
    this.registerUser = function (email, password) {
       createUserWithEmailAndPassword(auth, email, password)
          .then((userCredential) => {
@@ -87,7 +90,6 @@ function Model() {
          });
    }
 
-   //метод входа пользователя
    this.logInUser = function (email, password) {
       signInWithEmailAndPassword(auth, email, password)
          .then((userCredential) => {
@@ -113,7 +115,6 @@ function Model() {
       });
    }
 
-   //метод получения инфы текущего пользователя
    this.manageUser = function () {
       onAuthStateChanged(auth, (user) => {
          if (user) {
@@ -126,6 +127,8 @@ function Model() {
          }
       });
    }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "АККАУНТ">===================================================================================================
 
    this.openUserInfoModal = function () {
       const userUid = auth.currentUser.uid;
@@ -163,6 +166,8 @@ function Model() {
    this.closeUserInfoModal = function () {
       myView.closeUserInfoModal();
    }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "ТРЕНИРОВКА">===================================================================================================
 
    this.openExerciseModal = function () {
       myView.openExerciseModal();
@@ -253,22 +258,6 @@ function Model() {
       myView.changeBlockColor(event);
    }
 
-   this.loadExercises = async function () {
-      const snapshot = await get(child(ref(database), 'ExerciseDatabase'));
-      if (snapshot.exists()) {
-         const exercises = snapshot.val();
-         myView.renderExercises(exercises);
-      }
-   }
-
-   this.loadProducts = async function () {
-      const snapshot = await get(child(ref(database), 'Products'));
-      if (snapshot.exists()) {
-         const products = snapshot.val();
-         myView.renderProducts(products);
-      }
-   }
-
    this.loadOptions = async function () {
       const snapshot = await get(child(ref(database), 'ExerciseDatabase'));
       if (snapshot.exists()) {
@@ -290,12 +279,32 @@ function Model() {
       });
    }
 
-   this.searchExercise = function (value) {
-      myView.searchExercise(value);
+   //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">==============================================
+
+   this.loadProducts = async function () {
+      const snapshot = await get(child(ref(database), 'Products'));
+      if (snapshot.exists()) {
+         const products = snapshot.val();
+         myView.renderProducts(products);
+      }
    }
 
    this.searchProduct = function (value) {
       myView.searchProduct(value);
+   }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "БАЗА ТРЕНИРОВОК">==================================================================
+
+   this.loadExercises = async function () {
+      const snapshot = await get(child(ref(database), 'ExerciseDatabase'));
+      if (snapshot.exists()) {
+         const exercises = snapshot.val();
+         myView.renderExercises(exercises);
+      }
+   }
+
+   this.searchExercise = function (value) {
+      myView.searchExercise(value);
    }
 
    this.updateState = function (pageName) {
