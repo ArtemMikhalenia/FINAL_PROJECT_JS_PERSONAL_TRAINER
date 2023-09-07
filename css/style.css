@@ -809,12 +809,12 @@ body.lock {
 .mainblock__content .training-content .training-block .exercise .select .select-option_ready {
   color: #86d76d;
 }
-.mainblock__content .training-content .save-training-block {
+.mainblock__content .training-content .finish-training-block {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.mainblock__content .training-content .save-training-block .btn-save-training {
+.mainblock__content .training-content .finish-training-block .btn-finish-training {
   width: 30%;
   padding: 10px 0px;
   border-radius: 10px;
@@ -822,10 +822,10 @@ body.lock {
   color: #ffffff;
   transition: background-color 0.5s ease 0s;
 }
-.mainblock__content .training-content .save-training-block .btn-save-training:hover {
+.mainblock__content .training-content .finish-training-block .btn-finish-training:hover {
   background-color: #b1a6fe;
 }
-.mainblock__content .training-content .save-training-block .btn-save-training.hidden {
+.mainblock__content .training-content .finish-training-block .btn-finish-training.hidden {
   display: none;
 }
 .mainblock__content .training-content .training-modal-container {

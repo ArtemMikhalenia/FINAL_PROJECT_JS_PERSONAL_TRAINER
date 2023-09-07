@@ -1,4 +1,4 @@
-import { getDatabase, ref, set, update, get, child } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+import { getDatabase, ref, set, update, get, child, push } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 
@@ -153,6 +153,7 @@ function Model() {
          goal: goal,
          phone: phone,
          achievements: achievements,
+
       }
       update(ref(database, "UsersList/" + userUid), user);
       myView.renderInfo(user);
@@ -166,8 +167,6 @@ function Model() {
    this.openExerciseModal = function () {
       myView.openExerciseModal();
    }
-
-
 
    this.closeExerciseModal = function () {
       myView.closeExerciseModal();
@@ -231,7 +230,19 @@ function Model() {
    }
 
    this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
-      myView.addExercise(exerciseName, exerciseSet, exerciseWeight, exerciseTime);
+      const userUid = auth.currentUser.uid;
+
+      const exercise = {
+         exerciseName: exerciseName,
+         exerciseSet: exerciseSet,
+         exerciseWeight: exerciseWeight,
+         exerciseTime: exerciseTime,
+      }
+
+      push(child(ref(database), `UsersList/${userUid}/exercises/`), exercise)
+
+      myView.addExercise(exercise);
+      myView.closeExerciseModal();
    }
 
    this.removeExercise = function (event) {
@@ -264,6 +275,19 @@ function Model() {
          const option = snapshot.val();
          myView.renderOptions(option);
       }
+   }
+
+   this.loadExercise = function () {
+      onAuthStateChanged(auth, (user) => {
+         if (user) {
+            const uid = user.uid;
+            get(child(ref(database), `UsersList/${uid}/exercises/`))
+               .then(snapshot => {
+                  const user = snapshot.val();
+                  myView.renderExercise(user);
+               })
+         }
+      });
    }
 
    this.searchExercise = function (value) {

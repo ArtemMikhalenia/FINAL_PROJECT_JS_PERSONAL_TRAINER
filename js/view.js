@@ -1,4 +1,4 @@
-import { ExerciseBlock, UserInfo, ProductBlock, Options } from "./components.js";
+import { ExerciseBlock, UserInfo, ProductBlock, Options, Exercise } from "./components.js";
 
 function View() {
    let myContainer = null;
@@ -24,6 +24,7 @@ function View() {
    let exercisesWrapper = null;
    let exercisesSelectWrapper = null;
    let productsWrapper = null;
+   let trainingWrapper = null;
 
    this.init = function (container, routes) {
       myContainer = container;
@@ -55,6 +56,7 @@ function View() {
       exercisesWrapper = myContainer.querySelector('.exercises-body');
       exercisesSelectWrapper = myContainer.querySelector('.training-modal__exercisename');
       productsWrapper = myContainer.querySelector('.products-table__body');
+      trainingWrapper = myContainer.querySelector('.training-block');
 
       emailInput = myContainer.querySelector('#email');
       passwordInput = myContainer.querySelector('#password');
@@ -101,6 +103,21 @@ function View() {
          for (let key in products) {
             const productKey = products[key];
             productsWrapper.innerHTML += ProductBlock.render(productKey.product, productKey.protein, productKey.fat, productKey.carbohydrates, productKey.calories);
+         }
+      }
+   }
+
+   this.addExercise = function (exercise) {
+      if (trainingWrapper) {
+         trainingWrapper.innerHTML += Exercise.render(exercise.exerciseName, exercise.exerciseSet, exercise.exerciseWeight, exercise.exerciseTime);
+      }
+   }
+
+   this.renderExercise = function (exercise) {
+      if (trainingWrapper) {
+         for (let key in exercise) {
+            const exerciseKey = exercise[key];
+            trainingWrapper.innerHTML += Exercise.render(exerciseKey.exerciseName, exerciseKey.exerciseSet, exerciseKey.exerciseWeight, exerciseKey.exerciseTime);
          }
       }
    }
@@ -249,42 +266,42 @@ function View() {
       trainingModal.classList.add('modal_closed');
    }
 
-   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
-      const trainingModal = document.querySelector('.training-modal');
-      trainingModal.classList.add('modal_closed');
+   // this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
+   //    const trainingModal = document.querySelector('.training-modal');
+   //    trainingModal.classList.add('modal_closed');
 
-      const trainingBlock = document.querySelector('.training-block');
+   //    const trainingBlock = document.querySelector('.training-block');
 
-      const exercise = document.createElement('div');
-      exercise.className = 'exercise';
-      exercise.innerHTML = `
-      <div class="exercise-name">
-         <p>Упражнение:</p>
-         <p>${exerciseName}</p>
-      </div>
-      <div class="exercise-set">
-         <p>Подход:</p>
-         <p>${exerciseSet}</p>
-      </div>
-      <div class="exercise-weight">
-         <p>Вес:</p>
-         <p>${exerciseWeight}</p>
-      </div>
-      <div class="exercise-time">
-         <p>Количество повторений:</p>
-         <p>${exerciseTime}</p>
-      </div>
-      <div class="exercise-status">
-         <select class="select">
-            <option class="select-option select-option_wait">В ожидании</option>
-            <option class="select-option select-option_inprogress">В процессе</option>
-            <option class="select-option select-option_ready">Готово</option>
-         </select>
-      </div>
-      <button class="exercise__delete-btn">Удалить</button>`;
+   //    const exercise = document.createElement('div');
+   //    exercise.className = 'exercise';
+   //    exercise.innerHTML = `
+   //    <div class="exercise-name">
+   //       <p>Упражнение:</p>
+   //       <p>${exerciseName}</p>
+   //    </div>
+   //    <div class="exercise-set">
+   //       <p>Подход:</p>
+   //       <p>${exerciseSet}</p>
+   //    </div>
+   //    <div class="exercise-weight">
+   //       <p>Вес:</p>
+   //       <p>${exerciseWeight}</p>
+   //    </div>
+   //    <div class="exercise-time">
+   //       <p>Количество повторений:</p>
+   //       <p>${exerciseTime}</p>
+   //    </div>
+   //    <div class="exercise-status">
+   //       <select class="select">
+   //          <option class="select-option select-option_wait">В ожидании</option>
+   //          <option class="select-option select-option_inprogress">В процессе</option>
+   //          <option class="select-option select-option_ready">Готово</option>
+   //       </select>
+   //    </div>
+   //    <button class="exercise__delete-btn">Удалить</button>`;
 
-      trainingBlock.append(exercise);
-   }
+   //    trainingBlock.append(exercise);
+   // }
 
    this.removeExercise = function (event) {
       event.target.closest('.exercise').remove();

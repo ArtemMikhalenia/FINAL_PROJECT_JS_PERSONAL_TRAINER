@@ -17,6 +17,7 @@ function Controller() {
       myModel.loadExercises();
       myModel.loadProducts();
       myModel.loadOptions();
+      myModel.loadExercise();
 
       //кнопки начальной страницы и модального окна
       const buttonOpenModal = myContainer.querySelector('.btn-start');

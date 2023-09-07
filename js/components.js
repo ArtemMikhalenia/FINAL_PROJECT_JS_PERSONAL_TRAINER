@@ -419,8 +419,8 @@ const ContentTraining = {
 	                    </div>
 	                    <button class="add-exercise animate__animated animate__slideInDown">Добавить упражнение</button>
 	                    <div class="training-block"></div>
-							  <div class="save-training-block">
-							  	<button class="btn-save-training hidden">Сохранить тренировку</button>
+							  <div class="finish-training-block">
+							  	<button class="btn-finish-training hidden">Завершить тренировку</button>
 							  </div>
 	                    <div class="training-modal-container">
 	                        <div class="training-modal animate__animated animate__slideInDown modal_closed" id="training-modal">
@@ -456,6 +456,38 @@ const ContentTraining = {
 const Options = {
 	render: (exerciseTitle) => {
 		return `<option>${exerciseTitle}</option>`;
+	}
+}
+
+const Exercise = {
+	render: (exerciseName, exerciseSet, exerciseWeight, exerciseTime) => {
+		return `
+		<div class="exercise">
+			<div class="exercise-name">
+				<p>Упражнение:</p>
+				<p>${exerciseName}</p>
+			</div>
+			<div class="exercise-set">
+				<p>Подход:</p>
+				<p>${exerciseSet}</p>
+			</div>
+			<div class="exercise-weight">
+				<p>Вес:</p>
+				<p>${exerciseWeight}</p>
+			</div>
+			<div class="exercise-time">
+				<p>Количество повторений:</p>
+				<p>${exerciseTime}</p>
+			</div>
+			<div class="exercise-status">
+				<select class="select">
+					<option class="select-option select-option_wait">В ожидании</option>
+					<option class="select-option select-option_inprogress">В процессе</option>
+					<option class="select-option select-option_ready">Готово</option>
+				</select>
+			</div>
+			<button class="exercise__delete-btn">Удалить</button>
+		</div>`;
 	}
 }
 
@@ -786,5 +818,6 @@ export {
 	ExerciseBlock,
 	UserInfo,
 	ProductBlock,
-	Options
+	Options,
+	Exercise,
 };
