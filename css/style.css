@@ -733,19 +733,34 @@ body.lock {
   color: #FFFFFF;
   box-shadow: 0 0 5px #7C6DD7;
 }
-.mainblock__content .training-content .add-exercise {
+.mainblock__content .training-content .training-buttons {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+.mainblock__content .training-content .training-buttons .add-exercise,
+.mainblock__content .training-content .training-buttons .btn-finish-training {
   font-size: 17px;
   font-weight: 700;
-  margin-bottom: 20px;
-  background-color: #F97316;
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 3px;
   color: #FFFFFF;
   transition: all 0.5s ease 0s;
 }
-.mainblock__content .training-content .add-exercise:hover {
+.mainblock__content .training-content .training-buttons .add-exercise {
+  background-color: #F97316;
+  margin-bottom: 10px;
+}
+.mainblock__content .training-content .training-buttons .add-exercise:hover {
   background-color: #CBD5E1;
   color: #F97316;
+}
+.mainblock__content .training-content .training-buttons .btn-finish-training {
+  background-color: #7C6DD7;
+}
+.mainblock__content .training-content .training-buttons .btn-finish-training:hover {
+  background-color: #b1a6fe;
 }
 .mainblock__content .training-content .training-block {
   width: 100%;
@@ -808,25 +823,6 @@ body.lock {
 }
 .mainblock__content .training-content .training-block .exercise .select .select-option_ready {
   color: #86d76d;
-}
-.mainblock__content .training-content .finish-training-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mainblock__content .training-content .finish-training-block .btn-finish-training {
-  width: 30%;
-  padding: 10px 0px;
-  border-radius: 10px;
-  background-color: #7C6DD7;
-  color: #ffffff;
-  transition: background-color 0.5s ease 0s;
-}
-.mainblock__content .training-content .finish-training-block .btn-finish-training:hover {
-  background-color: #b1a6fe;
-}
-.mainblock__content .training-content .finish-training-block .btn-finish-training.hidden {
-  display: none;
 }
 .mainblock__content .training-content .training-modal-container {
   display: flex;

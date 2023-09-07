@@ -58,10 +58,13 @@ function Controller() {
       const buttonOpenInfoModal = myContainer.querySelector('.edit-info-btn');
       buttonOpenInfoModal && buttonOpenInfoModal.addEventListener('click', openUserInfoModal);
 
-      const buttonAddExercise = document.querySelector('.add-exercise');
+      const buttonAddExercise = myContainer.querySelector('.add-exercise');
       buttonAddExercise && buttonAddExercise.addEventListener('click', openExerciseModal);
 
-      const buttonLogOut = document.querySelector('.btn-logout');
+      const buttonFinishTraining = myContainer.querySelector('.btn-finish-training');
+      buttonFinishTraining && buttonFinishTraining.addEventListener('click', clearTrainingBlock);
+
+      const buttonLogOut = myContainer.querySelector('.btn-logout');
       buttonLogOut && buttonLogOut.addEventListener('click', logOutUser);
 
       if (hashPageName === "trainingpage") {
@@ -173,6 +176,10 @@ function Controller() {
       select && select.forEach(el => {
          el.addEventListener('change', changeBlockColor);
       })
+   }
+
+   function clearTrainingBlock() {
+      myModel.clearTrainingBlock();
    }
 
    function changeBlockColor(event) {

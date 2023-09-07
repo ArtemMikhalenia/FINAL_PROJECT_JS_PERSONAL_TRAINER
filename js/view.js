@@ -282,6 +282,12 @@ function View() {
       }
    }
 
+   this.clearTrainingBlock = function () {
+      if (trainingWrapper) {
+         trainingWrapper.innerHTML = '';
+      }
+   }
+
    //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">==============================================
 
    this.renderProducts = function (products) {

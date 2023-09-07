@@ -417,11 +417,11 @@ const ContentTraining = {
 	                            <button class="reset">Сброс</button>
 	                        </div>
 	                    </div>
-	                    <button class="add-exercise animate__animated animate__slideInDown">Добавить упражнение</button>
-	                    <div class="training-block"></div>
-							  <div class="finish-training-block">
-							  	<button class="btn-finish-training hidden">Завершить тренировку</button>
+							  <div class="training-buttons animate__animated animate__slideInDown">
+							  		<button class="add-exercise">Добавить упражнение</button>
+									<button class="btn-finish-training">Завершить тренировку</button>
 							  </div>
+	                    <div class="training-block"></div>
 	                    <div class="training-modal-container">
 	                        <div class="training-modal animate__animated animate__slideInDown modal_closed" id="training-modal">
 	                            <div class="training-modal__header">

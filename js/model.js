@@ -279,6 +279,16 @@ function Model() {
       });
    }
 
+   this.clearTrainingBlock = function () {
+      onAuthStateChanged(auth, (user) => {
+         if (user) {
+            const uid = user.uid;
+            set(child(ref(database), `UsersList/${uid}/exercises/`), '')
+            myView.clearTrainingBlock();
+         }
+      });
+   }
+
    //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">==============================================
 
    this.loadProducts = async function () {

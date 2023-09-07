@@ -817,19 +817,42 @@ body {
 				}
 			}
 
-			.add-exercise {
-				font-size: 17px;
-				font-weight: 700;
-				margin-bottom: 20px;
-				background-color: #F97316;
-				padding: 5px 10px;
-				border-radius: 3px;
-				color: #FFFFFF;
-				transition: all 0.5s ease 0s;
+			.training-buttons {
+				width: 35%;
 
-				&:hover {
-					background-color: #CBD5E1;
-					color: #F97316;
+				display: flex;
+				flex-direction: column;
+				margin: 20px 0px;
+
+				.add-exercise,
+				.btn-finish-training {
+					font-size: 17px;
+					font-weight: 700;
+
+					padding: 5px 20px;
+					border-radius: 3px;
+
+					color: #FFFFFF;
+
+					transition: all 0.5s ease 0s;
+				}
+
+				.add-exercise {
+					background-color: #F97316;
+					margin-bottom: 10px;
+
+					&:hover {
+						background-color: #CBD5E1;
+						color: #F97316;
+					}
+				}
+
+				.btn-finish-training {
+					background-color: #7C6DD7;
+
+					&:hover {
+						background-color: #b1a6fe;
+					}
 				}
 			}
 
@@ -911,31 +934,6 @@ body {
 						}
 
 
-					}
-				}
-			}
-
-			.finish-training-block {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				.btn-finish-training {
-					width: 30%;
-					padding: 10px 0px;
-
-					border-radius: 10px;
-
-					background-color: #7C6DD7;
-					color: #ffffff;
-					transition: background-color 0.5s ease 0s;
-
-					&:hover {
-						background-color: #b1a6fe;
-					}
-
-					&.hidden {
-						display: none;
 					}
 				}
 			}
