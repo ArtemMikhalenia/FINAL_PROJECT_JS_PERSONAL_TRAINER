@@ -1166,6 +1166,12 @@ body.lock {
     fill: white;
   }
 }
+@media (max-width: 1300px) {
+  .mainblock__content .user-info {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
 @media (max-width: 1220px) {
   .wrapper .man-image {
     bottom: -3%;
@@ -1180,6 +1186,49 @@ body.lock {
   }
   .wrapper .container h1 {
     margin: 100px auto 180px;
+  }
+}
+@media (max-width: 1036px) {
+  .mainblock .sidebar {
+    width: 66px;
+    padding: 5px;
+  }
+  .mainblock .sidebar nav {
+    margin: 0px 0px 0px 0px;
+  }
+  .mainblock .sidebar__logo {
+    margin: 0px 0px 30px 0px;
+  }
+  .mainblock .sidebar__logo img {
+    display: none;
+  }
+  .mainblock .sidebar__link {
+    padding: 10px;
+  }
+  .mainblock .sidebar__link span {
+    display: none;
+  }
+  .mainblock .sidebar .btn-logout span {
+    display: none;
+  }
+  .mainblock__body {
+    margin: 0px 0px 0px 66px;
+  }
+}
+@media (max-width: 991.98px) {
+  .mainblock__header {
+    font-size: 24px;
+    text-align: left;
+  }
+}
+@media (max-width: 805px) {
+  .mainblock__content h2 {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+  .mainblock__content .user-info {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 }
 @media (max-width: 600px) {
@@ -1197,119 +1246,56 @@ body.lock {
   .wrapper .container h1 {
     margin: 50px auto 180px;
   }
-  .wrapper .start-container h1 {
+  .start-container h1 {
     font-size: 50px;
   }
-  .wrapper .start-container .modal-container .modal {
-    display: block;
-    width: 400px;
-    max-width: 100%;
-    padding: 20px;
-    position: fixed;
-    z-index: 100;
-    border-radius: 10px;
-    background: rgba(44, 44, 44, 0.98);
-    box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+  .start-container .modal-container {
+    align-items: end;
   }
-  .wrapper .start-container .modal-container .modal__footer {
-    text-align: center;
-    font-size: 18px;
+  .start-container .modal-container .modal {
+    width: 90%;
   }
-  .wrapper .start-container .modal-container .modal__footer span {
-    text-decoration: underline;
-    padding-left: 25px;
-    cursor: pointer;
-  }
-  .wrapper .start-container .modal-container .modal__footer span:hover {
-    text-decoration: none;
-  }
-  .wrapper .start-container .modal-container .modal__close {
-    cursor: pointer;
-    transition: all 0.5s ease 0s;
-  }
-  .wrapper .start-container .modal-container .modal__close img {
-    max-width: 25px;
-    width: 100%;
-  }
-  .wrapper .start-container .modal-container .modal__close:hover {
-    transform: scale(1.15);
-  }
-  .wrapper .start-container .modal-container .modal__form {
-    width: 100%;
-    margin: 0 auto;
-    padding: 50px 0px 70px;
-    display: flex;
-    flex-direction: column;
-  }
-  .wrapper .start-container .modal-container .modal__form .input-label {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  .wrapper .start-container .modal-container .modal__form .form-error {
-    margin-top: 20px;
-    text-align: center;
+  .start-container .modal-container .modal__footer {
     font-size: 15px;
-    color: red;
   }
-  .wrapper .start-container .modal-container .modal__form .hidden {
-    display: none;
+  .start-container .modal-container .modal__footer span {
+    padding-left: 15px;
   }
-  .wrapper .start-container .modal-container .modal__email, .wrapper .start-container .modal-container .modal__password {
+  .start-container .modal-container .modal__form {
+    padding: 30px 0px;
+  }
+  .start-container .modal-container .modal__form .input-label {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+  .start-container .modal-container .modal__form .form-error {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .start-container .modal-container .modal__email, .start-container .modal-container .modal__password {
     padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .start-container .modal-container .modal .modal-header {
+    padding-top: 10px;
+    font-size: 25px;
+  }
+  .start-container .modal-container .modal .successful-registration-block {
+    font-size: 30px;
+  }
+  .start-container .modal-container .modal .successful-registration-block p {
     margin-bottom: 30px;
+  }
+  .start-container .modal-container .modal .successful-registration-block button {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+  .form-submit-login,
+  .form-submit-register {
+    max-width: 320px;
+    padding: 5px 25px;
     font-size: 18px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-    background: none;
-    color: rgb(255, 255, 255);
-    transition: border-bottom 0.5s ease 0s;
-  }
-  .wrapper .start-container .modal-container .modal__email:focus, .wrapper .start-container .modal-container .modal__password:focus {
-    border-bottom: 2px solid rgb(255, 255, 255);
-  }
-  .wrapper .start-container .modal-container .modal .modal-header {
-    padding-top: 30px;
-    font-size: 35px;
-    text-align: center;
-  }
-  .wrapper .start-container .modal-container .modal__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 50;
-    background: rgba(0, 0, 0, 0.6);
-  }
-  .wrapper .start-container .modal-container .modal .successful-registration-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    position: fixed;
-    z-index: 100;
-    left: 50%;
-    top: 50%;
-    font-size: 40px;
-    text-align: center;
-    border-radius: 10px;
-    transform: translate(-50%, -50%);
-    background: rgb(44, 44, 44);
-  }
-  .wrapper .start-container .modal-container .modal .successful-registration-block p {
-    margin-bottom: 50px;
-  }
-  .wrapper .start-container .modal-container .modal .successful-registration-block button {
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: #e18215;
-    color: white;
-  }
-  .wrapper .start-container .modal-container .modal .hidden {
-    display: none;
   }
 }
 @media (max-width: 479.98px) {
