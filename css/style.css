@@ -384,6 +384,8 @@ body.lock {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   background-color: #E4EBF5;
+  transform: translateX(0%);
+  transition: all 0.3s ease 0s;
 }
 .mainblock .sidebar nav {
   margin: 0px 0px 100px 0px;
@@ -465,10 +467,11 @@ body.lock {
   fill: #475569;
 }
 .mainblock .sidebar.hidden {
-  display: none;
+  transform: translateX(-200%);
 }
 .mainblock__body {
   margin: 0px 0px 0px 238px;
+  transition: all 0.5s ease 0s;
 }
 .mainblock__body.active-training {
   margin: 0px 0px 0px 0px;
@@ -483,6 +486,9 @@ body.lock {
   background-color: #E4EBF5;
   border-bottom: 2px solid #CBD5E1;
 }
+.mainblock__header.active-training {
+  border-top-left-radius: 5px;
+}
 .mainblock__content {
   height: calc(95vh - 59.6px);
   padding: 30px 40px 40px;
@@ -490,6 +496,9 @@ body.lock {
   background-color: #E4EBF5;
   color: #475569;
   border-bottom-right-radius: 5px;
+}
+.mainblock__content.active-training {
+  border-bottom-left-radius: 5px;
 }
 .mainblock__content h2 {
   font-size: 35px;
@@ -1006,7 +1015,6 @@ body.lock {
   margin: 10px;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block {
-  display: flex;
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -1019,23 +1027,27 @@ body.lock {
   transform: scale(1);
   cursor: pointer;
 }
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block .exercise-content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block img {
   max-width: 300px;
   width: 100%;
   border-radius: 13px;
-  margin: 0px 0px 10px 0px;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__title {
   font-size: 22px;
   font-weight: 700;
-  margin: 0px 0px 10px;
+  margin: 0px 0px 20px;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__image {
+  flex: 0 1 50%;
   margin: 0px 10px 10px 10px;
   transition: all 0.5s ease 0s;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__image img {
-  max-width: 300px;
   width: 100%;
   border-radius: 13px;
 }
@@ -1043,11 +1055,12 @@ body.lock {
   transform: scale(1.05);
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__instructions {
+  flex: 0 1 50%;
   padding: 0px 20px;
+  margin: 0px 0px 10px 0px;
   font-size: 16px;
   font-weight: 600;
   text-align: justify;
-  margin: 0px 0px 10px 0px;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block.hide {
   display: none;

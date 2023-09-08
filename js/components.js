@@ -707,11 +707,12 @@ const ExerciseBlock = {
 	                <div class="exercise-body animate__animated animate__zoomIn">
 	                    <div class="exercise-block">
 	                        <h3 class="exercise-block__title">${title}</h3>
-	                        <div class="exercise-block__image">
-	                            <img src="${image}" alt="${title}">
-	                        </div>
-	                        <p class="exercise-block__instructions
-																																																																																																																																																			                           ">${instruction}</p>
+									<div class="exercise-content">
+										<div class="exercise-block__image">
+											<img src="${image}" alt="${title}">
+										</div>
+										<p class="exercise-block__instructions">${instruction}</p>
+									</div>
 	                    </div>
 	                </div>
 	                `;

@@ -379,6 +379,8 @@ body {
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
 		background-color: #E4EBF5;
+		transform: translateX(0%);
+		transition: all 0.3s ease 0s;
 
 		nav {
 			margin: 0px 0px 100px 0px;
@@ -474,12 +476,13 @@ body {
 		}
 
 		&.hidden {
-			display: none;
+			transform: translateX(-200%);
 		}
 	}
 
 	&__body {
 		margin: 0px 0px 0px 238px;
+		transition: all 0.5s ease 0s;
 
 		&.active-training {
 			margin: 0px 0px 0px 0px;
@@ -499,6 +502,10 @@ body {
 		background-color: #E4EBF5;
 
 		border-bottom: 2px solid #CBD5E1;
+
+		&.active-training {
+			border-top-left-radius: 5px;
+		}
 	}
 
 	&__content {
@@ -509,7 +516,12 @@ body {
 
 		background-color: #E4EBF5;
 		color: #475569;
+		
 		border-bottom-right-radius: 5px;
+
+		&.active-training {
+			border-bottom-left-radius: 5px;
+		}
 
 		h2 {
 			font-size: 35px;
@@ -1183,7 +1195,6 @@ body {
 					margin: 10px;
 
 					.exercise-block {
-						display: flex;
 						width: 100%;
 						max-width: 100%;
 						height: 100%;
@@ -1199,25 +1210,30 @@ body {
 						transform: scale(1);
 						cursor: pointer;
 
+						.exercise-content {
+							display: flex;
+							justify-content: space-between;
+							flex-direction: row-reverse;
+						}
+
 						img {
 							max-width: 300px;
 							width: 100%;
 							border-radius: 13px;
-							margin: 0px 0px 10px 0px;
 						}
 
 						&__title {
 							font-size: 22px;
 							font-weight: 700;
-							margin: 0px 0px 10px;
+							margin: 0px 0px 20px;
 						}
 
 						&__image {
+							flex: 0 1 50%;
 							margin: 0px 10px 10px 10px;
 							transition: all 0.5s ease 0s;
 
 							img {
-								max-width: 300px;
 								width: 100%;
 								border-radius: 13px;
 							}
@@ -1228,11 +1244,13 @@ body {
 						}
 
 						&__instructions {
+							flex: 0 1 50%;
 							padding: 0px 20px;
+							margin: 0px 0px 10px 0px;
+
 							font-size: 16px;
 							font-weight: 600;
 							text-align: justify;
-							margin: 0px 0px 10px 0px;
 						}
 					}
 

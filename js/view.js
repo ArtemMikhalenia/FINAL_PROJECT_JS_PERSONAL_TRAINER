@@ -229,6 +229,8 @@ function View() {
 
       document.querySelector('.sidebar').classList.add('hidden');
       document.querySelector('.mainblock__body').classList.add('active-training');
+      document.querySelector('.mainblock__header').classList.add('active-training');
+      document.querySelector('.mainblock__content').classList.add('active-training');
    }
 
    this.renderExercise = function (exercise) {
@@ -303,6 +305,8 @@ function View() {
 
       document.querySelector('.sidebar').classList.remove('hidden');
       document.querySelector('.mainblock__body').classList.remove('active-training');
+      document.querySelector('.mainblock__header').classList.remove('active-training');
+      document.querySelector('.mainblock__content').classList.remove('active-training');
    }
 
    this.startStopwatch = function (hours, minutes, seconds, status) {
