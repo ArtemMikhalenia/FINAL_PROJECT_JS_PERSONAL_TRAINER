@@ -403,15 +403,15 @@ const ContentTraining = {
 		return `
 	        <div class="mainblock__body">
 	            <header class="mainblock__header">
-	                <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
+	                <h1 class=" animate__animated animate__pulse">"Плохая тренировка – это та, которой не было!"</h1>
 	            </header>
 	            <div class="mainblock__content" id="main-content">
 	                <div class="training-content">
 	                    <h2 class="animate__animated animate__backInLeft">Тренировка</h2>
 	
-	                    <div class="stopwatch-block">
+	                    <div class="stopwatch-block animate__animated animate__zoomIn">
 	                        <div class="stopwatch">
-	                            <div class="time">00:00:00:00</div>
+	                            <div class="time">00:00:00</div>
 	                            <button class="start">Старт</button>
 	                            <button class="pause">Пауза</button>
 	                            <button class="reset">Сброс</button>
@@ -421,7 +421,11 @@ const ContentTraining = {
 							  		<button class="add-exercise">Добавить упражнение</button>
 									<button class="btn-finish-training">Завершить тренировку</button>
 							  </div>
-	                    <div class="training-block"></div>
+	                    <div class="training-block">
+							  	<div class="rock hidden">
+								  <img src="./images/content/finish.jpg" alt="finish">
+								</div>
+							  </div>
 	                    <div class="training-modal-container">
 	                        <div class="training-modal animate__animated animate__slideInDown modal_closed" id="training-modal">
 	                            <div class="training-modal__header">
@@ -440,7 +444,7 @@ const ContentTraining = {
 	
 	                                <label class="input-label" for="exercisetime">Количество повторений: <abbr title="Это поле обязательно для заполнения" aria-label="required">*</abbr></label>
 	                                <input type="number" id="exercisetime" autocomplete="off" class="training-modal__exercisetime" required>
-	
+
 	                                <input type="button" id="training-modal__add" class="training-modal__add" value="Добавить">
 	                            </form>
 	                        </div>
@@ -563,7 +567,7 @@ const ContentDiet = {
 		return /*html*/ `
 	            <div class="mainblock__body">
 	                <header class="mainblock__header">
-	                    <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
+	                    <h1 class=" animate__animated animate__pulse">"Придумывая оправдания, вы сжигаете ноль калорий в час!"</h1>
 	                </header>
 	                <div class="mainblock__content" id="main-content">
 	                    <div class="diet-content">
@@ -682,7 +686,7 @@ const ContentExercisesDatabase = {
 		return `
 	                <div class="mainblock__body">
 	                    <header class="mainblock__header">
-	                        <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
+	                        <h1 class=" animate__animated animate__pulse">"Возможно, ты еще не там, но ты ближе, чем был вчера!"</h1>
 	                    </header>
 	                    <div class="mainblock__content" id="main-content">
 	                        <div class="exercises-content">
@@ -700,7 +704,7 @@ const ContentExercisesDatabase = {
 const ExerciseBlock = {
 	render: (title, image, instruction) => {
 		return `
-	                <div class="animate__animated animate__zoomIn">
+	                <div class="exercise-body animate__animated animate__zoomIn">
 	                    <div class="exercise-block">
 	                        <h3 class="exercise-block__title">${title}</h3>
 	                        <div class="exercise-block__image">
@@ -785,7 +789,7 @@ const ContentProgress = {
 		return `
 	                    <div class="mainblock__body">
 	                        <header class="mainblock__header">
-	                            <h1 class=" animate__animated animate__pulse">"Если тяжело, значит развиваешься!"</h1>
+	                            <h1 class=" animate__animated animate__pulse">"Хорошие вещи приходят к тем, кто потеет!"</h1>
 	                        </header>
 	                        <div class="mainblock__content" id="main-content">
 	                            <div class="progress-content">

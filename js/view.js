@@ -226,6 +226,9 @@ function View() {
       if (trainingWrapper) {
          trainingWrapper.innerHTML += Exercise.render(exercise.exerciseName, exercise.exerciseSet, exercise.exerciseWeight, exercise.exerciseTime);
       }
+
+      document.querySelector('.sidebar').classList.add('hidden');
+      document.querySelector('.mainblock__body').classList.add('active-training');
    }
 
    this.renderExercise = function (exercise) {
@@ -284,8 +287,38 @@ function View() {
 
    this.clearTrainingBlock = function () {
       if (trainingWrapper) {
-         trainingWrapper.innerHTML = '';
+
+         let rockImg = document.querySelector('.rock');
+         rockImg.classList.remove('hidden');
+         setTimeout(() => {
+            rockImg.classList.add('hidden');
+         }, 3000);
+
+         let exercises = document.querySelectorAll('.exercise');
+
+         exercises.forEach(el => {
+            el.remove();
+         });
       }
+
+      document.querySelector('.sidebar').classList.remove('hidden');
+      document.querySelector('.mainblock__body').classList.remove('active-training');
+   }
+
+   this.startStopwatch = function (hours, minutes, seconds, status) {
+      document.querySelector('.time').textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+      document.querySelector('.start').setAttribute(`${status}`, `${status}`);
+   }
+
+   this.pauseStopwatch = function (status) {
+      document.querySelector('.start').removeAttribute(`${status}`, `${status}`);
+   }
+
+   this.resetStopwatch = function (hours, minutes, seconds, status) {
+      document.querySelector('.time').textContent = `0${hours}:0${minutes}:0${seconds}`;
+
+      document.querySelector('.start').removeAttribute(`${status}`, `${status}`);
    }
 
    //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">==============================================

@@ -8,7 +8,7 @@ function Controller() {
    let btnStart = null;
    let btnPause = null;
    let btnReset = null;
-   let stopwatch = null;
+   let status = 'disabled';
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -71,10 +71,10 @@ function Controller() {
          btnStart = document.querySelector(".start");
          btnStart.addEventListener('click', startStopwatch);
          btnPause = document.querySelector(".pause");
-         btnPause.addEventListener("click", pauseTimer);
+         btnPause.addEventListener("click", pauseStopwatch);
          btnReset = document.querySelector(".reset");
-         btnReset.addEventListener("click", resetTimer);
-         stopwatch = document.querySelector(".time");
+         btnReset.addEventListener("click", resetStopwatch);
+         let stopwatch = document.querySelector(".time");
       }
    }
 
@@ -174,17 +174,38 @@ function Controller() {
 
       const select = document.querySelectorAll('.select');
       select && select.forEach(el => {
+         // let selectValue = el.value;
          el.addEventListener('change', changeBlockColor);
+         // el.addEventListener('change', changeExerciseStatus(selectValue));
       })
    }
 
    function clearTrainingBlock() {
-      myModel.clearTrainingBlock();
+      myModel.clearTrainingBlock(status);
    }
 
    function changeBlockColor(event) {
       myModel.changeBlockColor(event);
    }
+
+   function startStopwatch(event) {
+      event.preventDefault();
+      myModel.startStopwatch(status);
+   }
+
+   function pauseStopwatch(event) {
+      event.preventDefault();
+      myModel.pauseStopwatch(status);
+   }
+
+   function resetStopwatch(event) {
+      event.preventDefault();
+      myModel.resetStopwatch(status);
+   }
+
+   // function changeExerciseStatus(selectValue) {
+   //    myModel.changeExerciseStatus(selectValue);
+   // }
 
    function removeExercise(event) {
       myModel.removeExercise(event);
@@ -202,23 +223,6 @@ function Controller() {
       myModel.searchExercise(exerciseSearchInput.value);
    }
 
-   //===================================================================
-   function startStopwatch(event) {
-      event.preventDefault();
-      myModel.startStopwatch();
-   }
-
-   function pauseTimer(event) {
-      event.preventDefault();
-      myModel.pauseTimer();
-   }
-
-   function resetTimer(event) {
-      event.preventDefault();
-      myModel.resetTimer();
-   }
-
-   //===================================================================
 
    return {
       init: function (container, model) {

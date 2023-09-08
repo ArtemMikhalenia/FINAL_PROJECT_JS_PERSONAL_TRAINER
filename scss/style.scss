@@ -472,18 +472,26 @@ body {
 				}
 			}
 		}
+
+		&.hidden {
+			display: none;
+		}
 	}
 
 	&__body {
 		margin: 0px 0px 0px 238px;
+
+		&.active-training {
+			margin: 0px 0px 0px 0px;
+		}
 	}
 
 	&__header {
-		padding: 20px 0px 20px 20px;
+		padding: 15px 20px;
 
 		width: 100%;
 
-		font-size: 35px;
+		font-size: 28px;
 		text-align: center;
 		color: #475569;
 
@@ -494,7 +502,7 @@ body {
 	}
 
 	&__content {
-		height: calc(95vh - 76.6px);
+		height: calc(95vh - 59.6px);
 		padding: 30px 40px 40px;
 
 		overflow: scroll;
@@ -672,7 +680,6 @@ body {
 				overflow: hidden;
 
 				@include anim(0.3s, 0s);
-				cursor: pointer;
 
 				&.common-info,
 				&.achievements-info {
@@ -778,6 +785,7 @@ body {
 		}
 
 		.training-content {
+			position: relative;
 
 			.stopwatch-block {
 				width: 100%;
@@ -812,6 +820,19 @@ body {
 							background: #7C6DD7;
 							color: #FFFFFF;
 							box-shadow: 0 0 5px #7C6DD7;
+						}
+
+						&:disabled {
+							color: #9c9c9c;
+							border: 1px solid #9c9c9c;
+							box-shadow: 0 0 5px #9c9c9c;
+
+							&:hover {
+								color: #9c9c9c;
+								border: 1px solid #9c9c9c;
+								box-shadow: 0 0 5px #9c9c9c;
+								background: none;
+							}
 						}
 					}
 				}
@@ -857,6 +878,7 @@ body {
 			}
 
 			.training-block {
+
 				width: 100%;
 				display: grid;
 				grid-template-columns: 1fr;
@@ -936,6 +958,24 @@ body {
 
 					}
 				}
+
+				.rock {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+
+					img {
+						width: 100%;
+						max-width: 100%;
+						border-radius: 3px;
+					}
+
+					&.hidden {
+						display: none;
+					}
+				}
 			}
 
 			.training-modal-container {
@@ -999,7 +1039,8 @@ body {
 					&__exercisename,
 					&__exerciseset,
 					&__exerciseweight,
-					&__exercisetime {
+					&__exercisetime,
+					&__select {
 						border: none;
 						border-radius: 3px;
 						font-size: 17px;
@@ -1136,71 +1177,75 @@ body {
 			}
 
 			.exercises-body {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				column-gap: 30px;
-				row-gap: 30px;
-
 				text-align: center;
 
-				.exercise-block {
-					height: 100%;
-					background: linear-gradient(40deg, rgb(242, 241, 86) 0%, rgb(134, 215, 109) 50%);
-					color: #475569;
+				.exercise-body {
+					margin: 10px;
 
-					border-radius: 13px;
-					border: 2px solid rgb(134, 215, 109);
-					transition: all 0.5s ease 0s;
-					padding: 10px 20px;
-					transform: scale(1);
-
-					cursor: pointer;
-
-					img {
-						max-width: 300px;
+					.exercise-block {
+						display: flex;
 						width: 100%;
+						max-width: 100%;
+						height: 100%;
+						padding: 10px;
+
+						background: linear-gradient(40deg, rgb(242, 241, 86) 0%, rgb(134, 215, 109) 50%);
+						color: #475569;
+
 						border-radius: 13px;
-						margin: 0px 0px 10px 0px;
-					}
-
-					&__title {
-						font-size: 22px;
-						font-weight: 700;
-						margin: 0px 0px 10px;
-					}
-
-					&__image {
-						margin: 0px 10px 10px 10px;
+						border: 2px solid rgb(134, 215, 109);
 						transition: all 0.5s ease 0s;
+
+						transform: scale(1);
+						cursor: pointer;
 
 						img {
 							max-width: 300px;
 							width: 100%;
 							border-radius: 13px;
+							margin: 0px 0px 10px 0px;
+						}
+
+						&__title {
+							font-size: 22px;
+							font-weight: 700;
+							margin: 0px 0px 10px;
+						}
+
+						&__image {
+							margin: 0px 10px 10px 10px;
+							transition: all 0.5s ease 0s;
+
+							img {
+								max-width: 300px;
+								width: 100%;
+								border-radius: 13px;
+							}
+						}
+
+						&__image:hover {
+							transform: scale(1.05);
+						}
+
+						&__instructions {
+							padding: 0px 20px;
+							font-size: 16px;
+							font-weight: 600;
+							text-align: justify;
+							margin: 0px 0px 10px 0px;
 						}
 					}
 
-					&__image:hover {
-						transform: scale(1.05);
+					.exercise-block.hide {
+						display: none;
 					}
 
-					&__instructions {
-						padding: 0px 20px;
-						font-size: 16px;
-						font-weight: 600;
-						text-align: justify;
-						margin: 0px 0px 10px 0px;
+					.exercise-block:hover {
+						transform: scale(1.02);
+						box-shadow: 0 0 10px 2px rgb(134, 215, 109);
 					}
 				}
 
-				.exercise-block.hide {
-					display: none;
-				}
-
-				.exercise-block:hover {
-					transform: scale(1.02);
-					box-shadow: 0 0 10px 2px rgb(134, 215, 109);
-				}
 			}
 		}
 	}

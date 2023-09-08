@@ -464,13 +464,19 @@ body.lock {
 .mainblock .sidebar .btn-logout:hover svg {
   fill: #475569;
 }
+.mainblock .sidebar.hidden {
+  display: none;
+}
 .mainblock__body {
   margin: 0px 0px 0px 238px;
 }
+.mainblock__body.active-training {
+  margin: 0px 0px 0px 0px;
+}
 .mainblock__header {
-  padding: 20px 0px 20px 20px;
+  padding: 15px 20px;
   width: 100%;
-  font-size: 35px;
+  font-size: 28px;
   text-align: center;
   color: #475569;
   border-top-right-radius: 5px;
@@ -478,7 +484,7 @@ body.lock {
   border-bottom: 2px solid #CBD5E1;
 }
 .mainblock__content {
-  height: calc(95vh - 76.6px);
+  height: calc(95vh - 59.6px);
   padding: 30px 40px 40px;
   overflow: scroll;
   background-color: #E4EBF5;
@@ -612,7 +618,6 @@ body.lock {
   -ms-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  cursor: pointer;
 }
 .mainblock__content .user-info__block.common-info, .mainblock__content .user-info__block.achievements-info {
   background-color: #06B6D4;
@@ -700,6 +705,9 @@ body.lock {
   display: flex;
   justify-content: space-between;
 }
+.mainblock__content .training-content {
+  position: relative;
+}
 .mainblock__content .training-content .stopwatch-block {
   width: 100%;
   display: flex;
@@ -732,6 +740,17 @@ body.lock {
   background: #7C6DD7;
   color: #FFFFFF;
   box-shadow: 0 0 5px #7C6DD7;
+}
+.mainblock__content .training-content .stopwatch-block .stopwatch button:disabled {
+  color: #9c9c9c;
+  border: 1px solid #9c9c9c;
+  box-shadow: 0 0 5px #9c9c9c;
+}
+.mainblock__content .training-content .stopwatch-block .stopwatch button:disabled:hover {
+  color: #9c9c9c;
+  border: 1px solid #9c9c9c;
+  box-shadow: 0 0 5px #9c9c9c;
+  background: none;
 }
 .mainblock__content .training-content .training-buttons {
   width: 35%;
@@ -824,6 +843,21 @@ body.lock {
 .mainblock__content .training-content .training-block .exercise .select .select-option_ready {
   color: #86d76d;
 }
+.mainblock__content .training-content .training-block .rock {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.mainblock__content .training-content .training-block .rock img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 3px;
+}
+.mainblock__content .training-content .training-block .rock.hidden {
+  display: none;
+}
 .mainblock__content .training-content .training-modal-container {
   display: flex;
   justify-content: center;
@@ -870,7 +904,7 @@ body.lock {
   font-size: 15px;
   margin-bottom: 5px;
 }
-.mainblock__content .training-content .training-modal-container .training-modal__exercisename, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime {
+.mainblock__content .training-content .training-modal-container .training-modal__exercisename, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime, .mainblock__content .training-content .training-modal-container .training-modal__select {
   border: none;
   border-radius: 3px;
   font-size: 17px;
@@ -880,10 +914,10 @@ body.lock {
   background: none;
   color: #9baacf;
 }
-.mainblock__content .training-content .training-modal-container .training-modal__exercisename::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime::placeholder {
+.mainblock__content .training-content .training-modal-container .training-modal__exercisename::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime::placeholder, .mainblock__content .training-content .training-modal-container .training-modal__select::placeholder {
   color: #bec8e4;
 }
-.mainblock__content .training-content .training-modal-container .training-modal__exercisename:focus, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset:focus, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight:focus, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime:focus {
+.mainblock__content .training-content .training-modal-container .training-modal__exercisename:focus, .mainblock__content .training-content .training-modal-container .training-modal__exerciseset:focus, .mainblock__content .training-content .training-modal-container .training-modal__exerciseweight:focus, .mainblock__content .training-content .training-modal-container .training-modal__exercisetime:focus, .mainblock__content .training-content .training-modal-container .training-modal__select:focus {
   outline: none;
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #FFFFFF;
 }
@@ -966,57 +1000,59 @@ body.lock {
   box-shadow: 0.3rem 0.3rem 0.6rem rgb(134, 215, 109), -0.2rem -0.2rem 0.5rem #FFFFFF;
 }
 .mainblock__content .exercises-content .exercises-body {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 30px;
-  row-gap: 30px;
   text-align: center;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block {
+.mainblock__content .exercises-content .exercises-body .exercise-body {
+  margin: 10px;
+}
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
   height: 100%;
+  padding: 10px;
   background: linear-gradient(40deg, rgb(242, 241, 86) 0%, rgb(134, 215, 109) 50%);
   color: #475569;
   border-radius: 13px;
   border: 2px solid rgb(134, 215, 109);
   transition: all 0.5s ease 0s;
-  padding: 10px 20px;
   transform: scale(1);
   cursor: pointer;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block img {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block img {
   max-width: 300px;
   width: 100%;
   border-radius: 13px;
   margin: 0px 0px 10px 0px;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block__title {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__title {
   font-size: 22px;
   font-weight: 700;
   margin: 0px 0px 10px;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block__image {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__image {
   margin: 0px 10px 10px 10px;
   transition: all 0.5s ease 0s;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block__image img {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__image img {
   max-width: 300px;
   width: 100%;
   border-radius: 13px;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block__image:hover {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__image:hover {
   transform: scale(1.05);
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block__instructions {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__instructions {
   padding: 0px 20px;
   font-size: 16px;
   font-weight: 600;
   text-align: justify;
   margin: 0px 0px 10px 0px;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block.hide {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block.hide {
   display: none;
 }
-.mainblock__content .exercises-content .exercises-body .exercise-block:hover {
+.mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block:hover {
   transform: scale(1.02);
   box-shadow: 0 0 10px 2px rgb(134, 215, 109);
 }

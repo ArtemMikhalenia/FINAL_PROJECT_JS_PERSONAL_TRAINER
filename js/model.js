@@ -19,19 +19,12 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-const settings = {
-   start: 0,
-   progress: 0,
-   currentTime: "",
-   playing: false,
-   timerId: null,
-   get milliseconds() {
-      return Math.trunc(this.progress);
-   }
-};
-
 function Model() {
    let myView = null;
+   let seconds = 0;
+   let minutes = 0;
+   let hours = 0;
+   let interval = null;
 
    this.init = function (view) {
       myView = view;
@@ -177,63 +170,6 @@ function Model() {
       myView.closeExerciseModal();
    }
 
-   this.startStopwatch = function () {
-
-      let ms, s, h, m;
-
-      const stopwatch = document.querySelector('.stopwatch');
-      if (settings.playing === false) {
-         settings.playing = true;
-         settings.timerId = window.requestAnimationFrame(startTimer);
-      }
-
-      if (settings.progress !== 0) {
-         settings.start = performance.now() - settings.progress;
-      }
-
-      function startTimer(timestamp) {
-         if (!settings.start) settings.start = timestamp;
-         settings.progress = timestamp - settings.start;
-         settings.timerId = window.requestAnimationFrame(startTimer);
-         stopwatch.textContent = getDisplay();
-      }
-
-      function getDisplay() {
-         ms = Math.trunc((settings.milliseconds / 10) % 100);
-         s = Math.trunc(settings.milliseconds / 1000)
-            .toString()
-            .padStart(2, "0");
-         h = parseInt(s / 3600);
-         s = s % 3600;
-         m = Math.trunc(s / 60)
-            .toString()
-            .padStart(2, "0");
-         s = s % 60;
-
-         settings.currentTime = `${formatTime(h)}:${formatTime(m)}:${formatTime(
-            s
-         )}:${formatTime(ms)}`;
-         return settings.currentTime;
-      }
-
-      function formatTime(time) {
-         return time.toString().padStart(2, "0");
-      }
-   }
-
-   this.pauseTimer = function () {
-      const stopwatch = document.querySelector('.stopwatch');
-      settings.playing = false;
-      window.cancelAnimationFrame(settings.timerId);
-   }
-
-   this.resetTimer = function () {
-      const stopwatch = document.querySelector('.stopwatch');
-      settings.start += settings.progress;
-      settings.progress = 0.01;
-      stopwatch.textContent = "00:00:00:00";
-   }
-
    this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
       const userUid = auth.currentUser.uid;
 
@@ -244,7 +180,7 @@ function Model() {
          exerciseTime: exerciseTime,
       }
 
-      push(child(ref(database), `UsersList/${userUid}/exercises/`), exercise)
+      const newExerciseKey = push(child(ref(database), `UsersList/${userUid}/exercises/`), exercise).key;
 
       myView.addExercise(exercise);
       myView.closeExerciseModal();
@@ -287,6 +223,38 @@ function Model() {
             myView.clearTrainingBlock();
          }
       });
+   }
+
+   this.startStopwatch = function (status) {
+      interval = setInterval(updateTime, 1000);
+
+      function updateTime() {
+         seconds++;
+         if (seconds === 60) {
+            minutes++;
+            seconds = 0;
+         }
+         if (minutes === 60) {
+            hours++;
+            minutes = 0;
+         } 
+
+         myView.startStopwatch(hours, minutes, seconds, status);
+      }
+   }
+
+   this.pauseStopwatch = function (status) {
+      clearInterval(interval);
+
+      myView.pauseStopwatch(status);
+   }
+
+   this.resetStopwatch = function (status) {
+      seconds = 0;
+      minutes = 0;
+      hours = 0;
+      clearInterval(interval);
+      myView.resetStopwatch(hours, minutes, seconds, status);
    }
 
    //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">==============================================
