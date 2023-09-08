@@ -170,7 +170,7 @@ function Model() {
       myView.closeExerciseModal();
    }
 
-   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
+   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime, id) {
       const userUid = auth.currentUser.uid;
 
       const exercise = {
@@ -178,6 +178,8 @@ function Model() {
          exerciseSet: exerciseSet,
          exerciseWeight: exerciseWeight,
          exerciseTime: exerciseTime,
+         id: id,
+         // status: status,
       }
 
       const newExerciseKey = push(child(ref(database), `UsersList/${userUid}/exercises/`), exercise).key;
@@ -237,7 +239,7 @@ function Model() {
          if (minutes === 60) {
             hours++;
             minutes = 0;
-         } 
+         }
 
          myView.startStopwatch(hours, minutes, seconds, status);
       }

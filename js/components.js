@@ -464,7 +464,7 @@ const Options = {
 }
 
 const Exercise = {
-	render: (exerciseName, exerciseSet, exerciseWeight, exerciseTime) => {
+	render: (exerciseName, exerciseSet, exerciseWeight, exerciseTime, id) => {
 		return `
 		<div class="exercise">
 			<div class="exercise-name">
@@ -484,7 +484,7 @@ const Exercise = {
 				<p>${exerciseTime}</p>
 			</div>
 			<div class="exercise-status">
-				<select class="select">
+				<select class="select" id="${id}-status">
 					<option class="select-option select-option_wait">В ожидании</option>
 					<option class="select-option select-option_inprogress">В процессе</option>
 					<option class="select-option select-option_ready">Готово</option>
@@ -795,6 +795,8 @@ const ContentProgress = {
 	                        <div class="mainblock__content" id="main-content">
 	                            <div class="progress-content">
 	                                <h2 class="animate__animated animate__backInLeft">Прогресс</h2>
+
+											  <canvas id="myChart"></canvas>
 	                            </div>
 	                        </div>
 	                    </div>

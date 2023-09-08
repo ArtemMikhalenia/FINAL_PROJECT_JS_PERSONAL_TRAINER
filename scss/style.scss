@@ -84,8 +84,6 @@ body {
 
 	.fog-image {
 		position: absolute;
-		max-width: 300px;
-		width: 100%;
 		left: -40%;
 		bottom: -60%;
 		z-index: 0;
@@ -172,6 +170,7 @@ body {
 	h1 {
 		text-align: center;
 		margin: 100px auto;
+		padding: 0px 15px;
 		font-size: 60px;
 
 		span {
@@ -516,7 +515,7 @@ body {
 
 		background-color: #E4EBF5;
 		color: #475569;
-		
+
 		border-bottom-right-radius: 5px;
 
 		&.active-training {

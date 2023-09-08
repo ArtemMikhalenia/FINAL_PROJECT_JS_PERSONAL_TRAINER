@@ -69,6 +69,11 @@ function View() {
       if (hashPageName === "startpage" || hashPageName === "") {
          this.parallaxEffect(myContainer, woman, man, fog);
       }
+
+      if (hashPageName === "progresspage") {
+         const ctx = document.querySelector('#myChart');
+         initChart(ctx);
+      }
    }
 
    //<ПАРАЛЛАКС>==========================================================================
@@ -224,7 +229,7 @@ function View() {
 
    this.addExercise = function (exercise) {
       if (trainingWrapper) {
-         trainingWrapper.innerHTML += Exercise.render(exercise.exerciseName, exercise.exerciseSet, exercise.exerciseWeight, exercise.exerciseTime);
+         trainingWrapper.innerHTML += Exercise.render(exercise.exerciseName, exercise.exerciseSet, exercise.exerciseWeight, exercise.exerciseTime, exercise.id);
       }
 
       document.querySelector('.sidebar').classList.add('hidden');
@@ -392,6 +397,39 @@ function View() {
          }
       }
    }
+}
+
+//<ФУНКЦИИ СТРАНИЦЫ "ПРОГРЕСС">==================================================================
+
+function initChart() {
+   return new Chart(document.querySelector('#myChart'), {
+      type: 'line',
+      data: {
+         labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+         datasets: [{
+            label: 'Динамика веса, кг',
+            data: [94, 92, 90, 88, 84, 82, 80, 78, 76,],
+            borderWidth: 2
+         },
+         {
+            label: 'Жим лёжа, кг',
+            data: [20, 30, 40, 40, 50, 55, 60, 65, 70,],
+            borderWidth: 2
+         },
+         {
+            label: 'Приседания со штангой, кг',
+            data: [40, 50, 60, 70, 80, 85, 85, 85, 85,],
+            borderWidth: 2
+         }],
+      },
+      options: {
+         scales: {
+            y: {
+               beginAtZero: true
+            }
+         }
+      }
+   });
 }
 
 export default View;
