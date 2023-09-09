@@ -828,7 +828,7 @@ const ContentProgress = {
 	               <div class="mainblock__content" id="main-content">
 	                  <div class="progress-content">
 	                     <h2 class="animate__animated animate__backInLeft">Прогресс</h2>
-								<div class="tab-buttons">
+								<div class="tab-buttons animate__animated animate__backInLeft">
 									<button class="tab-button" data-tab="#year-tab">
 										Получить данные за год
 									</button>
