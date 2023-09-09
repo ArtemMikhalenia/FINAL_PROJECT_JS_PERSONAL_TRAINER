@@ -199,6 +199,93 @@ $md4: 479.98;
 
       font-size: 18px;
    }
+
+   .mainblock {
+
+      .sidebar {
+         width: 46px;
+
+         &__link {
+            padding: 6px;
+         }
+
+         .btn-logout {
+            padding: 10px;
+
+            svg {
+               width: 100%;
+            }
+         }
+      }
+
+      &__body {
+         margin: 0px 0px 0px 46px;
+      }
+
+      &__header {
+         h1 {
+            max-width: 350px;
+         }
+      }
+
+      &__content {
+         padding: 100px 40px 40px;
+
+         .user-modal-container {
+
+            .user-modal {
+               max-width: 260px;
+               padding: 5px;
+
+               &__form {
+                  label {
+                     font-size: 14px;
+                  }
+               }
+
+               &__name,
+               &__birthday,
+               &__gender,
+               &__weight,
+               &__height,
+               &__medicalInfo,
+               &__goal,
+               &__phone,
+               &__email,
+               &__achievements {
+                  font-size: 14px;
+                  padding: 4px 5px;
+                  margin: 5px 0px;
+               }
+            }
+         }
+
+         .user-info {
+            &__block {
+               h3 {
+                  font-size: 16px;
+               }
+            }
+
+            &__content {
+               font-size: 14px;
+
+               .name-block,
+               .birthday-block,
+               .gender-block,
+               .weight-block,
+               .height-block,
+               .medical-block,
+               .goal-block,
+               .contact-block,
+               .achievements-block {
+                  padding-bottom: 10px;
+               }
+            }
+
+         }
+      }
+   }
 }
 
 @media (max-width: $md4+px) {
@@ -212,4 +299,29 @@ $md4: 479.98;
          padding: 10px 25px;
       }
    }
+
+   .mainblock {
+
+      &__header {
+         font-size: 20px;
+      }
+
+      &__content {
+         padding: 100px 10px 40px;
+
+         h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+         }
+
+         .user-info {
+
+            &__block {
+               padding: 10px;
+            }
+         }
+      }
+   }
 }
+
+@media (max-width: 375px) {}

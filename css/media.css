@@ -129,6 +129,56 @@
     padding: 5px 25px;
     font-size: 18px;
   }
+  .mainblock .sidebar {
+    width: 46px;
+  }
+  .mainblock .sidebar__link {
+    padding: 6px;
+  }
+  .mainblock .sidebar .btn-logout {
+    padding: 10px;
+  }
+  .mainblock .sidebar .btn-logout svg {
+    width: 100%;
+  }
+  .mainblock__body {
+    margin: 0px 0px 0px 46px;
+  }
+  .mainblock__header h1 {
+    max-width: 350px;
+  }
+  .mainblock__content {
+    padding: 100px 40px 40px;
+  }
+  .mainblock__content .user-modal-container .user-modal {
+    max-width: 260px;
+    padding: 5px;
+  }
+  .mainblock__content .user-modal-container .user-modal__form label {
+    font-size: 14px;
+  }
+  .mainblock__content .user-modal-container .user-modal__name, .mainblock__content .user-modal-container .user-modal__birthday, .mainblock__content .user-modal-container .user-modal__gender, .mainblock__content .user-modal-container .user-modal__weight, .mainblock__content .user-modal-container .user-modal__height, .mainblock__content .user-modal-container .user-modal__medicalInfo, .mainblock__content .user-modal-container .user-modal__goal, .mainblock__content .user-modal-container .user-modal__phone, .mainblock__content .user-modal-container .user-modal__email, .mainblock__content .user-modal-container .user-modal__achievements {
+    font-size: 14px;
+    padding: 4px 5px;
+    margin: 5px 0px;
+  }
+  .mainblock__content .user-info__block h3 {
+    font-size: 16px;
+  }
+  .mainblock__content .user-info__content {
+    font-size: 14px;
+  }
+  .mainblock__content .user-info__content .name-block,
+  .mainblock__content .user-info__content .birthday-block,
+  .mainblock__content .user-info__content .gender-block,
+  .mainblock__content .user-info__content .weight-block,
+  .mainblock__content .user-info__content .height-block,
+  .mainblock__content .user-info__content .medical-block,
+  .mainblock__content .user-info__content .goal-block,
+  .mainblock__content .user-info__content .contact-block,
+  .mainblock__content .user-info__content .achievements-block {
+    padding-bottom: 10px;
+  }
 }
 @media (max-width: 479.98px) {
   .wrapper .container h1 {
@@ -136,5 +186,18 @@
   }
   .wrapper .btn-start {
     padding: 10px 25px;
+  }
+  .mainblock__header {
+    font-size: 20px;
+  }
+  .mainblock__content {
+    padding: 100px 10px 40px;
+  }
+  .mainblock__content h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .mainblock__content .user-info__block {
+    padding: 10px;
   }
 }/*# sourceMappingURL=media.css.map */
