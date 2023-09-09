@@ -40,6 +40,14 @@ $md4: 479.98;
    }
 }
 
+@media (max-width: 1070px) {
+   .mainblock {
+      &__header {
+         font-size: 24px;
+      }
+   }
+}
+
 @media (max-width: $md1+px) {
    .mainblock {
 
@@ -92,8 +100,15 @@ $md4: 479.98;
 
 @media (max-width: 805px) {
    .mainblock {
-      &__content {
+      &__header {
+         font-size: 22px;
 
+         h1 {
+            max-width: 500px;
+         }
+      }
+
+      &__content {
          h2 {
             font-size: 25px;
             margin-bottom: 30px;
@@ -133,6 +148,18 @@ $md4: 479.98;
 
                &__name {
                   font-size: 10px;
+               }
+            }
+         }
+
+         .exercises-content {
+            .exercises-body {
+               .exercise-body {
+                  .exercise-block {
+                     .exercise-content {
+                        flex-direction: column;
+                     }
+                  }
                }
             }
          }
@@ -327,6 +354,14 @@ $md4: 479.98;
                overflow-x: scroll;
             }
          }
+
+         .exercises-content {
+            .exercises-search {
+               padding: 7px 10px;
+               margin: 0px 0px 10px;
+               font-size: 15px;
+            }
+         }
       }
    }
 }
@@ -361,6 +396,28 @@ $md4: 479.98;
 
             &__block {
                padding: 10px;
+            }
+         }
+
+         .exercises-content {
+            .exercises-body {
+               .exercise-body {
+                  .exercise-block {
+                     padding: 5px;
+
+                     .exercise-content {}
+
+                     &__title {
+                        font-size: 18px;
+                        margin: 0px 0px 10px;
+                     }
+
+                     &__instructions {
+                        padding: 0px 10px;
+                        font-size: 14px;
+                     }
+                  }
+               }
             }
          }
       }

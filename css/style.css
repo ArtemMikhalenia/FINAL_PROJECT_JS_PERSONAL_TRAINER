@@ -492,7 +492,7 @@ body.lock {
 }
 .mainblock__content {
   height: 100vh;
-  padding: 80px 40px 40px;
+  padding: 90px 40px 40px;
   overflow: scroll;
   background-color: #E4EBF5;
   color: #475569;
@@ -994,7 +994,7 @@ body.lock {
   text-align: center;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body {
-  margin: 10px;
+  margin: 0px 0px 10px 0px;
 }
 .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block {
   width: 100%;
@@ -1171,6 +1171,11 @@ body.lock {
     margin: 100px auto 180px;
   }
 }
+@media (max-width: 1070px) {
+  .mainblock__header {
+    font-size: 24px;
+  }
+}
 @media (max-width: 1036px) {
   .mainblock .sidebar {
     width: 66px;
@@ -1205,6 +1210,12 @@ body.lock {
   }
 }
 @media (max-width: 805px) {
+  .mainblock__header {
+    font-size: 22px;
+  }
+  .mainblock__header h1 {
+    max-width: 500px;
+  }
   .mainblock__content h2 {
     font-size: 25px;
     margin-bottom: 30px;
@@ -1230,6 +1241,9 @@ body.lock {
   }
   .mainblock__content .diet-content .products-table__name {
     font-size: 10px;
+  }
+  .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block .exercise-content {
+    flex-direction: column;
   }
 }
 @media (max-width: 600px) {
@@ -1349,12 +1363,17 @@ body.lock {
     padding-bottom: 10px;
   }
   .mainblock__content .diet-content .products-search {
-    padding: 10px 10px;
+    padding: 7px 10px;
     margin: 0px 0px 10px;
     font-size: 15px;
   }
   .mainblock__content .diet-content .products-table {
     overflow-x: scroll;
+  }
+  .mainblock__content .exercises-content .exercises-search {
+    padding: 7px 10px;
+    margin: 0px 0px 10px;
+    font-size: 15px;
   }
 }
 @media (max-width: 479.98px) {
@@ -1376,5 +1395,16 @@ body.lock {
   }
   .mainblock__content .user-info__block {
     padding: 10px;
+  }
+  .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block {
+    padding: 5px;
+  }
+  .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__title {
+    font-size: 18px;
+    margin: 0px 0px 10px;
+  }
+  .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block__instructions {
+    padding: 0px 10px;
+    font-size: 14px;
   }
 }/*# sourceMappingURL=style.css.map */

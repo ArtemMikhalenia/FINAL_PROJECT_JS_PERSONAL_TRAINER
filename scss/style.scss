@@ -511,7 +511,7 @@ body {
 
 	&__content {
 		height: 100vh;
-		padding: 80px 40px 40px;
+		padding: 90px 40px 40px;
 
 		overflow: scroll;
 
@@ -1173,7 +1173,7 @@ body {
 				text-align: center;
 
 				.exercise-body {
-					margin: 10px;
+					margin: 0px 0px 10px 0px;
 
 					.exercise-block {
 						width: 100%;
@@ -1244,7 +1244,6 @@ body {
 						box-shadow: 0 0 10px 2px rgb(134, 215, 109);
 					}
 				}
-
 			}
 		}
 	}
