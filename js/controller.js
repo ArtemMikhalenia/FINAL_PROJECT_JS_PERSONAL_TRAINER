@@ -19,6 +19,10 @@ function Controller() {
       myModel.loadOptions();
       myModel.loadExercise();
 
+      if (hashPageName === 'progresspage') {
+         myModel.loadCharts();
+      }
+
       //кнопки начальной страницы и модального окна
       const buttonOpenModal = myContainer.querySelector('.btn-start');
       const buttonCloseModal = myContainer.querySelector('#modal-close');

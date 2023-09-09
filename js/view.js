@@ -25,6 +25,8 @@ function View() {
    let exercisesSelectWrapper = null;
    let productsWrapper = null;
    let trainingWrapper = null;
+   let yearChart = null;
+   let monthChart = null;
 
    this.init = function (container, routes) {
       myContainer = container;
@@ -71,10 +73,8 @@ function View() {
       }
 
       if (hashPageName === "progresspage") {
-         const ctxYear = document.querySelector('#yearChart');
-         initYearChart(ctxYear);
-         const ctxMonth = document.querySelector('#monthChart');
-         initMonthChart(ctxMonth);
+         yearChart = document.querySelector('#year-tab');
+         monthChart = document.querySelector('#month-tab');
       }
    }
 
@@ -400,7 +400,6 @@ function View() {
       }
    }
 
-
    //<ФУНКЦИИ СТРАНИЦЫ "ПРОГРЕСС">==================================================================
 
    function initYearChart(weight, exercise1, exercise2) {
@@ -410,27 +409,24 @@ function View() {
             labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
             datasets: [{
                label: 'Динамика веса, кг',
-               data: [weight],
-               // data: [94, 92, 90, 88, 84, 82, 80, 78, 76,],
+               data: weight,
                borderWidth: 2,
             },
             {
                label: 'Жим лёжа, кг',
-               data: [exercise1],
-               // data: [20, 30, 40, 40, 50, 55, 60, 65, 70,],
+               data: exercise1,
                borderWidth: 2,
             },
             {
                label: 'Приседания со штангой, кг',
-               data: [exercise2],
-               // data: [40, 50, 60, 70, 80, 85, 85, 85, 85,],
+               data: exercise2,
                borderWidth: 2,
             }],
          },
          options: {
             scales: {
                y: {
-                  beginAtZero: true,
+                  beginAtZero: false,
                }
             }
          }
@@ -444,27 +440,24 @@ function View() {
             labels: ['1 неделя', '2 неделя', '3 неделя', '4 неделя'],
             datasets: [{
                label: 'Динамика веса, кг',
-               data: [weight],
-               // data: [94, 92, 90, 88, 84, 82, 80, 78, 76,],
+               data: weight,
                borderWidth: 2,
             },
             {
                label: 'Жим лёжа, кг',
-               data: [exercise1],
-               // data: [20, 30, 40, 40, 50, 55, 60, 65, 70,],
+               data: exercise1,
                borderWidth: 2,
             },
             {
                label: 'Приседания со штангой, кг',
-               data: [exercise2],
-               // data: [40, 50, 60, 70, 80, 85, 85, 85, 85,],
+               data: exercise2,
                borderWidth: 2,
             }],
          },
          options: {
             scales: {
                y: {
-                  beginAtZero: true,
+                  beginAtZero: false,
                }
             }
          }
@@ -489,6 +482,18 @@ function View() {
 
          currentBtn.classList.add('active');
          currentTab.classList.add('active');
+      }
+   }
+
+   this.renderYearChart = function (user) {
+      if (yearChart) {
+         initYearChart(user.weight, user.exercise1, user.exercise2);
+      }
+   }
+
+   this.renderMonthChart = function (user) {
+      if (monthChart) {
+         initMonthChart(user.weight, user.exercise1, user.exercise2);
       }
    }
 }

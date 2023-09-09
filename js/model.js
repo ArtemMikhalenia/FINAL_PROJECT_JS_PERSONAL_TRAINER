@@ -296,6 +296,24 @@ function Model() {
    this.openTabs = function (event) {
       myView.openTabs(event);
    }
+
+   this.loadCharts = function () {
+      onAuthStateChanged(auth, (user) => {
+         if (user) {
+            const uid = user.uid;
+            get(child(ref(database), `UsersList/${uid}/charts/yearChart/`))
+               .then(snapshot => {
+                  const user = snapshot.val();
+                  myView.renderYearChart(user);
+               })
+            get(child(ref(database), `UsersList/${uid}/charts/monthChart/`))
+               .then(snapshot => {
+                  const user = snapshot.val();
+                  myView.renderMonthChart(user);
+               })
+         }
+      });
+   }
 }
 
 export default Model;
