@@ -1246,6 +1246,43 @@ body {
 				}
 			}
 		}
+
+		.progress-content {
+			.tab-buttons {
+				.tab-button {
+					margin-bottom: 20px;
+					padding: 5px 10px;
+
+					font-size: 17px;
+					border-radius: 3px;
+					background-color: #0ba5c0;
+					color: #FFFFFF;
+
+					transition: all 0.5s ease 0s;
+					cursor: pointer;
+
+					&:hover {
+						background-color: #33d3ef;
+					}
+
+					&.active {
+						background-color: #F97316;
+
+						&:hover {
+							background-color: #f89853;
+						}
+					}
+				}
+			}
+
+			.chart {
+				display: none;
+
+				&.active {
+					display: block;
+				}
+			}
+		}
 	}
 }
 

@@ -1051,6 +1051,31 @@ body.lock {
   transform: scale(1.02);
   box-shadow: 0 0 10px 2px rgb(134, 215, 109);
 }
+.mainblock__content .progress-content .tab-buttons .tab-button {
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  font-size: 17px;
+  border-radius: 3px;
+  background-color: #0ba5c0;
+  color: #FFFFFF;
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+}
+.mainblock__content .progress-content .tab-buttons .tab-button:hover {
+  background-color: #33d3ef;
+}
+.mainblock__content .progress-content .tab-buttons .tab-button.active {
+  background-color: #F97316;
+}
+.mainblock__content .progress-content .tab-buttons .tab-button.active:hover {
+  background-color: #f89853;
+}
+.mainblock__content .progress-content .chart {
+  display: none;
+}
+.mainblock__content .progress-content .chart.active {
+  display: block;
+}
 
 .btn-start {
   position: relative;

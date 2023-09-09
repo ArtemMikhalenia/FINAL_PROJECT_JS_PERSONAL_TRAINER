@@ -76,6 +76,14 @@ function Controller() {
          btnReset.addEventListener("click", resetStopwatch);
          let stopwatch = document.querySelector(".time");
       }
+
+      if (hashPageName === "progresspage") {
+         const tabBtns = document.querySelectorAll('.tab-button');
+
+         tabBtns.forEach(el => {
+            el.addEventListener('click', openTabs);
+         })
+      }
    }
 
 
@@ -221,6 +229,12 @@ function Controller() {
 
    function searchExercise() {
       myModel.searchExercise(exerciseSearchInput.value);
+   }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "ПРОГРЕСС">===================================================================================================
+
+   function openTabs(event) {
+      myModel.openTabs(event);
    }
 
 

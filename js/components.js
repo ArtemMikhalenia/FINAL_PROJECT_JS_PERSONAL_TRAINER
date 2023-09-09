@@ -821,20 +821,30 @@ const SidebarProgress = {
 
 const ContentProgress = {
 	render: () => {
-		return `
-	                    <div class="mainblock__body">
-	                        <header class="mainblock__header">
-	                            <h1 class=" animate__animated animate__pulse">"Хорошие вещи приходят к тем, кто потеет!"</h1>
-	                        </header>
-	                        <div class="mainblock__content" id="main-content">
-	                            <div class="progress-content">
-	                                <h2 class="animate__animated animate__backInLeft">Прогресс</h2>
-
-											  <canvas id="myChart"></canvas>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    `;
+		return ` <div class="mainblock__body">
+	            	<header class="mainblock__header">
+	               	<h1 class=" animate__animated animate__pulse">"Хорошие вещи приходят к тем, кто потеет!"</h1>
+	               </header>
+	               <div class="mainblock__content" id="main-content">
+	                  <div class="progress-content">
+	                     <h2 class="animate__animated animate__backInLeft">Прогресс</h2>
+								<div class="tab-buttons">
+									<button class="tab-button" data-tab="#year-tab">
+										Получить данные за год
+									</button>
+									<button class="tab-button" data-tab="#month-tab">
+									Получить данные за месяц
+									</button>
+								</div>
+								<div class="chart year-chart" id="year-tab">
+									<canvas id="yearChart"></canvas>
+								</div>
+								<div class="chart month-chart" id="month-tab">
+									<canvas id="monthChart"></canvas>
+								</div>
+							</div>
+	               </div>
+	            </div>`;
 	}
 }
 

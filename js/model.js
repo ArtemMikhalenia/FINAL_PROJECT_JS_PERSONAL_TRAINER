@@ -290,6 +290,12 @@ function Model() {
    this.updateState = function (pageName) {
       myView.renderContent(pageName);
    }
+
+   //<ФУНКЦИИ СТРАНИЦЫ "ПРОГРЕСС">===================================================================================================
+
+   this.openTabs = function (event) {
+      myView.openTabs(event);
+   }
 }
 
 export default Model;

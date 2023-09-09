@@ -71,8 +71,10 @@ function View() {
       }
 
       if (hashPageName === "progresspage") {
-         const ctx = document.querySelector('#myChart');
-         initChart(ctx);
+         const ctxYear = document.querySelector('#yearChart');
+         initYearChart(ctxYear);
+         const ctxMonth = document.querySelector('#monthChart');
+         initMonthChart(ctxMonth);
       }
    }
 
@@ -397,39 +399,100 @@ function View() {
          }
       }
    }
-}
 
-//<ФУНКЦИИ СТРАНИЦЫ "ПРОГРЕСС">==================================================================
 
-function initChart() {
-   return new Chart(document.querySelector('#myChart'), {
-      type: 'line',
-      data: {
-         labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-         datasets: [{
-            label: 'Динамика веса, кг',
-            data: [94, 92, 90, 88, 84, 82, 80, 78, 76,],
-            borderWidth: 2
+   //<ФУНКЦИИ СТРАНИЦЫ "ПРОГРЕСС">==================================================================
+
+   function initYearChart(weight, exercise1, exercise2) {
+      return new Chart(document.querySelector('#yearChart'), {
+         type: 'line',
+         data: {
+            labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            datasets: [{
+               label: 'Динамика веса, кг',
+               data: [weight],
+               // data: [94, 92, 90, 88, 84, 82, 80, 78, 76,],
+               borderWidth: 2,
+            },
+            {
+               label: 'Жим лёжа, кг',
+               data: [exercise1],
+               // data: [20, 30, 40, 40, 50, 55, 60, 65, 70,],
+               borderWidth: 2,
+            },
+            {
+               label: 'Приседания со штангой, кг',
+               data: [exercise2],
+               // data: [40, 50, 60, 70, 80, 85, 85, 85, 85,],
+               borderWidth: 2,
+            }],
          },
-         {
-            label: 'Жим лёжа, кг',
-            data: [20, 30, 40, 40, 50, 55, 60, 65, 70,],
-            borderWidth: 2
-         },
-         {
-            label: 'Приседания со штангой, кг',
-            data: [40, 50, 60, 70, 80, 85, 85, 85, 85,],
-            borderWidth: 2
-         }],
-      },
-      options: {
-         scales: {
-            y: {
-               beginAtZero: true
+         options: {
+            scales: {
+               y: {
+                  beginAtZero: true,
+               }
             }
          }
+      });
+   }
+
+   function initMonthChart(weight, exercise1, exercise2) {
+      return new Chart(document.querySelector('#monthChart'), {
+         type: 'line',
+         data: {
+            labels: ['1 неделя', '2 неделя', '3 неделя', '4 неделя'],
+            datasets: [{
+               label: 'Динамика веса, кг',
+               data: [weight],
+               // data: [94, 92, 90, 88, 84, 82, 80, 78, 76,],
+               borderWidth: 2,
+            },
+            {
+               label: 'Жим лёжа, кг',
+               data: [exercise1],
+               // data: [20, 30, 40, 40, 50, 55, 60, 65, 70,],
+               borderWidth: 2,
+            },
+            {
+               label: 'Приседания со штангой, кг',
+               data: [exercise2],
+               // data: [40, 50, 60, 70, 80, 85, 85, 85, 85,],
+               borderWidth: 2,
+            }],
+         },
+         options: {
+            scales: {
+               y: {
+                  beginAtZero: true,
+               }
+            }
+         }
+      });
+   }
+
+   this.openTabs = function (event) {
+      let currentBtn = event.target;
+      let tabId = currentBtn.getAttribute("data-tab");
+      let currentTab = document.querySelector(tabId);
+      const tabBtns = document.querySelectorAll('.tab-button');
+      const charts = document.querySelectorAll('.chart');
+
+      if (!currentBtn.classList.contains('active')) {
+         tabBtns.forEach(function (item) {
+            item.classList.remove('active');
+         });
+
+         charts.forEach(function (item) {
+            item.classList.remove('active');
+         });
+
+         currentBtn.classList.add('active');
+         currentTab.classList.add('active');
       }
-   });
+   }
 }
+
+
 
 export default View;
