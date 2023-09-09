@@ -1104,7 +1104,6 @@ body {
 				}
 			}
 
-
 			.products-table {
 				color: #FFFFFF;
 				box-shadow: 5px 5px 10px #b1b2b0,
@@ -1112,8 +1111,12 @@ body {
 
 				thead {
 					background-color: #06B6D4;
-					font-size: 19px;
+					font-size: 17px;
 					height: 55px;
+
+					th {
+						padding: 10px;
+					}
 				}
 
 				&__body {
@@ -1125,13 +1128,13 @@ body {
 
 				&__row {
 					td {
+						padding: 10px;
 						font-weight: 700;
 					}
 				}
 
 				&__name {
 					font-size: 16px;
-					padding: 10px;
 					font-weight: 400;
 					text-align: left;
 				}

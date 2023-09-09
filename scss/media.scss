@@ -107,7 +107,38 @@ $md4: 479.98;
    }
 }
 
-@media (max-width: $md3+px) {}
+@media (max-width: $md3+px) {
+   .mainblock {
+      &__content {
+         .diet-content {
+            .products-table {
+               thead {
+                  font-size: 12px;
+                  height: 55px;
+
+                  th {
+                     padding: 5px;
+                  }
+               }
+
+               &__body {
+                  font-size: 10px;
+               }
+
+               &__row {
+                  td {
+                     padding: 5px;
+                  }
+               }
+
+               &__name {
+                  font-size: 10px;
+               }
+            }
+         }
+      }
+   }
+}
 
 @media (max-width: 600px) {
    .wrapper {
@@ -223,13 +254,11 @@ $md4: 479.98;
       }
 
       &__header {
-         h1 {
-            max-width: 350px;
-         }
+         display: none;
       }
 
       &__content {
-         padding: 100px 40px 40px;
+         padding: 40px 40px 40px;
 
          .user-modal-container {
 
@@ -284,6 +313,20 @@ $md4: 479.98;
             }
 
          }
+
+         .diet-content {
+
+            .products-search {
+               padding: 7px 10px;
+               margin: 0px 0px 10px;
+
+               font-size: 15px;
+            }
+
+            .products-table {
+               overflow-x: scroll;
+            }
+         }
       }
    }
 }
@@ -307,7 +350,7 @@ $md4: 479.98;
       }
 
       &__content {
-         padding: 100px 10px 40px;
+         padding: 20px;
 
          h2 {
             font-size: 20px;

@@ -63,6 +63,24 @@
     grid-template-rows: repeat(6, 1fr);
   }
 }
+@media (max-width: 767.98px) {
+  .mainblock__content .diet-content .products-table thead {
+    font-size: 12px;
+    height: 55px;
+  }
+  .mainblock__content .diet-content .products-table thead th {
+    padding: 5px;
+  }
+  .mainblock__content .diet-content .products-table__body {
+    font-size: 10px;
+  }
+  .mainblock__content .diet-content .products-table__row td {
+    padding: 5px;
+  }
+  .mainblock__content .diet-content .products-table__name {
+    font-size: 10px;
+  }
+}
 @media (max-width: 600px) {
   .wrapper .fog-image {
     width: 300%;
@@ -144,11 +162,11 @@
   .mainblock__body {
     margin: 0px 0px 0px 46px;
   }
-  .mainblock__header h1 {
-    max-width: 350px;
+  .mainblock__header {
+    display: none;
   }
   .mainblock__content {
-    padding: 100px 40px 40px;
+    padding: 40px 40px 40px;
   }
   .mainblock__content .user-modal-container .user-modal {
     max-width: 260px;
@@ -179,6 +197,14 @@
   .mainblock__content .user-info__content .achievements-block {
     padding-bottom: 10px;
   }
+  .mainblock__content .diet-content .products-search {
+    padding: 7px 10px;
+    margin: 0px 0px 10px;
+    font-size: 15px;
+  }
+  .mainblock__content .diet-content .products-table {
+    overflow-x: scroll;
+  }
 }
 @media (max-width: 479.98px) {
   .wrapper .container h1 {
@@ -191,7 +217,7 @@
     font-size: 20px;
   }
   .mainblock__content {
-    padding: 100px 10px 40px;
+    padding: 20px;
   }
   .mainblock__content h2 {
     font-size: 20px;

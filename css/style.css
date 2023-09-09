@@ -951,8 +951,11 @@ body.lock {
 }
 .mainblock__content .diet-content .products-table thead {
   background-color: #06B6D4;
-  font-size: 19px;
+  font-size: 17px;
   height: 55px;
+}
+.mainblock__content .diet-content .products-table thead th {
+  padding: 10px;
 }
 .mainblock__content .diet-content .products-table__body {
   text-align: center;
@@ -961,11 +964,11 @@ body.lock {
   color: #FFFFFF;
 }
 .mainblock__content .diet-content .products-table__row td {
+  padding: 10px;
   font-weight: 700;
 }
 .mainblock__content .diet-content .products-table__name {
   font-size: 16px;
-  padding: 10px;
   font-weight: 400;
   text-align: left;
 }
@@ -1211,6 +1214,24 @@ body.lock {
     grid-template-rows: repeat(6, 1fr);
   }
 }
+@media (max-width: 767.98px) {
+  .mainblock__content .diet-content .products-table thead {
+    font-size: 12px;
+    height: 55px;
+  }
+  .mainblock__content .diet-content .products-table thead th {
+    padding: 5px;
+  }
+  .mainblock__content .diet-content .products-table__body {
+    font-size: 10px;
+  }
+  .mainblock__content .diet-content .products-table__row td {
+    padding: 5px;
+  }
+  .mainblock__content .diet-content .products-table__name {
+    font-size: 10px;
+  }
+}
 @media (max-width: 600px) {
   .wrapper .fog-image {
     width: 300%;
@@ -1292,11 +1313,11 @@ body.lock {
   .mainblock__body {
     margin: 0px 0px 0px 46px;
   }
-  .mainblock__header h1 {
-    max-width: 350px;
+  .mainblock__header {
+    display: none;
   }
   .mainblock__content {
-    padding: 100px 40px 40px;
+    padding: 40px 40px 40px;
   }
   .mainblock__content .user-modal-container .user-modal {
     max-width: 260px;
@@ -1327,6 +1348,14 @@ body.lock {
   .mainblock__content .user-info__content .achievements-block {
     padding-bottom: 10px;
   }
+  .mainblock__content .diet-content .products-search {
+    padding: 10px 10px;
+    margin: 0px 0px 10px;
+    font-size: 15px;
+  }
+  .mainblock__content .diet-content .products-table {
+    overflow-x: scroll;
+  }
 }
 @media (max-width: 479.98px) {
   .wrapper .container h1 {
@@ -1339,7 +1368,7 @@ body.lock {
     font-size: 20px;
   }
   .mainblock__content {
-    padding: 100px 10px 40px;
+    padding: 20px;
   }
   .mainblock__content h2 {
     font-size: 20px;
