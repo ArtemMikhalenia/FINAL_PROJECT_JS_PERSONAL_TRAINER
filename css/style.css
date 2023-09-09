@@ -1070,11 +1070,21 @@ body.lock {
 .mainblock__content .progress-content .tab-buttons .tab-button.active:hover {
   background-color: #f89853;
 }
-.mainblock__content .progress-content .chart {
-  display: none;
+.mainblock__content .progress-content .charts {
+  position: relative;
+  height: 70vh;
 }
-.mainblock__content .progress-content .chart.active {
-  display: block;
+.mainblock__content .progress-content .charts .chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease 0s;
+  transform: scale(0);
+}
+.mainblock__content .progress-content .charts .chart.active {
+  transform: scale(1);
 }
 
 .btn-start {
@@ -1269,6 +1279,23 @@ body.lock {
   }
   .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block .exercise-content {
     flex-direction: column;
+  }
+  .mainblock__content .progress-content .tab-buttons .tab-button {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .mainblock__content .progress-content .charts {
+    overflow-x: scroll;
+  }
+  .mainblock__content .progress-content .charts .chart {
+    width: 600px;
+    height: 100%;
+  }
+  .mainblock__content .progress-content .charts .chart canvas {
+    width: 600px;
+  }
+  .mainblock__content .progress-content .charts .chart.active {
+    transform: scale(1);
   }
 }
 @media (max-width: 600px) {

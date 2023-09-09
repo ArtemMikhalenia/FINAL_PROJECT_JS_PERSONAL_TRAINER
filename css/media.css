@@ -94,6 +94,23 @@
   .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block .exercise-content {
     flex-direction: column;
   }
+  .mainblock__content .progress-content .tab-buttons .tab-button {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .mainblock__content .progress-content .charts {
+    overflow-x: scroll;
+  }
+  .mainblock__content .progress-content .charts .chart {
+    width: 600px;
+    height: 100%;
+  }
+  .mainblock__content .progress-content .charts .chart canvas {
+    width: 600px;
+  }
+  .mainblock__content .progress-content .charts .chart.active {
+    transform: scale(1);
+  }
 }
 @media (max-width: 600px) {
   .wrapper .fog-image {

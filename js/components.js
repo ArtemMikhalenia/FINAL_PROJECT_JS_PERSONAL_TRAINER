@@ -836,11 +836,13 @@ const ContentProgress = {
 									Получить данные за месяц
 									</button>
 								</div>
-								<div class="chart year-chart" id="year-tab">
-									<canvas id="yearChart"></canvas>
-								</div>
-								<div class="chart month-chart" id="month-tab">
-									<canvas id="monthChart"></canvas>
+								<div class="charts">
+									<div class="chart year-chart" id="year-tab">
+										<canvas id="yearChart"></canvas>
+									</div>
+									<div class="chart month-chart" id="month-tab">
+										<canvas id="monthChart"></canvas>
+									</div>
 								</div>
 							</div>
 	               </div>

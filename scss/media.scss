@@ -163,6 +163,33 @@ $md4: 479.98;
                }
             }
          }
+
+         .progress-content {
+            .tab-buttons {
+               .tab-button {
+                  margin-bottom: 10px;
+
+                  font-size: 14px;
+               }
+            }
+
+            .charts {
+               overflow-x: scroll;
+
+               .chart {
+                  width: 600px;
+                  height: 100%;
+
+                  canvas {
+                     width: 600px;
+                  }
+
+                  &.active {
+                     transform: scale(1);
+                  }
+               }
+            }
+         }
       }
    }
 }
