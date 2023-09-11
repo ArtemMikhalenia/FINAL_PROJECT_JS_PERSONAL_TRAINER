@@ -786,7 +786,7 @@ body.lock {
   text-align: center;
   justify-content: space-between;
   padding: 5px 20px;
-  background-color: #06B6D4;
+  background-color: #F97316;
   color: white;
   border-radius: 3px;
 }
@@ -795,24 +795,26 @@ body.lock {
   margin-bottom: 10px;
   font-weight: 700;
 }
-.mainblock__content .training-content .training-block .exercise.wait {
-  background-color: #06B6D4;
-}
-.mainblock__content .training-content .training-block .exercise.inprogress {
-  background-color: #F97316;
-}
 .mainblock__content .training-content .training-block .exercise.ready {
   background-color: #86d76d;
 }
-.mainblock__content .training-content .training-block .exercise__delete-btn {
+.mainblock__content .training-content .training-block .exercise__delete-btn, .mainblock__content .training-content .training-block .exercise__ready-btn {
   font-size: 15px;
   font-weight: 700;
   padding: 4px;
   border-radius: 3px;
   color: white;
   cursor: pointer;
-  background-color: #06B6D4;
   transition: background-color 0.3s ease 0s;
+}
+.mainblock__content .training-content .training-block .exercise__ready-btn {
+  background-color: #86d76d;
+}
+.mainblock__content .training-content .training-block .exercise__ready-btn:hover {
+  background-color: #64a351;
+}
+.mainblock__content .training-content .training-block .exercise__delete-btn {
+  background-color: #06B6D4;
 }
 .mainblock__content .training-content .training-block .exercise__delete-btn:hover {
   background-color: #058096;
@@ -971,6 +973,13 @@ body.lock {
   font-size: 16px;
   font-weight: 400;
   text-align: left;
+}
+.mainblock__content .diet-content .not-found {
+  font-size: 30px;
+  text-align: center;
+}
+.mainblock__content .diet-content .not-found.hidden {
+  display: none;
 }
 .mainblock__content .exercises-content .exercises-search {
   width: 100%;
@@ -1259,6 +1268,20 @@ body.lock {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(6, 1fr);
   }
+  .mainblock__content .training-content .training-buttons {
+    width: 200px;
+  }
+  .mainblock__content .training-content .training-block {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
+  .mainblock__content .training-content .training-block .exercise {
+    width: 100%;
+    flex-direction: column;
+  }
+  .mainblock__content .training-content .training-block .exercise__ready-btn {
+    margin-bottom: 5px;
+  }
 }
 @media (max-width: 767.98px) {
   .mainblock__content .diet-content .products-table thead {
@@ -1414,6 +1437,9 @@ body.lock {
   .mainblock__content .user-info__content .achievements-block {
     padding-bottom: 10px;
   }
+  .mainblock__content .training-content .training-buttons {
+    width: 200px;
+  }
   .mainblock__content .diet-content .products-search {
     padding: 7px 10px;
     margin: 0px 0px 10px;
@@ -1447,6 +1473,10 @@ body.lock {
   }
   .mainblock__content .user-info__block {
     padding: 10px;
+  }
+  .mainblock__content .training-content .training-block {
+    grid-template-columns: 1fr;
+    column-gap: 0px;
   }
   .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block {
     padding: 5px;

@@ -118,6 +118,26 @@ $md4: 479.98;
             grid-template-columns: repeat(1, 1fr);
             grid-template-rows: repeat(6, 1fr);
          }
+
+         .training-content {
+            .training-buttons {
+               width: 200px;
+            }
+
+            .training-block {
+               grid-template-columns: 1fr 1fr;
+               column-gap: 10px;
+
+               .exercise {
+                  width: 100%;
+                  flex-direction: column;
+
+                  &__ready-btn {
+                     margin-bottom: 5px;
+                  }
+               }
+            }
+         }
       }
    }
 }
@@ -368,6 +388,12 @@ $md4: 479.98;
 
          }
 
+         .training-content {
+            .training-buttons {
+               width: 200px;
+            }
+         }
+
          .diet-content {
 
             .products-search {
@@ -423,6 +449,14 @@ $md4: 479.98;
 
             &__block {
                padding: 10px;
+            }
+         }
+
+         .training-content {
+
+            .training-block {
+               grid-template-columns: 1fr;
+               column-gap: 0px;
             }
          }
 

@@ -1,4 +1,4 @@
-import { getDatabase, ref, set, update, get, child, push } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+import { getDatabase, ref, set, update, get, child, push, remove } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 
@@ -145,10 +145,6 @@ function Model() {
          .then((userCredential) => {
             const user = userCredential.user;
 
-            // update(ref(database, "UsersList/" + user.uid),
-            //    {
-            //       email: email,
-            //    })
             myView.successfulLogIn();
          })
          .catch((error) => {
@@ -227,7 +223,7 @@ function Model() {
       myView.closeExerciseModal();
    }
 
-   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime, id) {
+   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime) {
       const userUid = auth.currentUser.uid;
 
       const exercise = {
@@ -235,22 +231,28 @@ function Model() {
          exerciseSet: exerciseSet,
          exerciseWeight: exerciseWeight,
          exerciseTime: exerciseTime,
-         id: id,
-         // status: status,
       }
 
       const newExerciseKey = push(child(ref(database), `UsersList/${userUid}/exercises/`), exercise).key;
 
-      myView.addExercise(exercise);
+      myView.addExercise(exerciseName, exerciseSet, exerciseWeight, exerciseTime, newExerciseKey);
       myView.closeExerciseModal();
    }
 
-   this.removeExercise = function (event) {
-      myView.removeExercise(event);
+   this.readyExercise = function (event) {
+      myView.readyExercise(event);
    }
 
-   this.changeBlockColor = function (event) {
-      myView.changeBlockColor(event);
+   this.removeExercise = function (event) {
+      let targetEl = event.target.closest('.exercise');
+      let targetKey = targetEl.getAttribute('data-key');
+      onAuthStateChanged(auth, (user) => {
+         if (user) {
+            const uid = user.uid;
+            remove(child(ref(database), `UsersList/${uid}/exercises/${targetKey}`))
+            myView.removeExercise(event);
+         }
+      });
    }
 
    this.loadOptions = async function () {

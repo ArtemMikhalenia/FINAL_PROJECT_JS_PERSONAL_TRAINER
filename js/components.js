@@ -226,10 +226,10 @@ const ContentMain = {
 	                        </div>
 	                        <div class="user-modal__physical-info">
 	                            <label class="input-label" for="user-modal__weight">Вес (кг):</label>
-	                            <input type="number" id="user-modal__weight" autocomplete="off" class="user-modal__weight" value="" required>
+	                            <input type="text" id="user-modal__weight" autocomplete="off" class="user-modal__weight" value="" required>
 	
 	                            <label class="input-label" for="user-modal__height">Рост (см):</label>
-	                            <input type="number" id="user-modal__height" autocomplete="off" class="user-modal__height" value="" required>
+	                            <input type="text" id="user-modal__height" autocomplete="off" class="user-modal__height" value="" required>
 	                        </div>
 	                        <div class="user-modal__medical-info">
 	                            <label class="input-label" for="user-modal__medicalInfo">Медицинские противопоказания:</label>
@@ -478,9 +478,9 @@ const Options = {
 }
 
 const Exercise = {
-	render: (exerciseName, exerciseSet, exerciseWeight, exerciseTime, id) => {
+	render: (exerciseName, exerciseSet, exerciseWeight, exerciseTime, key) => {
 		return `
-		<div class="exercise">
+		<div class="exercise" data-key="${key}">
 			<div class="exercise-name">
 				<p>Упражнение:</p>
 				<p>${exerciseName}</p>
@@ -494,16 +494,13 @@ const Exercise = {
 				<p>${exerciseWeight}</p>
 			</div>
 			<div class="exercise-time">
-				<p>Количество повторений:</p>
+				<p>Повторения:</p>
 				<p>${exerciseTime}</p>
 			</div>
 			<div class="exercise-status">
-				<select class="select" id="${id}-status">
-					<option class="select-option select-option_wait">В ожидании</option>
-					<option class="select-option select-option_inprogress">В процессе</option>
-					<option class="select-option select-option_ready">Готово</option>
-				</select>
+				
 			</div>
+			<button class="exercise__ready-btn">Готово</button>
 			<button class="exercise__delete-btn">Удалить</button>
 		</div>`;
 	}
@@ -585,14 +582,14 @@ const SidebarDiet = {
 
 const ContentDiet = {
 	render: () => {
-		return /*html*/ `
+		return `
 	            <div class="mainblock__body">
 	                <header class="mainblock__header">
 	                    <h1 class=" animate__animated animate__pulse">"Придумывая оправдания, вы сжигаете ноль калорий в час!"</h1>
 	                </header>
 	                <div class="mainblock__content" id="main-content">
 	                    <div class="diet-content">
-	                        <h2 class="animate__animated animate__backInLeft">Питание</h2>
+	                        <h2 class="animate__animated animate__backInLeft">База продуктов</h2>
 	                        <input type="text" name="text" class="products-search animate__animated animate__backInLeft" placeholder="Поиск продуктов">
 	
 	                        <table class="products-table">
@@ -611,10 +608,9 @@ const ContentDiet = {
 	                                </tr>
 	                            </thead>
 	                            <tbody class="products-table__body">
-	
+											
 	                            </tbody>
 	                        </table>
-	
 	                    </div>
 	                </div>
 	            </div>

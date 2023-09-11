@@ -868,7 +868,6 @@ body {
 			}
 
 			.training-block {
-
 				width: 100%;
 				display: grid;
 				grid-template-columns: 1fr;
@@ -888,7 +887,7 @@ body {
 
 					padding: 5px 20px;
 
-					background-color: #06B6D4;
+					background-color: #F97316;
 					color: white;
 					border-radius: 3px;
 
@@ -898,19 +897,12 @@ body {
 						font-weight: 700;
 					}
 
-					&.wait {
-						background-color: #06B6D4;
-					}
-
-					&.inprogress {
-						background-color: #F97316;
-					}
-
 					&.ready {
 						background-color: #86d76d;
 					}
 
-					&__delete-btn {
+					&__delete-btn,
+					&__ready-btn {
 						font-size: 15px;
 						font-weight: 700;
 						padding: 4px;
@@ -918,8 +910,19 @@ body {
 						color: white;
 						cursor: pointer;
 
-						background-color: #06B6D4;
 						transition: background-color 0.3s ease 0s;
+					}
+
+					&__ready-btn {
+						background-color: #86d76d;
+
+						&:hover {
+							background-color: #64a351;
+						}
+					}
+
+					&__delete-btn {
+						background-color: #06B6D4;
 
 						&:hover {
 							background-color: #058096;
@@ -1137,6 +1140,15 @@ body {
 					font-size: 16px;
 					font-weight: 400;
 					text-align: left;
+				}
+			}
+
+			.not-found {
+				font-size: 30px;
+				text-align: center;
+
+				&.hidden {
+					display: none;
 				}
 			}
 		}

@@ -8,7 +8,6 @@ function Controller() {
    let btnStart = null;
    let btnPause = null;
    let btnReset = null;
-   let status = 'disabled';
 
    function updateState() {
       const hashPageName = location.hash.slice(1).toLowerCase();
@@ -18,10 +17,6 @@ function Controller() {
       myModel.loadProducts();
       myModel.loadOptions();
       myModel.loadExercise();
-
-      if (hashPageName === 'progresspage') {
-         myModel.loadCharts();
-      }
 
       //кнопки начальной страницы и модального окна
       const buttonOpenModal = myContainer.querySelector('.btn-start');
@@ -79,9 +74,23 @@ function Controller() {
          btnReset = document.querySelector(".reset");
          btnReset.addEventListener("click", resetStopwatch);
          let stopwatch = document.querySelector(".time");
+
+         let trainingBlock = document.querySelector('.training-block');
+         trainingBlock && trainingBlock.addEventListener('click', (event) => {
+            if (event.target.className === 'exercise__ready-btn') {
+               readyExercise(event);
+            } else if (event.target.className === 'exercise__delete-btn') {
+               removeExercise(event);
+            }
+         });
+      }
+
+      if (hashPageName !== "trainingpage") {
+         resetStopwatch();
       }
 
       if (hashPageName === "progresspage") {
+         myModel.loadCharts();
          const tabBtns = document.querySelectorAll('.tab-button');
 
          tabBtns.forEach(el => {
@@ -89,7 +98,6 @@ function Controller() {
          })
       }
    }
-
 
    //<ПАРАЛЛАКС>==========================================================================
    function parallaxFunction() {
@@ -128,12 +136,11 @@ function Controller() {
    //<ФУНКЦИИ СТРАНИЦЫ "АККАУНТ">===================================================================================================
 
    function openUserInfoModal() {
-      myModel.openUserInfoModal();
-
       const buttonCloseInfoModal = document.querySelector('.user-modal__close');
       buttonCloseInfoModal.addEventListener('click', closeUserInfoModal);
       const buttonSaveUserInfo = document.querySelector('.user-modal__save');
       buttonSaveUserInfo.addEventListener('click', changeUserInfo);
+      myModel.openUserInfoModal();
    }
 
    function changeUserInfo() {
@@ -178,46 +185,29 @@ function Controller() {
       const inputTrainingExerciseTime = document.querySelector('#exercisetime');
 
       myModel.addExercise(inputTrainingExerciseName.value, inputTrainingExerciseSet.value, inputTrainingExerciseWeight.value, inputTrainingExerciseTime.value);
-
-      const buttonRemoveExercise = document.querySelectorAll('.exercise__delete-btn');
-      buttonRemoveExercise && buttonRemoveExercise.forEach(el => {
-         el.addEventListener('click', removeExercise);
-      });
-
-      const select = document.querySelectorAll('.select');
-      select && select.forEach(el => {
-         // let selectValue = el.value;
-         el.addEventListener('change', changeBlockColor);
-         // el.addEventListener('change', changeExerciseStatus(selectValue));
-      })
    }
 
    function clearTrainingBlock() {
-      myModel.clearTrainingBlock(status);
-   }
-
-   function changeBlockColor(event) {
-      myModel.changeBlockColor(event);
+      myModel.clearTrainingBlock();
    }
 
    function startStopwatch(event) {
       event.preventDefault();
-      myModel.startStopwatch(status);
+      myModel.startStopwatch();
    }
 
    function pauseStopwatch(event) {
       event.preventDefault();
-      myModel.pauseStopwatch(status);
+      myModel.pauseStopwatch();
    }
 
-   function resetStopwatch(event) {
-      event.preventDefault();
-      myModel.resetStopwatch(status);
+   function resetStopwatch() {
+      myModel.resetStopwatch();
    }
 
-   // function changeExerciseStatus(selectValue) {
-   //    myModel.changeExerciseStatus(selectValue);
-   // }
+   function readyExercise(event) {
+      myModel.readyExercise(event);
+   }
 
    function removeExercise(event) {
       myModel.removeExercise(event);

@@ -73,6 +73,20 @@
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(6, 1fr);
   }
+  .mainblock__content .training-content .training-buttons {
+    width: 200px;
+  }
+  .mainblock__content .training-content .training-block {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
+  .mainblock__content .training-content .training-block .exercise {
+    width: 100%;
+    flex-direction: column;
+  }
+  .mainblock__content .training-content .training-block .exercise__ready-btn {
+    margin-bottom: 5px;
+  }
 }
 @media (max-width: 767.98px) {
   .mainblock__content .diet-content .products-table thead {
@@ -228,6 +242,9 @@
   .mainblock__content .user-info__content .achievements-block {
     padding-bottom: 10px;
   }
+  .mainblock__content .training-content .training-buttons {
+    width: 200px;
+  }
   .mainblock__content .diet-content .products-search {
     padding: 7px 10px;
     margin: 0px 0px 10px;
@@ -261,6 +278,10 @@
   }
   .mainblock__content .user-info__block {
     padding: 10px;
+  }
+  .mainblock__content .training-content .training-block {
+    grid-template-columns: 1fr;
+    column-gap: 0px;
   }
   .mainblock__content .exercises-content .exercises-body .exercise-body .exercise-block {
     padding: 5px;

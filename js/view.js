@@ -214,11 +214,12 @@ function View() {
    this.openUserInfoModal = function (user) {
       const userInfoModal = document.querySelector('.user-modal');
       userInfoModal.classList.remove('modal_closed');
-
       for (let key in user) {
          const value = user[key];
          const input = document.querySelector(`#user-modal__${key}`);
-         input.value = value;
+         if (input) {
+            input.value = value;
+         }
       }
    }
 
@@ -229,9 +230,9 @@ function View() {
 
    //<ФУНКЦИИ СТРАНИЦЫ "ТРЕНИРОВКА">====================================================================
 
-   this.addExercise = function (exercise) {
+   this.addExercise = function (exerciseName, exerciseSet, exerciseWeight, exerciseTime, key) {
       if (trainingWrapper) {
-         trainingWrapper.innerHTML += Exercise.render(exercise.exerciseName, exercise.exerciseSet, exercise.exerciseWeight, exercise.exerciseTime, exercise.id);
+         trainingWrapper.innerHTML += Exercise.render(exerciseName, exerciseSet, exerciseWeight, exerciseTime, key);
       }
 
       document.querySelector('.sidebar').classList.add('hidden');
@@ -268,30 +269,12 @@ function View() {
       trainingModal.classList.add('modal_closed');
    }
 
-   this.removeExercise = function (event) {
-      event.target.closest('.exercise').remove();
+   this.readyExercise = function (event) {
+      event.target.closest('.exercise').classList.add('ready');
    }
 
-   this.changeBlockColor = function (event) {
-      switch (event.target.value) {
-         case 'В ожидании':
-            event.target.closest('.exercise').classList.add('wait');
-            event.target.closest('.exercise').classList.remove('inprogress');
-            event.target.closest('.exercise').classList.remove('ready');
-            break;
-         case 'В процессе':
-            event.target.closest('.exercise').classList.remove('wait');
-            event.target.closest('.exercise').classList.add('inprogress');
-            event.target.closest('.exercise').classList.remove('ready');
-            break;
-         case 'Готово':
-            event.target.closest('.exercise').classList.remove('wait');
-            event.target.closest('.exercise').classList.remove('inprogress');
-            event.target.closest('.exercise').classList.add('ready');
-            break;
-         default:
-            break;
-      }
+   this.removeExercise = function (event) {
+      event.target.closest('.exercise').remove();
    }
 
    this.clearTrainingBlock = function () {
@@ -318,7 +301,6 @@ function View() {
 
    this.startStopwatch = function (hours, minutes, seconds, status) {
       document.querySelector('.time').textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
       document.querySelector('.start').setAttribute(`${status}`, `${status}`);
    }
 
@@ -327,12 +309,15 @@ function View() {
    }
 
    this.resetStopwatch = function (hours, minutes, seconds, status) {
-      document.querySelector('.time').textContent = `0${hours}:0${minutes}:0${seconds}`;
-
-      document.querySelector('.start').removeAttribute(`${status}`, `${status}`);
+      let stopwatch = document.querySelector('.time');
+      if (stopwatch) {
+         let startBtn = document.querySelector('.start');
+         stopwatch.textContent = `0${hours}:0${minutes}:0${seconds}`;
+         startBtn.removeAttribute(`${status}`, `${status}`);
+      }
    }
 
-   //<ФУНКЦИИ СТРАНИЦЫ "ПИТАНИЕ">==============================================
+   //<ФУНКЦИИ СТРАНИЦЫ "БАЗА ПРОДУКТОВ">==============================================
 
    this.renderProducts = function (products) {
       if (productsWrapper) {
@@ -345,6 +330,7 @@ function View() {
 
    this.searchProduct = function (value) {
       const productsTitle = document.querySelectorAll('.products-table__name');
+      value = value.toLowerCase();
 
       if (value !== '') {
          productsTitle.forEach((element) => {
@@ -370,6 +356,7 @@ function View() {
 
    this.searchExercise = function (value) {
       const exerciseTitle = document.querySelectorAll('.exercise-block__title');
+      value = value.toLowerCase();
 
       if (value !== '') {
          exerciseTitle.forEach((element) => {
@@ -434,34 +421,36 @@ function View() {
    }
 
    function initMonthChart(weight, exercise1, exercise2) {
-      return new Chart(document.querySelector('#monthChart'), {
-         type: 'line',
-         data: {
-            labels: ['1 неделя', '2 неделя', '3 неделя', '4 неделя'],
-            datasets: [{
-               label: 'Динамика веса, кг',
-               data: weight,
-               borderWidth: 2,
+      if (monthChart) {
+         return new Chart(document.querySelector('#monthChart'), {
+            type: 'line',
+            data: {
+               labels: ['1 неделя', '2 неделя', '3 неделя', '4 неделя'],
+               datasets: [{
+                  label: 'Динамика веса, кг',
+                  data: weight,
+                  borderWidth: 2,
+               },
+               {
+                  label: 'Жим лёжа, кг',
+                  data: exercise1,
+                  borderWidth: 2,
+               },
+               {
+                  label: 'Приседания со штангой, кг',
+                  data: exercise2,
+                  borderWidth: 2,
+               }],
             },
-            {
-               label: 'Жим лёжа, кг',
-               data: exercise1,
-               borderWidth: 2,
-            },
-            {
-               label: 'Приседания со штангой, кг',
-               data: exercise2,
-               borderWidth: 2,
-            }],
-         },
-         options: {
-            scales: {
-               y: {
-                  beginAtZero: false,
+            options: {
+               scales: {
+                  y: {
+                     beginAtZero: false,
+                  }
                }
             }
-         }
-      });
+         });
+      }
    }
 
    this.openTabs = function (event) {
@@ -497,7 +486,5 @@ function View() {
       }
    }
 }
-
-
 
 export default View;
